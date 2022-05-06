@@ -37,6 +37,12 @@ async function seed() {
       return db.indicatorsOnProblems.create({ data: indicatorProblemMap });
     })
   );
+
+  await Promise.all(
+    getConfigs().map((config) => {
+      return db.config.create({ data: config });
+    })
+  );
 }
 seed();
 
@@ -93,24 +99,49 @@ function getIndicators(){
       name: "Median House Prices",
       description: "",
       slug: "median-house-prices",
+      favourite: true,
     },
     {
       id: 2,
       name: "Number of Available Houses",
       description: "",
       slug: "available-houses",
+      favourite: false,
     },
     {
       id: 3,
       name: "Inflation Rate",
       description: "",
       slug: "inflation",
+      favourite: true,
     },
     {
       id: 4,
       name: "Mean House Prices",
       description: "",
       slug: "mean-house-prices",
+      favourite: false,
+    }
+  ]
+}
+
+function getConfigs(){
+  return [
+    {
+      indicatorId: 1,
+      layout: "SINGLE"
+    },
+    {
+      indicatorId: 2,
+      layout: "DOUBLE"
+    },
+    {
+      indicatorId: 3,
+      layout: "SINGLE"
+    },
+    {
+      indicatorId: 4,
+      layout: "SINGLE"
     }
   ]
 }
@@ -147,6 +178,14 @@ function getIndicatorsOnThemes(){
       indicatorId: 1
     },
     {
+      themeId: 1,
+      indicatorId: 2
+    },
+    {
+      themeId: 1,
+      indicatorId: 3
+    },
+    {
       themeId: 2,
       indicatorId: 2
     },
@@ -170,6 +209,10 @@ function getIndicatorsOnProblems(){
     {
       problemId: 1,
       indicatorId: 1
+    },
+    {
+      problemId: 1,
+      indicatorId: 2,
     },
     {
       problemId: 2,

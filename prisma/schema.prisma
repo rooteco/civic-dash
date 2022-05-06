@@ -33,8 +33,36 @@ model Indicator {
   name String
   description String
   slug String
+  favourite Boolean
+  config Config?
   themes IndicatorsOnThemes[]
   problems IndicatorsOnProblems[]
+  supportingConfigs SupportingIndicatorsOnConfigs[]
+}
+
+// Note: Can't use enums because we're using a sqlite database, but the tooling is there
+// Instead, I'm enforcing the enum through a Typescript type check for now
+
+// enum Layout {
+//   SINGLE
+//   DOUBLE
+// }
+
+model Config {
+  id Int @id @default(autoincrement())
+  indicator Indicator @relation(fields: [indicatorId], references: [id])
+  indicatorId Int
+  layout String @default("SINGLE")
+  additionalIndicators SupportingIndicatorsOnConfigs[]
+}
+
+model SupportingIndicatorsOnConfigs {
+  indicator Indicator @relation(fields: [indicatorId], references: [id])
+  indicatorId Int
+  config Config @relation(fields: [configId], references: [id])
+  configId Int
+
+  @@id([indicatorId, configId])
 }
 
 model ProblemsOnThemes {
