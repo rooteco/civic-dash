@@ -15,7 +15,8 @@ model Theme {
   name String
   description String
   slug String
-  problems Problem[]
+  problems ProblemsOnThemes[]
+  indicators IndicatorsOnThemes[]
 }
 
 model Problem {
@@ -23,6 +24,42 @@ model Problem {
   name String
   description String
   slug String
+  themes ProblemsOnThemes[]
+  indicators IndicatorsOnProblems[]
+}
+
+model Indicator {
+  id Int @id @default(autoincrement())
+  name String
+  description String
+  slug String
+  themes IndicatorsOnThemes[]
+  problems IndicatorsOnProblems[]
+}
+
+model ProblemsOnThemes {
   theme Theme @relation(fields: [themeId], references: [id])
   themeId Int
+  problem Problem @relation(fields: [problemId], references: [id])
+  problemId Int
+
+  @@id([themeId, problemId])
+}
+
+model IndicatorsOnThemes {
+  theme Theme @relation(fields: [themeId], references: [id])
+  themeId Int
+  indicator Indicator @relation(fields: [indicatorId], references: [id])
+  indicatorId Int
+
+  @@id([themeId, indicatorId])
+}
+
+model IndicatorsOnProblems {
+  problem Problem @relation(fields: [problemId], references: [id])
+  problemId Int
+  indicator Indicator @relation(fields: [indicatorId], references: [id])
+  indicatorId Int
+
+  @@id([problemId, indicatorId])
 }

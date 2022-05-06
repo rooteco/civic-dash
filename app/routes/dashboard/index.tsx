@@ -38,6 +38,7 @@ export default function WidgetIndex(){
       </div>
     </div>
     <div className="DashboardCarousel">
+      {}
     </div>
     </>
   )

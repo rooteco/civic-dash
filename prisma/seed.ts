@@ -13,6 +13,30 @@ async function seed() {
       return db.problem.create({ data: problem });
     })
     );
+
+  await Promise.all(
+    getIndicators().map((indicator) => {
+      return db.indicator.create({ data: indicator });
+    })
+    );
+
+  await Promise.all(
+    getProblemsOnThemes().map((problemThemeMap) => {
+      return db.problemsOnThemes.create({ data: problemThemeMap });
+    })
+    );
+
+  await Promise.all(
+    getIndicatorsOnThemes().map((indicatorThemeMap) => {
+      return db.indicatorsOnThemes.create({ data: indicatorThemeMap });
+    })
+  );
+
+  await Promise.all(
+    getIndicatorsOnProblems().map((indicatorProblemMap) => {
+      return db.indicatorsOnProblems.create({ data: indicatorProblemMap });
+    })
+  );
 }
 seed();
 
@@ -46,21 +70,122 @@ function getProblems(){
       name: "Academic Achievement",
       description: "",
       slug: "academic-achievement",
-      themeId: 1
     },
     {
       id: 2,
       name: "Segregated Schools",
       description: "",
       slug: "segregated-schools",
-      themeId: 1
     },
     {
       id: 3,
       name: "Homeless Students",
       description: "",
       slug: "homeless-students",
-      themeId: 1
     }
   ];
+}
+
+function getIndicators(){
+  return [
+    {
+      id: 1,
+      name: "Median House Prices",
+      description: "",
+      slug: "median-house-prices",
+    },
+    {
+      id: 2,
+      name: "Number of Available Houses",
+      description: "",
+      slug: "available-houses",
+    },
+    {
+      id: 3,
+      name: "Inflation Rate",
+      description: "",
+      slug: "inflation",
+    },
+    {
+      id: 4,
+      name: "Mean House Prices",
+      description: "",
+      slug: "mean-house-prices",
+    }
+  ]
+}
+
+function getProblemsOnThemes(){
+  return [
+  {
+    themeId: 1,
+    problemId: 1
+  },
+  {
+    themeId: 2,
+    problemId: 2
+  },
+  {
+    themeId: 3,
+    problemId: 3
+  },
+  {
+    themeId: 2,
+    problemId: 1
+  },
+  {
+    themeId: 3,
+    problemId: 1
+  }
+  ]
+};
+
+function getIndicatorsOnThemes(){
+  return [
+    {
+      themeId: 1,
+      indicatorId: 1
+    },
+    {
+      themeId: 2,
+      indicatorId: 2
+    },
+    {
+      themeId: 3,
+      indicatorId: 3
+    },
+    {
+      themeId: 2,
+      indicatorId: 1
+    },
+    {
+      themeId: 3,
+      indicatorId: 1
+    }
+  ]
+};
+
+function getIndicatorsOnProblems(){
+  return [
+    {
+      problemId: 1,
+      indicatorId: 1
+    },
+    {
+      problemId: 2,
+      indicatorId: 2
+    },
+    {
+      problemId: 3,
+      indicatorId: 3
+    },
+    {
+      problemId: 2,
+      indicatorId: 1
+    },
+    {
+      problemId: 3,
+      indicatorId: 1
+    }
+  ]
 }
