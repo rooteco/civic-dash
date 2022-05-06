@@ -1,0 +1,17 @@
+.DashboardGrid{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 0.2fr 1fr;
+  border: 2px solid black;
+  flex: 1;
+}
+
+.DashboardInset{
+  border: 2px solid pink;
+  flex: 0.35;
+}
+
+.DashboardFocus{
+  border: 2px solid red;
+  grid-row: 1 / 1;
+}
