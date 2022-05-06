@@ -1,6 +1,5 @@
 import { db } from "~/utils/db.server";
 
-
 type Theme = {
   id: number;
   name: string;
@@ -13,7 +12,19 @@ type Problem = {
   name: string;
   description: string;
   slug: string;
-  themeId: number;
+}
+
+type Config = {
+  layout: string
+}
+
+type Indicator = {
+  id: number;
+  name: string;
+  description: string;
+  slug: string;
+  favourite: boolean;
+  config: Config
 }
 
 export async function getThemes(): Promise<Array<Theme>>{
@@ -24,4 +35,79 @@ export async function getThemes(): Promise<Array<Theme>>{
 export async function getProblems(): Promise<Array<Problem>>{
   const problems = await db.problem.findMany()
   return problems
+}
+
+export async function getProblemsByTheme(theme_slug: string): Promise<Array<Problem>>{
+  const problems = await db.problem.findMany({
+    where: {
+      themes: {
+        some: {
+          theme: {
+            slug: theme_slug // typescript really doesn't like this
+            }
+          }
+        }
+      }
+  })
+  return problems
+}
+
+export async function getIndicatorsByFavourite(): Promise<Array<Indicator>>{
+  const indicators = await db.indicator.findMany({
+    where: {
+      favourite: true
+    },
+    include: {
+      config: {
+        select: {
+          layout: true
+        }
+      }
+    }
+  })
+  return indicators
+}
+
+export async function getIndicatorsByTheme(theme_slug: string): Promise<Array<Indicator>>{
+  const indicators = await db.indicator.findMany({
+    where: {
+      themes: {
+        some: {
+          theme: {
+            slug: theme_slug
+          }
+        }
+      }
+    },
+    include: {
+      config: {
+        select: {
+          layout: true
+        }
+      }
+    }
+  })
+  return indicators
+}
+
+export async function getIndicatorsByProblem(problem_slug: string): Promise<Array<Indicator>>{
+  const indicators = await db.indicator.findMany({
+    where: {
+      problems: {
+        some: {
+          problem: {
+            slug: problem_slug
+          }
+        }
+      }
+    },
+    include: {
+      config: {
+        select: {
+          layout: true
+        }
+      }
+    }
+  })
+  return indicators
 }

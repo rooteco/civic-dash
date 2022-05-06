@@ -36,8 +36,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 160px;
+  width: 180px;
   height: 40px;
   border-radius: 20px;
   background: lightgray;
+}
+
+.ProblemButtonActive {
+  border: 2px solid black;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 40px;
+  border-radius: 20px;
+  background: darkgray;
+}
+
+
+.IndicatorContainer{
+  height: 80%; /* Might want to change this system Andre */
+  margin: 20px;
+  width: 300px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

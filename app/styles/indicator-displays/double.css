@@ -1,0 +1,19 @@
+.DoubleIndicatorWrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.DoubleIndicatorChart{
+  height: 400px;
+  width: 400px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+
+}
