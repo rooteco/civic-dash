@@ -31,7 +31,7 @@ export default function WidgetIndex(){
   return(
     <>
     <div className="DashboardFocus">
-      // DEFAULT INTRO GOES HERE
+      <Outlet />
     </div>
     <div className="DashboardThemeSelection">
       <div className="DashboardThemeCarousel">
@@ -47,7 +47,7 @@ export default function WidgetIndex(){
     <div className="DashboardCarousel">
       {data && data.indicators.map((indicator) => (
         <div className="IndicatorContainer" key={indicator.id}>
-          <Link to={`${indicator.slug}/${slugify(indicator.config.layout)}`}>
+          <Link to={`${slugify(indicator.config.layout)}`}>
             <h1>{indicator.name}</h1>
           </Link>
         </div>
