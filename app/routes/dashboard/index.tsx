@@ -34,6 +34,9 @@ export default function WidgetIndex(){
       // DEFAULT INTRO GOES HERE
     </div>
     <div className="DashboardThemeSelection">
+      <div className="DashboardThemeSelectionWelcomeWrapper">
+        <h1>Hello <strong>Farnney the Dinosaur</strong></h1>
+      </div>
       <div className="DashboardThemeCarousel">
       {data && data.themes.map((theme)=>(
           <div key={theme.id} className="ThemeButton">

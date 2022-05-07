@@ -35,7 +35,10 @@ export default function WidgetIndicator(){
     <div className="DashboardFocus">
       <Outlet />
     </div>
-      <div className="WidgetThemeSelection">
+      <div className="DashboardThemeSelection">
+      <div className="DashboardThemeSelectionWelcomeWrapper">
+        <h1>Hello <strong>Farnney the Dinosaur</strong></h1>
+      </div>
         <div className="WidgetThemeCarousel">
             <div className="WidgetActiveTheme">
               <div className="ThemeButtonActive">
