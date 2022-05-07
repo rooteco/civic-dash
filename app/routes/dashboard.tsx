@@ -1,5 +1,5 @@
 import { Outlet } from "@remix-run/react";
-import type { LinksFunction, LoaderFunction } from "@remix-run/node";
+import type { LinksFunction } from "@remix-run/node";
 
 import dashboardStylesheetUrl from "~/styles/dashboard.css"
 

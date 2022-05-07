@@ -21,8 +21,8 @@ type LoaderData = {
 export const loader: LoaderFunction = async ({
   params
 }) => {
-  const problems = await getProblemsByTheme(params.theme);
-  const indicators = await getIndicatorsByTheme(params.theme)
+  const problems = await getProblemsByTheme(params.theme ? params.theme : "");
+  const indicators = await getIndicatorsByTheme(params.theme ? params.theme : "")
   const data: LoaderData = {
     problems,
     indicators
@@ -45,7 +45,7 @@ export default function WidgetTheme(){
         <div className="WidgetThemeCarousel">
             <div className="WidgetActiveTheme">
               <div className="ThemeButtonActive">
-                <p>{params ? deslugify(unpackRoutes(params.theme)) : ""}</p>
+                <p>{params ? deslugify(unpackRoutes(params.theme ? params.theme : "")) : ""}</p>
               </div>
             </div>
             <div className="WidgetIndicatorCarousel">
