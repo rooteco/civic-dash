@@ -40,7 +40,7 @@ export default function WidgetIndex(){
       <div className="DashboardThemeCarousel">
       {data && data.themes.map((theme)=>(
           <div key={theme.id} className="ThemeButton">
-            <Link to={`theme=${theme.slug}`}>
+            <Link to={`theme/${theme.slug}`}>
             <p>{theme.name}</p>
             </Link>
           </div>
@@ -50,7 +50,7 @@ export default function WidgetIndex(){
     <div className="DashboardCarousel">
       {data && data.indicators.map((indicator) => (
         <div className="IndicatorContainer" key={indicator.id}>
-          <Link to={`home/${indicator.slug}/${slugify(indicator.config.layout)}`}>
+          <Link to={`indicator/${indicator.slug}/${slugify(indicator.config.layout)}`}>
             <h1>{indicator.name}</h1>
           </Link>
         </div>

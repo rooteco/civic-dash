@@ -2,10 +2,13 @@ import { Link, useLoaderData, useParams, Outlet } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import widgetThemeStylesheetURL from "~/styles/widget-theme.css";
-import { getProblemsByTheme, getIndicatorsByTheme } from "~/models/theme.server";
+import { getIndicatorsByProblem } from "~/models/theme.server";
 import { deslugify } from '~/utils/deslugify';
-import { unpackRoutes } from '~/utils/unpackRoutes';
 import { slugify } from '~/utils/slugify';
+import { unpackRoutes } from '~/utils/unpackRoutes';
+
+
+// Note: You'd expect this component to be nested, but the UI demands that it's a fake nesting
 
 export const links: LinksFunction = () => {
   return [
@@ -14,30 +17,27 @@ export const links: LinksFunction = () => {
 };
 
 type LoaderData = {
-  problems: Awaited<ReturnType<typeof getProblemsByTheme>>;
-  indicators: Awaited<ReturnType<typeof getIndicatorsByTheme>>;
+  indicators: Awaited<ReturnType<typeof getIndicatorsByProblem>>;
 }
 
 export const loader: LoaderFunction = async ({
   params
 }) => {
-  const problems = await getProblemsByTheme(params.theme);
-  const indicators = await getIndicatorsByTheme(params.theme)
+  const indicators = await getIndicatorsByProblem(params.problem)
   const data: LoaderData = {
-    problems,
     indicators
   }
   return json(data)
 }
 
-export default function WidgetTheme(){
+export default function WidgetIndicator(){
   const params = useParams();
   const data = useLoaderData<LoaderData>();
   return (
     <>
-      <div className="DashboardFocus">
-        <Outlet />
-      </div>
+    <div className="DashboardFocus">
+      <Outlet />
+    </div>
       <div className="DashboardThemeSelection">
       <div className="DashboardThemeSelectionWelcomeWrapper">
         <h1>Hello <strong>Farnney the Dinosaur</strong></h1>
@@ -48,15 +48,11 @@ export default function WidgetTheme(){
                 <p>{params ? deslugify(unpackRoutes(params.theme)) : ""}</p>
               </div>
             </div>
-            <div className="WidgetIndicatorCarousel">
-              {data && data.problems.map((problem)=>(
-                  <div key={problem.id} className="ProblemButton">
-                    <Link to={`problem=${problem.slug}`}>
-                    <p>{problem.name}</p>
-                    </Link>
-                  </div>
-              ))}
-        </div>
+            <div className="WidgetActiveProblem">
+              <div className="ProblemButtonActive">
+                <p>{params ? deslugify(params.problem) : ""}</p>
+              </div>
+            </div>
       </div>
     </div>
     <div className="DashboardCarousel">
