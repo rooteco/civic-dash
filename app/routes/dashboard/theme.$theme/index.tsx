@@ -10,6 +10,7 @@ export const links: LinksFunction = () => {
 
 
 export default function DashboardIndex(){
+  // Displays information about a selected theme
   return(
     <div className="DashboardIndexWrapper">
     // THEME GOES HERE

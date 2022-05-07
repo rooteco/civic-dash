@@ -1,0 +1,5 @@
+- Incorporate components for code reuse
+- Fix the CSS approach of the application
+- Look into concurrent loading
+- Figure out prediction market component from an Outlet perspective
+- Refactor absolute file paths to be configurable
