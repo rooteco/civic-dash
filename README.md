@@ -5,7 +5,8 @@
 - Other styles should be implemented using either route-specific css (watch out for collisions), or through tailwind
 
 ## Database
-- Using Prisma for dev database
+- Using Prisma for Postgres ORM
+- npx prisma migrate reset
 - npx prisma db push
 - node --require esbuild-register prisma/seed.ts
 
