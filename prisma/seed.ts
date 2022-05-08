@@ -100,6 +100,9 @@ function getIndicators(){
       description: "",
       slug: "median-house-prices",
       favourite: true,
+      dataKey: "median-house-prices",
+      sparkDataKey: "median-house-prices-spark"
+
     },
     {
       id: 2,
@@ -107,6 +110,8 @@ function getIndicators(){
       description: "",
       slug: "available-houses",
       favourite: false,
+      dataKey: "available-houses",
+      sparkDataKey: "available-houses-spark"
     },
     {
       id: 3,
@@ -114,6 +119,8 @@ function getIndicators(){
       description: "",
       slug: "inflation",
       favourite: true,
+      dataKey: "inflation",
+      sparkDataKey: "inflation-spark"
     },
     {
       id: 4,
@@ -121,6 +128,8 @@ function getIndicators(){
       description: "",
       slug: "mean-house-prices",
       favourite: false,
+      dataKey: "mean-house-prices",
+      sparkDataKey: "mean-house-prices-spark"
     }
   ]
 }

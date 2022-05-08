@@ -1,4 +1,5 @@
 import { db } from "~/utils/db.server";
+import { redis } from "~/models/redis.server"
 
 type Theme = {
   id: number;
@@ -65,7 +66,13 @@ export async function getIndicatorsByFavourite(): Promise<Array<Indicator>>{
       }
     }
   })
-  return indicators
+  var sparkDataArray = [];
+  for(indicator of indicators){
+    const sparkData = await redis.get(indicator.sparkDataKey)
+
+    sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
+  }
+  return({indicators: indicators, sparkData: sparkDataArray})
 }
 
 export async function getIndicatorsByTheme(theme_slug: string): Promise<Array<Indicator>>{
@@ -87,7 +94,13 @@ export async function getIndicatorsByTheme(theme_slug: string): Promise<Array<In
       }
     }
   })
-  return indicators
+  var sparkDataArray = [];
+  for(indicator of indicators){
+    const sparkData = await redis.get(indicator.sparkDataKey)
+
+    sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
+  }
+  return({indicators: indicators, sparkData: sparkDataArray})
 }
 
 export async function getIndicatorsByProblem(problem_slug: string): Promise<Array<Indicator>>{
@@ -109,5 +122,11 @@ export async function getIndicatorsByProblem(problem_slug: string): Promise<Arra
       }
     }
   })
-  return indicators
+  var sparkDataArray = [];
+  for(indicator of indicators){
+    const sparkData = await redis.get(indicator.sparkDataKey)
+
+    sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
+  }
+  return({indicators: indicators, sparkData: sparkDataArray})
 }

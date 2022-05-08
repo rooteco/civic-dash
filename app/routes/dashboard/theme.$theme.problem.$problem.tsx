@@ -25,7 +25,7 @@ export const loader: LoaderFunction = async ({
 }) => {
   const indicators = await getIndicatorsByProblem(params.problem)
   const data: LoaderData = {
-    indicators
+    ...indicators
   }
   return json(data)
 }

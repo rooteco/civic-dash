@@ -35,6 +35,8 @@ model Indicator {
   slug String
   favourite Boolean
   config Config?
+  dataKey String?
+  sparkDataKey String?
   themes IndicatorsOnThemes[]
   problems IndicatorsOnProblems[]
   supportingConfigs SupportingIndicatorsOnConfigs[]

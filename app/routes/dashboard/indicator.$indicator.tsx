@@ -21,7 +21,7 @@ export const loader: LoaderFunction = async () => {
   const indicators = await getIndicatorsByFavourite();
   const data: LoaderData = {
     themes,
-    indicators
+    ...indicators
   }
   return json(data)
 };

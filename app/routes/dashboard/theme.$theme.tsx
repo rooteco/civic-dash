@@ -25,7 +25,7 @@ export const loader: LoaderFunction = async ({
   const indicators = await getIndicatorsByTheme(params.theme ? params.theme : "")
   const data: LoaderData = {
     problems,
-    indicators
+    ...indicators
   }
   return json(data)
 }
