@@ -19,7 +19,7 @@ export function ThemeCarousel(props: CarouselProps){
     <>
     <div className="WidgetActiveTheme">
       <div className="ThemeButtonActive">
-        <p>{props.params ? deslugify(unpackRoutes(props.params.theme ? props.params.theme : "")) : ""}</p>
+        <p>{props.params ? deslugify(props.params.theme ? props.params.theme : "") : ""}</p>
       </div>
     </div>
     <div className="WidgetIndicatorCarousel">
