@@ -37,6 +37,7 @@ export const loader: LoaderFunction = async ({
 
 export default function WidgetIndicator(){
   const params = useParams();
+  invariant(params, "Params must be defined")
   const data = useLoaderData<LoaderData>();
   return (
     <>

@@ -1,7 +1,7 @@
 import { db } from "~/utils/db.server";
 import { redis } from "~/models/redis.server"
 
-type Theme = {
+export type Theme = {
   id: number;
   name: string;
   description: string;
@@ -19,7 +19,7 @@ type Config = {
   layout: string
 }
 
-type Indicator = {
+export type Indicator = {
   id: number;
   name: string;
   description: string;
@@ -53,10 +53,17 @@ export async function getProblemsByTheme(theme_slug: string): Promise<Array<Prob
   return problems
 }
 
+type IndicatorAndConfig = {
+  Indicator;
+  config: {
+    layout: string
+  }
+}
 type IndicatorAndSpark = {
-  indicators: Indicator[];
+  indicators: IndicatorAndConfig[];
   sparkData: any[];
 }
+
 
 export async function getIndicatorsByFavourite(): Promise<IndicatorAndSpark>{
   const indicators = await db.indicator.findMany({

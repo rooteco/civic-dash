@@ -20,14 +20,14 @@ export const loader: LoaderFunction = async ({
     params
   }) => {
   invariant(params.indicator, "params.indicator is are required")
-  const dataset: LoaderData = await getDatasetFromIndicator(params.indicator);
-
+  const dataset: LoaderData | null = await getDatasetFromIndicator(params.indicator);
   // Uncomment this invariant once the datasets are all set up
-  // invariant(dataset, `${params.indicator} does not have an associated Redis value`)
+  invariant(dataset, `${params.indicator} does not have an associated Redis value`)
   return json(dataset)
 }
 
 export default function IndicatorSingle(){
+  const data = useLoaderData<LoaderData>();
   return(
     <Single dataset={data}/>
   )

@@ -1,6 +1,6 @@
 export function unpackRoutes(route: string): string{
 
-  const strArray = route.split("=")
-  const unpackedStr = strArray.pop()
+  const strArray: string[] = route.split("=");
+  const unpackedStr: string = strArray.pop();
   return unpackedStr
 }

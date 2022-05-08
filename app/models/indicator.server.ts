@@ -14,6 +14,12 @@ type Config = {
   indicatorId: Number;
 }
 
+type Dataset = {
+  data: Array<any>
+}
+
+
+
 export async function getConfigFromIndicator(indicator_slug: string): Promise<Config>{
   // have to use findMany here even though we're looking for a single config
   const config = await db.config.findMany({
@@ -28,7 +34,7 @@ export async function getConfigFromIndicator(indicator_slug: string): Promise<Co
   return config
 }
 
-export async function getDatasetFromIndicator(indicator_slug: string): Promise<Array<any> | null> {
-  const data: Array<any> | null = await redis.get(indicator_slug)
+export async function getDatasetFromIndicator(indicator_slug: string): Promise<Dataset | null> {
+  const data: Dataset | null = await redis.get(indicator_slug)
   return data
 }

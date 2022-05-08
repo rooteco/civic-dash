@@ -28,6 +28,7 @@ export const loader: LoaderFunction = async ({
 }
 
 export default function IndicatorSingle(){
+  const data = useLoaderData<LoaderData>();
   return(
     <Single dataset={data}/>
   )
