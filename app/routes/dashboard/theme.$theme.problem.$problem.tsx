@@ -6,7 +6,7 @@ import { getIndicatorsByProblem } from "~/models/theme.server";
 import { deslugify } from '~/utils/deslugify';
 import { slugify } from '~/utils/slugify';
 import { unpackRoutes } from '~/utils/unpackRoutes';
-
+import invariant from "tiny-invariant";
 
 // Note: You'd expect this component to be nested, but the UI demands that it's a fake nesting
 
@@ -17,13 +17,18 @@ export const links: LinksFunction = () => {
 };
 
 type LoaderData = {
-  indicators: Awaited<ReturnType<typeof getIndicatorsByProblem>>;
-}
+  indicators: Awaited<ReturnType<typeof getIndicatorsByProblem>>['indicators'];
+  sparkData: Awaited<ReturnType<typeof getIndicatorsByProblem>>['sparkData'];
+};
 
 export const loader: LoaderFunction = async ({
   params
 }) => {
+  invariant(params.problem, `params.problem is required`);
+
   const indicators = await getIndicatorsByProblem(params.problem)
+  invariant(indicators, `Indicators not found for problem ${params.problem}`);
+
   const data: LoaderData = {
     ...indicators
   }

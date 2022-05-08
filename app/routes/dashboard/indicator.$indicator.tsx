@@ -13,7 +13,8 @@ export const links: LinksFunction = () => {
 
 type LoaderData = {
   themes: Awaited<ReturnType<typeof getThemes>>;
-  indicators: Awaited<ReturnType<typeof getIndicatorsByFavourite>>;
+  indicators: Awaited<ReturnType<typeof getIndicatorsByFavourite>>['indicators'];
+  sparkData: Awaited<ReturnType<typeof getIndicatorsByFavourite>>['sparkData'];
 };
 
 export const loader: LoaderFunction = async () => {

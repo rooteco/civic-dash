@@ -53,7 +53,12 @@ export async function getProblemsByTheme(theme_slug: string): Promise<Array<Prob
   return problems
 }
 
-export async function getIndicatorsByFavourite(): Promise<Array<Indicator>>{
+type IndicatorAndSpark = {
+  indicators: Indicator[];
+  sparkData: any[];
+}
+
+export async function getIndicatorsByFavourite(): Promise<IndicatorAndSpark>{
   const indicators = await db.indicator.findMany({
     where: {
       favourite: true
@@ -66,8 +71,8 @@ export async function getIndicatorsByFavourite(): Promise<Array<Indicator>>{
       }
     }
   })
-  var sparkDataArray = [];
-  for(indicator of indicators){
+  var sparkDataArray: Array<any> = [];
+  for(let indicator of indicators){
     const sparkData = await redis.get(indicator.sparkDataKey)
 
     sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
@@ -75,7 +80,7 @@ export async function getIndicatorsByFavourite(): Promise<Array<Indicator>>{
   return({indicators: indicators, sparkData: sparkDataArray})
 }
 
-export async function getIndicatorsByTheme(theme_slug: string): Promise<Array<Indicator>>{
+export async function getIndicatorsByTheme(theme_slug: string): Promise<IndicatorAndSpark>{
   const indicators = await db.indicator.findMany({
     where: {
       themes: {
@@ -95,15 +100,14 @@ export async function getIndicatorsByTheme(theme_slug: string): Promise<Array<In
     }
   })
   var sparkDataArray = [];
-  for(indicator of indicators){
+  for(let indicator of indicators){
     const sparkData = await redis.get(indicator.sparkDataKey)
-
     sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
   }
   return({indicators: indicators, sparkData: sparkDataArray})
 }
 
-export async function getIndicatorsByProblem(problem_slug: string): Promise<Array<Indicator>>{
+export async function getIndicatorsByProblem(problem_slug: string): Promise<IndicatorAndSpark>{
   const indicators = await db.indicator.findMany({
     where: {
       problems: {
@@ -123,7 +127,7 @@ export async function getIndicatorsByProblem(problem_slug: string): Promise<Arra
     }
   })
   var sparkDataArray = [];
-  for(indicator of indicators){
+  for(let indicator of indicators){
     const sparkData = await redis.get(indicator.sparkDataKey)
 
     sparkDataArray.push({indicatorName: indicator.name, data: sparkData})

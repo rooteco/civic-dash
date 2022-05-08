@@ -6,6 +6,7 @@ import { getProblemsByTheme, getIndicatorsByTheme } from "~/models/theme.server"
 import { deslugify } from '~/utils/deslugify';
 import { unpackRoutes } from '~/utils/unpackRoutes';
 import { slugify } from '~/utils/slugify';
+import invariant from "tiny-invariant";
 
 export const links: LinksFunction = () => {
   return [
@@ -15,14 +16,21 @@ export const links: LinksFunction = () => {
 
 type LoaderData = {
   problems: Awaited<ReturnType<typeof getProblemsByTheme>>;
-  indicators: Awaited<ReturnType<typeof getIndicatorsByTheme>>;
-}
+  indicators: Awaited<ReturnType<typeof getIndicatorsByTheme>>['indicators'];
+  sparkData: Awaited<ReturnType<typeof getIndicatorsByTheme>>['sparkData'];
+};
 
 export const loader: LoaderFunction = async ({
   params
 }) => {
-  const problems = await getProblemsByTheme(params.theme ? params.theme : "");
-  const indicators = await getIndicatorsByTheme(params.theme ? params.theme : "")
+  invariant(params.theme, "params.slug is required")
+
+  const problems = await getProblemsByTheme(params.theme);
+  invariant(problems, `problems for theme ${params.theme} not found`)
+
+  const indicators = await getIndicatorsByTheme(params.theme)
+  invariant(indicators, `indicators for theme ${params.theme} not found`)
+
   const data: LoaderData = {
     problems,
     ...indicators

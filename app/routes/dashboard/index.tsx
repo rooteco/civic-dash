@@ -1,4 +1,4 @@
-import { Link, useLoaderData, Outlet } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import widgetIndexStylesheetURL from "~/styles/widget-index.css";
 import { json } from "@remix-run/node";
@@ -13,7 +13,8 @@ export const links: LinksFunction = () => {
 
 type LoaderData = {
   themes: Awaited<ReturnType<typeof getThemes>>;
-  indicators: Awaited<ReturnType<typeof getIndicatorsByFavourite>>;
+  indicators: Awaited<ReturnType<typeof getIndicatorsByFavourite>>['indicators'];
+  sparkData: Awaited<ReturnType<typeof getIndicatorsByFavourite>>['sparkData'];
 };
 
 export const loader: LoaderFunction = async () => {
@@ -23,8 +24,6 @@ export const loader: LoaderFunction = async () => {
     themes: themes,
     ...indicators
   }
-
-  console.log("DATA:", data)
   return json(data)
 };
 
