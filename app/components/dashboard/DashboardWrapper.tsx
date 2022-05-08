@@ -1,5 +1,3 @@
-import type { Theme, Indicator } from "~/models/theme.server";
-import { Link } from "@remix-run/react";
 import React from 'react';
 
 interface WrapperProps {
@@ -28,5 +26,3 @@ export function DashboardWrapper(props: WrapperProps){
     </>
   )
 }
-
-// {React.cloneElement(props.themeCarouselChild, {themes: props.themes})}

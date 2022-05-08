@@ -1,6 +1,5 @@
 import { Link } from "@remix-run/react";
 import { deslugify } from '~/utils/deslugify';
-import { unpackRoutes } from '~/utils/unpackRoutes';
 
 type Params = {
   theme?: string;

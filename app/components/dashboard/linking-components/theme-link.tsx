@@ -1,7 +1,6 @@
 import type { Indicator } from "~/models/theme.server";
 import { Link } from "@remix-run/react";
 import { slugify } from '~/utils/slugify';
-import React from 'react';
 
 interface LinkProps {
   indicators: Indicator[];

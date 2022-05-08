@@ -1,6 +1,4 @@
-import { Link } from "@remix-run/react";
 import { deslugify } from '~/utils/deslugify';
-import { unpackRoutes } from '~/utils/unpackRoutes';
 
 // Fix this, this is bad practice
 type Params = {

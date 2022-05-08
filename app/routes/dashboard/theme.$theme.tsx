@@ -1,14 +1,10 @@
-import { Link, useLoaderData, useParams, Outlet } from "@remix-run/react";
+import { useLoaderData, useParams, Outlet } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import widgetThemeStylesheetURL from "~/styles/widget-theme.css";
 import { getProblemsByTheme, getIndicatorsByTheme } from "~/models/theme.server";
-import { deslugify } from '~/utils/deslugify';
-import { unpackRoutes } from '~/utils/unpackRoutes';
-import { slugify } from '~/utils/slugify';
 import invariant from "tiny-invariant";
 import { DashboardWrapper } from '~/components/dashboard/DashboardWrapper';
-import { ThemeIntro } from '~/components/dashboard/focus-components/theme-intro';
 import { ThemeLink } from '~/components/dashboard/linking-components/theme-link';
 import { ThemeCarousel } from '~/components/dashboard/theme-carousel-components/theme-carousel';
 
