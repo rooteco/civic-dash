@@ -20,7 +20,7 @@ type LoaderData = {
 export const loader: LoaderFunction = async ({
     params
   }) => {
-  invariant(params.indicator, "params.indicator is are required")
+  invariant(params.indicator, "params.indicator is required")
   const dataset: LoaderData = await getDatasetFromIndicator(params.indicator);
 
   // Uncomment this invariant once the datasets are all set up

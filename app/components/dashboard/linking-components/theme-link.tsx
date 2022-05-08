@@ -7,16 +7,16 @@ interface LinkProps {
   indicators: Indicator[];
 }
 
-export function IndexLink(props: LinkProps){
+export function ThemeLink(props: LinkProps){
   return(
     <>
       {props && props.indicators.map((indicator) => (
       <div className="IndicatorContainer" key={indicator.id}>
-        <Link to={`indicator/${indicator.slug}/${slugify(indicator.config.layout)}`}>
+        <Link to={`${indicator.slug}/${slugify(indicator.config.layout)}`}>
           <h1>{indicator.name}</h1>
         </Link>
       </div>
-      ))}
+    ))}
     </>
   )
 }

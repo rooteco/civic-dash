@@ -5,7 +5,7 @@ import { json } from "@remix-run/node";
 import { getThemes, getIndicatorsByFavourite } from "~/models/theme.server";
 import { DashboardWrapper } from "~/components/dashboard/DashboardWrapper"
 import { IndexIndicatorLink } from "~/components/dashboard/linking-components/index-indicator-link";
-
+import { IndexCarousel } from "~/components/dashboard/theme-carousel-components/index-carousel";
 export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: widgetIndexStylesheetURL}
@@ -33,9 +33,8 @@ export default function WidgetIndex(){
   return(
     <DashboardWrapper
         focusChild={<Outlet />}
-        themes={data.themes}
-        indicators={data.indicators}
-        linkChild={<IndexIndicatorLink />}
+        linkChild={<IndexIndicatorLink indicators={data.indicators}/>}
+        themeCarouselChild={<IndexCarousel themes={data.themes}/>}
     />
   )
 }

@@ -6,6 +6,7 @@ import { getThemes, getIndicatorsByFavourite } from "~/models/theme.server";
 import { DashboardWrapper } from '~/components/dashboard/DashboardWrapper'
 import { DashboardIntro } from "~/components/dashboard/focus-components/DashboardIntro"
 import { IndexLink } from '~/components/dashboard/linking-components/index-link';
+import { IndexCarousel } from "~/components/dashboard/theme-carousel-components/index-carousel"
 
 export const links: LinksFunction = () => {
   return [
@@ -34,9 +35,8 @@ export default function WidgetIndex(){
   return(
     <DashboardWrapper
         focusChild={<DashboardIntro />}
-        themes={data.themes}
-        indicators={data.indicators}
-        linkChild={<IndexLink />}
+        linkChild={<IndexLink indicators={data.indicators}/>}
+        themeCarouselChild={<IndexCarousel themes={data.themes}/>}
       />
   )
 }

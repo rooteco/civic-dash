@@ -3,16 +3,19 @@ import { Link } from "@remix-run/react";
 import { slugify } from '~/utils/slugify';
 
 interface LinkProps {
-  indicator: Indicator;
-  key: Number;
+  indicators: Indicator[];
 }
 
 export function IndexIndicatorLink(props: LinkProps){
   return(
-    <div className="IndicatorContainer" key={props.indicator.id}>
-      <Link to={`/dashboard/indicator/${props.indicator.slug}/${slugify(props.indicator.config.layout)}`}>
-        <h1>{props.indicator.name}</h1>
-      </Link>
-    </div>
+    <>
+      {props && props.indicators.map((indicator) => (
+      <div className="IndicatorContainer" key={indicator.id}>
+        <Link to={`/dashboard/indicator/${indicator.slug}/${slugify(indicator.config.layout)}`}>
+          <h1>{indicator.name}</h1>
+        </Link>
+      </div>
+      ))}
+    </>
   )
 }

@@ -19,7 +19,7 @@ type LoaderData = {
 export const loader: LoaderFunction = async ({
     params
   }) => {
-  invariant(params.indicator, "params.indicator is are required")
+  invariant(params.indicator, "params.indicator is required")
   const dataset: LoaderData | null = await getDatasetFromIndicator(params.indicator);
   // Uncomment this invariant once the datasets are all set up
   invariant(dataset, `${params.indicator} does not have an associated Redis value`)

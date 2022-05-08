@@ -8,6 +8,9 @@ import { slugify } from '~/utils/slugify';
 import { unpackRoutes } from '~/utils/unpackRoutes';
 import invariant from "tiny-invariant";
 
+import { DashboardWrapper } from "~/components/dashboard/DashboardWrapper"
+import { ThemeProblemCarousel } from "~/components/dashboard/theme-carousel-components/theme-problem-carousel"
+import { ThemeLink } from "~/components/dashboard/linking-components/theme-link"
 // Note: You'd expect this component to be nested, but the UI demands that it's a fake nesting
 
 export const links: LinksFunction = () => {
@@ -39,37 +42,11 @@ export default function WidgetIndicator(){
   const params = useParams();
   invariant(params, "Params must be defined")
   const data = useLoaderData<LoaderData>();
-  return (
-    <>
-    <div className="DashboardFocus">
-      <Outlet />
-    </div>
-      <div className="DashboardThemeSelection">
-      <div className="DashboardThemeSelectionWelcomeWrapper">
-        <h1>Hello <strong>Farnney the Dinosaur</strong></h1>
-      </div>
-        <div className="WidgetThemeCarousel">
-            <div className="WidgetActiveTheme">
-              <div className="ThemeButtonActive">
-                <p>{params ? deslugify(unpackRoutes(params.theme)) : ""}</p>
-              </div>
-            </div>
-            <div className="WidgetActiveProblem">
-              <div className="ProblemButtonActive">
-                <p>{params ? deslugify(params.problem) : ""}</p>
-              </div>
-            </div>
-      </div>
-    </div>
-    <div className="DashboardCarousel">
-      {data && data.indicators.map((indicator) => (
-        <div className="IndicatorContainer" key={indicator.id}>
-          <Link to={`${indicator.slug}/${slugify(indicator.config.layout)}`}>
-            <h1>{indicator.name}</h1>
-          </Link>
-        </div>
-      ))}
-    </div>
-    </>
+  return(
+    <DashboardWrapper
+      focusChild={<Outlet />}
+      themeCarouselChild={<ThemeProblemCarousel params={params}/>}
+      linkChild={<ThemeLink indicators={data.indicators} />}
+      />
   )
 };

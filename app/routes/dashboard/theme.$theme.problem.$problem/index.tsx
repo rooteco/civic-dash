@@ -1,6 +1,6 @@
 import type { LinksFunction } from "@remix-run/node"
 import dashboardIndexStylesheetURL from "~/styles/dashboard-index.css"
-
+import { ProblemIntro } from "~/components/dashboard/focus-components/problem-intro"
 
 export const links: LinksFunction = () => {
   return [
@@ -11,8 +11,6 @@ export const links: LinksFunction = () => {
 
 export default function DashboardIndex(){
   return(
-    <div className="DashboardIndexWrapper">
-    // PROBLEM GOES HERE
-    </div>
+    <ProblemIntro />
   )
 }

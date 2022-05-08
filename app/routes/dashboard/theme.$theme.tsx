@@ -7,6 +7,10 @@ import { deslugify } from '~/utils/deslugify';
 import { unpackRoutes } from '~/utils/unpackRoutes';
 import { slugify } from '~/utils/slugify';
 import invariant from "tiny-invariant";
+import { DashboardWrapper } from '~/components/dashboard/DashboardWrapper';
+import { ThemeIntro } from '~/components/dashboard/focus-components/theme-intro';
+import { ThemeLink } from '~/components/dashboard/linking-components/theme-link';
+import { ThemeCarousel } from '~/components/dashboard/theme-carousel-components/theme-carousel';
 
 export const links: LinksFunction = () => {
   return [
@@ -42,40 +46,10 @@ export default function WidgetTheme(){
   const params = useParams();
   const data = useLoaderData<LoaderData>();
   return (
-    <>
-      <div className="DashboardFocus">
-        <Outlet />
-      </div>
-      <div className="DashboardThemeSelection">
-      <div className="DashboardThemeSelectionWelcomeWrapper">
-        <h1>Hello <strong>Farnney the Dinosaur</strong></h1>
-      </div>
-        <div className="WidgetThemeCarousel">
-            <div className="WidgetActiveTheme">
-              <div className="ThemeButtonActive">
-                <p>{params ? deslugify(unpackRoutes(params.theme ? params.theme : "")) : ""}</p>
-              </div>
-            </div>
-            <div className="WidgetIndicatorCarousel">
-              {data && data.problems.map((problem)=>(
-                  <div key={problem.id} className="ProblemButton">
-                    <Link to={`problem/${problem.slug}`}>
-                    <p>{problem.name}</p>
-                    </Link>
-                  </div>
-              ))}
-        </div>
-      </div>
-    </div>
-    <div className="DashboardCarousel">
-      {data && data.indicators.map((indicator) => (
-        <div className="IndicatorContainer" key={indicator.id}>
-          <Link to={`${indicator.slug}/${slugify(indicator.config.layout)}`}>
-            <h1>{indicator.name}</h1>
-          </Link>
-        </div>
-      ))}
-    </div>
-    </>
+    <DashboardWrapper
+      focusChild={<Outlet />}
+      linkChild={<ThemeLink indicators={data.indicators}/>}
+      themeCarouselChild={<ThemeCarousel data={data} params={params}/>}
+      />
   )
 };
