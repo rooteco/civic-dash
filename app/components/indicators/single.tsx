@@ -1,4 +1,8 @@
-export default function Single(){
+interface SingleProps {
+  dataset?: Array<any>
+}
+
+export default function Single(props: SingleProps){
   return(
   <div className="SingleIndicatorWrapper">
     <div className="SingleIndicatorChart">

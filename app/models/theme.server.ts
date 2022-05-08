@@ -73,7 +73,7 @@ export async function getIndicatorsByFavourite(): Promise<IndicatorAndSpark>{
   })
   var sparkDataArray: Array<any> = [];
   for(let indicator of indicators){
-    const sparkData = await redis.get(indicator.sparkDataKey)
+    const sparkData = await redis.get(`${indicator.slug}-spark`)
 
     sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
   }
@@ -101,7 +101,7 @@ export async function getIndicatorsByTheme(theme_slug: string): Promise<Indicato
   })
   var sparkDataArray = [];
   for(let indicator of indicators){
-    const sparkData = await redis.get(indicator.sparkDataKey)
+    const sparkData = await redis.get(`${indicator.slug}-spark`)
     sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
   }
   return({indicators: indicators, sparkData: sparkDataArray})
@@ -128,7 +128,7 @@ export async function getIndicatorsByProblem(problem_slug: string): Promise<Indi
   })
   var sparkDataArray = [];
   for(let indicator of indicators){
-    const sparkData = await redis.get(indicator.sparkDataKey)
+    const sparkData = await redis.get(`${indicator.slug}-spark`)
 
     sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
   }

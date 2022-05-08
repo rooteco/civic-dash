@@ -1,4 +1,8 @@
-export default function Double(){
+interface DoubleProps {
+  dataset?: Array<any>
+}
+
+export default function Double(props: DoubleProps){
   return(
     <div className="DoubleIndicatorWrapper">
       <div className="DoubleIndicatorChart">

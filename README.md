@@ -10,6 +10,9 @@
 - npx prisma db push
 - node --require esbuild-register prisma/seed.ts
 
+## Redis
+- When fetching from Redis, use <indicator.slug> to fetch the full dataset, and <indicator.slug>-spark to fetch the small dataset
+
 # Andre's Notes
 
 
