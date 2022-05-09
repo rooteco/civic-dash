@@ -20,6 +20,12 @@ async function seed() {
     })
     );
 
+    await Promise.all(
+      getConfigs().map((config) => {
+        return db.config.create({ data: config });
+      })
+      );
+
   await Promise.all(
     getProblemsOnThemes().map((problemThemeMap) => {
       return db.problemsOnThemes.create({ data: problemThemeMap });

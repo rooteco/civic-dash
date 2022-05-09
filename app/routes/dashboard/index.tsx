@@ -32,6 +32,7 @@ export const loader: LoaderFunction = async () => {
 
 export default function WidgetIndex(){
   const data = useLoaderData<LoaderData>();
+  console.log("DATA:", data)
   return(
     <DashboardWrapper
         focusChild={<DashboardIntro />}
