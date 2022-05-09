@@ -5,7 +5,8 @@
   "license": "",
   "sideEffects": false,
   "prisma": {
-    "seed": "node --require esbuild-register prisma/seed.ts"
+    "seed": "npx prisma db push",
+    "seed:rebuild": "node --require esbuild-register prisma/seed.ts"
   },
   "scripts": {
     "build": "run-s build:*",
