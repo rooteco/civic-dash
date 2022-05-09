@@ -9,19 +9,28 @@ interface WrapperProps {
 export function DashboardWrapper(props: WrapperProps){
   return(
     <>
-    <div className="DashboardFocus">
-      {props.focusChild}
-    </div>
-    <div className="DashboardThemeSelection">
-      <div className="DashboardThemeSelectionWelcomeWrapper">
-        <h1>Hello <strong>Farnney the Dinosaur</strong></h1>
+    <div className="min-h-screen flex flex-row">
+      <div className="DashboardGrid">
+        <div className="DashboardFocus">
+          {props.focusChild}
+        </div>
+        <div className="DashboardThemeSelection">
+          <div className="DashboardThemeSelectionWelcomeWrapper">
+            <h1>Hello <strong>Farnney the Dinosaur</strong></h1>
+          </div>
+          <div className="DashboardThemeCarousel">
+            {props.themeCarouselChild}
+          </div>
+        </div>
+        <div className="DashboardCarousel">
+          {props.linkChild}
+        </div>
       </div>
-      <div className="DashboardThemeCarousel">
-        {props.themeCarouselChild}
+      <div className="DashboardInset">
+        <div className="DashboardInsetTable">
+          
+        </div>
       </div>
-    </div>
-    <div className="DashboardCarousel">
-      {props.linkChild}
     </div>
     </>
   )

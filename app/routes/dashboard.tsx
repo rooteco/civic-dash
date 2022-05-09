@@ -12,13 +12,7 @@ export const links: LinksFunction = () => {
 export default function Dashboard(){
   return (
     <main className="min-h-screen">
-        <div className="min-h-screen flex flex-row">
-          <div className="DashboardGrid">
-            <Outlet />
-          </div>
-          <div className="DashboardInset">
-          </div>
-        </div>
+      <Outlet />
     </main>
   );
 }

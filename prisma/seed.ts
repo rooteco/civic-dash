@@ -40,8 +40,26 @@ async function seed() {
 
   // TODO: Fix Type issue here
   await Promise.all(
-    getConfigs().map((config) => {
-      return db.config.create({ data: config });
+    getPredictionMarkets().map((predictionMarket) => {
+      return db.predictionMarket.create({ data: predictionMarket });
+    })
+  );
+
+  await Promise.all(
+    getThemesToPredictionMarkets().map((themePredictionMarketMap) => {
+      return db.themesToPredictionMarkets.create({ data: themePredictionMarketMap});
+    })
+  );
+
+  await Promise.all(
+    getProblemsToPredictionMarkets().map((problemPredictionMarketMap) => {
+      return db.problemsToPredictionMarkets.create({ data: problemPredictionMarketMap});
+    })
+  );
+
+  await Promise.all(
+    getIndicatorsToPredictionMarkets().map((indicatorPredictionMarketMap) => {
+      return db.indicatorsToPredictionMarkets.create({ data: indicatorPredictionMarketMap});
     })
   );
 }
@@ -146,6 +164,111 @@ function getConfigs(){
     }
   ]
 }
+
+function getPredictionMarkets(){
+  return[
+    {
+      id: 1,
+      question: "Will anyone outbid Elon musk to buy twitter and get approved by twitter's board before the poison pill expires?",
+      description: "",
+      marketVolume: 2696,
+      author: "J",
+      dateCreated: new Date("April 14, 2022 03:24:00"),
+    },
+    {
+      id: 2,
+      question: "What will Manifold Markets' new Mana currency sign be in a month?",
+      description: "",
+      marketVolume: 773,
+      author: "Manifold Markets",
+      dateCreated: new Date("June 5, 2022 03:24:00"),
+    },
+    {
+      id: 3,
+      question: "What will the price of the $XBI biotech index be as of market close on December 30th, 2022?",
+      description: "",
+      marketVolume: 126,
+      author: "Stephen Malina",
+      dateCreated: new Date("November, 2022 03:24:00"),
+    },
+  ]
+}
+
+function getThemesToPredictionMarkets(){
+  return([
+    {
+      themeId: 1,
+      predictionMarketId: 1
+    },
+    {
+      themeId: 1,
+      predictionMarketId: 2
+    },
+    {
+      themeId: 1,
+      predictionMarketId: 3
+    },
+    {
+      themeId: 2,
+      predictionMarketId: 2
+    },
+    {
+      themeId: 3,
+      predictionMarketId: 3
+    }
+  ])
+}
+
+function getProblemsToPredictionMarkets(){
+  return([
+    {
+      predictionMarketId: 1,
+      problemId: 1
+    },
+    {
+      predictionMarketId: 1,
+      problemId: 2
+    },
+    {
+      predictionMarketId: 1,
+      problemId: 3
+    },
+    {
+      predictionMarketId: 2,
+      problemId: 2
+    },
+    {
+      predictionMarketId: 3,
+      problemId: 3
+    }
+  ])
+}
+
+function getIndicatorsToPredictionMarkets(){
+  return([
+    {
+      predictionMarketId: 1,
+      indicatorId: 1
+    },
+    {
+      predictionMarketId: 1,
+      indicatorId: 2
+    },
+    {
+      predictionMarketId: 1,
+      indicatorId: 3
+    },
+    {
+      predictionMarketId: 2,
+      indicatorId: 2
+    },
+    {
+      predictionMarketId: 3,
+      indicatorId: 3
+    }
+  ])
+}
+
 
 function getProblemsOnThemes(){
   return [

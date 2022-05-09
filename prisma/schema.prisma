@@ -17,6 +17,7 @@ model Theme {
   slug String
   problems ProblemsOnThemes[]
   indicators IndicatorsOnThemes[]
+  predictionMarkets ThemesToPredictionMarkets[]
 }
 
 model Problem {
@@ -26,6 +27,7 @@ model Problem {
   slug String
   themes ProblemsOnThemes[]
   indicators IndicatorsOnProblems[]
+  predictionMarkets ProblemsToPredictionMarkets[]
 }
 
 model Indicator {
@@ -38,6 +40,7 @@ model Indicator {
   themes IndicatorsOnThemes[]
   problems IndicatorsOnProblems[]
   supportingConfigs SupportingIndicatorsOnConfigs[]
+  predictionMarkets IndicatorsToPredictionMarkets[]
 }
 
 enum Layout {
@@ -51,6 +54,46 @@ model Config {
   indicatorId Int
   layout Layout @default(SINGLE)
   additionalIndicators SupportingIndicatorsOnConfigs[]
+}
+
+model PredictionMarket {
+  id Int @id @default(autoincrement())
+  question String
+  description String
+  marketVolume Int @default(0)
+  author String
+  dateCreated DateTime @default(now())
+  themes ThemesToPredictionMarkets[]
+  problems ProblemsToPredictionMarkets[]
+  indicators IndicatorsToPredictionMarkets[]
+}
+
+
+model ThemesToPredictionMarkets {
+  theme Theme @relation(fields: [themeId], references: [id])
+  themeId Int
+  predictionMarket PredictionMarket @relation(fields: [predictionMarketId], references: [id])
+  predictionMarketId Int
+
+  @@id([themeId, predictionMarketId])
+}
+
+model ProblemsToPredictionMarkets {
+  problem Problem @relation(fields: [problemId], references: [id])
+  problemId Int
+  predictionMarket PredictionMarket @relation(fields: [predictionMarketId], references: [id])
+  predictionMarketId Int
+
+  @@id([problemId, predictionMarketId])
+}
+
+model IndicatorsToPredictionMarkets {
+  indicator Indicator @relation(fields: [indicatorId], references: [id])
+  indicatorId Int
+  predictionMarket PredictionMarket @relation(fields: [predictionMarketId], references: [id])
+  predictionMarketId Int
+
+  @@id([indicatorId, predictionMarketId])
 }
 
 model SupportingIndicatorsOnConfigs {
