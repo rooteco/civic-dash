@@ -31,7 +31,26 @@
   }
 
 .DashboardThemeSelectionWelcomeWrapper{
+  display: flex;
+}
 
+.DashboardHello{
+  margin-left: 10px;
+}
+
+.DashboardFlexStretch{
+  flex: 1
+}
+
+.DashboardPredictionMetrics{
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.DashboardMetricWrapper{
+  margin-right: 5px;
+  border: 1px solid black;
 }
 
 .DashboardThemeCarousel{
@@ -58,6 +77,7 @@
   height: 40%;
   width: 80%;
   margin-top: 20px;
+  overflow: scroll;
 }
 
 .ModalOverlay{

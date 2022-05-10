@@ -1,9 +1,9 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import type { Prediction } from "~/models/prediction.server";
 import { Link, useParams } from "@remix-run/react"
 import Modal from "react-modal";
 import { PredictionModal } from './prediction-modal'
-
+import { TableOpenContext } from "~/components/dashboard/DashboardWrapper"
 
 interface PredictionProps{
   predictionMarkets: Prediction[];
@@ -34,15 +34,16 @@ const customStyles = {
 export function IndexPrediction(props: PredictionProps){
   const [panelIsOpen, setPanelIsOpen] = useState(false)
   const [activeMarket, setActiveMarket] = useState("")
+  const tableOpen = useContext(TableOpenContext)
 
   function handleButton(event, market){
-    console.log("ACTIVE MARKET:", market)
     setPanelIsOpen(true)
     setActiveMarket(market)
   }
 
   return(
     <>
+    {tableOpen &&
     <div className="DashboardInsetTable">
       <div>
         <ul>
@@ -58,6 +59,7 @@ export function IndexPrediction(props: PredictionProps){
         </ul>
       </div>
     </div>
+    }
     <Modal
       isOpen={panelIsOpen}
       onRequestClose={()=>setPanelIsOpen(false)}
