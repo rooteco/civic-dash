@@ -11,7 +11,7 @@ interface WrapperProps {
 export const TableOpenContext: Boolean = React.createContext(true)
 
 export function DashboardWrapper(props: WrapperProps){
-  const [tableOpen, setTableOpen] = React.useState(false)
+  const [tableOpen, setTableOpen] = React.useState(true)
   return(
     <>
     <TableOpenContext.Provider value={tableOpen}>
