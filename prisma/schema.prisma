@@ -14,7 +14,7 @@ model Theme {
   id  Int  @id @default(autoincrement())
   name String
   description String
-  slug String
+  slug String @unique
   problems ProblemsOnThemes[]
   indicators IndicatorsOnThemes[]
   predictionMarkets ThemesToPredictionMarkets[]
@@ -24,7 +24,7 @@ model Problem {
   id  Int  @id @default(autoincrement())
   name String
   description String
-  slug String
+  slug String @unique
   themes ProblemsOnThemes[]
   indicators IndicatorsOnProblems[]
   predictionMarkets ProblemsToPredictionMarkets[]
@@ -34,7 +34,7 @@ model Indicator {
   id Int @id @default(autoincrement())
   name String
   description String
-  slug String
+  slug String @unique
   favourite Boolean
   config Config?
   themes IndicatorsOnThemes[]
@@ -59,13 +59,15 @@ model Config {
 model PredictionMarket {
   id Int @id @default(autoincrement())
   question String
+  slug String @unique
   description String
   marketVolume Int @default(0)
   author String
   dateCreated DateTime @default(now())
   themes ThemesToPredictionMarkets[]
   problems ProblemsToPredictionMarkets[]
-  indicators IndicatorsToPredictionMarkets[]
+      indicators IndicatorsToPredictionMarkets[]
+  favourite Boolean
 }
 
 

@@ -176,26 +176,32 @@ function getPredictionMarkets(){
     {
       id: 1,
       question: "Will anyone outbid Elon musk to buy twitter and get approved by twitter's board before the poison pill expires?",
+      slug: "elon-twitter",
       description: "",
       marketVolume: 2696,
       author: "J",
       dateCreated: new Date("April 14, 2022 03:24:00"),
+      favourite: true,
     },
     {
       id: 2,
       question: "What will Manifold Markets' new Mana currency sign be in a month?",
+      slug: "manifold-mana",
       description: "",
       marketVolume: 773,
       author: "Manifold Markets",
       dateCreated: new Date("June 5, 2022 03:24:00"),
+      favourite: true,
     },
     {
       id: 3,
       question: "What will the price of the $XBI biotech index be as of market close on December 30th, 2022?",
       description: "",
+      slug: "xbi-biotech",
       marketVolume: 126,
       author: "Stephen Malina",
       dateCreated: new Date("November, 2022 03:24:00"),
+      favourite: false,
     },
   ]
 }
