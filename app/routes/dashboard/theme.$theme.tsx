@@ -44,6 +44,7 @@ export const loader: LoaderFunction = async ({
     ...indicators,
     predictionMarkets
   }
+
   return json(data)
 }
 

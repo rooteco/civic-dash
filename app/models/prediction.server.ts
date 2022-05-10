@@ -72,16 +72,3 @@ export async function getPredictionBySlug(prediction_slug: string): Promise<Pred
   })
   return predictionMarket
 };
-
-export async function monitorMarketParams(params: Object): Promise<Array<Prediction>>{
-  if("problem" in params){
-    const predictionMarkets = await getPredictionsByProblem(param.problem)
-    return predictionMarkets
-  }
-  if("theme" in params){
-    const predictionMarkets = await getPredictionsByTheme(params.theme)
-    return predictionMarkets
-  }
-  const predictionMarkets = await getPredictionsByFavourite(params.theme)
-  return predictionMarkets
-}

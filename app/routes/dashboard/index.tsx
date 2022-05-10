@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
-import widgetIndexStylesheetURL from "~/styles/widget-index.css";
+import widgetIndexStylesheetURL from "~/styles/dashboard-index.css";
 import { json } from "@remix-run/node";
 
 import { getThemes, getIndicatorsByFavourite } from "~/models/theme.server";

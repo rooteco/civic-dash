@@ -2,7 +2,7 @@ import { Outlet, useLoaderData } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
 import { monitorMarketParams } from "~/models/prediction.server"
-import dashboardStylesheetUrl from "~/styles/dashboard.css"
+import dashboardStylesheetUrl from "../styles/dashboard.css"
 
 export const links: LinksFunction = () => {
   return [
@@ -10,12 +10,6 @@ export const links: LinksFunction = () => {
   ];
 };
 
-// export const loader: LoaderFunction = async ({
-//   params
-// }) => {
-//   const predictionMarkets = await monitorMarketParams(params)
-//   return(predictionMarkets)
-// }
 
 export default function Dashboard(){
   const data = useLoaderData();

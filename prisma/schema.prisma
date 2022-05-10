@@ -5,9 +5,14 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 model Theme {
@@ -43,16 +48,16 @@ model Indicator {
   predictionMarkets IndicatorsToPredictionMarkets[]
 }
 
-enum Layout {
-  SINGLE
-  DOUBLE
-}
+// enum Layout {
+//   SINGLE
+//   DOUBLE
+// }
 
 model Config {
   id Int @id @default(autoincrement())
   indicator Indicator @relation(fields: [indicatorId], references: [id])
   indicatorId Int
-  layout Layout @default(SINGLE)
+  layout String @default("SINGLE")
   additionalIndicators SupportingIndicatorsOnConfigs[]
 }
 
