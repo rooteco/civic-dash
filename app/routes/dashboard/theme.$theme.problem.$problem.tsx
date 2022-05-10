@@ -10,6 +10,10 @@ import { ThemeProblemCarousel } from "~/components/dashboard/theme-carousel-comp
 import { ThemeLink } from "~/components/dashboard/linking-components/theme-link"
 // Note: You'd expect this component to be nested, but the UI demands that it's a fake nesting
 
+import { getPredictionsByProblem } from "~/models/prediction.server"
+import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
+
+
 export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: widgetThemeStylesheetURL}
@@ -19,6 +23,7 @@ export const links: LinksFunction = () => {
 type LoaderData = {
   indicators: Awaited<ReturnType<typeof getIndicatorsByProblem>>['indicators'];
   sparkData: Awaited<ReturnType<typeof getIndicatorsByProblem>>['sparkData'];
+  predictionMarkets: Awaited<ReturnType<typeof getPredictionsByProblem>>;
 };
 
 export const loader: LoaderFunction = async ({
@@ -27,10 +32,14 @@ export const loader: LoaderFunction = async ({
   invariant(params.problem, `params.problem is required`);
 
   const indicators = await getIndicatorsByProblem(params.problem)
-  invariant(indicators, `Indicators not found for problem ${params.problem}`);
+  invariant(indicators, `indicators not found for problem ${params.problem}`);
+
+  const predictionMarkets = await getPredictionsByProblem(params.problem)
+  invariant(predictionMarkets, `prediction markets not found for problem ${params.problem}`)
 
   const data: LoaderData = {
-    ...indicators
+    ...indicators,
+    predictionMarkets
   }
   return json(data)
 }
@@ -38,12 +47,15 @@ export const loader: LoaderFunction = async ({
 export default function WidgetIndicator(){
   const params = useParams();
   invariant(params, "Params must be defined")
+
   const data = useLoaderData<LoaderData>();
+  console.log("DATA:", data)
   return(
     <DashboardWrapper
       focusChild={<Outlet />}
       themeCarouselChild={<ThemeProblemCarousel params={params}/>}
       linkChild={<ThemeLink indicators={data.indicators} />}
+      predictionChild={<IndexPrediction predictionMarkets={data.predictionMarkets}/>}
       />
   )
 };

@@ -1,5 +1,6 @@
 import { db } from "~/utils/db.server";
-import { redis } from "~/models/redis.server"
+import { redis } from "~/models/redis.server";
+import { Prisma } from "@prisma/client";
 
 export type Theme = {
   id: number;

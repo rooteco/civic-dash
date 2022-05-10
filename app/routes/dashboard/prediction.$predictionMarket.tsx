@@ -2,14 +2,15 @@ import { Link, useLoaderData } from "@remix-run/react";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import widgetIndexStylesheetURL from "~/styles/widget-index.css";
 import { json } from "@remix-run/node";
+import invariant from "tiny-invariant";
 
 import { getThemes, getIndicatorsByFavourite } from "~/models/theme.server";
 import { DashboardWrapper } from '~/components/dashboard/DashboardWrapper'
 import { DashboardIntro } from "~/components/dashboard/focus-components/DashboardIntro"
-import { IndexLink } from '~/components/dashboard/linking-components/index-link';
+import { IndexIndicatorLink } from '~/components/dashboard/linking-components/index-indicator-link';
 import { IndexCarousel } from "~/components/dashboard/theme-carousel-components/index-carousel"
 
-import { getPredictionsByFavourite } from "~/models/prediction.server"
+import { getPredictionBySlug } from "~/models/prediction.server"
 import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
 
 export const links: LinksFunction = () => {
@@ -22,29 +23,41 @@ type LoaderData = {
   themes: Awaited<ReturnType<typeof getThemes>>;
   indicators: Awaited<ReturnType<typeof getIndicatorsByFavourite>>['indicators'];
   sparkData: Awaited<ReturnType<typeof getIndicatorsByFavourite>>['sparkData'];
-  predictionMarkets: Awaited<ReturnType<typeof getPredictionsByFavourite>>;
+  predictionMarket: Awaited<ReturnType<typeof getPredictionBySlug>>;
 };
 
-export const loader: LoaderFunction = async () => {
+// TODO: Add invariants
+export const loader: LoaderFunction = async ({
+  params
+}) => {
+  invariant(params.predictionMarket, `params.predictionMarket is required`);
+
   const themes = await getThemes();
+  invariant(themes, `themes not found`);
+
   const indicators = await getIndicatorsByFavourite();
-  const predictionMarkets = await getPredictionsByFavourite();
+  invariant(indicators, `favourited indicators not found`);
+
+  const predictionMarket = await getPredictionBySlug(params.predictionMarket);
+  invariant(predictionMarket, `prediction markets not found for slug ${params.predictionMarket}`)
+
   const data: LoaderData = {
     themes: themes,
     ...indicators,
-    predictionMarkets: predictionMarkets
+    predictionMarket: predictionMarket
   }
   return json(data)
 };
 
 export default function WidgetIndex(){
   const data = useLoaderData<LoaderData>();
+  console.log(data)
   return(
     <DashboardWrapper
         focusChild={<DashboardIntro />}
-        linkChild={<IndexLink indicators={data.indicators}/>}
+        linkChild={<IndexIndicatorLink indicators={data.indicators}/>}
         themeCarouselChild={<IndexCarousel themes={data.themes}/>}
-        predictionChild={<IndexPrediction predictionMarkets={data.predictionMarkets}/>}
+        predictionChild={<IndexPrediction predictionMarket={data.predictionMarket}/>}
       />
   )
 }

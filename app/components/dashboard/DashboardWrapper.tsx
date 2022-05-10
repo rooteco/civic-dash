@@ -1,9 +1,11 @@
 import React from 'react';
+import SlidingPane from "react-sliding-pane";
 
 interface WrapperProps {
   focusChild: React.ReactNode;
   linkChild: React.ReactNode;
   themeCarouselChild: React.ReactNode;
+  predictionChild?: React.ReactNode;
 }
 
 export function DashboardWrapper(props: WrapperProps){
@@ -26,10 +28,8 @@ export function DashboardWrapper(props: WrapperProps){
           {props.linkChild}
         </div>
       </div>
-      <div className="DashboardInset">
-        <div className="DashboardInsetTable">
-          
-        </div>
+      <div className="DashboardInset" id="ModalAnchor">
+        {props.predictionChild ? props.predictionChild : ""}
       </div>
     </div>
     </>

@@ -8,6 +8,10 @@ import { DashboardWrapper } from '~/components/dashboard/DashboardWrapper';
 import { ThemeLink } from '~/components/dashboard/linking-components/theme-link';
 import { ThemeCarousel } from '~/components/dashboard/theme-carousel-components/theme-carousel';
 
+import { getPredictionsByTheme } from "~/models/prediction.server"
+import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
+
+
 export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: widgetThemeStylesheetURL}
@@ -18,6 +22,7 @@ type LoaderData = {
   problems: Awaited<ReturnType<typeof getProblemsByTheme>>;
   indicators: Awaited<ReturnType<typeof getIndicatorsByTheme>>['indicators'];
   sparkData: Awaited<ReturnType<typeof getIndicatorsByTheme>>['sparkData'];
+  predictionMarkets: Awaited<ReturnType<typeof getPredictionsByTheme>>;
 };
 
 export const loader: LoaderFunction = async ({
@@ -31,9 +36,13 @@ export const loader: LoaderFunction = async ({
   const indicators = await getIndicatorsByTheme(params.theme)
   invariant(indicators, `indicators for theme ${params.theme} not found`)
 
+  const predictionMarkets = await getPredictionsByTheme(params.theme);
+  invariant(predictionMarkets, `prediction markets for theme ${params.theme} not found`)
+
   const data: LoaderData = {
     problems,
-    ...indicators
+    ...indicators,
+    predictionMarkets
   }
   return json(data)
 }
@@ -46,6 +55,7 @@ export default function WidgetTheme(){
       focusChild={<Outlet />}
       linkChild={<ThemeLink indicators={data.indicators}/>}
       themeCarouselChild={<ThemeCarousel data={data} params={params}/>}
+      predictionChild={<IndexPrediction predictionMarkets={data.predictionMarkets}/>}
       />
   )
 };
