@@ -3,6 +3,7 @@ import type { LinksFunction } from "@remix-run/node";
 import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
 import { monitorMarketParams } from "~/models/prediction.server"
 import dashboardStylesheetUrl from "../styles/dashboard.css"
+import background from '../../public/assets/golden-gate.png'
 
 export const links: LinksFunction = () => {
   return [
@@ -14,8 +15,8 @@ export const links: LinksFunction = () => {
 export default function Dashboard(){
   const data = useLoaderData();
   return (
-    <main className="min-h-screen">
-      <Outlet />
+    <main className="min-h-screen bg-golden-gate bg-cover">
+        <Outlet />
     </main>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import SlidingPane from "react-sliding-pane";
+import { Link } from '@remix-run/react';
 
 interface WrapperProps {
   focusChild: React.ReactNode;
@@ -45,9 +46,16 @@ export function DashboardWrapper(props: WrapperProps){
       </div>
       <div className="DashboardInset" id="ModalAnchor">
         {props.predictionChild ? props.predictionChild : ""}
+        <div className="DashboardLinks">
+          <Link to={"/dashboard"}><p>Dashboard</p></Link>
+
+        </div>
       </div>
     </div>
     </TableOpenContext.Provider>
     </>
   )
 }
+
+// <Link><p>Docs</p></Link>
+// <Link><p>Discord</p></Link>

@@ -488,6 +488,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: row;
 }
 
+.bg-golden-gate {
+  background-image: url('../assets/golden-gate.png');
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }

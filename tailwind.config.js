@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./app/**/*.{ts,tsx,jsx,js}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'golden-gate': "url('../assets/golden-gate.png')"
+      }
+    },
   },
   plugins: [],
 }
