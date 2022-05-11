@@ -8,7 +8,6 @@ interface WrapperProps {
   predictionChild?: React.ReactNode;
 }
 
-
 export const TableOpenContext: Boolean = React.createContext(true)
 
 export function DashboardWrapper(props: WrapperProps){
