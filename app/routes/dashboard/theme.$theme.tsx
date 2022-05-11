@@ -1,7 +1,6 @@
 import { useLoaderData, useParams, Outlet } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
-import widgetThemeStylesheetURL from "~/styles/widget-theme.css";
 import { getProblemsByTheme, getIndicatorsByTheme } from "~/models/theme.server";
 import invariant from "tiny-invariant";
 import { DashboardWrapper } from '~/components/dashboard/DashboardWrapper';
@@ -10,13 +9,6 @@ import { ThemeCarousel } from '~/components/dashboard/theme-carousel-components/
 
 import { getPredictionsByTheme } from "~/models/prediction.server"
 import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
-
-
-export const links: LinksFunction = () => {
-  return [
-    { rel: "stylesheet", href: widgetThemeStylesheetURL}
-  ]
-};
 
 type LoaderData = {
   problems: Awaited<ReturnType<typeof getProblemsByTheme>>;
@@ -56,7 +48,9 @@ export default function WidgetTheme(){
       focusChild={<Outlet />}
       linkChild={<ThemeLink indicators={data.indicators}/>}
       themeCarouselChild={<ThemeCarousel data={data} params={params}/>}
-      predictionChild={<IndexPrediction predictionMarkets={data.predictionMarkets}/>}
+      predictionChild={<IndexPrediction
+                            predictionMarkets={data.predictionMarkets}
+                            categoryType={`${params.theme}`}/>}
       />
   )
 };
