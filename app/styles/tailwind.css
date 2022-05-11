@@ -489,7 +489,49 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .bg-golden-gate {
-  background-image: url('../assets/japan-neutral.jpg');
+  background-image: url('../assets/finn_bridge.jpeg');
+}
+
+.bg-gradient-to-bl {
+  background-image: linear-gradient(to bottom left, var(--tw-gradient-stops));
+}
+
+.bg-gradient-to-tl {
+  background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+}
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+
+.bg-\[url\(\.\.\/assets\/finn_bridge\.jpeg\)\] {
+  background-image: url(../assets/finn_bridge.jpeg);
+}
+
+.bg-\[url\(\.\.\/assets\/\$\{currentImage\}\)\] {
+  background-image: url(../assets/${currentImage});
+}
+
+.from-gray-700 {
+  --tw-gradient-from: #374151;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(55 65 81 / 0));
+}
+
+.from-gray-900 {
+  --tw-gradient-from: #111827;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(17 24 39 / 0));
+}
+
+.via-gray-900 {
+  --tw-gradient-stops: var(--tw-gradient-from), #111827, var(--tw-gradient-to, rgb(17 24 39 / 0));
+}
+
+.to-black {
+  --tw-gradient-to: #000;
+}
+
+.to-transparent {
+  --tw-gradient-to: transparent;
 }
 
 .bg-cover {

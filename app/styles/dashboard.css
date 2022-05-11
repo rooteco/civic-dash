@@ -100,3 +100,8 @@
   backgroundColor: rgba(255, 255, 255, 0.75);
   border: 2px solid black;
 }
+
+.screensaver{
+  background-image: linear-gradient(0deg, #000000 -16.22%, rgba(0, 0, 0, 0) 34.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.48) 66.06%, #000000 95.99%), url('~/assets/finn_bridge.jpeg');
+  background-size: cover;
+}
