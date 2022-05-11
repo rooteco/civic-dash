@@ -8,14 +8,29 @@
 
 /* Used for all theme buttons before selection */
 .ThemeButton {
-  border-radius: 20px;
-  border: 2px solid black;
-  width: 160px;
-  height: 40px;
+  box-sizing: border-box;
+
+  /* Auto layout */
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-right: 20px;
+  padding: 2px 12px;
+  
+  /* Grey 400 */
+  
+  background: #8E8E8E;
+  mix-blend-mode: normal;
+  /* Grey 600 */
+  
+  border: 2px solid #262626;
+  border-radius: 100px;
+  
+  /* Inside auto layout */
+  
+  flex: none;
+  order: 1;
+  flex-grow: 0;
 }
 
 .ProblemButton {

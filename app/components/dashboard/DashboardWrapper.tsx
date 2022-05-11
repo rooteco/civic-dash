@@ -24,16 +24,16 @@ export function DashboardWrapper(props: WrapperProps){
         <div className="DashboardThemeSelection">
           <div className="DashboardThemeSelectionWelcomeWrapper">
             <div className="DashboardHello">
-              <h1>Hello <strong>Farnney the Dinosaur</strong></h1>
+              <p>Hello <strong>Farnney the Dinosaur</strong></p>
             </div>
             <div className="DashboardFlexStretch" />
             <div className="DashboardPredictionMetrics">
               <button
                   className="DashboardMetricWrapper"
-                  onClick={()=>setTableOpen(prevState => !prevState)}>Metric One</button>
+                  onClick={()=>setTableOpen(prevState => !prevState)}>$1000</button>
                 <button
                   className="DashboardMetricWrapper"
-                  onClick={()=>setTableOpen(prevState => !prevState)}>Metric Two</button>
+                  onClick={()=>setTableOpen(prevState => !prevState)}>3</button>
             </div>
           </div>
           <div className="DashboardThemeCarousel">

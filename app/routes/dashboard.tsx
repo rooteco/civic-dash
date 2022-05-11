@@ -12,12 +12,12 @@ export const links: LinksFunction = () => {
 };
 
 // TODO: retrieve names and set currentImage based on timer and Pause/Play
-const currentImage = "finn_bridge.jpeg"
-const screensaver = `min-h-screen bg-[url(../assets/${currentImage})]`
+//const currentImage = "finn_bridge.jpeg"
+//const screensaver = `min-h-screen bg-[url(../assets/${currentImage})]`
 
 export default function Dashboard(){
   return (
-    <main className={screensaver}>
+    <main className={"Screensaver"}>
         <Outlet />
     </main>
   );

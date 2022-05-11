@@ -1,19 +1,29 @@
+/* inter-regular - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../assets/inter-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../assets/inter-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 .DashboardGrid{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 0.4fr 1fr;
-  border: 2px solid black;
   flex: 1 0 0;
+  margin-left: 28px;
 }
 
-.DashboardFocus{
+.DashboardFocus:hover{
   border: 2px solid red;
   grid-row: 1 / 1;
 }
 
 .DashboardCarousel{
   grid-row: 3 / 3;
-  border: 2px solid green;
+  border: 1px solid green;
   height: 100%;
   width: 100%;
   display: flex;
@@ -23,7 +33,7 @@
 }
 
 .DashboardThemeSelection{
-    border: 2px solid brown;
+    border: 1px solid brown;
     grid-row: 2 / 2;
     display: flex;
     flex-direction: column;
@@ -32,10 +42,18 @@
 
 .DashboardThemeSelectionWelcomeWrapper{
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .DashboardHello{
-  margin-left: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #FFFFFF;
 }
 
 .DashboardFlexStretch{
@@ -49,19 +67,18 @@
 }
 
 .DashboardMetricWrapper{
-  margin-right: 5px;
-  border: 1px solid black;
+  border: 0px solid black;
 }
 
 .DashboardThemeCarousel{
-  flex: 1;
-  border-top: 2px solid black;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border-top: 2px solid black;
-  box-sizing: border-box;
+  height: 50px;
+  border-top: 1px solid rgba(53, 53, 53, 0.85);
+  background: rgba(11, 8, 13, 0.2);
+
 }
 
 .DashboardInset{
@@ -95,13 +112,13 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  left: 0,
-  top: 0,
-  backgroundColor: rgba(255, 255, 255, 0.75);
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.75);
   border: 2px solid black;
 }
 
-.screensaver{
-  background-image: linear-gradient(0deg, #000000 -16.22%, rgba(0, 0, 0, 0) 34.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.48) 66.06%, #000000 95.99%), url('~/assets/finn_bridge.jpeg');
+.Screensaver{
+  background-image: linear-gradient(0deg, #000000 -16.22%, rgba(0, 0, 0, 0) 34.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.48) 66.06%, #000000 95.99%), url('../assets/finn_bridge.jpeg');
   background-size: cover;
 }
