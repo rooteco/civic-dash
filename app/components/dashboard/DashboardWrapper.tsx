@@ -1,5 +1,4 @@
 import React from 'react';
-import SlidingPane from "react-sliding-pane";
 import { Link } from '@remix-run/react';
 
 interface WrapperProps {
@@ -8,6 +7,7 @@ interface WrapperProps {
   themeCarouselChild: React.ReactNode;
   predictionChild?: React.ReactNode;
 }
+
 
 export const TableOpenContext: Boolean = React.createContext(true)
 

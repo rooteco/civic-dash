@@ -56,13 +56,8 @@
 .DashboardThemeCarousel{
   flex: 1;
   border-top: 2px solid black;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  border-top: 2px solid black;
-  box-sizing: border-box;
 }
+
 
 .DashboardInset{
   border: 2px solid pink;
@@ -109,23 +104,6 @@
   justify-content: flex-start;
   align-items: center;
 }
-
-/* .WidgetThemeCarousel{
-  flex: 1;
-  border: 2px solid purple;
-  align-items: center;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 0.3fr 1fr;
-  grid-template-rows: 1fr;
-} */
-
-/* .WidgetCarousel{
-  grid-row: 3 / 3;
-  border: 2px solid green;
-  height: 100%;
-  width: 100%;
-} */
 
 .DashboardActiveTheme {
   grid-column: 1 / 1
