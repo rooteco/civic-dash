@@ -1,6 +1,5 @@
-import { useLoaderData, Outlet } from "@remix-run/react";
+import { useLoaderData, Outlet, useParams } from "@remix-run/react";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
-import widgetIndexStylesheetURL from "~/styles/widget-index.css";
 import { json } from "@remix-run/node";
 import { getThemes, getIndicatorsByFavourite } from "~/models/theme.server";
 import { DashboardWrapper } from "~/components/dashboard/DashboardWrapper"
@@ -10,12 +9,6 @@ import { IndexCarousel } from "~/components/dashboard/theme-carousel-components/
 import { getPredictionsByIndicator } from "~/models/prediction.server"
 import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
 
-
-export const links: LinksFunction = () => {
-  return [
-    { rel: "stylesheet", href: widgetIndexStylesheetURL}
-  ]
-};
 
 type LoaderData = {
   themes: Awaited<ReturnType<typeof getThemes>>;
@@ -40,12 +33,16 @@ export const loader: LoaderFunction = async ({
 
 export default function WidgetIndex(){
   const data = useLoaderData<LoaderData>();
+  const params = useParams();
   return(
     <DashboardWrapper
         focusChild={<Outlet />}
         linkChild={<IndexIndicatorLink indicators={data.indicators}/>}
         themeCarouselChild={<IndexCarousel themes={data.themes}/>}
-        predictionChild={<IndexPrediction predictionMarkets={data.predictionMarkets}/>}
+        predictionChild={<IndexPrediction
+                            predictionMarkets={data.predictionMarkets}
+                            categoryType={`${params.indicator}`}
+                            />}
     />
   )
 }

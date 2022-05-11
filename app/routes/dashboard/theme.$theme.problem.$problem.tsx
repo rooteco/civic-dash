@@ -1,7 +1,6 @@
 import { useLoaderData, useParams, Outlet } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
-import widgetThemeStylesheetURL from "~/styles/widget-theme.css";
 import { getIndicatorsByProblem } from "~/models/theme.server";
 import invariant from "tiny-invariant";
 
@@ -11,14 +10,7 @@ import { ThemeLink } from "~/components/dashboard/linking-components/theme-link"
 // Note: You'd expect this component to be nested, but the UI demands that it's a fake nesting
 
 import { getPredictionsByProblem } from "~/models/prediction.server"
-import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
-
-
-export const links: LinksFunction = () => {
-  return [
-    { rel: "stylesheet", href: widgetThemeStylesheetURL}
-  ]
-};
+import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction";
 
 type LoaderData = {
   indicators: Awaited<ReturnType<typeof getIndicatorsByProblem>>['indicators'];
@@ -55,7 +47,9 @@ export default function WidgetIndicator(){
       focusChild={<Outlet />}
       themeCarouselChild={<ThemeProblemCarousel params={params}/>}
       linkChild={<ThemeLink indicators={data.indicators} />}
-      predictionChild={<IndexPrediction predictionMarkets={data.predictionMarkets}/>}
+      predictionChild={<IndexPrediction
+                          predictionMarkets={data.predictionMarkets}
+                          categoryType={`${params.problem}`}/>}
       />
   )
 };

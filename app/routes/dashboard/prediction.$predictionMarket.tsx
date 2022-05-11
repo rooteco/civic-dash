@@ -1,6 +1,5 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
-import widgetIndexStylesheetURL from "~/styles/widget-index.css";
 import { json } from "@remix-run/node";
 import invariant from "tiny-invariant";
 
@@ -13,11 +12,6 @@ import { IndexCarousel } from "~/components/dashboard/theme-carousel-components/
 import { getPredictionBySlug } from "~/models/prediction.server"
 import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
 
-export const links: LinksFunction = () => {
-  return [
-    { rel: "stylesheet", href: widgetIndexStylesheetURL}
-  ]
-};
 
 type LoaderData = {
   themes: Awaited<ReturnType<typeof getThemes>>;

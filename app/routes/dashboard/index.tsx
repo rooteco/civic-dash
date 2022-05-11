@@ -1,6 +1,5 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
-import widgetIndexStylesheetURL from "~/styles/dashboard-index.css";
 import { json } from "@remix-run/node";
 
 import { getThemes, getIndicatorsByFavourite } from "~/models/theme.server";
@@ -11,12 +10,6 @@ import { IndexCarousel } from "~/components/dashboard/theme-carousel-components/
 
 import { getPredictionsByFavourite } from "~/models/prediction.server"
 import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
-
-export const links: LinksFunction = () => {
-  return [
-    { rel: "stylesheet", href: widgetIndexStylesheetURL}
-  ]
-};
 
 type LoaderData = {
   themes: Awaited<ReturnType<typeof getThemes>>;
@@ -42,9 +35,11 @@ export default function WidgetIndex(){
   return(
     <DashboardWrapper
         focusChild={<DashboardIntro />}
-        linkChild={<IndexLink indicators={data.indicators}/>}
         themeCarouselChild={<IndexCarousel themes={data.themes}/>}
-        predictionChild={<IndexPrediction predictionMarkets={data.predictionMarkets}/>}
+        linkChild={<IndexLink indicators={data.indicators}/>}
+        predictionChild={<IndexPrediction
+                            predictionMarkets={data.predictionMarkets}
+                            categoryType={"Showing favourited prediction markets"}                            />}
       />
   )
 }

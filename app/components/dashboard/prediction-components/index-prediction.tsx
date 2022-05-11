@@ -4,9 +4,11 @@ import { Link, useParams } from "@remix-run/react"
 import Modal from "react-modal";
 import { PredictionModal } from './prediction-modal'
 import { TableOpenContext } from "~/components/dashboard/DashboardWrapper"
+import { deslugify } from "~/utils/deslugify"
 
 interface PredictionProps{
   predictionMarkets: Prediction[];
+  categoryType?: String;
 }
 
 const customStyles = {
@@ -46,6 +48,10 @@ export function IndexPrediction(props: PredictionProps){
     {tableOpen &&
     <div className="DashboardInsetTable">
       <div>
+        {props.categoryType ?
+          <h1>Showing prediction markets for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></h1> :
+          <h1>Showing favourited prediction markets</h1>
+          }
         <ul>
           {props.predictionMarkets && props.predictionMarkets.map((predictionMarket)=> (
             <div key={predictionMarket.id}>

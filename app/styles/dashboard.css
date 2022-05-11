@@ -100,3 +100,40 @@
   backgroundColor: rgba(255, 255, 255, 0.75);
   border: 2px solid black;
 }
+
+.WidgetThemeSelection{
+  border: 2px solid brown;
+  grid-row: 2 / 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* .WidgetThemeCarousel{
+  flex: 1;
+  border: 2px solid purple;
+  align-items: center;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-rows: 1fr;
+} */
+
+/* .WidgetCarousel{
+  grid-row: 3 / 3;
+  border: 2px solid green;
+  height: 100%;
+  width: 100%;
+} */
+
+.DashboardActiveTheme {
+  grid-column: 1 / 1
+}
+
+.DashboardThemeIndicatorCarousel {
+  grid-column: 2 / 2;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}

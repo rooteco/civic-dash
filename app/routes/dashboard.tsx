@@ -13,7 +13,7 @@ export const links: LinksFunction = () => {
 
 
 export default function Dashboard(){
-  const data = useLoaderData();
+  // const data = useLoaderData();
   return (
     <main className="min-h-screen bg-golden-gate bg-cover">
         <Outlet />
