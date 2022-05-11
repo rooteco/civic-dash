@@ -48,8 +48,10 @@ export function DashboardWrapper(props: WrapperProps){
         {props.predictionChild ? props.predictionChild : ""}
         <div className="DashboardLinks">
           <Link to={"/dashboard"}><p>Dashboard</p></Link>
-          <div><a href="https://rooteco.notion.site/CivicDash-v2-1-8631ce9d3fd442a1a031eec9fa48cf3b">Docs</a></div>
-          <div><a href="https://discord.gg/bQHFfWUC">Discord</a></div>
+          <div><a
+                  href="https://rooteco.notion.site/CivicDash-v2-1-8631ce9d3fd442a1a031eec9fa48cf3b"
+                  target="_blank">Docs</a></div>
+                <div><a href="https://discord.gg/bQHFfWUC" target="_blank">Discord</a></div>
         </div>
       </div>
     </div>
