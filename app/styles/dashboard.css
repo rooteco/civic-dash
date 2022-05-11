@@ -90,8 +90,8 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  left: 0,
-  top: 0,
+  left: 0;
+  top: 0;
   backgroundColor: rgba(255, 255, 255, 0.75);
   border: 2px solid black;
 }
@@ -114,4 +114,18 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+}
+
+.DashboardCarouselLibraryWrapper{
+  border: 2px solid black;
+  height: 100%;
+  margin-left: 20px;
+}
+
+.DashboardCarouselLibrarySlider{
+  border: 2px solid pink;
+}
+
+.DashboardCarouselLibrarySlider:hover{
+  border: 2px solid pink;
 }

@@ -488,6 +488,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: row;
 }
 
+.border {
+  border-width: 1px;
+}
+
 .bg-golden-gate {
   background-image: url('../assets/japan-neutral.jpg');
 }

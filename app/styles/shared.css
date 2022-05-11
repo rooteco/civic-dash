@@ -10,7 +10,7 @@
 .ThemeButton {
   border-radius: 20px;
   border: 2px solid black;
-  width: 160px;
+  width: 160px !important; /* this */
   height: 40px;
   display: flex;
   justify-content: center;
