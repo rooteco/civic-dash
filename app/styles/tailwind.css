@@ -492,10 +492,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-width: 1px;
 }
 
-.bg-golden-gate {
-  background-image: url('../assets/japan-neutral.jpg');
-}
-
 .bg-cover {
   background-size: cover;
 }

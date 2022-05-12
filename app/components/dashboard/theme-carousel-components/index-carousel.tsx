@@ -1,6 +1,5 @@
 import type { Theme } from "~/models/theme.server";
 import { Link } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node"
 import Carousel from 'react-multi-carousel';
 
 interface CarouselProps{
@@ -8,7 +7,7 @@ interface CarouselProps{
 }
 export function IndexCarousel(props: CarouselProps){
 
-  const responsive = {
+const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 0 },
