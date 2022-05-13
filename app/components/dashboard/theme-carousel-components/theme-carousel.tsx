@@ -18,13 +18,13 @@ export function ThemeCarousel(props: CarouselProps){
   return(
     <>
     <div className="DashboardActiveTheme">
-      <div className="ThemeButtonActive">
+      <div className="pill-active">
         <p>{props.params ? deslugify(props.params.theme ? props.params.theme : "") : ""}</p>
       </div>
     </div>
     <div className="DashboardThemeIndicatorCarousel">
       {props.data && props.data.problems.map((problem)=>(
-          <div key={problem.id} className="ProblemButton">
+          <div key={problem.id} className="pill">
             <Link to={`problem/${problem.slug}`}>
             <p>{problem.name}</p>
             </Link>

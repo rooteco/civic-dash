@@ -31,7 +31,7 @@ export function IndexCarousel(props: CarouselProps){
   return(
     <>
       {props && props.themes.map((theme)=>(
-          <div key={theme.id} className="ThemeButton">
+          <div key={theme.id} className="pill">
             <Link to={`/dashboard/theme/${theme.slug}`}>
             <p>{theme.name}</p>
             </Link>
