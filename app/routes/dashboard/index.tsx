@@ -39,7 +39,7 @@ export default function WidgetIndex(){
         linkChild={<IndexLink indicators={data.indicators}/>}
         predictionChild={<IndexPrediction
                             predictionMarkets={data.predictionMarkets}
-                            categoryType={"Showing favourited prediction markets"}                            />}
+                                                        />}
       />
   )
 }

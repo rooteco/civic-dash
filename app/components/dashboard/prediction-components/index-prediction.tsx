@@ -49,8 +49,8 @@ export function IndexPrediction(props: PredictionProps){
     <div className="DashboardInsetTable">
       <div>
         {props.categoryType ?
-          <h1>Showing prediction markets for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></h1> :
-          <h1>Showing favourited prediction markets</h1>
+          <h3>Showing prediction markets for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></h3> :
+          <h3>Showing favourited prediction markets</h3>
           }
         <ul>
           {props.predictionMarkets && props.predictionMarkets.map((predictionMarket)=> (

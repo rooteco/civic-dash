@@ -29,7 +29,7 @@
   --font-size-h1: 46px;
 }
 
-/* Top-Level */ 
+/* Top-Level */
 html {
   line-height: 150%;
 
@@ -185,7 +185,7 @@ strong {
 
 .DashboardInsetTable{
   border: 0px solid black;
-  display: none;
+  /* display: none; */
   height: 90%;
   width: 80%;
   overflow: scroll;
