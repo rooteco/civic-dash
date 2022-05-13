@@ -8,17 +8,29 @@
   justify-content: center;
   align-items: center;
   padding: 2px 12px;
-  
+
+  width: 168px !important; /* todo: update to font len */
+  height: 32px;
   
   /* Grey 400 */
   background: #8E8E8E;
   /* Grey 600 */
-  border: 2px solid #262626;
+  border: 1px solid #262626;
   border-radius: 100px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  color: var(--color-grey-700);
 }
 
 .pill-active {
   box-sizing: border-box;
+
+  width: 168px !important; /* this */
+  height: 32px;
 
   /* Auto layout */
   display: flex;
@@ -33,7 +45,7 @@
   background: #fff;
   /* Grey 600 */
   
-  border: 2px solid #262626;
+  border: 1px solid #262626;
   border-radius: 100px;
   
   font-family: 'Inter';
@@ -45,22 +57,9 @@
 
 }
 
-
-.ThemeButton {
-  border-radius: 20px;
-  border: 2px solid black;
-  width: 200px !important; /* this */
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 20px;
-}
-
-
 .IndicatorContainer{
-  height: 80%; /* Might want to change this system Andre */
-  margin: 20px;
+  height: 70%; /* Might want to change this system Andre */
+  margin: 4px;
   width: 300px;
   border: 2px solid black;
   display: flex;
