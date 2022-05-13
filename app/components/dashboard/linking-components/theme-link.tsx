@@ -12,7 +12,7 @@ export function ThemeLink(props: LinkProps){
       {props && props.indicators.map((indicator) => (
       <div className="IndicatorContainer" key={indicator.id}>
         <Link to={`${indicator.slug}/${slugify(indicator.config ? indicator.config.layout : "")}`}>
-          <h1>{indicator.name}</h1>
+          <p>{indicator.name}</p>
         </Link>
       </div>
     ))}

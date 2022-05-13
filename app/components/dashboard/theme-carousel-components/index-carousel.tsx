@@ -20,7 +20,7 @@ const responsive = {
       <Carousel
         responsive={responsive}
         autoPlay={false}
-        itemClass="ThemeButton"
+        itemClass="pill"
         containerClass="DashboardCarouselLibraryWrapper"
         centerMode={true}
         sliderClass="DashboardCarouselLibrarySlider"
@@ -29,7 +29,7 @@ const responsive = {
         {props && props.themes.map((theme)=>(
             <div key={theme.id}>
               <Link to={`/dashboard/theme/${theme.slug}`}>
-              <p>{theme.name}</p>
+                {theme.name}
               </Link>
             </div>
         ))}

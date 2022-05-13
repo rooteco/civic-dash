@@ -27,14 +27,14 @@ export function ThemeCarousel(props: CarouselProps){
   return(
     <>
     <div className="DashboardActiveTheme">
-      <div className="pill-active">
+      <div className="pill">
         <p>{props.params ? deslugify(props.params.theme ? props.params.theme : "") : ""}</p>
       </div>
     </div>
       <Carousel
         responsive={responsive}
         autoPlay={false}
-        itemClass="ThemeButton"
+        itemClass="pill"
         containerClass="DashboardCarouselLibraryThemeWrapper"
         centerMode={true}
         sliderClass="DashboardCarouselLibrarySlider"
@@ -43,7 +43,7 @@ export function ThemeCarousel(props: CarouselProps){
       {props.data && props.data.problems.map((problem)=>(
           <div key={problem.id} className="pill">
             <Link to={`problem/${problem.slug}`}>
-            <p>{problem.name}</p>
+              {problem.name}
             </Link>
           </div>
       ))}
