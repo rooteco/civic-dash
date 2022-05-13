@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'golden-gate': "url('../assets/finn_bridge.jpeg')"
+        'japan': "url('../assets/japan-neutral.jpg')"
       }
     },
   },

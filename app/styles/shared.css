@@ -46,6 +46,18 @@
 }
 
 
+.ThemeButton {
+  border-radius: 20px;
+  border: 2px solid black;
+  width: 200px !important; /* this */
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+
 .IndicatorContainer{
   height: 80%; /* Might want to change this system Andre */
   margin: 20px;
