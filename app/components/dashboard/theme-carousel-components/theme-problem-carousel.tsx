@@ -18,12 +18,13 @@ export function ThemeProblemCarousel(props: CarouselProps){
   return(
     <>
       <div className="DashboardActiveTheme">
-        <div className="ThemeButtonActive">
+        <div className="pill-active">
           <p>{props.params ? deslugify(props.params.theme) : ""}</p>
         </div>
       </div>
-      <div className="DashboardActiveProblem">
-        <div className="ProblemButtonActive">
+      <div className="DashboardActiveTheme">
+        <div className="pill-active">
+
           <p>{props.params ? deslugify(props.params.problem) : ""}</p>
         </div>
       </div>

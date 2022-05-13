@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        // 'golden-gate': "url('../assets/japan-neutral.jpg')"
+        'golden-gate': "url('../assets/finn_bridge.jpeg')"
+        'japan': "url('../assets/japan-neutral.jpg')"
       }
     },
   },

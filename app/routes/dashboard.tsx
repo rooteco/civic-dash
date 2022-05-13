@@ -14,11 +14,13 @@ export const links: LinksFunction = () => {
   ];
 };
 
+// TODO: retrieve names and set currentImage based on timer and Pause/Play
+//const currentImage = "finn_bridge.jpeg"
+//const screensaver = `min-h-screen bg-[url(../assets/${currentImage})]`
 
 export default function Dashboard(){
-  // const data = useLoaderData();
   return (
-    <main className="min-h-screen bg-golden-gate bg-cover">
+    <main className={"Screensaver"}>
         <Outlet />
     </main>
   );

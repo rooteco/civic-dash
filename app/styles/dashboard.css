@@ -1,25 +1,48 @@
-.DashboardGrid{
+/* inter-regular - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../assets/inter-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../assets/inter-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+.dashgrid{
   display: grid;
   grid-template-columns: 28px 0.7fr 0.3fr;
-  grid-template-rows: 1fr 100px minmax(150px, 0.3fr);
-  border: 2px solid black;
+  grid-template-rows: 1fr 28px minmax(150px, 0.3fr);
+  /* maybe remove */
   flex: 1 0 0;
 }
 
-.DashboardFocus{
-  border: 2px solid red;
+.focus{
   grid-row: 1 / 1;
   grid-column: 2 / 2;
 }
 
-.DashboardCarouselBorder{
-  grid-row: 3 / 3;
-  grid-column: 1 / 1;
+
+.axis{
+  grid-row: 3/3;
+  grid-column: 1/4;
+  border-top: 1px solid rgba(92, 92, 92, 0.85);
+
 }
 
-.DashboardCarousel{
+
+.dash{
   grid-row: 3 / 3;
   grid-column: 2 / 2;
+  background: linear-gradient(92.27deg, rgba(83, 83, 83, 0.25) 3.63%, rgba(19, 19, 19, 0.06) 87.89%);
+  background-blend-mode: screen;
+  border-left: 1px solid rgba(53, 53, 53, 0.85);
+  border-top: 1px solid rgba(53, 53, 53, 0.85);
+  border-right: 1px solid rgba(53, 53, 53, 0.85);
+}
+
+
+
+.sparklinecarousel {
   border: 2px solid green;
   height: 100%;
   width: 100%;
@@ -35,49 +58,54 @@
   grid-column: 1 / 1;
 }
 
-.DashboardThemeSelection{
-    border: 2px solid brown;
+
+.header{
     grid-row: 2 / 2;
-    grid-column: 2 / 2;
+    grid-column: 2 / 3;
+
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    font-size: 16px;
+    line-height: 100%;
+    color: #FFFFFF;
   }
 
 .DashboardFlexStretch{
   flex: 1
 }
 
-.DashboardPredictionMetrics{
-  margin-right: 10px;
+.portfoliostats{
   display: flex;
   flex-direction: row;
 }
 
-.DashboardMetricWrapper{
-  margin-right: 5px;
-  border: 1px solid black;
+.metric{
+  border: 0px solid black;
 }
 
-.DashboardThemeCarousel{
-  flex: 1;
-  border-top: 2px solid black;
+.picker{
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background: rgba(11, 8, 13, 0.2);
+  padding: 0px 0px 0px 8px;
+  gap: 4px;
+  height: 50px;
+
 }
 
 
 .DashboardInset{
-  border: 2px solid pink;
-  grid-row: 1 / 2;
-  grid-column: 3 / 3;
-  display: flex;
-  justify-content: center;
-  padding-top: 30px;
+  grid-row: 1/2;
+  grid-column: 3/3
 }
 
 .DashboardInsetTable{
-  border: 2px solid black;
+  border: 0px solid black;
   height: 90%;
   width: 80%;
   overflow: scroll;
@@ -105,6 +133,13 @@
   right: 0;
   left: 0;
   top: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 2px solid black;
+}
+
+.Screensaver{
+  background-image: linear-gradient(0deg, #000000 -16.22%, rgba(0, 0, 0, 0) 34.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.48) 66.06%, #000000 95.99%), url('../assets/finn_bridge.jpeg');
+  background-size: cover;
   backgroundColor: rgba(255, 255, 255, 0.75);
   border: 2px solid black;
 }
