@@ -11,10 +11,8 @@
   
   
   /* Grey 400 */
-  
   background: #8E8E8E;
   /* Grey 600 */
-  
   border: 2px solid #262626;
   border-radius: 100px;
 }
@@ -37,6 +35,14 @@
   
   border: 2px solid #262626;
   border-radius: 100px;
+  
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  color: #181818;
+
 }
 
 

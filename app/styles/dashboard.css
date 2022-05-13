@@ -8,99 +8,96 @@
        url('../assets/inter-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-.DashboardGrid{
+.dashgrid{
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 2fr 0.4fr 1fr;
+  grid-template-columns: 28px 0.7fr 0.3fr;
+  grid-template-rows: 1fr 28px minmax(150px, 0.3fr);
   flex: 1 0 0;
-  margin-left: 28px;
 }
 
-.DashboardFocus:hover{
-  border: 2px solid red;
+.focus{
   grid-row: 1 / 1;
+  grid-column: 2 / 2;
 }
 
-.DashboardCarousel{
+.axis{
+  grid-row: 3/3;
+  grid-column: 1/4;
+  border-top: 1px solid rgba(92, 92, 92, 0.85);
+}
+
+
+.dash{
   grid-row: 3 / 3;
-  
-  height: 100%;
-  width: 100%;
+  grid-column: 2 / 2;
+  background: linear-gradient(92.27deg, rgba(83, 83, 83, 0.25) 3.63%, rgba(19, 19, 19, 0.06) 87.89%);
+  background-blend-mode: screen;
+  border-left: 1px solid rgba(53, 53, 53, 0.85);
+  border-top: 1px solid rgba(53, 53, 53, 0.85);
+  border-right: 1px solid rgba(53, 53, 53, 0.85);
+}
+
+
+
+.sparklinecarousel {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-
-  padding: 8px 0px 8px;
-  background: linear-gradient(92.27deg, rgba(83, 83, 83, 0.25) 3.63%, rgba(19, 19, 19, 0.06) 87.89%);
-  background-blend-mode: screen;
-  border: 1px solid rgba(53, 53, 53, 0.65);
 }
 
-.DashboardThemeSelection{
+
+.header{
     grid-row: 2 / 2;
+    grid-column: 2 / 3;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    font-size: 16px;
+    line-height: 100%;
+    color: #FFFFFF;
   }
 
-
-.DashboardThemeSelectionWelcomeWrapper{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.DashboardHello{
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 100%;
-  color: #FFFFFF;
-}
 
 .DashboardFlexStretch{
   flex: 1
 }
 
-.DashboardPredictionMetrics{
-  margin-right: 10px;
+.portfoliostats{
   display: flex;
   flex-direction: row;
 }
 
-.DashboardMetricWrapper{
+.metric{
   border: 0px solid black;
 }
 
-.DashboardThemeCarousel{
+.picker{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  height: 50px;
-  border-top: 1px solid rgba(53, 53, 53, 0.85);
   background: rgba(11, 8, 13, 0.2);
-
+  padding: 0px 0px 0px 8px;
+  gap: 4px;
+  height: 50px;
 }
 
 .DashboardInset{
-  width: 26vw;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 2fr 0.4fr 1fr;
+  grid-row: 1/2;
+  grid-column: 3/3
 }
 
 .DashboardInsetTable{
-  /* height: 40%;
-  width: 80%; */
   overflow: scroll;
   grid-row: 1 / 1;
+  grid-column: 3 / 
 }
 
 .DashboardLinks{
+  display: none;
   width: 100%;
   grid-row: 3 / 3;
 }
