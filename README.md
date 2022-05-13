@@ -1,3 +1,25 @@
+# Finn's Notes
+
+## Styling
+- Reusable component styles are contained in shared.css, which is available to all routes
+- Other styles should be implemented using either route-specific css (watch out for collisions), or through tailwind
+
+## Database
+- Using Prisma for Postgres ORM
+- npx prisma migrate reset
+- npx prisma db push
+- node --require esbuild-register prisma/seed.ts
+
+## Redis
+- When fetching from Redis, use <indicator.slug> to fetch the full dataset, and <indicator.slug>-spark to fetch the small dataset
+
+# Andre's Notes
+
+
+
+
+
+
 # Remix Grunge Stack
 
 ![The Remix Grunge Stack](https://repository-images.githubusercontent.com/463325363/edae4f5b-1a13-47ea-b90c-c05badc2a700)

@@ -1,0 +1,140 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Theme {
+  id  Int  @id @default(autoincrement())
+  name String
+  description String
+  slug String @unique
+  problems ProblemsOnThemes[]
+  indicators IndicatorsOnThemes[]
+  predictionMarkets ThemesToPredictionMarkets[]
+}
+
+model Problem {
+  id  Int  @id @default(autoincrement())
+  name String
+  description String
+  slug String @unique
+  themes ProblemsOnThemes[]
+  indicators IndicatorsOnProblems[]
+  predictionMarkets ProblemsToPredictionMarkets[]
+}
+
+model Indicator {
+  id Int @id @default(autoincrement())
+  name String
+  description String
+  slug String @unique
+  favourite Boolean
+  config Config?
+  themes IndicatorsOnThemes[]
+  problems IndicatorsOnProblems[]
+  supportingConfigs SupportingIndicatorsOnConfigs[]
+  predictionMarkets IndicatorsToPredictionMarkets[]
+}
+
+// enum Layout {
+//   SINGLE
+//   DOUBLE
+// }
+
+model Config {
+  id Int @id @default(autoincrement())
+  indicator Indicator @relation(fields: [indicatorId], references: [id])
+  indicatorId Int
+  layout String @default("SINGLE")
+  additionalIndicators SupportingIndicatorsOnConfigs[]
+}
+
+model PredictionMarket {
+  id Int @id @default(autoincrement())
+  question String
+  slug String @unique
+  description String
+  marketVolume Int @default(0)
+  author String
+  dateCreated DateTime @default(now())
+  themes ThemesToPredictionMarkets[]
+  problems ProblemsToPredictionMarkets[]
+      indicators IndicatorsToPredictionMarkets[]
+  favourite Boolean
+}
+
+
+model ThemesToPredictionMarkets {
+  theme Theme @relation(fields: [themeId], references: [id])
+  themeId Int
+  predictionMarket PredictionMarket @relation(fields: [predictionMarketId], references: [id])
+  predictionMarketId Int
+
+  @@id([themeId, predictionMarketId])
+}
+
+model ProblemsToPredictionMarkets {
+  problem Problem @relation(fields: [problemId], references: [id])
+  problemId Int
+  predictionMarket PredictionMarket @relation(fields: [predictionMarketId], references: [id])
+  predictionMarketId Int
+
+  @@id([problemId, predictionMarketId])
+}
+
+model IndicatorsToPredictionMarkets {
+  indicator Indicator @relation(fields: [indicatorId], references: [id])
+  indicatorId Int
+  predictionMarket PredictionMarket @relation(fields: [predictionMarketId], references: [id])
+  predictionMarketId Int
+
+  @@id([indicatorId, predictionMarketId])
+}
+
+model SupportingIndicatorsOnConfigs {
+  indicator Indicator @relation(fields: [indicatorId], references: [id])
+  indicatorId Int
+  config Config @relation(fields: [configId], references: [id])
+  configId Int
+
+  @@id([indicatorId, configId])
+}
+
+model ProblemsOnThemes {
+  theme Theme @relation(fields: [themeId], references: [id])
+  themeId Int
+  problem Problem @relation(fields: [problemId], references: [id])
+  problemId Int
+
+  @@id([themeId, problemId])
+}
+
+model IndicatorsOnThemes {
+  theme Theme @relation(fields: [themeId], references: [id])
+  themeId Int
+  indicator Indicator @relation(fields: [indicatorId], references: [id])
+  indicatorId Int
+
+  @@id([themeId, indicatorId])
+}
+
+model IndicatorsOnProblems {
+  problem Problem @relation(fields: [problemId], references: [id])
+  problemId Int
+  indicator Indicator @relation(fields: [indicatorId], references: [id])
+  indicatorId Int
+
+  @@id([problemId, indicatorId])
+}

@@ -1,0 +1,171 @@
+.DashboardGrid{
+  display: grid;
+  grid-template-columns: 28px 0.7fr 0.3fr;
+  grid-template-rows: 1fr 100px minmax(150px, 0.3fr);
+  border: 2px solid black;
+  flex: 1 0 0;
+}
+
+.DashboardFocus{
+  border: 2px solid red;
+  grid-row: 1 / 1;
+  grid-column: 2 / 2;
+}
+
+.DashboardCarouselBorder{
+  grid-row: 3 / 3;
+  grid-column: 1 / 1;
+}
+
+.DashboardCarousel{
+  grid-row: 3 / 3;
+  grid-column: 2 / 2;
+  border: 2px solid green;
+  height: 100%;
+  width: 100%;
+}
+
+.DashboardThemeSelectionWelcomeWrapper{
+  display: flex;
+}
+
+
+.DashboardThemeSelectionBorder{
+  grid-row: 2 / 2;
+  grid-column: 1 / 1;
+}
+
+.DashboardThemeSelection{
+    border: 2px solid brown;
+    grid-row: 2 / 2;
+    grid-column: 2 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+.DashboardFlexStretch{
+  flex: 1
+}
+
+.DashboardPredictionMetrics{
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.DashboardMetricWrapper{
+  margin-right: 5px;
+  border: 1px solid black;
+}
+
+.DashboardThemeCarousel{
+  flex: 1;
+  border-top: 2px solid black;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.DashboardInset{
+  border: 2px solid pink;
+  grid-row: 1 / 2;
+  grid-column: 3 / 3;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.DashboardInsetTable{
+  border: 2px solid black;
+  height: 90%;
+  width: 80%;
+  overflow: scroll;
+}
+
+.DashboardLinks{
+  position: absolute;
+  top: 6px;
+  left: 28px;
+  border: 2px solid pink;
+  width: 200px;
+  grid-column: 2 / 2;
+  grid-row: 4 / 4;
+  display: flex;
+}
+
+.ModalOverlay{
+  position: fixed;
+  border: 2px solid black;
+}
+
+.SlidingPaneWrapper{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  backgroundColor: rgba(255, 255, 255, 0.75);
+  border: 2px solid black;
+}
+
+.WidgetThemeSelection{
+  border: 2px solid brown;
+  grid-row: 2 / 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.DashboardActiveTheme {
+  grid-column: 1 / 1;
+  display: flex;
+  align-items: center;
+}
+
+.DashboardActiveProblem {
+  display: flex;
+  align-items: center;
+}
+
+.DashboardThemeIndicatorCarousel {
+  grid-column: 2 / 2;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.DashboardCarouselLibraryThemeWrapper{
+  border: 2px solid black;
+  height: 100%;
+  margin-left: 20px;
+  width: 80%;
+}
+
+.DashboardCarouselLibrarySlider{
+  border: 2px solid pink;
+}
+
+.DashboardCarouselLibrarySlider:hover{
+  border: 2px solid pink;
+}
+
+.IndicatorCarouselWrapper{
+  height: 100%;
+  border: 2px solid orange;
+}
+
+.IndicatorCarouselSlider{
+  height: 100%;
+}
+
+.IndicatorContainer{
+  width: 300px !important;
+}
+
+.DashboardRightAxis{
+  grid-column: 3 / 3;
+  grid-row: 2 / 2;
+  border: 2px solid green;
+}
