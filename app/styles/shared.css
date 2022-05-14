@@ -13,7 +13,7 @@
   height: 32px;
   
   /* Grey 400 */
-  background: #8E8E8E;
+  background: var(--color-grey-500);
   /* Grey 600 */
   border: 1px solid #262626;
   border-radius: 100px;
