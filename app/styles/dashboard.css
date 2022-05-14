@@ -78,8 +78,15 @@ p {
 }
 
 strong {
+  font-family: var(--color-white);
   font-weight: 600;
 }
+
+.Screensaver{
+  background-image: linear-gradient(0deg, #000000 -16.22%, rgba(0, 0, 0, 0) 34.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.48) 66.06%, #000000 95.99%), url('../assets/finn_bridge.jpeg');
+  background-size: cover;
+}
+
 
 /* Grid Layout */
 
@@ -112,29 +119,39 @@ strong {
 .dash{
   grid-row: 3 / 3;
   grid-column: 2 / 2;
+  
+  background: linear-gradient(92.27deg, rgba(83, 83, 83, 0.25) 25.63%, rgba(19, 19, 19, 0.06) 92.89%);
+  background-blend-mode: hard-light;
 
   border-left: 1px solid rgba(53, 53, 53, 0.85);
   border-top: 1px solid rgba(53, 53, 53, 0.85);
   border-right: 1px solid rgba(53, 53, 53, 0.85);
 
-  background: linear-gradient(92.27deg, rgba(83, 83, 83, 0.25) 3.63%, rgba(19, 19, 19, 0.06) 87.89%);
-  background-blend-mode: screen;
+  /* Auto layout for picker and ticker */
+  display: flex;
+  flex-direction: column;
+}
+
+.picker{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background: rgba(11, 8, 13, 0.2);
+  padding: 0px 0px 0px 8px;
+  gap: 4px;
+  height: 50px;
 }
 
 
 .sparklineticker {
-  height: 100px;
+  box-sizing: content-box;
   width: 100%;
-}
-
-.DashboardThemeSelectionWelcomeWrapper{
+  height: 100%;
+  
   display: flex;
-}
-
-
-.DashboardThemeSelectionBorder{
-  grid-row: 2 / 2;
-  grid-column: 1 / 1;
+  flex-direction: row;
+  align-items: center;
 }
 
 
@@ -149,7 +166,7 @@ strong {
 
     font-size: 16px;
     line-height: 100%;
-  }
+}
 
 .DashboardFlexStretch{
   flex: 1
@@ -164,19 +181,18 @@ strong {
   border: 0px solid black;
 }
 
-.picker{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  background: rgba(11, 8, 13, 0.2);
-  padding: 0px 0px 0px 8px;
-  gap: 4px;
-  height: 50px;
 
-}
 
 /* to refactor */
+.DashboardThemeSelectionWelcomeWrapper{
+  display: flex;
+}
+
+
+.DashboardThemeSelectionBorder{
+  grid-row: 2 / 2;
+  grid-column: 1 / 1;
+}
 
 
 .DashboardInset{
@@ -198,8 +214,6 @@ strong {
   left: 28px;
 
   width: 200px;
-  grid-column: 2 / 2;
-  grid-row: 4 / 4;
   display: flex;
 }
 
@@ -218,10 +232,6 @@ strong {
   border: 2px solid black;
 }
 
-.Screensaver{
-  background-image: linear-gradient(0deg, #000000 -16.22%, rgba(0, 0, 0, 0) 34.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.48) 66.06%, #000000 95.99%), url('../assets/finn_bridge.jpeg');
-  background-size: cover;
-}
 
 
 

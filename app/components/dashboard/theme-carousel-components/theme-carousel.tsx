@@ -27,7 +27,7 @@ export function ThemeCarousel(props: CarouselProps){
   return(
     <>
     <div className="DashboardActiveTheme">
-      <div className="pill">
+      <div className="pill-active">
         <p>{props.params ? deslugify(props.params.theme ? props.params.theme : "") : ""}</p>
       </div>
     </div>

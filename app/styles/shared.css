@@ -38,11 +38,12 @@
   justify-content: center;
   align-items: center;
   padding: 2px 12px;
+
+  /* Grey 100 */
+  background: var(--color-grey-100);
+  mix-blend-mode: normal;
+  border-radius: 100px;
   
-  
-  /* Grey 400 */
-  
-  background: #fff;
   /* Grey 600 */
   
   border: 1px solid #262626;
@@ -53,12 +54,12 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 28px;
-  color: #181818;
+  color: var(--color-grey-700);
 
 }
 
 .IndicatorContainer{
-  height: 70%; /* Might want to change this system Andre */
+  height: 100%;
   margin: 4px;
   width: 300px;
   border: 2px solid black;
