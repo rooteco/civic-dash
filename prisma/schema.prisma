@@ -71,7 +71,7 @@ model PredictionMarket {
   dateCreated DateTime @default(now())
   themes ThemesToPredictionMarkets[]
   problems ProblemsToPredictionMarkets[]
-      indicators IndicatorsToPredictionMarkets[]
+  indicators IndicatorsToPredictionMarkets[]
   favourite Boolean
 }
 

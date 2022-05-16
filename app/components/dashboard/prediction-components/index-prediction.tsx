@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import type { Prediction } from "~/models/prediction.server";
+import type { Prediction, FullPredictionMarket } from "~/models/prediction.server";
 import { Link, useParams } from "@remix-run/react"
 import Modal from "react-modal";
 import { PredictionModal } from './prediction-modal'

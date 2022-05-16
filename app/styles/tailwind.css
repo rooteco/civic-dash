@@ -488,17 +488,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: row;
 }
 
-
-.bg-\[url\(\.\.\/assets\/\$\{currentImage\}\)\] {
-  background-image: url(../assets/${currentImage}); 
-}
-
 .border {
   border-width: 1px;
 }
 
-.bg-cover {
-  background-size: cover;
+.bg-\[url\(\.\.\/assets\/\$\{currentImage\}\)\] {
+  background-image: url(../assets/${currentImage});
 }
 
 .filter {

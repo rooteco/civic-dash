@@ -10,13 +10,75 @@ export type Prediction = {
   dateCreated: Date;
 }
 
+
+export type FullPredictionMarket = {
+  id: String;
+  creatorUsername: String;
+  creatorName: String;
+  createdTime: Number;
+  closeTime: Number;
+  question: String;
+  description: String;
+  tags: Array<String>;
+  url: String;
+  pool: Number;
+  probability: Number;
+  volume7Days: Number;
+  volume24Hours: Number;
+  isResolved: Boolean;
+  bets: Array<Bet>;
+  comments: Array<Comment>;
+}
+
+export type Bet = {
+  createdTime: Number;
+  isAnte: Boolean;
+  shares: Number;
+  userId: String;
+  amount: Number;
+  probAfter: Number;
+  probBefore: Number;
+  id: String;
+  outcome: String;
+  contractId: String;
+}
+
+export type Comment = {
+  contractId: String;
+  userUsername: String;
+  userAvatarUrl: String;
+  userId: String;
+  text: String;
+  createdTime: Number;
+  id: String;
+  betId: String;
+  userName: String;
+}
+
+async function getFullPredictions(predictionMarkets: Array<Prediction>): Array<FullPredictionMarket>{
+
+  var fullArray: Array<any> = []
+  for (const market of predictionMarkets){
+    const fullMarket = await fetch(`https://manifold.markets/api/v0/slug/${market.slug}`)
+    .then((response) => response.json())
+    .then((jsonResponse) => jsonResponse.error ? fullArray.push({...market}) : fullArray.push({...market, fullData: jsonResponse}))
+  }
+
+  console.log(fullArray)
+  return fullArray
+}
+
 export async function getPredictionsByFavourite(): Promise<Array<Prediction>>{
   const predictionMarkets = await db.predictionMarket.findMany({
     where: {
       favourite: true
     }
   })
-  return predictionMarkets
+
+
+  const fullArray = await getFullPredictions(predictionMarkets)
+
+  return fullArray
 }
 
 export async function getPredictionsByTheme(theme_slug: string): Promise<Array<Prediction>>{
@@ -31,6 +93,9 @@ export async function getPredictionsByTheme(theme_slug: string): Promise<Array<P
       }
     }
   })
+
+  const fullArray = await getFullPredictions(predictionMarkets)
+
   return predictionMarkets
 }
 
@@ -46,6 +111,9 @@ export async function getPredictionsByProblem(problem_slug: string): Promise<Arr
       }
     }
   })
+
+  const fullArray = await getFullPredictions(predictionMarkets)
+
   return predictionMarkets
 }
 
@@ -61,6 +129,9 @@ export async function getPredictionsByIndicator(indicator_slug: string): Promise
       }
     }
   })
+
+  const fullArray = await getFullPredictions(predictionMarkets)
+
   return predictionMarkets
 }
 
@@ -70,5 +141,6 @@ export async function getPredictionBySlug(prediction_slug: string): Promise<Pred
       slug: prediction_slug
     }
   })
-  return predictionMarket
+  const fullPredictionMarket = await getMarketInfo(prediction_slug)
+  return {predictionMarkets: predictionMarkets, fullPredictionMarkets: fullArray}
 };
