@@ -1,6 +1,6 @@
-# fly.toml file generated for red-forest-6251 on 2022-05-16T12:53:48-07:00
+# fly.toml file generated for throbbing-mountain-5785 on 2022-05-16T13:17:52-07:00
 
-app = "red-forest-6251"
+app = "throbbing-mountain-5785"
 
 kill_signal = "SIGINT"
 kill_timeout = 5

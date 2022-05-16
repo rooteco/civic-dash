@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,125 +8,119 @@ datasource db {
 }
 
 model Theme {
-  id  Int  @id @default(autoincrement())
-  name String
-  description String
-  slug String @unique
-  problems ProblemsOnThemes[]
-  indicators IndicatorsOnThemes[]
+  id                Int                         @id @default(autoincrement())
+  name              String
+  description       String
+  slug              String                      @unique
+  indicators        IndicatorsOnThemes[]
+  problems          ProblemsOnThemes[]
   predictionMarkets ThemesToPredictionMarkets[]
 }
 
 model Problem {
-  id  Int  @id @default(autoincrement())
-  name String
-  description String
-  slug String @unique
-  themes ProblemsOnThemes[]
-  indicators IndicatorsOnProblems[]
+  id                Int                           @id @default(autoincrement())
+  name              String
+  description       String
+  slug              String                        @unique
+  indicators        IndicatorsOnProblems[]
+  themes            ProblemsOnThemes[]
   predictionMarkets ProblemsToPredictionMarkets[]
 }
 
 model Indicator {
-  id Int @id @default(autoincrement())
-  name String
-  description String
-  slug String @unique
-  favourite Boolean
-  config Config?
-  themes IndicatorsOnThemes[]
-  problems IndicatorsOnProblems[]
-  supportingConfigs SupportingIndicatorsOnConfigs[]
+  id                Int                             @id @default(autoincrement())
+  name              String
+  description       String
+  slug              String                          @unique
+  favourite         Boolean
+  config            Config?
+  problems          IndicatorsOnProblems[]
+  themes            IndicatorsOnThemes[]
   predictionMarkets IndicatorsToPredictionMarkets[]
+  supportingConfigs SupportingIndicatorsOnConfigs[]
 }
 
-// enum Layout {
-//   SINGLE
-//   DOUBLE
-// }
-
 model Config {
-  id Int @id @default(autoincrement())
-  indicator Indicator @relation(fields: [indicatorId], references: [id])
-  indicatorId Int
-  layout String @default("SINGLE")
+  id                   Int                             @id @default(autoincrement())
+  indicatorId          Int                             @unique
+  layout               String                          @default("SINGLE")
+  indicator            Indicator                       @relation(fields: [indicatorId], references: [id])
   additionalIndicators SupportingIndicatorsOnConfigs[]
 }
 
 model PredictionMarket {
-  id Int @id @default(autoincrement())
-  question String
-  slug String @unique
-  description String
-  marketVolume Int @default(0)
-  author String
-  dateCreated DateTime @default(now())
-  themes ThemesToPredictionMarkets[]
-  problems ProblemsToPredictionMarkets[]
-  indicators IndicatorsToPredictionMarkets[]
-  favourite Boolean
+  id           Int                             @id @default(autoincrement())
+  question     String
+  slug         String                          @unique
+  description  String
+  marketVolume Int                             @default(0)
+  author       String
+  dateCreated  DateTime                        @default(now())
+  favourite    Boolean
+  indicators   IndicatorsToPredictionMarkets[]
+  problems     ProblemsToPredictionMarkets[]
+  themes       ThemesToPredictionMarkets[]
 }
 
-
 model ThemesToPredictionMarkets {
-  theme Theme @relation(fields: [themeId], references: [id])
-  themeId Int
-  predictionMarket PredictionMarket @relation(fields: [predictionMarketId], references: [id])
+  themeId            Int
   predictionMarketId Int
+  predictionMarket   PredictionMarket @relation(fields: [predictionMarketId], references: [id])
+  theme              Theme            @relation(fields: [themeId], references: [id])
 
   @@id([themeId, predictionMarketId])
 }
 
 model ProblemsToPredictionMarkets {
-  problem Problem @relation(fields: [problemId], references: [id])
-  problemId Int
-  predictionMarket PredictionMarket @relation(fields: [predictionMarketId], references: [id])
+  problemId          Int
   predictionMarketId Int
+  predictionMarket   PredictionMarket @relation(fields: [predictionMarketId], references: [id])
+  problem            Problem          @relation(fields: [problemId], references: [id])
 
   @@id([problemId, predictionMarketId])
 }
 
 model IndicatorsToPredictionMarkets {
-  indicator Indicator @relation(fields: [indicatorId], references: [id])
-  indicatorId Int
-  predictionMarket PredictionMarket @relation(fields: [predictionMarketId], references: [id])
+  indicatorId        Int
   predictionMarketId Int
+  indicator          Indicator        @relation(fields: [indicatorId], references: [id])
+  predictionMarket   PredictionMarket @relation(fields: [predictionMarketId], references: [id])
 
   @@id([indicatorId, predictionMarketId])
 }
 
 model SupportingIndicatorsOnConfigs {
-  indicator Indicator @relation(fields: [indicatorId], references: [id])
   indicatorId Int
-  config Config @relation(fields: [configId], references: [id])
-  configId Int
+  configId    Int
+  config      Config    @relation(fields: [configId], references: [id])
+  indicator   Indicator @relation(fields: [indicatorId], references: [id])
 
   @@id([indicatorId, configId])
 }
 
 model ProblemsOnThemes {
-  theme Theme @relation(fields: [themeId], references: [id])
-  themeId Int
-  problem Problem @relation(fields: [problemId], references: [id])
+  themeId   Int
   problemId Int
+  problem   Problem @relation(fields: [problemId], references: [id])
+  theme     Theme   @relation(fields: [themeId], references: [id])
 
   @@id([themeId, problemId])
 }
 
 model IndicatorsOnThemes {
-  theme Theme @relation(fields: [themeId], references: [id])
-  themeId Int
-  indicator Indicator @relation(fields: [indicatorId], references: [id])
+  themeId     Int
   indicatorId Int
+  indicator   Indicator @relation(fields: [indicatorId], references: [id])
+  theme       Theme     @relation(fields: [themeId], references: [id])
 
   @@id([themeId, indicatorId])
 }
 
 model IndicatorsOnProblems {
-  problem Problem @relation(fields: [problemId], references: [id])
-  problemId Int
-  indicator Indicator @relation(fields: [indicatorId], references: [id])
+  problemId   Int
   indicatorId Int
+  indicator   Indicator @relation(fields: [indicatorId], references: [id])
+  problem     Problem   @relation(fields: [problemId], references: [id])
 
   @@id([problemId, indicatorId])
 }
