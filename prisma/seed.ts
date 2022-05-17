@@ -69,7 +69,15 @@ async function seed() {
     })
   );
 }
-seed();
+seed()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await db.$disconnect();
+  });
+;
 
 function getThemes() {
   return [
@@ -176,7 +184,7 @@ function getPredictionMarkets(){
     {
       id: 1,
       question: "Will anyone outbid Elon musk to buy twitter and get approved by twitter's board before the poison pill expires?",
-      slug: "elon-twitter",
+      slug: "will-anyone-outbid-elon-musk-to-buy",
       description: "",
       marketVolume: 2696,
       author: "J",

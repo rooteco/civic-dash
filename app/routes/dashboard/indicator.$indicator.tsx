@@ -40,8 +40,8 @@ export default function WidgetIndex(){
         linkChild={<IndexIndicatorLink indicators={data.indicators}/>}
         themeCarouselChild={<IndexCarousel themes={data.themes}/>}
         predictionChild={<IndexPrediction
-                            predictionMarkets={data.predictionMarkets}
                             categoryType={`${params.indicator}`}
+                            predictionMarkets={data.predictionMarkets}
                             />}
     />
   )
