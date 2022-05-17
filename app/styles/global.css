@@ -1,8 +1,7 @@
-/*
-Resets on HTML elements. 
 
-Largely adapted from https://piccalil.li/blog/a-modern-css-reset/
-*/
+/* ------------------------------ */
+/* Resets                         */    
+/* ------------------------------ */
 
 /* Box-Sizing */
 *,
@@ -11,7 +10,7 @@ Largely adapted from https://piccalil.li/blog/a-modern-css-reset/
   box-sizing: border-box;
 }
 
-/* Remove default margin */
+/* Reset default margin to removal */
 body,
 h1,
 h2,
@@ -56,6 +55,15 @@ select {
     }
 }
 
+/* ------------------------------ */
+/* Custom Properties              */
+/* ------------------------------ */
+
+/* Colors */
+
+/* Spacing */
+
+
 /* Typography */
 
 @font-face {
@@ -83,7 +91,9 @@ select {
 .icon-m {
 }
 
-/* Utility */
+/* ------------------------------ */
+/* Utility                        */
+/* ------------------------------ */
 
 /* Truncate text (...) if exceeds parent */
 .truncate {
@@ -92,11 +102,27 @@ select {
     white-space: nowrap;
 }
 
-/* Responsiveness: TODO */
+.flex {
+    display: flex;
+    gap: var(--space-xs, 0.5em);
+}
+
+
+
+/* ------------------------------ */
+/* Responsiveness: TODO           */
+/* ------------------------------ */
 @media breakpoint() {
     /* Update base sizes */
     :root {
         --font-size-base: 16px;
         --spacer-unit: 8px;
     }
+}
+
+/* ------------------------------ */
+/* Components: TODO           */
+/* ------------------------------ */
+
+.pill {
 }
