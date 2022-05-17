@@ -1,6 +1,6 @@
-# fly.toml file generated for throbbing-mountain-5785 on 2022-05-16T13:17:52-07:00
+# fly.toml file generated for weathered-cloud-2598 on 2022-05-17T11:19:40-07:00
 
-app = "throbbing-mountain-5785"
+app = "weathered-cloud-2598"
 
 kill_signal = "SIGINT"
 kill_timeout = 5

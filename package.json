@@ -5,9 +5,8 @@
   "license": "",
   "sideEffects": false,
   "scripts": {
-    "build": "npm run build:css npm run build:seed && remix build",
+    "build": "npm run build:css && remix build",
     "build:css": "npm run generate:css -- --minify",
-    "build:seed": "node --require esbuild-register prisma/seed.ts",
     "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
     "dev:css": "npm run generate:css -- --watch",
     "dev:remix": "remix watch",
@@ -31,11 +30,13 @@
     "react-dom": "^17.0.2",
     "react-modal": "^3.15.1",
     "react-multi-carousel": "^2.8.0",
+    "ts-node": "^10.7.0",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.4.3",
     "@remix-run/eslint-config": "^1.4.3",
+    "@types/node": "^17.0.34",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "autoprefixer": "^10.4.7",
@@ -44,7 +45,7 @@
     "eslint": "^8.11.0",
     "postcss": "^8.4.13",
     "tailwindcss": "^3.0.24",
-    "typescript": "^4.5.5"
+    "typescript": "^4.6.4"
   },
   "engines": {
     "node": ">=14"
