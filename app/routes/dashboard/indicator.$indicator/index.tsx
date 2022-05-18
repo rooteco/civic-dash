@@ -38,7 +38,7 @@ export const loader: LoaderFunction = async ({
 
 export default function IndicatorSingle(){
   const data = useLoaderData<LoaderData>();
-  console.log("SOYLENT DATA:", data)
+  console.log("PROPS.CONFIG:", data.config)
   return(
     <ChartCanvas dataset={data.dataset} config={data.config[0]}/>
   )
