@@ -7,4 +7,10 @@ module.exports = {
   assetsBuildDirectory: "public/build",
   serverBuildPath: "build/index.js",
   publicPath: "/build/",
+  serverDependenciesToBundle: [/^@observablehq\/plot.*/,
+                               /^d3.*/, 
+                               "isoformat",
+                               "delaunator",
+                               "internmap",
+                               "robust-predicates"],
 };

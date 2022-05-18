@@ -41,7 +41,6 @@ export default function WidgetIndicator(){
   invariant(params, "Params must be defined")
 
   const data = useLoaderData<LoaderData>();
-  console.log("DATA:", data)
   return(
     <DashboardWrapper
       focusChild={<Outlet />}

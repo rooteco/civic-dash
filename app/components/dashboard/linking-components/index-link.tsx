@@ -30,7 +30,7 @@ export function IndexLink(props: LinkProps){
         >
       {props && props.indicators.map((indicator) => (
       <div key={indicator.id}>
-        <Link to={`indicator/${indicator.slug}/${slugify(indicator.config ? indicator.config.layout : "")}`}>
+        <Link to={`indicator/${indicator.slug}`}>
           <p>{indicator.name}</p>
         </Link>
       </div>

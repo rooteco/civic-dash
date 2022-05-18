@@ -129,9 +129,9 @@ function getIndicators(){
   return [
     {
       id: 1,
-      name: "Median House Prices",
+      name: "Median Sale Price",
       description: "",
-      slug: "median-house-prices",
+      slug: "median-sale-price",
       favourite: true,
     },
     {
@@ -162,7 +162,11 @@ function getConfigs(){
   return [
     {
       indicatorId: 1,
-      layout: "SINGLE"
+      layout: "SINGLE",
+      xName: "Date",
+      xType: "time",
+      yName: "Mean Sale Price (Weekly)",
+      yType: "",
     },
     {
       indicatorId: 2,

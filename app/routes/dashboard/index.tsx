@@ -19,6 +19,7 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async () => {
+  // TODO: indicators is unnecessarily fetching config here -> remove
   const themes = await getThemes();
   const indicators = await getIndicatorsByFavourite();
   const predictionMarkets = await getPredictionsByFavourite();
@@ -27,6 +28,7 @@ export const loader: LoaderFunction = async () => {
     ...indicators,
     predictionMarkets: predictionMarkets
   }
+
   return json(data)
 };
 

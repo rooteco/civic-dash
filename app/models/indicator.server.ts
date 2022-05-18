@@ -12,12 +12,15 @@ type Config = {
   layoutId: Number;
   id: Number;
   indicatorId: Number;
+  xName: String;
+  xType: String;
+  yName: String;
+  yType: String;
 }
 
 type Dataset = {
   data: Array<any>
 }
-
 
 
 export async function getConfigFromIndicator(indicator_slug: string): Promise<Config>{

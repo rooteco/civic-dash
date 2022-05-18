@@ -476,6 +476,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .h-full {
   height: 100%;
 }
@@ -486,10 +490,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-row {
   flex-direction: row;
-}
-
-.border {
-  border-width: 1px;
 }
 
 .bg-\[url\(\.\.\/assets\/\$\{currentImage\}\)\] {
