@@ -51,7 +51,8 @@ export default function WidgetIndex(){
         focusChild={<DashboardIntro />}
         linkChild={<IndexIndicatorLink indicators={data.indicators}/>}
         themeCarouselChild={<IndexCarousel themes={data.themes}/>}
-        predictionChild={<IndexPrediction predictionMarket={data.predictionMarket}/>}
+        predictionChild={<IndexPrediction   predictionMarkets={data.predictionMarkets}
+          />}
       />
   )
 }
