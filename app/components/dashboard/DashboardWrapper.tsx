@@ -1,5 +1,8 @@
 import React from 'react';
-import { Link } from '@remix-run/react';
+
+import Canvas from './canvas';
+import Header from './header';
+import Menu from './menu';
 
 interface WrapperProps {
   focusChild: React.ReactNode;
@@ -11,49 +14,31 @@ interface WrapperProps {
 export const TableOpenContext: Boolean = React.createContext(true)
 
 export function DashboardWrapper(props: WrapperProps){
-  const [tableOpen, setTableOpen] = React.useState(true)
+  const [tableOpen, setTableOpen] = React.useState(false)
+
   return(
-    <>
+    <div className="min-h-screen flex flex-row">
       <TableOpenContext.Provider value={tableOpen}>
-        <div className="min-h-screen flex flex-row">
-          <div className="DashboardLinks">
-            <Link to={"/dashboard"}><p>Dashboard</p></Link>
-            <div><a
-                    href="https://rooteco.notion.site/CivicDash-v2-1-8631ce9d3fd442a1a031eec9fa48cf3b"
-                    target="_blank" rel="noreferrer">Docs</a></div>
-                  <div><a href="https://discord.gg/bQHFfWUC" target="_blank" rel="noreferrer">Discord</a></div>
+        <Menu />
+        <div className="dashgrid">
+          <div className="axis"/>
+          <Canvas />
+          <Header setTableOpen={setTableOpen} prevState={tableOpen}  />
+          <div className="dash">
+            <div className="picker">
+              {props.themeCarouselChild}
+            </div>
+            <div className="sparklineticker">
+              {props.linkChild}
+            </div>
           </div>
-          <div className="dashgrid">
-            <div className="axis"/>
-            <div className="focus">
-              {props.focusChild}
-            </div>
-            <div className="header">
-                <p>Hello <strong>Farnney the Dinosaur</strong></p>
-                <div className="portfoliostats">
-                  <button
-                      className="metric"
-                      onClick={()=>setTableOpen(prevState => !prevState)}>$1000</button>
-                    <button
-                      className="metric"
-                      onClick={()=>setTableOpen(prevState => !prevState)}>3</button>
-                </div>
-            </div>
-            <div className="dash">
-              <div className="picker">
-                {props.themeCarouselChild}
-              </div>
-              <div className="sparklineticker">
-                {props.linkChild}
-              </div>
-            </div>
-            <div className="DashboardInset" id="ModalAnchor">
-              {props.predictionChild ? props.predictionChild : ""}
-            </div>
+          <div className="DashboardInset" id="ModalAnchor">
+            {props.predictionChild ? props.predictionChild : ""}
           </div>
         </div>
+
     </TableOpenContext.Provider>
-    </>
+    </div>
   )
 }
 

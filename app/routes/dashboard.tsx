@@ -20,7 +20,7 @@ export const links: LinksFunction = () => {
 
 export default function Dashboard(){
   return (
-    <main className={"Screensaver"}>
+    <main className={"screensaver"}>
         <Outlet />
     </main>
   );
