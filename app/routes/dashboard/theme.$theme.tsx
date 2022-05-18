@@ -43,6 +43,9 @@ export const loader: LoaderFunction = async ({
 export default function WidgetTheme(){
   const params = useParams();
   const data = useLoaderData<LoaderData>();
+
+  
+
   return (
     <DashboardWrapper
       focusChild={<Outlet />}
