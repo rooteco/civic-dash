@@ -199,7 +199,6 @@ function getConfigs(){
       indicatorId: 5,
       layout: "SINGLE",
       xName: "Date",
-      xType: "time",
       yName: "Median Listing Price (Weekly)",
       yType: "linear",
       chartType: 'bar'
