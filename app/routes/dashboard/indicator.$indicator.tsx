@@ -31,7 +31,7 @@ export const loader: LoaderFunction = async ({
   return json(data)
 };
 
-export default function WidgetIndex(){
+export default function IndicatorDisplay(){
   const data = useLoaderData<LoaderData>();
 
   const params = useParams();

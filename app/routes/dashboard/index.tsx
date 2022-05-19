@@ -1,5 +1,4 @@
-import { Link, useLoaderData } from "@remix-run/react";
-import type { LinksFunction, LoaderFunction } from "@remix-run/node";
+import { Link, useLoaderData, useOutletContext } from "@remix-run/react";
 import { json } from "@remix-run/node";
 
 import { getThemes, getIndicatorsByFavourite } from "~/models/theme.server";
@@ -10,6 +9,10 @@ import { IndexCarousel } from "~/components/dashboard/theme-carousel-components/
 
 import { getPredictionsByFavourite } from "~/models/prediction.server"
 import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
+
+import type { LinksFunction, LoaderFunction } from "@remix-run/node";
+import type { UserContext } from "~/routes/dashboard"
+
 
 type LoaderData = {
   themes: Awaited<ReturnType<typeof getThemes>>;
@@ -32,11 +35,13 @@ export const loader: LoaderFunction = async () => {
   return json(data)
 };
 
-export default function WidgetIndex(){
+export default function DashboardIndex(){
   const data = useLoaderData<LoaderData>();
+  const user = useOutletContext<UserType>();
+  console.log('THIS IS THE USER INFORMATION:', user)
   return(
     <DashboardWrapper
-        focusChild={<DashboardIntro />}
+        focusChild={<DashboardIntro user={user} />}
         themeCarouselChild={<IndexCarousel themes={data.themes}/>}
         linkChild={<IndexLink indicators={data.indicators}/>}
         predictionChild={<IndexPrediction

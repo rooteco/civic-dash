@@ -22,14 +22,12 @@ export function Bar(props) {
     const chart = Plot.plot({
       marginLeft: 100,
       insetBottom: 10,
-      style: {
-        backgroundColor: "white"
-      },
       marks: [
         Plot.barY(data, {x: props.keys[0], y: props.keys[1]})
       ],
       style: {
-        fontSize: 10
+        fontSize: 10,
+        backgroundColor: "white"
       }
       });
       headerRef.current.append(chart);
