@@ -53,6 +53,10 @@ export default function Dashboard(){
     setUser(userData)
   }, [userData])
 
+  useEffect(()=>{
+    console.log('BLAH ANDRE', userData)
+  }, [userData])
+
   const userContext: UserContext = user;
   if(user === 'loading'){
     return(
