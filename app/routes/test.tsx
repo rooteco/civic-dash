@@ -16,7 +16,7 @@ export const links: LinksFunction = () => {
 }
 
 export const loader: LoaderFunction = async () => {
-  const redisValue = await getFromRedis('median-sale-price')
+  const redisValue = await getFromRedis('median-list-prices')
   redisValue.forEach(dataObject => dataObject.date = dayStringToDate(dataObject.date))
   return redisValue
 }
@@ -39,7 +39,7 @@ export default function Test() {
       marginLeft: 100,
       insetBottom: 10,
       style: {
-        background: "transparent"
+        backgroundColor: "white"
       },
       x: {
         ticks: 10,
@@ -51,13 +51,15 @@ export default function Test() {
         label: keys[1]
       },
       marks: [
-        Plot.line(data, {x: keys[0], y: keys[1], stroke: "darkblue"})
+        Plot.line(data, {x: keys[0], y: keys[1], z: 'division', stroke: "division"})
       ],
       color: {
-        scheme: "blues",
-        type: "linear"
+        type: "categorical",
+        scheme: "dark2",
+        legend: true
       }
     });
+
     headerRef.current.append(chart);
     return () => chart.remove();
   }, [data]);

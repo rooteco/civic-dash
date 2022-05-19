@@ -47,9 +47,9 @@ model Config {
   indicator            Indicator                       @relation(fields: [indicatorId], references: [id])
   chartType            String                          @default("line")
   xName                String                          @default("no name set")
-  xType                String                          @default("no type set")
+  xType                String                          @default("linear")
   yName                String                          @default("no name set")
-  yType                String                          @default("no type set")
+  yType                String                          @default("linear")
   additionalIndicators SupportingIndicatorsOnConfigs[]
 }
 

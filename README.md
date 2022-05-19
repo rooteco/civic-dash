@@ -13,6 +13,9 @@
 ## Redis
 - When fetching from Redis, use <indicator.slug> to fetch the full dataset, and <indicator.slug>-spark to fetch the small dataset
 
+## Observable & Data
+- The order of the keys in the chart components needs to be the same as the order of the fields in the data objects
+
 # Andre's Notes
 
 

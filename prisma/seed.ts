@@ -146,14 +146,21 @@ function getIndicators(){
       name: "Inflation Rate",
       description: "",
       slug: "inflation",
-      favourite: true,
+      favourite: false,
     },
     {
       id: 4,
-      name: "Mean House Prices",
+      name: "Median List Prices",
       description: "",
-      slug: "mean-house-prices",
-      favourite: false,
+      slug: "median-list-prices",
+      favourite: true,
+    },
+    {
+      id: 5,
+      name: "Student Absenteeism Rates",
+      description: "",
+      slug: "student-absenteeism",
+      favourite: true,
     }
   ]
 }
@@ -165,8 +172,9 @@ function getConfigs(){
       layout: "SINGLE",
       xName: "Date",
       xType: "time",
-      yName: "Mean Sale Price (Weekly)",
-      yType: "",
+      yName: "Median Sale Price (Weekly)",
+      yType: "linear",
+      chartType: 'line'
     },
     {
       indicatorId: 2,
@@ -178,7 +186,21 @@ function getConfigs(){
     },
     {
       indicatorId: 4,
-      layout: "SINGLE"
+      layout: "SINGLE",
+      xName: "Date",
+      xType: "time",
+      yName: "Median Listing Price (Weekly)",
+      yType: "linear",
+      chartType: 'scatter'
+    },
+    {
+      indicatorId: 5,
+      layout: "SINGLE",
+      xName: "Date",
+      xType: "time",
+      yName: "Median Listing Price (Weekly)",
+      yType: "linear",
+      chartType: 'bar'
     }
   ]
 }
