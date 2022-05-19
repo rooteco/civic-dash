@@ -10,7 +10,6 @@ export const links: LinksFunction = () => {
 };
 
 export default function IndicatorDouble(){
-  console.log("HELLO THEME ROUTE!")
   return(
     <div className="DoubleIndicatorWrapper">
       <div className="DoubleIndicatorChart">

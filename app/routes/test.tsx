@@ -1,6 +1,7 @@
 import Carousel from 'react-multi-carousel';
 import styles from 'react-multi-carousel/lib/styles.css';
 
+
 export const links: LinksFunction = () => {
   return [
     {
@@ -10,12 +11,26 @@ export const links: LinksFunction = () => {
   ];
 }
 
+
+export function CustomLeftArrow() {
+  return (
+    <div></div>
+  )
+}
+
+export function CustomRightArrow() {
+  return (
+    <div></div>
+  )
+}
+
+
 export default function Test(){
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 2
+      items: 4
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -32,13 +47,17 @@ export default function Test(){
   };
 
   return(
-  <div style={{border: "2px solid black", width: "400px", height: "400px"}}>
-    <Carousel responsive={responsive}>
-      <div>Item 1</div>
-      <div>Item 2</div>
-      <div>Item 3</div>
-      <div>Item 4</div>
-    </Carousel>
-  </div>
+
+    <div style = {{width: '50vw'}}>
+      <Carousel
+       responsive={responsive}
+       infinite autoPlay
+       customLeftArrow={<div />}
+       customRightArrow={<div />}
+       >
+        <div>Item 1</div>
+        <div>Item 2</div>
+      </Carousel>
+    </div>
   )
 }

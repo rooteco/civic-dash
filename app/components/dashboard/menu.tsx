@@ -8,4 +8,3 @@ export default function Menu() {
             <div><a href="https://discord.gg/bQHFfWUC" target="_blank" rel="noreferrer">Discord</a></div>
           </div>;
 }
-  

@@ -17,22 +17,23 @@ const responsive = {
 
 
   return(
+    <div className="carousel-wrapper">
       <Carousel
         responsive={responsive}
         autoPlay={false}
         itemClass="pill"
-        containerClass="DashboardCarouselLibraryWrapper"
         centerMode={true}
-        sliderClass="DashboardCarouselLibrarySlider"
+        sliderClass="carousel-track"
         shouldResetAutoplay={false}
         >
         {props && props.themes.map((theme)=>(
             <div key={theme.id}>
               <Link to={`/dashboard/theme/${theme.slug}`}>
-                {theme.name}
+                <span> {theme.name} </span>
               </Link>
             </div>
         ))}
       </Carousel>
+    </div>
   )
 }

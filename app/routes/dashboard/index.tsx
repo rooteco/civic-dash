@@ -11,6 +11,11 @@ import { IndexCarousel } from "~/components/dashboard/theme-carousel-components/
 import { getPredictionsByFavourite } from "~/models/prediction.server"
 import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
 
+
+
+
+
+
 type LoaderData = {
   themes: Awaited<ReturnType<typeof getThemes>>;
   indicators: Awaited<ReturnType<typeof getIndicatorsByFavourite>>['indicators'];
@@ -32,7 +37,6 @@ export const loader: LoaderFunction = async () => {
 
 export default function WidgetIndex(){
   const data = useLoaderData<LoaderData>();
-
 
   return(
     <DashboardWrapper
