@@ -7,6 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id                String                      @unique()
+}
+
 model Theme {
   id                Int                         @id @default(autoincrement())
   name              String

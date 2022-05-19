@@ -1,3 +1,4 @@
+import { db } from "~/utils/db.server";
 import { Authenticator } from "remix-auth";
 import { sessionStorage } from "~/models/session.server";
 import { GoogleStrategy, SocialsProvider } from "remix-auth-socials";
@@ -10,6 +11,16 @@ export const authenticator = new Authenticator(sessionStorage);
 async function handleSocialAuthCallback({ profile }) {
   // TODO: create user in your db here
   // profile object contains all the user data like image, displayName, id
+  const upserUser = await db.user.upsert({
+    where: {
+      id: profile.id
+    },
+    update: {},
+    create: {
+      id: profile.id
+    }
+  })
+
   return profile;
 }
 

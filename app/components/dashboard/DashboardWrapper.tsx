@@ -1,7 +1,11 @@
 import React from 'react';
-import { Link } from '@remix-run/react';
+import { Link, Form } from '@remix-run/react';
+import { SocialsProvider } from "remix-auth-socials";
+import type { User } from "~/routes/dashboard"
+
 
 interface WrapperProps {
+  user: User;
   focusChild: React.ReactNode;
   linkChild: React.ReactNode;
   themeCarouselChild: React.ReactNode;
@@ -29,7 +33,22 @@ export function DashboardWrapper(props: WrapperProps){
               {props.focusChild}
             </div>
             <div className="header">
-                <p>Hello <strong>Farnney the Dinosaur</strong></p>
+                {props.user &&
+                  <Form
+                    method="post"
+                    action="/logout"
+                  >
+                    <button style={{color: "gray"}}><p>Logout</p></button>
+                  </Form>
+                }
+                {!props.user &&
+                  <Form
+                    method="post"
+                    action={`/auth/${SocialsProvider.GOOGLE}`}
+                  >
+                    <button style={{color: "gray"}}><p>Login or sign up</p></button>
+                  </Form>
+                }
                 <div className="portfoliostats">
                   <button
                       className="metric"
@@ -56,6 +75,8 @@ export function DashboardWrapper(props: WrapperProps){
     </>
   )
 }
+
+<p>Hello <strong>Farnney the Dinosaur</strong></p>
 
 
 // <Link><p>Docs</p></Link>

@@ -47,17 +47,19 @@ export type UserContext = {
 
 export default function Dashboard(){
   const userData = useLoaderData();
-  const [user, setUser] = useState()
+  const [user, setUser] = useState("loading")
 
   useEffect(()=>{
     setUser(userData)
   }, [userData])
 
   const userContext: UserContext = user;
-
-  useEffect(()=>{
-    console.log("USER STATE:", userData)
-  }, [userData])
+  if(user === 'loading'){
+    return(
+      <>
+      </>
+    )
+  }
 
   return (
     <main className={"Screensaver"}>

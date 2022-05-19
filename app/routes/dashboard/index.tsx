@@ -39,8 +39,10 @@ export default function DashboardIndex(){
   const data = useLoaderData<LoaderData>();
   const user = useOutletContext<UserType>();
   console.log('THIS IS THE USER INFORMATION:', user)
+
   return(
     <DashboardWrapper
+        user={user}
         focusChild={<DashboardIntro user={user} />}
         themeCarouselChild={<IndexCarousel themes={data.themes}/>}
         linkChild={<IndexLink indicators={data.indicators}/>}
