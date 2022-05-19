@@ -30,7 +30,7 @@ model Problem {
 model Indicator {
   id                Int                             @id @default(autoincrement())
   name              String
-  description       String
+  description       String                          @default("No description. Add one!")
   slug              String                          @unique
   favourite         Boolean
   config            Config?
@@ -45,6 +45,12 @@ model Config {
   indicatorId          Int                             @unique
   layout               String                          @default("SINGLE")
   indicator            Indicator                       @relation(fields: [indicatorId], references: [id])
+  chartType            String                          @default("line")
+  xName                String                          @default("no name set")
+  xType                String                          @default("linear")
+  yName                String                          @default("no name set")
+  yType                String                          @default("linear")
+  yFormat              String                          @default("number")
   additionalIndicators SupportingIndicatorsOnConfigs[]
 }
 

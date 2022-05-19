@@ -129,9 +129,9 @@ function getIndicators(){
   return [
     {
       id: 1,
-      name: "Median House Prices",
-      description: "",
-      slug: "median-house-prices",
+      name: "Median Sale Price",
+      description: "This is the median sale price for houses in San Francisco, taken from Zillow's open source database",
+      slug: "median-sale-price",
       favourite: true,
     },
     {
@@ -146,14 +146,21 @@ function getIndicators(){
       name: "Inflation Rate",
       description: "",
       slug: "inflation",
-      favourite: true,
+      favourite: false,
     },
     {
       id: 4,
-      name: "Mean House Prices",
+      name: "Median List Prices",
       description: "",
-      slug: "mean-house-prices",
-      favourite: false,
+      slug: "median-list-prices",
+      favourite: true,
+    },
+    {
+      id: 5,
+      name: "Student Absenteeism Rates",
+      description: "",
+      slug: "student-absenteeism",
+      favourite: true,
     }
   ]
 }
@@ -162,7 +169,13 @@ function getConfigs(){
   return [
     {
       indicatorId: 1,
-      layout: "SINGLE"
+      layout: "SINGLE",
+      xName: "Date",
+      xType: "time",
+      yName: "Median Sale Price (Weekly)",
+      yType: "linear",
+      yFormat: 'usd',
+      chartType: 'line'
     },
     {
       indicatorId: 2,
@@ -174,7 +187,22 @@ function getConfigs(){
     },
     {
       indicatorId: 4,
-      layout: "SINGLE"
+      layout: "SINGLE",
+      xName: "Date",
+      xType: "time",
+      yName: "Median Listing Price (Weekly)",
+      yType: "linear",
+      yFormat: 'usd',
+      chartType: 'scatter',
+    },
+    {
+      indicatorId: 5,
+      layout: "SINGLE",
+      xName: "Date",
+      xType: "time",
+      yName: "Median Listing Price (Weekly)",
+      yType: "linear",
+      chartType: 'bar'
     }
   ]
 }

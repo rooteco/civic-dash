@@ -71,13 +71,6 @@ export async function getIndicatorsByFavourite(): Promise<IndicatorAndSpark>{
     where: {
       favourite: true
     },
-    include: {
-      config: {
-        select: {
-          layout: true
-        }
-      }
-    }
   })
   var sparkDataArray: Array<any> = [];
   for(let indicator of indicators){
@@ -114,6 +107,8 @@ export async function getIndicatorsByTheme(theme_slug: string): Promise<Indicato
   }
   return({indicators: indicators, sparkData: sparkDataArray})
 }
+
+
 
 export async function getIndicatorsByProblem(problem_slug: string): Promise<IndicatorAndSpark>{
   const indicators = await db.indicator.findMany({

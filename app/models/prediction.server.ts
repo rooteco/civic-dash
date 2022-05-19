@@ -64,7 +64,6 @@ async function getFullPredictions(predictionMarkets: Array<Prediction>): Array<F
     .then((jsonResponse) => jsonResponse.error ? fullArray.push({...market}) : fullArray.push({...market, fullData: jsonResponse}))
   }
 
-  console.log(fullArray)
   return fullArray
 }
 
