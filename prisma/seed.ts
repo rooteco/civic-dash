@@ -130,7 +130,7 @@ function getIndicators(){
     {
       id: 1,
       name: "Median Sale Price",
-      description: "",
+      description: "This is the median sale price for houses in San Francisco, taken from Zillow's open source database",
       slug: "median-sale-price",
       favourite: true,
     },
@@ -174,6 +174,7 @@ function getConfigs(){
       xType: "time",
       yName: "Median Sale Price (Weekly)",
       yType: "linear",
+      yFormat: 'usd',
       chartType: 'line'
     },
     {
@@ -191,7 +192,8 @@ function getConfigs(){
       xType: "time",
       yName: "Median Listing Price (Weekly)",
       yType: "linear",
-      chartType: 'scatter'
+      yFormat: 'usd',
+      chartType: 'scatter',
     },
     {
       indicatorId: 5,

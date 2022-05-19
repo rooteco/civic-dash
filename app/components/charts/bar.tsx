@@ -11,11 +11,9 @@ interface BarProps{
 export function Bar(props) {
   const headerRef = useRef();
   const [data, setData] = useState();
-  const [keys, setKeys] = useState(["NA", "NA"])
 
   useEffect(() => {
     setData(props.dataset ? props.dataset : []);
-    setKeys(props.dataset ? Object.keys(props.dataset[0]) : ["NA", "NA"])
   }, [props]);
 
   useEffect(() => {
@@ -28,7 +26,7 @@ export function Bar(props) {
         backgroundColor: "white"
       },
       marks: [
-        Plot.barY(data, {x: keys[0], y: keys[1]})
+        Plot.barY(data, {x: props.keys[0], y: props.keys[1]})
       ],
       style: {
         fontSize: 10

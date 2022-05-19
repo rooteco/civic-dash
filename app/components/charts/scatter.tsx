@@ -13,16 +13,14 @@ interface ScatterProps{
 export function Scatter(props: ScatterProps) {
   const headerRef = useRef();
   const [data, setData] = useState();
-  const [keys, setKeys] = useState(["NA", "NA"])
 
   useEffect(() => {
     setData(props.dataset ? props.dataset : []);
-    setKeys(props.dataset ? Object.keys(props.dataset[0]) : ["NA", "NA"])
   }, [props]);
 
   useEffect(() => {
     if (data === undefined) return;
-    else if (keys.length < 3){
+    else if (props.keys.length < 3){
       const chart = Plot.plot({
 
         marginLeft: 100,
@@ -41,7 +39,7 @@ export function Scatter(props: ScatterProps) {
           type: props.config ? props.config.yType : "linear"
         },
         marks: [
-          Plot.dot(handleTimeRange(data, props.timeRange), {x: keys[0], y: keys[1], stroke: "darkblue"})
+          Plot.dot(handleTimeRange(data, props.timeRange), {x: props.keys[0], y: props.keys[1], stroke: "darkblue"})
         ],
         color: {
           scheme: "blues",
@@ -69,7 +67,7 @@ export function Scatter(props: ScatterProps) {
           type: props.config ? props.config.yType : "linear"
         },
         marks: [
-          Plot.dot(handleTimeRange(data, props.timeRange), {x: keys[0], y: keys[1], z: 'division', stroke: "division"})
+          Plot.dot(handleTimeRange(data, props.timeRange), {x: props.keys[0], y: props.keys[1], z: 'division', stroke: "division"})
         ],
         color: {
           type: "categorical",

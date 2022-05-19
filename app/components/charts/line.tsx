@@ -8,22 +8,21 @@ interface LineProps{
   dataset: Array<any>;
   config: Config;
   timeRange: String;
+  keys: Array<String>;
 }
 
 export function Line(props) {
   const headerRef = useRef();
   const [data, setData] = useState();
-  const [keys, setKeys] = useState(["NA", "NA"])
 
   useEffect(() => {
     setData(props.dataset ? props.dataset : []);
-    setKeys(props.dataset ? Object.keys(props.dataset[0]) : ["NA", "NA"])
   }, [props]);
 
   useEffect(() => {
     if (data === undefined) return;
     // single line in the chart
-    else if (keys.length < 3){
+    else if (props.keys.length < 3){
       const chart = Plot.plot({
 
         margin: 100,
@@ -45,7 +44,7 @@ export function Line(props) {
           type: props.config ? props.config.yType : "linear"
         },
         marks: [
-          Plot.line(handleTimeRange(data, props.timeRange), {x: keys[0], y: keys[1], stroke: "darkblue"}),
+          Plot.line(handleTimeRange(data, props.timeRange), {x: props.keys[0], y: props.keys[1], stroke: "darkblue"}),
         ],
         color: {
           scheme: "blues",
@@ -73,7 +72,7 @@ export function Line(props) {
           type: props.config ? props.config.yType : "linear"
         },
         marks: [
-          Plot.line(handleTimeRange(data, props.timeRange), {x: keys[0], y: keys[1], z: 'division', stroke: "division"})
+          Plot.line(handleTimeRange(data, props.timeRange), {x: props.keys[0], y: props.keys[1], z: 'division', stroke: "division"})
         ],
         color: {
           type: "categorical",

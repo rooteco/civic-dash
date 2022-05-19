@@ -41,3 +41,12 @@ export async function getDatasetFromIndicator(indicator_slug: string): Promise<D
   const data: Dataset | null = await redis.get(indicator_slug)
   return data
 }
+
+export async function getIndicatorFromSlug(indicator_slug: string): Promise<Indicator>{
+  const indicator = await db.indicator.findUnique({
+    where: {
+      slug: indicator_slug
+    }
+  })
+  return indicator
+}
