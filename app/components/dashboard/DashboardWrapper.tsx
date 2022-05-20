@@ -92,9 +92,9 @@ export function DashboardWrapper(props: WrapperProps){
                   method="post"
                   action={`/auth/${SocialsProvider.GOOGLE}`}
                 >
-                  <Button>
+                  <button>
                     <p><b>Login or sign up</b></p>
-                  </Button>
+                  </button>
                 </Form>
                 <IconButton
                   aria-label="close"
