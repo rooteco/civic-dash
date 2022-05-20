@@ -19,6 +19,7 @@ const responsive = {
   return(
     <div className="carousel-wrapper">
       <Carousel
+        arrows = {false}
         responsive={responsive}
         autoPlay={false}
         itemClass="pill"

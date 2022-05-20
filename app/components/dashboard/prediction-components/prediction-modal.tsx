@@ -7,6 +7,8 @@ interface PredictionProps{
   setPanelIsOpen: ()=>void;
 }
 
+// todo: add to utils
+
 const closeDate = (dateString) => {
   const date = new Date(dateString);
   const year = date.getFullYear();

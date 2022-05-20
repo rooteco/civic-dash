@@ -1,8 +1,6 @@
 import type { Indicator } from "~/models/theme.server";
-import { Link } from "@remix-run/react";
-import { slugify } from '~/utils/slugify';
 import Carousel from 'react-multi-carousel';
-
+import IndicatorSparkline from '../indicator-sparkline';
 
 import { useRef, useEffect, useState } from 'react';
 
@@ -45,41 +43,49 @@ export function IndexLink(props: LinkProps){
       setWidth(width);
       setHeight(height);
 
-      console.log(width, height);
-
     }
   }, []);
 
+
   const sparkline = {
-    height: `${0.9*height}px`,
-    backgroundColor: '#fa7a7a',
-    width: "100px",
+    height: `${0.8*height}px`,
+    width: `${0.25*width}px !important`,
+    flex: '0 0 auto !important',
   }
 
+  const carouselWrapper = {
+    height: `${height}px`,
+    width: `${width}px`,
+    flex: '0 0 auto !important',
+    
+  }
+
+  const carouselTrack = {
+    // center the carousel with flex
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+
+    alignItems: 'center',
+    
+  }
 
   return(
-    <div className="carousel-wrapper" ref = {wrapperSize} style = {{width: `
-      ${width}px`, height: `${height}px`}}>
+    <div ref = {wrapperSize} style = {carouselWrapper}>
       <Carousel
-        arrows = {false}
-
-        className=""
-        containerClass=""
-        itemClass={sparkline}
-        sliderClass="carousel-track"
+        
+        sliderClass={`${carouselTrack}`}
+        partialVisible = {true}
+        slidesToSlide = {0}
+        itemClass = {`${sparkline}`}
 
         responsive={responsive}
         swipeable
         >
       {props && props.indicators.map((indicator) => (
-      <div key = {indicator.id}>
-        <Link to={`indicator/${indicator.slug}/${slugify(indicator.config ? indicator.config.layout : "")}`}>
-          <p>{indicator.name}</p>
-        </Link>
-      </div>
+        <IndicatorSparkline key={indicator.id} indicator={indicator} style={sparkline}/>
       ))}
       </Carousel>
     </div>
-  
   )
 }

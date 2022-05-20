@@ -235,7 +235,7 @@ p {
 }
 
 .screensaver{
-  background-image: linear-gradient(0deg, rgba(var(--clr-grey-600), var(--alpha-high)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.48) 66.06%, #000000 95.99%), url('../../assets/finn_bridge.jpeg');
+  background-image: linear-gradient(0deg, rgba(var(--clr-grey-300), var(--alpha-low)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.3) 66.06%, #000000 95.99%), url('../../assets/finn_bridge.jpeg');
   background-size: cover;
 }
 
@@ -257,7 +257,7 @@ p {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  padding: 0px 0 var(--space-unit) var(--space-sm);
+  padding: 0px 0px var(--space-unit) var(--space-sm);
   gap: var(--space-xxs);
 }
 
@@ -292,8 +292,7 @@ p {
 
 .picker{
   background: rgba(11, 8, 13, 0.2);
-  padding: 0px 0px 0px 8px;
-  height: 50px;
+  padding: 0px 0px 0px var(--space-xs);
 }
 
 .sparklineticker {  
@@ -301,8 +300,6 @@ p {
   width: 100%;
   height: 100%;
 }
-
-
 
 .header{
     grid-row: 2 / 2;
@@ -334,9 +331,8 @@ p {
   top: var(--space-xs);
   left: var(--space-unit);
 
-  width: 200px;
   display: flex;
-  gap: var(--space-s);
+  gap: var(--space-xs);
 }
 
 /* Carousel */
@@ -356,19 +352,31 @@ p {
 }
 
 .indicator-sparkline{
-  height: 90px;
-
-  /* center the content */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  
-  background: rgba(var(--clr-grey-700));
-  border: 1px solid rgba(var(--clr-grey-600), var(--alpha-high));
+  background-color: rgba(var(--clr-grey-700));
+  border: 1px solid rgba(var(--clr-grey-500), var(--alpha-medium));
   border-radius: 8px;
-
+  height: 100%;
+  flex: 0 0 auto;
 }
+
+.indicator-sparkline-metadata{
+  width: 60%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), radial-gradient(127.27% 200% at 11.36% 82.74%, rgba(77, 134, 142, 0.36) 0%, rgba(26, 26, 26, 0.36) 20.63%);
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: var(--space-xxs) var(--space-xs) var(--space-xxs) var(--space-xs);
+  gap: var(--space-s);
+}
+
+.sparkline{
+  flex-grow: 1;
+  object-fit: cover;
+}
+
 
 .pill {
   background: rgba(var(--clr-white),  var(--alpha-low));

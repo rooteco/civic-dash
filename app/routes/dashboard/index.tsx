@@ -14,8 +14,6 @@ import { IndexPrediction } from "~/components/dashboard/prediction-components/in
 
 
 
-
-
 type LoaderData = {
   themes: Awaited<ReturnType<typeof getThemes>>;
   indicators: Awaited<ReturnType<typeof getIndicatorsByFavourite>>['indicators'];

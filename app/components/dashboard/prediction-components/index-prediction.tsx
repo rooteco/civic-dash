@@ -35,13 +35,13 @@ const customStyles = {
 
 
 export function IndexPrediction(props: PredictionProps){
-  const [panelIsOpen, setPanelIsOpen] = useState(true)
+  const [panelIsOpen, setPanelIsOpen] = useState(false);
   
   const [activeMarket, setActiveMarket] = useState(props.predictionMarkets[0])
   const tableOpen = useContext(TableOpenContext)
 
   function handleButton(event, market){
-    setPanelIsOpen(true)
+    setPanelIsOpen(panelIsOpen => !panelIsOpen)
     setActiveMarket(market)
   }
 
