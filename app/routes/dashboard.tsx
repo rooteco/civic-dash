@@ -46,14 +46,14 @@ export default function Dashboard(){
   const userContext: UserContext = user;
   if(user === 'loading'){
     return(
-      <main className={"Screensaver"}>
+      <main className={"screensaver"}>
           <Outlet/>
       </main>
     )
   }
 
   return (
-    <main className={"Screensaver"}>
+    <main className={"screensaver"}>
         <Outlet context={userContext} />
     </main>
   );

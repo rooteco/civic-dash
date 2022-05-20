@@ -1,64 +1,8 @@
 /* Used for all theme buttons before selection */
-.pill {
-  box-sizing: border-box;
 
-  /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 2px 12px;
-
-  width: 168px !important; /* todo: update to font len */
-  height: 32px;
-  
-  /* Grey 400 */
-  background: #8E8E8E;
-  /* Grey 600 */
-  border: 1px solid #262626;
-  border-radius: 100px;
-
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 28px;
-  color: var(--color-grey-700);
-}
-
-.pill-active {
-  box-sizing: border-box;
-
-  width: 168px !important; /* this */
-  height: 32px;
-
-  /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 2px 12px;
-  
-  
-  /* Grey 400 */
-  
-  background: #fff;
-  /* Grey 600 */
-  
-  border: 1px solid #262626;
-  border-radius: 100px;
-  
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 28px;
-  color: #181818;
-
-}
 
 .IndicatorContainer{
-  height: 70%; /* Might want to change this system Andre */
+  height: 100%;
   margin: 4px;
   width: 300px;
   border: 2px solid black;

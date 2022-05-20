@@ -26,7 +26,7 @@ const responsive = {
 export function ThemeCarousel(props: CarouselProps){
   return(
     <>
-    <div className="DashboardActiveTheme">
+    <div className="">
       <div className="pill">
         <p>{props.params ? deslugify(props.params.theme ? props.params.theme : "") : ""}</p>
       </div>
@@ -35,9 +35,9 @@ export function ThemeCarousel(props: CarouselProps){
         responsive={responsive}
         autoPlay={false}
         itemClass="pill"
-        containerClass="DashboardCarouselLibraryThemeWrapper"
+        containerClass=""
         centerMode={true}
-        sliderClass="DashboardCarouselLibrarySlider"
+        sliderClass=""
         shouldResetAutoplay={false}
         >
       {props.data && props.data.problems.map((problem)=>(

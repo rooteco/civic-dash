@@ -472,6 +472,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: fixed;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .flex {
   display: flex;
 }
@@ -492,8 +496,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   min-height: 100vh;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .flex-row {
   flex-direction: row;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .bg-\[url\(\.\.\/assets\/\$\{currentImage\}\)\] {

@@ -53,10 +53,6 @@ export default function DashboardIndex(){
   const data = useLoaderData<LoaderData>();
   const actionData = useActionData();
 
-  useEffect(()=>{
-    console.log("ACTION DATA:", actionData)
-  }, [actionData])
-
   return(
     <DashboardWrapper
         error={actionData?.error}

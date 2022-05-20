@@ -1,0 +1,128 @@
+
+/* ------------------------------ */
+/* Resets                         */    
+/* ------------------------------ */
+
+/* Box-Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset default margin to removal */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+  
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+}
+
+/* ------------------------------ */
+/* Custom Properties              */
+/* ------------------------------ */
+
+/* Colors */
+
+/* Spacing */
+
+
+/* Typography */
+
+@font-face {
+    font-family: system;
+    font-style: normal;
+    font-weight: 300;
+    src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+}
+
+/* Layout and Grid */
+
+/* Icons */
+
+.icon {
+  display: inline-block;
+  color: var(--color-primary);
+  height: 1em;
+  width: 1em;
+  line-height: 1;
+}
+/* TODO icon size */
+.icon-s {
+  font-size: var(--font-size-small);
+}
+.icon-m {
+}
+
+/* ------------------------------ */
+/* Utility                        */
+/* ------------------------------ */
+
+/* Truncate text (...) if exceeds parent */
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.flex {
+    display: flex;
+    gap: var(--space-xs, 0.5em);
+}
+
+
+
+/* ------------------------------ */
+/* Responsiveness: TODO           */
+/* ------------------------------ */
+@media breakpoint() {
+    /* Update base sizes */
+    :root {
+        --font-size-base: 16px;
+        --spacer-unit: 8px;
+    }
+}
+
+/* ------------------------------ */
+/* Components: TODO           */
+/* ------------------------------ */
+
+.pill {
+}

@@ -83,14 +83,14 @@ model UserToFavouritedIndicator {
   @@id([userId, indicatorSlug])
 }
 
-model UserToFavouritedPredictionMarket {
-  userId            String
-  user              User              @relation(fields: [userId], references: [id])
-  marketSlug        String
-  predictionMarket  PredictionMarket  @relation(fields: [marketSlug], references: [slug])
-
-  @@id([userId, marketSlug])
-}
+// model UserToFavouritedPredictionMarket {
+//   userId            String
+//   user              User              @relation(fields: [userId], references: [id])
+//   marketSlug        String
+//   predictionMarket  PredictionMarket  @relation(fields: [marketSlug], references: [slug])
+//
+//   @@id([userId, marketSlug])
+// }
 
 model ThemesToPredictionMarkets {
   themeId            Int

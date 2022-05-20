@@ -6,6 +6,9 @@ import Snackbar from "@mui/material/Snackbar"
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import Canvas from './canvas';
+import Header from './header';
+import Menu from './menu';
 
 
 interface WrapperProps {
@@ -28,16 +31,9 @@ export function DashboardWrapper(props: WrapperProps){
   }, [props.error])
 
   return(
-    <>
+    <div className="min-h-screen flex flex-row">
       <TableOpenContext.Provider value={tableOpen}>
-        <div className="min-h-screen flex flex-row">
-          <div className="DashboardLinks">
-            <Link to={"/dashboard"}><p>Dashboard</p></Link>
-            <div><a
-                    href="https://rooteco.notion.site/CivicDash-v2-1-8631ce9d3fd442a1a031eec9fa48cf3b"
-                    target="_blank" rel="noreferrer">Docs</a></div>
-                  <div><a href="https://discord.gg/bQHFfWUC" target="_blank" rel="noreferrer">Discord</a></div>
-          </div>
+          <Menu />
           <div className="dashgrid">
             <div className="axis"/>
             <div className="focus">
@@ -69,12 +65,13 @@ export function DashboardWrapper(props: WrapperProps){
                       onClick={()=>setTableOpen(prevState => !prevState)}>3</button>
                 </div>
             </div>
+
             <div className="dash">
               <div className="picker">
                 {props.themeCarouselChild}
               </div>
               <div className="sparklineticker">
-                {props.linkChild}
+              {props.linkChild}
               </div>
             </div>
             <div className="DashboardInset" id="ModalAnchor">
@@ -107,9 +104,8 @@ export function DashboardWrapper(props: WrapperProps){
               </React.Fragment>
             }
           />
-        </div>
     </TableOpenContext.Provider>
-    </>
+    </div>
   )
 }
 

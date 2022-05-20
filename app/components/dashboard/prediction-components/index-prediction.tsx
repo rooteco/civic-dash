@@ -1,3 +1,4 @@
+import { MarketRow } from './market-row';
 import React, { useState, useEffect, useContext } from 'react';
 import type { Prediction, FullPredictionMarket } from "~/models/prediction.server";
 import { Link, useParams } from "@remix-run/react"
@@ -13,57 +14,56 @@ interface PredictionProps{
 
 const customStyles = {
   overlay: {
-    position: 'fixed',
-    top: 0,
-    left: 'auto',
-    right: 0,
-    bottom: 'auto',
-    backgroundColor: 'rgba(255, 255, 255, 0)',
-    width: "26vw",
-    height: "100vh",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "rgba(0,0,0,0.1)",
   },
   content: {
-    width: "26vw",
+    width: "32vw",
     height: "100vh",
     position: "fixed",
-    top: 0,
-    right: 0,
-    bottom: 'auto',
+    top: "0px",
+    right: "0px",
+    bottom: '0px',
     left: 'auto',
+    borderRadius: '0px',
+    backgroundColor: 'rgba(16, 16, 16, 100)',
+    border: '1px solid #3c3c3c'
   },
 };
 
+
+
 export function IndexPrediction(props: PredictionProps){
-  const [panelIsOpen, setPanelIsOpen] = useState(false)
-  const [activeMarket, setActiveMarket] = useState("")
+  const [panelIsOpen, setPanelIsOpen] = useState(false);
+  
+  const [activeMarket, setActiveMarket] = useState(props.predictionMarkets[0])
   const tableOpen = useContext(TableOpenContext)
 
   function handleButton(event, market){
-    setPanelIsOpen(true)
+    setPanelIsOpen(panelIsOpen => !panelIsOpen)
     setActiveMarket(market)
   }
 
   return(
     <>
     {tableOpen &&
-    <div className="DashboardInsetTable">
-      <div>
-        {props.categoryType ?
-          <h3>Showing prediction markets for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></h3> :
-          <h3>Showing favourited prediction markets</h3>
-          }
-        <ul>
-          {props.predictionMarkets && props.predictionMarkets.map((predictionMarket)=> (
-            <div key={predictionMarket.id}>
-              <li key={predictionMarket.id}>
-                <button onClick={(event) => handleButton(event, predictionMarket)}>
-                  -{predictionMarket.question} (INDEX)
-                </button>
-              </li>
-            </div>
-          ))}
-        </ul>
+    <div className="markets">
+    
+      {props.categoryType ?
+        <p className='caption'>Showing prediction markets for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></p> :
+        <p className= 'caption'>{"Favourite Markets".toUpperCase()}</p>
+      }
+    
+      <div className="markets-table">
+        {props.predictionMarkets && props.predictionMarkets.map((predictionMarket)=> (
+          <MarketRow 
+            key = {predictionMarket.id}
+            handleButton={handleButton} 
+            predictionMarket={predictionMarket}  />
+        ))}
       </div>
+        
     </div>
     }
     <Modal

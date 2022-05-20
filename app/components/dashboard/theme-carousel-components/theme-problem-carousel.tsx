@@ -17,13 +17,13 @@ interface CarouselProps{
 export function ThemeProblemCarousel(props: CarouselProps){
   return(
     <>
-      <div className="DashboardActiveTheme">
-        <div className="pill-active">
+      <div className="">
+        <div className="pill">
           {props.params ? deslugify(props.params.theme) : ""}
         </div>
       </div>
-      <div className="DashboardActiveTheme">
-        <div className="pill-active">
+      <div className="">
+        <div className="pill">
           {props.params ? deslugify(props.params.problem) : ""}
         </div>
       </div>
