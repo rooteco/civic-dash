@@ -2,7 +2,7 @@ import { useLoaderData, Outlet, useParams } from "@remix-run/react";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { getThemes } from "~/models/theme.server";
-import { getIndicatorsByAdminFavourite, getFavouritedIndicatorSlugs } from "~/models/user.server";
+import { getIndicatorsByAdminFavourite, getFavouritedIndicators, getFavouritedIndicatorSlugs } from "~/models/user.server";
 import { DashboardWrapper } from "~/components/dashboard/DashboardWrapper"
 import { IndexLink } from "~/components/dashboard/linking-components/index-link";
 import { IndexCarousel } from "~/components/dashboard/theme-carousel-components/index-carousel";
@@ -29,10 +29,11 @@ export const loader: LoaderFunction = async ({
   const user = await authenticator.isAuthenticated(request);
 
   const themes = await getThemes();
-  const indicators = await getIndicatorsByAdminFavourite();
+  const indicators = user ? await getFavouritedIndicators(user.id) : await getIndicatorsByAdminFavourite();
   const predictionMarkets = await getPredictionsByIndicator(params.indicator);
   const favouritedIndicatorSlugs = user ? await getFavouritedIndicatorSlugs(user.id) : [];
   const data: LoaderData = {
+    user: user,
     themes,
     ...indicators,
     predictionMarkets,

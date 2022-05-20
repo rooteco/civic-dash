@@ -32,6 +32,7 @@ type LoaderData = {
 
 export const loader: LoaderFunction = async ({ request }) => {
   const user = await authenticator.isAuthenticated(request);
+
   const themes = await getThemes();
   const indicators = user ? await getFavouritedIndicators(user.id) : await getIndicatorsByAdminFavourite();
   const predictionMarkets = await getPredictionsByFavourite();
