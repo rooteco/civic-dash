@@ -1,10 +1,11 @@
+import { IndicatorBox } from "~/components/dashboard/linking-components/IndicatorBox"
 import type { Indicator } from "~/models/theme.server";
-import { Link } from "@remix-run/react";
-import { slugify } from '~/utils/slugify';
 import Carousel from 'react-multi-carousel';
 
 interface LinkProps {
   indicators: Indicator[];
+  evaluateIndicatorString: String;
+  location: String;
 }
 
 export function IndexLink(props: LinkProps){
@@ -29,11 +30,11 @@ export function IndexLink(props: LinkProps){
         shouldResetAutoplay={false}
         >
       {props && props.indicators.map((indicator) => (
-      <div key={indicator.id}>
-        <Link to={`indicator/${indicator.slug}`}>
-          <p>{indicator.name}</p>
-        </Link>
-      </div>
+        <IndicatorBox
+          indicator={indicator}
+          key={indicator.id}
+          linkString={props.evaluateIndicatorString(indicator, props.location)}
+          />
       ))}
       </Carousel>
     </>

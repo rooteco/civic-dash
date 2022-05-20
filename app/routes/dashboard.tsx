@@ -1,5 +1,6 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { useState, useEffect } from "react";
+import type { UserType } from "~/models/user.server"
 import type { LinksFunction } from "@remix-run/node";
 import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction"
 import { monitorMarketParams } from "~/models/prediction.server"
@@ -24,17 +25,6 @@ export const loader = async ({ request }) => {
     return user
 };
 
-export type UserType = {
-  displayName: String;
-  emails: Array<any>;
-  id: String;
-  name: {
-    familyName: String;
-    givenName: String;
-  };
-  photos: Array<any>;
-  provider: String;
-}
 
 export type UserContext = {
   user: UserType
@@ -47,21 +37,18 @@ export type UserContext = {
 
 export default function Dashboard(){
   const userData = useLoaderData();
-  const [user, setUser] = useState("loading")
+  const [user, setUser] = useState()
 
   useEffect(()=>{
     setUser(userData)
   }, [userData])
 
-  useEffect(()=>{
-    console.log('BLAH ANDRE', userData)
-  }, [userData])
-
   const userContext: UserContext = user;
   if(user === 'loading'){
     return(
-      <>
-      </>
+      <main className={"Screensaver"}>
+          <Outlet/>
+      </main>
     )
   }
 

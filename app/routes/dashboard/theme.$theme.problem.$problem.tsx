@@ -6,11 +6,14 @@ import invariant from "tiny-invariant";
 
 import { DashboardWrapper } from "~/components/dashboard/DashboardWrapper"
 import { ThemeProblemCarousel } from "~/components/dashboard/theme-carousel-components/theme-problem-carousel"
-import { ThemeLink } from "~/components/dashboard/linking-components/theme-link"
+import { IndexLink } from "~/components/dashboard/linking-components/index-link"
 // Note: You'd expect this component to be nested, but the UI demands that it's a fake nesting
 
 import { getPredictionsByProblem } from "~/models/prediction.server"
 import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction";
+
+import { evaluateIndicatorString } from "~/utils/evaluateIndicatorString"
+
 
 type LoaderData = {
   indicators: Awaited<ReturnType<typeof getIndicatorsByProblem>>['indicators'];
@@ -45,7 +48,10 @@ export default function WidgetIndicator(){
     <DashboardWrapper
       focusChild={<Outlet />}
       themeCarouselChild={<ThemeProblemCarousel params={params}/>}
-      linkChild={<ThemeLink indicators={data.indicators} />}
+      linkChild={<IndexLink
+                    indicators={data.indicators}
+                    evaluateIndicatorString={evaluateIndicatorString}
+                    location="theme" />}
       predictionChild={<IndexPrediction
                           predictionMarkets={data.predictionMarkets}
                           categoryType={`${params.problem}`}/>}
