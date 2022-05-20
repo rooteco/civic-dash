@@ -65,22 +65,6 @@ type IndicatorAndSpark = {
   sparkData: any[];
 }
 
-
-export async function getIndicatorsByFavourite(): Promise<IndicatorAndSpark>{
-  const indicators = await db.indicator.findMany({
-    where: {
-      favourite: true
-    },
-  })
-  var sparkDataArray: Array<any> = [];
-  for(let indicator of indicators){
-    const sparkData = await redis.get(`${indicator.slug}-spark`)
-
-    sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
-  }
-  return({indicators: indicators, sparkData: sparkDataArray})
-}
-
 export async function getIndicatorsByTheme(theme_slug: string): Promise<IndicatorAndSpark>{
   const indicators = await db.indicator.findMany({
     where: {
@@ -91,21 +75,14 @@ export async function getIndicatorsByTheme(theme_slug: string): Promise<Indicato
           }
         }
       }
-    },
-    include: {
-      config: {
-        select: {
-          layout: true
-        }
-      }
     }
   })
-  var sparkDataArray = [];
-  for(let indicator of indicators){
-    const sparkData = await redis.get(`${indicator.slug}-spark`)
-    sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
-  }
-  return({indicators: indicators, sparkData: sparkDataArray})
+  // var sparkDataArray = [];
+  // for(let indicator of indicators){
+  //   const sparkData = await redis.get(`${indicator.slug}-spark`)
+  //   sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
+  // }
+  return({indicators: indicators, sparkData: []})
 }
 
 
@@ -120,20 +97,13 @@ export async function getIndicatorsByProblem(problem_slug: string): Promise<Indi
           }
         }
       }
-    },
-    include: {
-      config: {
-        select: {
-          layout: true
-        }
-      }
     }
   })
-  var sparkDataArray = [];
-  for(let indicator of indicators){
-    const sparkData = await redis.get(`${indicator.slug}-spark`)
-
-    sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
-  }
-  return({indicators: indicators, sparkData: sparkDataArray})
+  // var sparkDataArray = [];
+  // for(let indicator of indicators){
+  //   const sparkData = await redis.get(`${indicator.slug}-spark`)
+  //
+  //   sparkDataArray.push({indicatorName: indicator.name, data: sparkData})
+  // }
+  return({indicators: indicators, sparkData: []})
 }
