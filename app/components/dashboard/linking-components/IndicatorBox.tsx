@@ -4,6 +4,8 @@ import { Link } from "@remix-run/react";
 type IndicatorBoxProps = {
   indicator: Indicator;
   linkString: String;
+  favouritedIndicatorSlugs: Array<String>;
+  location: String;
 }
 
 export function IndicatorBox(props: IndicatorBoxProps){
@@ -12,7 +14,7 @@ export function IndicatorBox(props: IndicatorBoxProps){
         <div style={{height: "30px", display: "flex"}}>
           <div style={{flex: 1}}/>
             <div style={{width: "30px", display: "flex", alignItems: "center", justifyContent: "center", paddingTop: "7px"}}>
-              <button><h2 style={{fontSize: "20px", color: "yellow"}}>*</h2></button>
+              {!(props.location==="index") && <button><h2 style={{fontSize: "20px", color: props.favouritedIndicatorSlugs.includes(props.indicator.slug) ? "yellow" : "white"}}>*</h2></button>}
             </div>
         </div>
         <div style={{display: "flex", flex: 1, alignItems: "flexStart", justifyContent: 'center'}}>

@@ -11,8 +11,11 @@ import { IndexLink } from "~/components/dashboard/linking-components/index-link"
 
 import { getPredictionsByProblem } from "~/models/prediction.server"
 import { IndexPrediction } from "~/components/dashboard/prediction-components/index-prediction";
+import { authenticator } from "~/models/auth.server";
 
 import { evaluateIndicatorString } from "~/utils/evaluateIndicatorString"
+
+import { getFavouritedIndicatorSlugs } from "~/models/user.server"
 
 
 type LoaderData = {
@@ -22,19 +25,24 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({
-  params
+  params, request
 }) => {
+  const user = await authenticator.isAuthenticated(request);
+
   invariant(params.problem, `params.problem is required`);
 
   const indicators = await getIndicatorsByProblem(params.problem)
   invariant(indicators, `indicators not found for problem ${params.problem}`);
+
+  const favouritedIndicatorSlugs = user ? await getFavouritedIndicatorSlugs(user.id) : [];
 
   const predictionMarkets = await getPredictionsByProblem(params.problem)
   invariant(predictionMarkets, `prediction markets not found for problem ${params.problem}`)
 
   const data: LoaderData = {
     ...indicators,
-    predictionMarkets
+    predictionMarkets,
+    favouritedIndicatorSlugs
   }
   return json(data)
 }
@@ -51,7 +59,9 @@ export default function WidgetIndicator(){
       linkChild={<IndexLink
                     indicators={data.indicators}
                     evaluateIndicatorString={evaluateIndicatorString}
-                    location="theme" />}
+                    location="theme"
+                    favouritedIndicatorSlugs={data.favouritedIndicatorSlugs}
+                    />}
       predictionChild={<IndexPrediction
                           predictionMarkets={data.predictionMarkets}
                           categoryType={`${params.problem}`}/>}

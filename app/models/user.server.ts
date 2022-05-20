@@ -44,6 +44,24 @@ export async function getFavouritedIndicators(user_id: String): Promise<Array<In
   return {indicators: favouritedIndicators, sparkData: []}
 }
 
+export async function getFavouritedIndicatorSlugs(user_id: String): Promise<Array<String>>{
+  const favouritedIndicatorSlugs = await db.indicator.findMany({
+    where: {
+      users: {
+        some: {
+          user: {
+            id: user_id
+          }
+        }
+      }
+    },
+    select: {
+      slug: true
+    }
+  })
+  return favouritedIndicatorSlugs
+}
+
 export async function getIndicatorsByAdminFavourite(): Promise<IndicatorAndSpark>{
   const indicators = await db.indicator.findMany({
     where: {

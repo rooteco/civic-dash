@@ -52,6 +52,7 @@ export default function DashboardIndex(){
                       indicators={data.indicators}
                       evaluateIndicatorString={evaluateIndicatorString}
                       location="index"
+                      favouritedIndicatorSlugs={[]}
                       />}
         predictionChild={<IndexPrediction predictionMarkets={data.predictionMarkets}
                                                         />}

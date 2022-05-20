@@ -6,6 +6,7 @@ interface LinkProps {
   indicators: Indicator[];
   evaluateIndicatorString: String;
   location: String;
+  favouritedIndicatorSlugs: Array<String>;
 }
 
 export function IndexLink(props: LinkProps){
@@ -34,6 +35,8 @@ export function IndexLink(props: LinkProps){
           indicator={indicator}
           key={indicator.id}
           linkString={props.evaluateIndicatorString(indicator, props.location)}
+          favouritedIndicatorSlugs={props.favouritedIndicatorSlugs}
+          location={props.location}
           />
       ))}
       </Carousel>
