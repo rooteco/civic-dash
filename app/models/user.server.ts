@@ -1,4 +1,5 @@
 import { db } from "~/utils/db.server";
+import Prisma from "@prisma/client";
 
 export type UserType = {
   displayName: String;
@@ -13,21 +14,37 @@ export type UserType = {
 }
 
 export async function addFavouritedIndicator(user_id: String, indicator_slug: String): Promise<void>{
-  const addFavourite = await db.UserToFavouritedIndicator.create({ data: {
-    userId: user_id,
-    indicatorSlug: indicator_slug
-  }})
+  try {
+    const addFavourite = await db.UserToFavouritedIndicator.create({ data: {
+      userId: user_id,
+      indicatorSlug: indicator_slug
+    }})
+    return {error: undefined, mutation: addFavourite}
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError){
+      console.log("The specified user or indicator does not exist")
+    }
+    return({error: e, mutation: {}})
+  }
 }
 
 export async function removeFavouritedIndicator(user_id: String, indicator_slug: String): Promise<void>{
-  const deleteFavourite = await db.UserToFavouritedIndicator.delete({
-    where: {
-      userId_indicatorSlug: {
-        userId: user_id,
-        indicatorSlug: indicator_slug
+  try {
+    const removeFavourite = await db.UserToFavouritedIndicator.delete({
+      where: {
+        userId_indicatorSlug: {
+          userId: user_id,
+          indicatorSlug: indicator_slug
+        }
       }
+    })
+    return {error: undefined, mutation: removeFavourite}
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError){
+      console.log("The specified user or indicator does not exist")
     }
-  })
+    return{error: e, mutation: {}}
+  }
 }
 
 export async function getFavouritedIndicators(user_id: String): Promise<Array<Indicator>>{
@@ -42,7 +59,7 @@ export async function getFavouritedIndicators(user_id: String): Promise<Array<In
       }
     }
   })
-  return {indicators: favouritedIndicators, sparkData: []}
+  return{indicators: favouritedIndicators, sparkData: []}
 }
 
 export async function getFavouritedIndicatorSlugs(user_id: String): Promise<Array<String>>{

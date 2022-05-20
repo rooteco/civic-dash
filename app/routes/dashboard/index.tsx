@@ -1,5 +1,6 @@
-import { Link, useLoaderData, useOutletContext } from "@remix-run/react";
+import { Link, useLoaderData, useOutletContext, useActionData } from "@remix-run/react";
 import { json } from "@remix-run/node";
+import { useEffect } from "react";
 
 import { getThemes } from "~/models/theme.server";
 import { getFavouritedIndicatorSlugs, getFavouritedIndicators, getIndicatorsByAdminFavourite } from "~/models/user.server";
@@ -45,15 +46,20 @@ export const loader: LoaderFunction = async ({ request }) => {
     predictionMarkets: predictionMarkets,
     favouritedIndicatorSlugs
   }
-  console.log("hello I AM INDEX DATA:", data)
   return json(data)
 };
 
 export default function DashboardIndex(){
   const data = useLoaderData<LoaderData>();
+  const actionData = useActionData();
+
+  useEffect(()=>{
+    console.log("ACTION DATA:", actionData)
+  }, [actionData])
 
   return(
     <DashboardWrapper
+        error={actionData?.error}
         user={data.user}
         focusChild={<DashboardIntro user={data.user} />}
         themeCarouselChild={<IndexCarousel themes={data.themes}/>}
