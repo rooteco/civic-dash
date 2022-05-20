@@ -11,23 +11,32 @@ interface LinkProps {
 
 export function IndexLink(props: LinkProps){
 
+  // TODO: This is a hack to get the carousel to render correctly.
+  // partialVisibilityGutter should be set to indicators.length | something sensible
+  
+  const items = Math.min(props.indicators.length, 1) 
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 4
+      items: items,
+      partialVisibilityGutter: 120
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 2
+      items: items,
+      partialVisibilityGutter: 200 
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2
+      items: items,
+      partialVisibilityGutter: 120
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 2
+      items: items,
+      partialVisibilityGutter: 120
     }
   };
 
@@ -73,6 +82,10 @@ export function IndexLink(props: LinkProps){
   return(
     <div ref = {wrapperSize} style = {carouselWrapper}>
       <Carousel
+
+        infinite
+        arrows = {false}
+        autoPlay
         
         sliderClass={`${carouselTrack}`}
         partialVisible = {true}
