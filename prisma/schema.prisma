@@ -7,6 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id                String                     @id @unique()
+  indicators        UserToFavouritedIndicator[]
+}
+
 model Theme {
   id                Int                         @id @default(autoincrement())
   name              String
@@ -30,7 +35,7 @@ model Problem {
 model Indicator {
   id                Int                             @id @default(autoincrement())
   name              String
-  description       String
+  description       String                          @default("No description. Add one!")
   slug              String                          @unique
   favourite         Boolean
   config            Config?
@@ -38,6 +43,7 @@ model Indicator {
   themes            IndicatorsOnThemes[]
   predictionMarkets IndicatorsToPredictionMarkets[]
   supportingConfigs SupportingIndicatorsOnConfigs[]
+  users             UserToFavouritedIndicator[]
 }
 
 model Config {
@@ -45,6 +51,12 @@ model Config {
   indicatorId          Int                             @unique
   layout               String                          @default("SINGLE")
   indicator            Indicator                       @relation(fields: [indicatorId], references: [id])
+  chartType            String                          @default("line")
+  xName                String                          @default("no name set")
+  xType                String                          @default("linear")
+  yName                String                          @default("no name set")
+  yType                String                          @default("linear")
+  yFormat              String                          @default("number")
   additionalIndicators SupportingIndicatorsOnConfigs[]
 }
 
@@ -60,6 +72,24 @@ model PredictionMarket {
   indicators   IndicatorsToPredictionMarkets[]
   problems     ProblemsToPredictionMarkets[]
   themes       ThemesToPredictionMarkets[]
+}
+
+model UserToFavouritedIndicator {
+  userId            String
+  user              User              @relation(fields: [userId], references: [id])
+  indicatorSlug     String
+  indicator         Indicator         @relation(fields: [indicatorSlug], references: [slug])
+
+  @@id([userId, indicatorSlug])
+}
+
+model UserToFavouritedPredictionMarket {
+  userId            String
+  user              User              @relation(fields: [userId], references: [id])
+  marketSlug        String
+  predictionMarket  PredictionMarket  @relation(fields: [marketSlug], references: [slug])
+
+  @@id([userId, marketSlug])
 }
 
 model ThemesToPredictionMarkets {

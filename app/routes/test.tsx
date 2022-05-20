@@ -1,14 +1,25 @@
-import Carousel from 'react-multi-carousel';
-import styles from 'react-multi-carousel/lib/styles.css';
+import { useLoaderData } from "@remix-run/react";
+import { json } from "@remix-run/node";
+import * as Plot from "@observablehq/plot";
+import * as d3 from "d3";
+import { dayStringToDate } from '~/utils/plotting-utilities'
+
+import {useEffect, useRef, useState} from 'react';
+import plottingStyles from '~/styles/plotting.css'
+import { getFromRedis } from "~/models/redis.server"
+import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 
 
 export const links: LinksFunction = () => {
   return [
-    {
-      rel: "stylesheet",
-      href: styles,
-    },
-  ];
+    { rel: "stylesheet", href: plottingStyles}
+  ]
+}
+
+export const loader: LoaderFunction = async () => {
+  const redisValue = await getFromRedis('median-list-prices')
+  redisValue.forEach(dataObject => dataObject.date = dayStringToDate(dataObject.date))
+  return redisValue
 }
 
 

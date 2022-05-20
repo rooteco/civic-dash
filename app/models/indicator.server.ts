@@ -12,12 +12,15 @@ type Config = {
   layoutId: Number;
   id: Number;
   indicatorId: Number;
+  xName: String;
+  xType: String;
+  yName: String;
+  yType: String;
 }
 
 type Dataset = {
   data: Array<any>
 }
-
 
 
 export async function getConfigFromIndicator(indicator_slug: string): Promise<Config>{
@@ -37,4 +40,13 @@ export async function getConfigFromIndicator(indicator_slug: string): Promise<Co
 export async function getDatasetFromIndicator(indicator_slug: string): Promise<Dataset | null> {
   const data: Dataset | null = await redis.get(indicator_slug)
   return data
+}
+
+export async function getIndicatorFromSlug(indicator_slug: string): Promise<Indicator>{
+  const indicator = await db.indicator.findUnique({
+    where: {
+      slug: indicator_slug
+    }
+  })
+  return indicator
 }
