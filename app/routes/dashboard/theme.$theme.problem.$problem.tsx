@@ -16,6 +16,7 @@ import { authenticator } from "~/models/auth.server";
 import { evaluateIndicatorString } from "~/utils/evaluateIndicatorString"
 
 import { getFavouritedIndicatorSlugs } from "~/models/user.server"
+import { addFavouritedIndicator, removeFavouritedIndicator } from "~/models/user.server"
 
 
 type LoaderData = {
@@ -42,7 +43,8 @@ export const loader: LoaderFunction = async ({
   const data: LoaderData = {
     ...indicators,
     predictionMarkets,
-    favouritedIndicatorSlugs
+    favouritedIndicatorSlugs,
+    user
   }
   return json(data)
 }
@@ -54,9 +56,11 @@ export default function WidgetIndicator(){
   const data = useLoaderData<LoaderData>();
   return(
     <DashboardWrapper
+      user={data.user}
       focusChild={<Outlet />}
       themeCarouselChild={<ThemeProblemCarousel params={params}/>}
       linkChild={<IndexLink
+                    user={data.user}
                     indicators={data.indicators}
                     evaluateIndicatorString={evaluateIndicatorString}
                     location="theme"

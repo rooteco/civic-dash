@@ -1,5 +1,6 @@
 import { IndicatorBox } from "~/components/dashboard/linking-components/IndicatorBox"
 import type { Indicator } from "~/models/theme.server";
+import type { UserType } from "~/models/user.server";
 import Carousel from 'react-multi-carousel';
 
 interface LinkProps {
@@ -7,6 +8,7 @@ interface LinkProps {
   evaluateIndicatorString: String;
   location: String;
   favouritedIndicatorSlugs: Array<String>;
+  user: UserType;
 }
 
 export function IndexLink(props: LinkProps){
@@ -32,6 +34,7 @@ export function IndexLink(props: LinkProps){
         >
       {props && props.indicators.map((indicator) => (
         <IndicatorBox
+          user={props.user}
           indicator={indicator}
           key={indicator.id}
           linkString={props.evaluateIndicatorString(indicator, props.location)}

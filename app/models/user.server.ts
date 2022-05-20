@@ -12,18 +12,20 @@ export type UserType = {
   provider: String;
 }
 
-export async function addFavouritedIndicator(user_id: String, indicator_slug: String): void{
+export async function addFavouritedIndicator(user_id: String, indicator_slug: String): Promise<void>{
   const addFavourite = await db.UserToFavouritedIndicator.create({ data: {
-    userID: user_id,
+    userId: user_id,
     indicatorSlug: indicator_slug
   }})
 }
 
-export async function removeFavouritedIndicator(user_id: String, indicator_slug: String): void{
+export async function removeFavouritedIndicator(user_id: String, indicator_slug: String): Promise<void>{
   const deleteFavourite = await db.UserToFavouritedIndicator.delete({
     where: {
-      userId: user_id,
-      indicatorSlug: indicator_slug
+      userId_indicatorSlug: {
+        userId: user_id,
+        indicatorSlug: indicator_slug
+      }
     }
   })
 }
@@ -40,7 +42,6 @@ export async function getFavouritedIndicators(user_id: String): Promise<Array<In
       }
     }
   })
-  console.log("FAVOURITED INDICATORS:", favouritedIndicators)
   return {indicators: favouritedIndicators, sparkData: []}
 }
 

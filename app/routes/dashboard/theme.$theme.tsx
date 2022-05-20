@@ -15,6 +15,8 @@ import { evaluateIndicatorString } from "~/utils/evaluateIndicatorString"
 
 import { getFavouritedIndicatorSlugs } from "~/models/user.server"
 
+import action from "~/actions/favouriteIndicator"
+export { action }
 
 type LoaderData = {
   problems: Awaited<ReturnType<typeof getProblemsByTheme>>;
@@ -46,7 +48,8 @@ export const loader: LoaderFunction = async ({
     problems,
     ...indicators,
     predictionMarkets,
-    favouritedIndicatorSlugs
+    favouritedIndicatorSlugs,
+    user
   }
 
   return json(data)
@@ -57,8 +60,10 @@ export default function WidgetTheme(){
   const data = useLoaderData<LoaderData>();
   return (
     <DashboardWrapper
+      user={data.user}
       focusChild={<Outlet />}
       linkChild={<IndexLink
+                    user={data.user}
                     indicators={data.indicators}
                     evaluateIndicatorString={evaluateIndicatorString}
                     location='theme'
