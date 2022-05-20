@@ -1,6 +1,7 @@
 import type { Indicator } from "~/models/theme.server";
 import { Link, Form } from "@remix-run/react";
 import { UserType } from "~/models/user.server"
+import graph from '../../../../public/assets/place_chart.svg';
 
 type IndicatorBoxProps = {
   indicator: Indicator;
@@ -24,7 +25,7 @@ export function IndicatorBox(props: IndicatorBoxProps){
           <p>{Math.round(Math.random()*100)}%</p>
       </div>
 
-      <img src={graph} alt="graph" className = "sparkline"/>
+      <img src={graph ? graph : ""} alt="graph" className = "sparkline"/>
 
       // TODO: create class for little button
       <div style={{position: 'absolute'}}>
