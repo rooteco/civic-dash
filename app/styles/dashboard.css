@@ -331,11 +331,12 @@ p {
 
 .menu{
   position: absolute;
-  top: 6px;
-  left: 28px;
+  top: var(--space-xs);
+  left: var(--space-unit);
 
   width: 200px;
   display: flex;
+  gap: var(--space-s);
 }
 
 /* Carousel */

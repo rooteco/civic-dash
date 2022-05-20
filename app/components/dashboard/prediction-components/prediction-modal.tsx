@@ -26,6 +26,9 @@ const isOpen = (isOpen : boolean) => {
 
 export function PredictionModal(props: PredictionProps){
 
+  if (!props.predictionMarket.fullData) {
+    return null;
+  }
 
   return(
       <div className = "flex-column">
