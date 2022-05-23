@@ -6,9 +6,9 @@
 
 ## Database
 - Using Prisma for Postgres ORM
-- npx prisma migrate reset
+- Delete the database file
 - npx prisma db push
-- node --require esbuild-register prisma/seed.ts
+- npx prisma db seed
 
 ## Redis
 - When fetching from Redis, use <indicator.slug> to fetch the full dataset, and <indicator.slug>-spark to fetch the small dataset

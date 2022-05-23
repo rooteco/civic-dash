@@ -80,7 +80,7 @@ export async function getFavouritedIndicatorSlugs(user_id: String): Promise<Arra
   return favouritedIndicatorSlugs
 }
 
-export async function getIndicatorsByAdminFavourite(): Promise<IndicatorAndSpark>{
+export async function getIndicatorsByAdminFavourite(): Promise<Array<IndicatorAndSpark>>{
   const indicators = await db.indicator.findMany({
     where: {
       favourite: true
