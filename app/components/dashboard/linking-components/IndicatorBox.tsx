@@ -27,13 +27,12 @@ export function IndicatorBox(props: IndicatorBoxProps){
 
       <img src={graph ? graph : ""} alt="graph" className = "sparkline"/>
 
-      // TODO: create class for little button
       <div style={{position: 'absolute'}}>
         <Form method="post" >
           <input type="hidden" name="indicatorSlug" value={props.indicator.slug}/>
           <input type="hidden" name="isFavourited" value={props.favouritedIndicatorSlugs.some(obj => obj.slug === props.indicator.slug)}/>
           <input type="hidden" name="userId" value={props.user ? props.user.id : ""}/>
-          <button type="submit"><h2 style={{fontSize: "20px", color: props.favouritedIndicatorSlugs.some(obj => obj.slug === props.indicator.slug) ? "yellow" : "white"}}>*</h2></button>
+          <button type="submit"><h2 style={{color: props.favouritedIndicatorSlugs.some(obj => obj.slug === props.indicator.slug) ? "yellow" : "white"}}>*</h2></button>
         </Form>
       </div>
 

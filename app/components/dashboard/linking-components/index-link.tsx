@@ -2,7 +2,6 @@ import { IndicatorBox } from "~/components/dashboard/linking-components/Indicato
 import type { Indicator } from "~/models/theme.server";
 import Carousel from 'react-multi-carousel';
 import type { UserType } from "~/models/user.server";
-import IndicatorSparkline from '../indicator-sparkline';
 
 import { useRef, useEffect, useState } from 'react';
 
@@ -22,27 +21,14 @@ export function IndexLink(props: LinkProps){
 
   // CAROUSEL STUFF
   const items = props.indicators.length
+
+  const gutter = items > 1 ? items * 50 : 100;
+
   const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: items,
-      partialVisibilityGutter: 10
-    },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 0 },
       items: items,
-      partialVisibilityGutter: 10
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: items,
-      partialVisibilityGutter: 10
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: items,
-      partialVisibilityGutter: 120
+      partialVisibilityGutter: gutter
     }
   };
 
@@ -64,7 +50,7 @@ export function IndexLink(props: LinkProps){
   const sparkline = {
     height: `${0.8*height}px`,
     width: `${0.25*width}px !important`,
-    flex: '0 0 auto !important',
+    flex: '0 0 auto !important'
   }
 
   const carouselWrapper = {
