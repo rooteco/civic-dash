@@ -30,12 +30,15 @@ export function Line(props) {
         width: 800,
         insetBottom: 10,
         style: {
-          backgroundColor: "white"
+          backgroundColor: "#262626",
+          color: "#7B7A77",
+          fontSize: 16,
         },
         x: {
-          // ticks: 10,
+          ticks: 5,
           label: props.config ? props.config.xName : "Not Found",
           type: props.config ? props.config.xType : "linear",
+          // tickFormat: "%Y %m"
 
         },
         y: {
@@ -44,12 +47,12 @@ export function Line(props) {
           type: props.config ? props.config.yType : "linear"
         },
         marks: [
-          Plot.line(handleTimeRange(data, props.timeRange), {x: props.keys[0], y: props.keys[1], stroke: "darkblue"}),
-        ],
-        color: {
-          scheme: "blues",
-          type: "linear"
-        }
+          Plot.line(handleTimeRange(data, props.timeRange),
+                                    {x: props.keys[0],
+                                     y: props.keys[1],
+                                     stroke: "white",
+                                    }),
+        ]
       });
       headerRef.current.append(chart);
       return () => chart.remove();
