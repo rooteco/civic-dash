@@ -20,9 +20,10 @@ export function IndexLink(props: LinkProps){
   // partialVisibilityGutter should be set to indicators.length | something sensible
 
   // CAROUSEL STUFF
-  const items = props.indicators.length
+  const items = props.indicators.length > 2 ? 2 : props.indicators.length;
 
-  const gutter = items > 1 ? items * 50 : 100;
+
+  const gutter = items > 1 ? 220 / items : 0;
 
   const responsive = {
     desktop: {
@@ -45,11 +46,11 @@ export function IndexLink(props: LinkProps){
       setHeight(height);
 
     }
-  }, []);
+  }, [wrapperSize]);
 
   const sparkline = {
-    height: `${0.8*height}px`,
-    width: `${0.25*width}px !important`,
+    height: `${0.65*height}px`,
+    width: `${220}px !important`,
     flex: '0 0 auto !important'
   }
 
@@ -61,24 +62,23 @@ export function IndexLink(props: LinkProps){
   }
 
   const carouselTrack = {
+    // TODO: this does not work
     // center the carousel with flex
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-
     alignItems: 'center',
-
+    padding: "4 px", 
   }
 
   return(
     <div ref = {wrapperSize} style = {carouselWrapper}>
       <Carousel
-        //infinite
+        infinite
         arrows = {false}
-        //autoPlay
+        autoPlay
         sliderClass={`${carouselTrack}`}
         partialVisible = {true}
-        // slidesToSlide = {0}
         itemClass = {`${sparkline}`}
 
         responsive={responsive}

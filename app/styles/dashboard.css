@@ -207,6 +207,12 @@ select {
   text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
 }
 
+.border-sharp {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--br-sharp);
+}
+
 .border-gradient {
   border: 1px solid;
   border-image-slice: 1;
@@ -417,7 +423,7 @@ p {
 
   align-items: center;
   gap: var(--space-unit);
-
+  padding: var(--space-xxs) 0px var(--space-xxs) 0px;
 }
 
 .indicator-sparkline{
@@ -426,12 +432,12 @@ p {
   border-radius: 8px;
   height: 100%;
   flex: 0 0 auto;
+  width: 220px !important;
 }
 
 .indicator-sparkline-metadata{
   width: 60%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), radial-gradient(127.27% 200% at 11.36% 82.74%, rgba(77, 134, 142, 0.36) 0%, rgba(26, 26, 26, 0.36) 20.63%);
-
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
 
   display: flex;
   flex-direction: column;
@@ -440,6 +446,11 @@ p {
   padding: var(--space-xxs) var(--space-xs) var(--space-xxs) var(--space-xs);
   gap: var(--space-s);
 }
+
+.indicator-sparkline-metadata:hover {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), radial-gradient(127.27% 200% at 11.36% 82.74%, rgba(77, 134, 142, 0.45) 0%, rgba(26, 26, 26, 0.36) 20.63%);
+}
+
 
 .sparkline{
   flex-grow: 1;
@@ -495,6 +506,19 @@ p {
 .caption{
   font-size: var(--fs-s);
   text-transform: capitalize;
+}
+
+.inscription{
+  width: 70%;
+  font-size: calc(var(--fs-sm));
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.favorite {
+  /* a large circle background */
+  border: 1px solid var(--clr-grey-100);
 }
 
 
