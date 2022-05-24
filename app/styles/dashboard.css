@@ -204,7 +204,16 @@ select {
 }
 
 .textshadow-light {
-  text-shadow: text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
+  text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
+}
+
+.border-gradient {
+  border: 1px solid;
+  border-image-slice: 1;
+}
+
+.border-gradient-white {
+  border-image-source: linear-gradient(to top, #ffffff0b , #ffffff00);
 }
 
 /* ------------------------------ */
@@ -263,7 +272,7 @@ p {
 }
 
 .screensaver{
-  background-image: linear-gradient(0deg, rgba(var(--clr-grey-500), var(--alpha-low)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #000000 95.99%), url('../../assets/finn_bridge.jpeg');
+  background-image: linear-gradient(0deg, rgba(var(--clr-grey-500), var(--alpha-low)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #000000 95.99%), url('../../assets/bg.png');
   background-size: cover;
 }
 
@@ -285,6 +294,7 @@ p {
   padding: 0px 0px var(--space-unit) var(--space-sm);
   gap: var(--space-xxs);
   position: relative;
+
 }
 
 

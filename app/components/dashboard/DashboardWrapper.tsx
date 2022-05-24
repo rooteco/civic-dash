@@ -36,7 +36,7 @@ export function DashboardWrapper(props: WrapperProps){
           <Menu />
           <div className="dashgrid">
             <div className="axis"/>
-            <div className="flex-column focus">
+            <div className="flex-column focus border-gradient border-gradient-white">
               {props.focusChild}
             </div>
             <div className="header">
