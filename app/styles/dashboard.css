@@ -213,7 +213,7 @@ select {
 }
 
 .border-gradient-white {
-  border-image-source: linear-gradient(to top, #ffffff0b , #ffffff00);
+  border-image-source: linear-gradient(to top, #ffffff1b , #ffffff00);
 }
 
 /* ------------------------------ */
@@ -513,7 +513,7 @@ p {
 .markets-table {
   cursor: pointer;
 
-  border: 1px solid rgba(var(--clr-grey-200), var(--alpha-high));
+  border: 1px solid rgba(var(--clr-grey-300), var(--alpha-medium));
   border-radius: 6px;
   background: rgba(var(--clr-grey-800), var(--alpha-high));
 }
@@ -523,8 +523,12 @@ p {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-unit);
+
+  padding: var(--space-xs);
   border-bottom: 1px solid rgba(var(--clr-grey-200), var(--alpha-high));
+
+  color: rgba(var(--clr-grey-200), var(--alpha-high));
+  font-size: var(--fs-sm);
 }
 
 
