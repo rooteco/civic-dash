@@ -11,6 +11,9 @@ interface LineProps{
   keys: Array<String>;
 }
 
+// TODO: size chart according to useEffect
+// TODO
+
 export function Line(props) {
   const headerRef = useRef();
   const [data, setData] = useState();
@@ -26,11 +29,11 @@ export function Line(props) {
       const chart = Plot.plot({
 
         margin: 100,
-        height: 600,
+        height: 450,
         width: 800,
         insetBottom: 10,
         style: {
-          backgroundColor: "#262626",
+          backgroundColor: "#1A1A1A",
           color: "#7B7A77",
           fontSize: 16,
         },
