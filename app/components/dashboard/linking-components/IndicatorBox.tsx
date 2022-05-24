@@ -21,8 +21,8 @@ export function IndicatorBox(props: IndicatorBoxProps){
         <div className="indicator-sparkline-metadata">
             <p className="inscription truncate">{props.indicator.name}</p>
           
-            <p>{Math.round(Math.random()*100)}</p>
-            <p>{Math.round(Math.random()*100)}%</p>
+            <h3>{Math.round(Math.random()*100)}</h3>
+            <p className="inscription">{Math.round(Math.random()*100)}%</p>
         </div>
 
         <img src={graph ? graph : ""} alt="graph" className = "sparkline"/>

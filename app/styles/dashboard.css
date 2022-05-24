@@ -142,8 +142,8 @@ select {
   --space-xs:   calc(0.5 * var(--space-unit));
   --space-sm:   calc(0.75 * var(--space-unit));
   --space-md:   calc(1.25 * var(--space-unit));
-  --space-lg:   calc(2 * var(--space-unit));
-  --space-xl:   calc(3.25 * var(--space-unit));
+  --space-lg:   calc(1.75 * var(--space-unit));
+  --space-xl:   calc(2.75 * var(--space-unit));
   --space-xxl:  calc(5.25 * var(--space-unit));
   
 }
@@ -155,9 +155,8 @@ select {
 /* Icons */
 .icon {
   display: inline-block;
-  color: var(--clr-primary);
-  height: 1em;
-  width: 1em;
+  height: 3em;
+  width: 3em;
   line-height: 1;
 }
 /* TODO icon size */
@@ -201,6 +200,10 @@ select {
 
 .pad {
   padding: var(--space-xs, 0.5em);
+}
+
+.spacer-lg {
+  height: var(--space-lg, 1.5em);
 }
 
 .textshadow-light {
@@ -448,7 +451,7 @@ p {
 }
 
 .indicator-sparkline-metadata:hover {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), radial-gradient(127.27% 200% at 11.36% 82.74%, rgba(77, 134, 142, 0.45) 0%, rgba(26, 26, 26, 0.36) 20.63%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), radial-gradient(150% 350% at 5.36% 82.74%, rgba(77, 134, 142, 0.45) 0%, rgba(26, 26, 26, 0.36) 20.63%);
 }
 
 
@@ -511,6 +514,7 @@ p {
 .inscription{
   width: 70%;
   font-size: calc(var(--fs-sm));
+  line-height: 0.85;
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: -0.04em;
