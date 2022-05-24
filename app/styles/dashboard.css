@@ -162,7 +162,7 @@ select {
 }
 /* TODO icon size */
 .icon-s {
-  font-size: var(--font-size-small);
+  font-size: var(--fs-sm);
 }
 .icon-m {
 }
@@ -203,7 +203,9 @@ select {
   padding: var(--space-xs, 0.5em);
 }
 
-
+.textshadow-light {
+  text-shadow: text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
+}
 
 /* ------------------------------ */
 /* Responsiveness: TODO           */
@@ -211,8 +213,8 @@ select {
 @media breakpoint() {
     /* Update base sizes */
     :root {
-        --font-size-base: 16px;
-        --spacer-unit: 8px;
+        --font-size-base: 12px;
+        --space-unit: 8px;
     }
 }
 
@@ -226,8 +228,8 @@ h1 {
   font-size: var(--fs-xl);
   line-height: var(--space-md);
   color: rgba(var(--clr-white), var(--alpha-high));
-  letter-spacing: -0.02em;
-  text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-medium));
+  text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
+  letter-spacing: -0.02em; 
 }
 
 /* TODO: specify when needed */
@@ -240,26 +242,28 @@ h6 {
   font-size: var(--fs-md);
   line-height: 1.25;
   letter-spacing: -0.02em;
-  
+  text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
   color: rgba(var(--color-grey-200));
 }
 
 h3 {
   font-size: var(--fs-md);
-  line-height: var(--space-sm);
-  font-weight: 600;
+  line-height: var(--space-md);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
   color: rgba(var(--clr-grey-300));
 }
 
 p {
   font-weight: 200;
-  font-size: var(--font-size-sm);
+  font-size: var(--fs-unit);
   color: rgba(var(--clr-grey-400));
   letter-spacing: -0.02em;
 }
 
 .screensaver{
-  background-image: linear-gradient(0deg, rgba(var(--clr-grey-300), var(--alpha-low)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.3) 66.06%, #000000 95.99%), url('../../assets/finn_bridge.jpeg');
+  background-image: linear-gradient(0deg, rgba(var(--clr-grey-500), var(--alpha-low)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #000000 95.99%), url('../../assets/finn_bridge.jpeg');
   background-size: cover;
 }
 
@@ -281,8 +285,9 @@ p {
   padding: 0px 0px var(--space-unit) var(--space-sm);
   gap: var(--space-xxs);
   position: relative;
-
 }
+
+
 
 .focus::before {
   content: '';
@@ -292,20 +297,25 @@ p {
   width: 100%;
   height: 100%;
 
-  /* add bg image */
+  
   background-image: url('../../assets/map.png');
   background-size: cover;
   mix-blend-mode: soft-light;
-  opacity: 0.35;
+  opacity: 0.15;
   z-index: 1;
 }
 
-/* make children focusable */
+.focus:hover::before {
+  opacity: 0.25;
+}
+
+
 .focus > * {
   mix-blend-mode: normal;
   opacity: 1;
   z-index: 2;
 }
+
 
 .axis{
   grid-row: 3/3;
@@ -379,6 +389,7 @@ p {
 
   display: flex;
   gap: var(--space-xs);
+  z-index: 2;
 }
 
 /* Carousel */
