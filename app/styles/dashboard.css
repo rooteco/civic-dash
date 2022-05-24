@@ -388,7 +388,7 @@ p {
 
 
 .pill {
-  background: rgba(var(--clr-white),  var(--alpha-low));
+  background: rgba(var(--clr-grey-500),  var(--alpha-low));
   border: 1px solid rgba(var(--clr-white),  var(--alpha-low));
   border-radius: var(--br-round);
   color: rgba(var(--clr-grey-400));
@@ -407,6 +407,9 @@ p {
 
 }
 
+.pill:hover {
+  background: rgba(var(--clr-white),  var(--alpha-low));
+}
 
 .pill span{
   font-size: var(--fs-base);
@@ -422,7 +425,7 @@ p {
 .pill-active {
   background: rgba(var(--clr-white));
   border: 1px solid var(--clr-grey-100);
-  color: rgba(var(--clr-grey-700));
+  color: rgba(var(--clr-grey-800));
 }
 
 
