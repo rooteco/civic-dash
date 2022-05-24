@@ -202,12 +202,12 @@ select {
   padding: var(--space-xs, 0.5em);
 }
 
-.spacer-lg {
-  height: var(--space-lg, 1.5em);
+.spacer-unit {
+  height: var(--space-base, 1.5em);
 }
 
 .textshadow-light {
-  text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
+  text-shadow: 0px 0px var(--space-sm) rgba(var(--clr-white), var(--alpha-high));
 }
 
 .border-sharp {
@@ -440,7 +440,9 @@ p {
 
 .indicator-sparkline-metadata{
   width: 60%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35),
+                                    rgba(0, 0, 0, 0.35)),
+              radial-gradient(150% 350% at 5.36% 82.74%, rgba(77, 134, 142, 0.25) 0%, rgba(26, 26, 26, 0.36) 20.63%);
 
   display: flex;
   flex-direction: column;

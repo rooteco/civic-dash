@@ -34,7 +34,7 @@ export function ChartCanvas(props: CanvasProps){
     <div className="flex-column indicatorwidget">
 
       <div className='indicator-header flex-column pad'>
-        <h3>{indicatorName}</h3>
+        <h3 className=''>{indicatorName}</h3>
         <p>{indicatorDescription}</p>
       </div>
 
