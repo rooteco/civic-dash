@@ -31,7 +31,7 @@ export function DashboardWrapper(props: WrapperProps){
   }, [props.error])
 
   return(
-    <div className="min-h-screen flex flex-row">
+    <div className="min-h-screen flex">
       <TableOpenContext.Provider value={tableOpen}>
           <Menu />
           <div className="dashgrid">
