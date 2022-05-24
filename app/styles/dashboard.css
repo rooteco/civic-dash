@@ -272,7 +272,7 @@ p {
 }
 
 .screensaver{
-  background-image: linear-gradient(0deg, rgba(var(--clr-grey-500), var(--alpha-low)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #000000 95.99%), url('../../assets/bg.png');
+  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #111111 98.99%), url('../../assets/bg.png');
   background-size: cover;
 }
 
@@ -525,7 +525,7 @@ p {
   align-items: center;
 
   padding: var(--space-xs);
-  border-bottom: 1px solid rgba(var(--clr-grey-200), var(--alpha-high));
+  border-bottom: 1px solid rgba(var(--clr-grey-300), var(--alpha-medium));
 
   color: rgba(var(--clr-grey-200), var(--alpha-high));
   font-size: var(--fs-sm);
