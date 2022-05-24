@@ -1,9 +1,13 @@
 import { Link } from "@remix-run/react";
 
 
-// TODO: for either theme or problem 0xs
+// content is type Theme or type Problem
 
-export function Pill({theme, active}) {
+
+
+// TODO: for either theme or problem 0xs :: content in place of theme
+
+export default function Pill({theme, active = false}) {
 
   if (active) {
     return (
