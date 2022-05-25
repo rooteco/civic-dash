@@ -33,38 +33,40 @@ export function PredictionModal(props: PredictionProps){
   }
 
   return(
-      <div className = "flex-column">
-        <div className = "flex-space-between">
-          <span onClick={()=>props.setPanelIsOpen(false)} className = "pill">X</span>
-          <span onClick={()=>props.setPanelIsOpen(false)} className = "pill">X</span>
+    <div className="flex-column" style = {{height: "100%"}}>
+      <div className="flex-column pad">
+        
+        <div className="flex-space-between">
+          <span onClick={() => props.setPanelIsOpen(false)} className="pill">{"<-"}</span>
+          <span onClick={() => props.setPanelIsOpen(false)} className="pill">X</span>
         </div>
 
-        <div className = "flex-space-between">
-          <div className = "flex-row">
-            <div className = "flex-column" style = {{width: "66%"}}>
-              <p className = "">{props.predictionMarket.question}</p>
+        <div className="flex-column pad">
+          <div className="flex-space-between" style={{alignItems: "flex-start"}}>
+            <div className="flex-column">
+              <h3 className="">{props.predictionMarket.question}</h3>
+              <div className="flex-row">
+                <p>{closeDate(props.predictionMarket.fullData.closeTime)}</p>
+                <p>{isOpen(props.predictionMarket.fullData.isResolved)}</p>
+                <p>${roundProb(props.predictionMarket.fullData.totalLiquidity)}</p>
+              </div>
             </div>
 
-            <div className = "flex-column" style = {{width: "33%"}}>
-              <p className = "">{roundProb(props.predictionMarket.fullData.probability)}</p>
-              <p>{"%"}</p>
+            <div className="flex-column probsticker">
+              <h2 className="">{roundProb(props.predictionMarket.fullData.probability)}</h2>
+              <p><strong>{"%"}</strong></p>
             </div>
           </div>
 
         </div>
 
-        <div className = "flex-row">
-            <p>{closeDate(props.predictionMarket.fullData.closeTime)}</p>
-            <p>{isOpen(props.predictionMarket.fullData.isResolved)}</p>
-            <p>${roundProb(props.predictionMarket.fullData.totalLiquidity)}</p>
-        </div>
-
-        <div className = "flex-column">
-          <p>{"chart goes here"}</p>
-          <p>{props.predictionMarket.fullData.description}</p>
-        </div>
       </div>
-
+    
+      <div className="market-description pad-unit">
+        <p>{"chart goes here"}</p>
+        <p>{props.predictionMarket.fullData.description}</p>
+      </div>
+    </div>
 
   )
 }

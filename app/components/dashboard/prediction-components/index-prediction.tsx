@@ -19,23 +19,24 @@ const customStyles = {
     backgroundColor: "rgba(0,0,0,0.1)",
   },
   content: {
-    width: "32vw",
-    height: "100vh",
+    width: "32.5vw",
+    height: "102vh",
     position: "fixed",
-    top: "0px",
-    right: "0px",
-    bottom: '0px',
+    top: "-1px",
+    right: "-1px",
+    bottom: '-px',
     left: 'auto',
     borderRadius: '0px',
     backgroundColor: 'rgba(16, 16, 16, 100)',
-    border: '1px solid #3c3c3c'
+    border: '1px solid #3c3c3c',
+    padding: '0px'
   },
 };
 
 
 
 export function IndexPrediction(props: PredictionProps){
-  const [panelIsOpen, setPanelIsOpen] = useState(false);
+  const [panelIsOpen, setPanelIsOpen] = useState(true);
   
   const [activeMarket, setActiveMarket] = useState(props.predictionMarkets[0])
   const tableOpen = useContext(TableOpenContext)
