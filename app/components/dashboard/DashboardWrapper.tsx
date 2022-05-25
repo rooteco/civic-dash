@@ -52,7 +52,7 @@ export function DashboardWrapper(props: WrapperProps){
             <div className="header flex-space-between">
                 <div className="flex-row">
                   <p>{currentDate}</p>
-                  <div className = "icon-s"/>
+                  <div className = "icon-xs"/>
                   <p>{currentTime}</p>
                 </div>
 

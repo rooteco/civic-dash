@@ -16,6 +16,7 @@ src: local(''),
      url('../../assets/inter-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap');
 
 /* ------------------------------ */
 /* Resets                         */    
@@ -157,19 +158,32 @@ select {
   display: inline-block;
   height: 3em;
   width: 3em;
-  line-height: 1;
+  border-radius: 100px;
+  background: rgba(var(--clr-grey-100), var(--alpha-low));
+  /* center */
   
+  
+
 }
 /* TODO icon size */
 .icon-s {
-  font-size: var(--fs-sm);
-  height: 0.5em;
-  width: 0.5em;
+  
+  height: 1em;
+  width: 1em;
   border-radius: 100px;
   background: rgba(var(--clr-grey-100), var(--alpha-low));
+  text-align: center;
+  line-height: var(--fs-unit);
 
 }
-.icon-m {
+
+.icon-xs {
+  height: var(--fs-xxs);
+  width: var(--fs-xxs);
+  border-radius: 100px;
+  background: rgba(var(--clr-grey-100), var(--alpha-low));
+  text-align: center;
+  line-height: var(--fs-xxs);
 }
 
 /* ------------------------------ */
@@ -323,7 +337,7 @@ p {
   gap: var(--space-xxs);
   position: relative;
 
-  display: none;
+  
 
 
 }
@@ -498,7 +512,7 @@ p {
 
 .pill span{
   font-size: var(--fs-base);
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.02em;
   color: rgba(var(--clr-grey-400));
 }
@@ -509,10 +523,13 @@ p {
 
 .pill-active {
   background: rgba(var(--clr-white));
-  border: 1px solid var(--clr-grey-100);
-  color: rgba(var(--clr-grey-800));
+  border: 1px solid var(--clr-grey-800);
+  color: rgba(var(--clr-grey-900));
 }
 
+.pill-active > span{
+  color: rgba(var(--clr-grey-500));
+}
 
 
 /* to refactor */
