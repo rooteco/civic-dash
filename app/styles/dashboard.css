@@ -300,8 +300,15 @@ select {
   border-image-slice: 1;
 }
 
+
+
 .border-gradient-white {
+  border-image-source: linear-gradient(to top, #ffffff00 , #ffffff00);
+}
+
+.border-gradient-white:hover {
   border-image-source: linear-gradient(to top, #ffffff12 , #ffffff00);
+  transition: all 1s ease-in-out;
 }
 
 .border-gradient-skeu {
@@ -399,7 +406,7 @@ strong {
 
 .market-description {
   /* linear gradient background */
-  background: linear-gradient(180deg, rgba(var(--clr-grey-500)) -10%, rgba(var(--clr-grey-700)) 10%);
+  background: linear-gradient(180deg, rgba(var(--clr-grey-500)) -10%, rgba(var(--clr-grey-800)) 10%);
   flex: 1;
 }
 
@@ -443,7 +450,7 @@ strong {
   background-image: url('../../assets/map.png');
   background-size: cover;
   mix-blend-mode: soft-light;
-  opacity: 0.10;
+  opacity: 0.05;
   z-index: 1;
 }
 
