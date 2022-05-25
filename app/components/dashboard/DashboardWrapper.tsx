@@ -30,6 +30,16 @@ export function DashboardWrapper(props: WrapperProps){
     typeof props.error !== 'undefined' ? setSnackbarOpen(true) : setSnackbarOpen(false)
   }, [props.error])
 
+  // get current time and format
+  const now = new Date()
+  
+  let dateOptions = { weekday: 'short', month: 'long', day: 'numeric' };
+  let timeOptions = { hour: 'numeric', minute: 'numeric' };
+
+  const currentDate = now.toLocaleDateString('en-US', dateOptions);
+  const currentTime = now.toLocaleTimeString('en-US', timeOptions);
+
+
   return(
     <div className="min-h-screen flex">
       <TableOpenContext.Provider value={tableOpen}>
@@ -37,9 +47,15 @@ export function DashboardWrapper(props: WrapperProps){
           <div className="dashgrid">
             <div className="axis"/>
             <div className="flex-column focus border-gradient border-gradient-white">
-              {props.focusChild}
+              {props.focusChild} 
             </div>
-            <div className="header">
+            <div className="header flex-space-between">
+                <div className="flex-row">
+                  <p>{currentDate}</p>
+                  <div className = "icon-s"/>
+                  <p>{currentTime}</p>
+                </div>
+
                 {props.user &&
                   <Form
                     method="post"
@@ -56,14 +72,6 @@ export function DashboardWrapper(props: WrapperProps){
                     <button style={{color: "gray"}}><p>Login or sign up</p></button>
                   </Form>
                 }
-                <div className="portfoliostats">
-                  <button
-                      className="metric"
-                      onClick={()=>setTableOpen(prevState => !prevState)}>$1000</button>
-                    <button
-                      className="metric"
-                      onClick={()=>setTableOpen(prevState => !prevState)}>3</button>
-                </div>
             </div>
 
             <div className="dash">
@@ -74,7 +82,7 @@ export function DashboardWrapper(props: WrapperProps){
               {props.linkChild}
               </div>
             </div>
-            <div className="DashboardInset" id="ModalAnchor">
+            <div className="DashboardInset flex-column pad" id="ModalAnchor">
               {props.predictionChild ? props.predictionChild : ""}
             </div>
           </div>

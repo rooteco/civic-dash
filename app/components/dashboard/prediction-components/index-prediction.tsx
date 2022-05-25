@@ -46,37 +46,39 @@ export function IndexPrediction(props: PredictionProps){
   }
 
   return(
-    <>
-    {tableOpen &&
-    <div className="markets">
-    
+      <>
+      <div className="inscription">
       {props.categoryType ?
-        <p className='caption'>Showing prediction markets for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></p> :
-        <p className= 'caption'>{"Favourite Markets".toUpperCase()}</p>
+        <p> Markets for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></p> :
+        <p>{"Favourite Markets".toUpperCase()}</p>
       }
-    
-      <div className="markets-table">
-        {props.predictionMarkets && props.predictionMarkets.map((predictionMarket)=> (
-          <MarketRow 
-            key = {predictionMarket.id}
-            handleButton={handleButton} 
-            predictionMarket={predictionMarket}  />
-        ))}
       </div>
-        
-    </div>
-    }
-    <Modal
-      isOpen={panelIsOpen}
-      onRequestClose={()=>setPanelIsOpen(false)}
-      style={customStyles}
-      ariaHideApp={false}
-      >
-      <PredictionModal
-        setPanelIsOpen={setPanelIsOpen}
-        predictionMarket={activeMarket}
-      />
-    </Modal>
+      
+      {tableOpen &&
+      
+        <div className="markets-table">
+          {props.predictionMarkets && props.predictionMarkets.map((predictionMarket)=> (
+            <MarketRow 
+              key = {predictionMarket.id}
+              handleButton={handleButton} 
+              predictionMarket={predictionMarket}  />
+          ))}
+        </div>
+      }
+
+      
+
+      <Modal
+        isOpen={panelIsOpen}
+        onRequestClose={()=>setPanelIsOpen(false)}
+        style={customStyles}
+        ariaHideApp={false}
+        >
+        <PredictionModal
+          setPanelIsOpen={setPanelIsOpen}
+          predictionMarket={activeMarket}
+        />
+      </Modal>
     </>
   )
 }
