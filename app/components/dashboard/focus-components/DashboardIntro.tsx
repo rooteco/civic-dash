@@ -16,7 +16,7 @@ export function DashboardIntro(props: DashboardIntroProps){
       <div className="spacer-unit"/>
       <div>
         <h3 className="textshadow-light">
-          Welcome to CivicDash {props.user ? `, ${props.user.name.givenName}` : ""}
+          Welcome to CivicDash{props.user ? `, ${props.user.name.givenName}` : ""}
         </h3>
         <p> A community-driven platform for proposing and evaluating solutions to realize Civic Abundance</p>
       </div>

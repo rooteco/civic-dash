@@ -6,17 +6,59 @@
   src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
 }
 
+/* inter-200 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../../assets/inter-v11-latin-200.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../../assets/inter-v11-latin-200.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../assets/inter-v11-latin-200.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../assets/inter-v11-latin-200.woff') format('woff'), /* Modern Browsers */
+       url('../../assets/inter-v11-latin-200.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../../assets/inter-v11-latin-200.svg#Inter') format('svg'); /* Legacy iOS */
+}
 /* inter-regular - latin */
 @font-face {
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-src: local(''),
-     url('../../assets/inter-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-     url('../../assets/inter-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../assets/inter-v11-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../../assets/inter-v11-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../assets/inter-v11-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../assets/inter-v11-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../../assets/inter-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../../assets/inter-v11-latin-regular.svg#Inter') format('svg'); /* Legacy iOS */
+}
+/* inter-600 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../../assets/inter-v11-latin-600.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../../assets/inter-v11-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../assets/inter-v11-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../assets/inter-v11-latin-600.woff') format('woff'), /* Modern Browsers */
+       url('../../assets/inter-v11-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../../assets/inter-v11-latin-600.svg#Inter') format('svg'); /* Legacy iOS */
+}
+/* inter-800 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../../assets/inter-v11-latin-800.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../../assets/inter-v11-latin-800.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../assets/inter-v11-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../assets/inter-v11-latin-800.woff') format('woff'), /* Modern Browsers */
+       url('../../assets/inter-v11-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../../assets/inter-v11-latin-800.svg#Inter') format('svg'); /* Legacy iOS */
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap');
 
 /* ------------------------------ */
 /* Resets                         */    
@@ -201,6 +243,7 @@ select {
     display: flex;
     gap: var(--space-xs);
     align-items: center;
+    justify-content: flex-start;
 }
 
 .flex-space-between {
@@ -237,7 +280,7 @@ select {
   height: var(--space-base, 1.5em);
 }
 
-.textshadow-light {
+.textshadow-light, a:hover {
   text-shadow: 0px 0px var(--space-sm) rgba(var(--clr-white), var(--alpha-high));
 }
 
@@ -254,6 +297,11 @@ select {
 
 .border-gradient-white {
   border-image-source: linear-gradient(to top, #ffffff12 , #ffffff00);
+}
+
+.border-gradient-skeu {
+  border-image-source: linear-gradient(253.68deg, rgba(0, 0, 0, 0.35) 18.86%, rgba(0, 0, 0, 0) 98.85%),
+  linear-gradient(67.9deg, rgba(85, 85, 85, 0.35) -4.51%, rgba(44, 44, 44, 0) 79.18%);
 }
 
 /* ------------------------------ */
@@ -273,7 +321,7 @@ select {
 
 
 h1 {
-  font-weight: 800;
+  font-weight: 600;
   font-size: var(--fs-xl);
   line-height: var(--space-md);
   color: rgba(var(--clr-white), var(--alpha-high));
@@ -287,7 +335,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
+  font-weight: 600;
   font-size: var(--fs-md);
   line-height: 1.25;
   letter-spacing: -0.02em;
@@ -298,7 +346,7 @@ h6 {
 h3 {
   font-size: var(--fs-md);
   line-height: var(--space-md);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.02em;
   text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
   color: rgba(var(--clr-grey-300));
@@ -311,6 +359,16 @@ p {
   letter-spacing: -0.02em;
 }
 
+a {
+  font-weight: 200;
+  font-size: var(--fs-unit);
+  color: rgba(var(--clr-grey-400), var(--alpha-high));
+  letter-spacing: -0.02em;
+}
+
+a:hover {
+  color: rgba(var(--clr-grey-300), var(--alpha-high));
+}
 
 
 .screensaver{
@@ -429,11 +487,18 @@ p {
 
 .menu{
   position: absolute;
-  top: var(--space-xs);
+  top: var(--space-sm);
   left: var(--space-unit);
 
-  display: flex;
-  gap: var(--space-xs);
+  background: rgba(var(--clr-grey-700), var(--alpha-high));
+  border-radius: var(--br-circle);
+  border-collapse: separate;
+  padding: var(--space-xxs) var(--space-sm) var(--space-xxs) var(--space-xs);
+
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(253.68deg, rgba(0, 0, 0, 0.35) 18.86%, rgba(0, 0, 0, 0) 98.85%);
+
   z-index: 2;
 }
 
@@ -512,13 +577,14 @@ p {
 
 .pill span{
   font-size: var(--fs-base);
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.02em;
   color: rgba(var(--clr-grey-400));
 }
 
 .pill span:hover{
   color: rgba(var(--clr-grey-200));
+  text-shadow: 0px 0px var(--space-sm) rgba(var(--clr-white), var(--alpha-high));
 }
 
 .pill-active {
@@ -527,8 +593,9 @@ p {
   color: rgba(var(--clr-grey-900));
 }
 
-.pill-active > span{
+.pill-active span{
   color: rgba(var(--clr-grey-500));
+  font-weight: 600;
 }
 
 
