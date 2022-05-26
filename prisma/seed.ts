@@ -141,39 +141,117 @@ function getIndicators(){
   return [
     {
       id: 1,
-      name: "Median Sale Price",
-      description: "This is the median sale price for houses in San Francisco, taken from Zillow's open source database",
+      name: "Median Housing Sale Price",
+      description: "<p>This indicator uses Zillow Research’s open source data <a href='https://www.zillow.com/research/data/'>[1]</a>, and lists the median price at which homes in San Francisco county were sold on a weekly basis. The county only includes central SF (e.g. not Oakland). There might be some bias in the data due to the fact that only a certain subset of houses are sold on Zillow, but it’s useful as a relative measure.</p>",
       slug: "median-sale-price",
       favourite: true,
     },
     {
       id: 2,
-      name: "Number of Available Houses",
-      description: "",
-      slug: "available-houses",
+      name: "Average Build Price",
+      description: "<p>It’s challenging to find comprehensive, up-to-date measures of the price of construction in San Francisco. The best resource was Turner and Townsend’s 2021 international analysis of housing costs, from which this indicator was derived <a href='https://i.emlfiles4.com/cmpdoc/5/1/7/8/7/files/798439_international-construction-market-survey-2021-web.pdf?utm_source=Turner%20%26%20Townsend&utm_medium=email&utm_campaign=12482091_ICMS%202021&dm_i=1OQJ,7FJ8R,9NTT9E,U6WD2,1'>[1]</a>. It lists San Francisco as the third most expensive city in the world for construction.</p>",
+      slug: "housing-construction-costs",
       favourite: false,
     },
     {
       id: 3,
-      name: "Inflation Rate",
-      description: "",
-      slug: "inflation",
+      name: "Annual Sell Price Growth Rate",
+      description: "<p>This indicator uses the same Zillow data used to calculate Median Housing Sale Price <a href='https://www.zillow.com/research/data/'>[1]</a>. It groups the data by year and then calculates the year-on-year growth of the data.</p>",
+      slug: "median-sale-price-growth",
       favourite: false,
     },
     {
       id: 4,
-      name: "Median List Prices",
-      description: "",
-      slug: "median-list-prices",
+      name: "Percent Housing Burdened",
+      description: "<p>Housing burdened individuals are those that spend more than 30% of their income on their accomodation <a href='https://nationalequityatlas.org/indicators/Housing_burden#/?breakdown=1&geo=07000000000667000'>[1]</a>, and severely cost-burdened individuals are those that spend more than 50% of their income on accomodation. Housing burdens are functions of costs and income, which means that generally high-cost cities like San Francisco can have a relatively lower number of housing-burdened residents compared to lower cost cities (because everything is so expensive that it requires a larger proportion of income). This data was taken from the National Equity Atlas, which is an excellent source of information for social indicators <a href='https://nationalequityatlas.org/indicators/Housing_burden#/?breakdown=1&geo=07000000000667000'>[2]</a>.</p>",
+      slug: "housing-burdened",
       favourite: true,
     },
     {
       id: 5,
-      name: "Student Absenteeism Rates",
-      description: "",
-      slug: "student-absenteeism",
+      name: "Housing Units per Capita",
+      description: "<p>This indicator uses two datasets from datacommons.org <a href='https://datacommons.org/place/geoId/0667000?utm_medium=explore&mprop=count&popt=HousingUnit&hl=en'>[1]</a>: population and the number of housing units in San Francisco. These in turn are drawn from United States national census data.</p",
+      slug: "houses-per-capita",
+      favourite: true
+    },
+    {
+      id: 6,
+      name: "Number of Housing Units",
+      description: "<p>This indicator uses two datasets from datacommons.org <a href='https://datacommons.org/place/geoId/0667000?utm_medium=explore&mprop=count&popt=HousingUnit&hl=en'>[1]</a>: population and the number of housing units in San Francisco. These in turn are drawn from United States national census data <a href='https://datacommons.org/place/geoId/0667000?utm_medium=explore&mprop=count&popt=HousingUnit&hl=en'>[1]</a>.</p>",
+      slug: "housing-units",
       favourite: true,
-    }
+    },
+    {
+      id: 7,
+      name: "Rental Vacancy Rate",
+      description: "<p>The rental vacancy rate measures the percentage of homes available for rent which are not occupied. It’s an important but complicated measure of housing availability: high vacancy rates could result from a lack of demand, an abundance of supply, or prohibitively high prices for accomodation. This data was summarised by the excellent site Department of Numbers <a href='https://www.deptofnumbers.com/rent/california/san-francisco/'>[1]</a>, and was originally taken from the Census ACS survey <a href='https://www.census.gov/programs-surveys/acs/'>[2]</a>.</p>",
+      slug: "vacancy-rates",
+      favourite: true,
+    },
+    {
+      id: 8,
+      name: "Number of New Housing Units",
+      description: "<p>This Statista dataset <a href='https://www.statista.com/statistics/1016486/housing-completions-san-francisco/'>[1]</a> tracks the number of new housing units built in San Francisco from 2000 to 2021, and highlights a relatively flat growth, as well as the impact of the global financial crisis of 2009.</p>",
+      slug: "new-housing-units",
+      favourite: false
+    },
+    {
+      id: 9,
+      name: "Reasons for Vacant Housing",
+      description: "<p>This indicator is taken from a 2019 report by the San Francisco government <a href='https://sfgov.legistar.com/View.ashx?M=F&ID=10441217&GUID=3331928E-0574-4AEA-90DB-35D04F638EDB'>[1]</a>, and breaks down the total number of vacant houses in the city (40,458) by category. The Other Vacant category includes 'units held vacant for personal or family reasons, units requiring or undergoing repair, corporate housing, units held for use by a caretaker or janitor, units subject to legal proceedings, units being kept vacant for a future sale, etc.'</p>",
+      slug: "vacant-units",
+      favourite: false
+    },
+    {
+      id: 10,
+      name: "Average SAT Score",
+      description: "<p>The data for San Francisco was taken from the education tracker Niche <a href='https://www.niche.com/k12/d/san-francisco-unified-school-district-ca/academics/'>[]</a>, while scores for other states came from The College Board <a href='https://reports.collegeboard.org/sat-suite-program-results'>[]</a>, which tracks SAT scores nationally.</p>",
+      slug: "average-sat",
+      favourite: false
+    },
+    {
+      id: 11,
+      name: "% of Students Who Have Met State Standards for English",
+      description: "<p>California standardises its assessment of its students using as a system called the California Assessment of Student Performance and Progress (CAASPP), which involves a set of standardised tests given to K-12 students. Standards are set for four categories: Standard Exceeded, Standard Met, Standard Nearly Met, and Standard Not Met. This indicator tracks the percentage of students who were in either the Standard Exceeded or Standard Met categories for the standardised English test <a href='http://caaspp.edsource.org/sbac/san-francisco-unified-38684780000000'>[1]</a>. All scores are for 2019 due to a lapse in educational reporting due to the COVID-19 pandemic. </p>",
+      slug: "met-tests-english",
+      favourite: false
+    },
+    {
+      id: 12,
+      name: "% of Students Who Have Met State Standards for Math",
+      description: "<p>California standardises its assessment of its students using as a system called the California Assessment of Student Performance and Progress (CAASPP), which involves a set of standardised tests given to K-12 students. Standards are set for four categories: Standard Exceeded, Standard Met, Standard Nearly Met, and Standard Not Met. This indicator tracks the percentage of students who were in either the Standard Exceeded or Standard Met categories for the standardised English test <a href='http://caaspp.edsource.org/sbac/san-francisco-unified-38684780000000'>[1]</a>. All scores are for 2019 due to a lapse in educational reporting due to the COVID-19 pandemic. </p>",
+      slug: "met-tests-math",
+      favourite: false
+    },
+    {
+      id: 13,
+      name: "School Enrolment (Broken Down by Socioeconomic Demographic)",
+      description: "<p>This indicator provides useful context for many other datasets in this topic, and was taken from the California School Dashboard <a href='https://www.caschooldashboard.org/reports/38684780000000/2021'>[1]</a>. Unlike other educational datasets that we’ve used, this data is from 2021, because enrolment continued to be reported on during the pandemic. It was impossible to maintain readability and include all racial demographics in the bar chart, so those with fewer than 500 enrolled students were folded into Other (American Indian [123] and Pacific Islander [393]), as well as students from two or more races.</p>",
+      slug: "socio-economic-enrollment",
+      favourite: false
+    },
+    {
+      id: 14,
+      name: "School Enrolment (Broken Down by Racial Demographic)",
+      description: "<p>This indicator provides useful context for many other datasets in this topic, and was taken from the California School Dashboard <a href='https://www.caschooldashboard.org/reports/38684780000000/2021'>[1]</a>. Unlike other educational datasets that we’ve used, this data is from 2021, because enrolment continued to be reported on during the pandemic. It was impossible to maintain readability and include all racial demographics in the bar chart, so those with fewer than 500 enrolled students were folded into Other (American Indian [123] and Pacific Islander [393]), as well as students from two or more races.</p>",
+      slug: "racial-enrollment",
+      favourite: false
+    },
+    {
+      id: 15,
+      name: "Rates of Student Absenteeism",
+      description: "<p>This indicator was drawn from the California School Dashboard by the San Francisco United School District <a href='https://www.caschooldashboard.org/reports/38684780000000/2019/academic-engagement'>[1]</a>, which is an excellent resource for many different measures of academic performance and behaviour. Absenteeism is measured for students from kindergarten through grade 8, and being “chronically absent” involves being absent 10 percent or more of all enrolled school days. These statistics are for 2019, because data reporting stopped by government mandate during the COVID-19 pandemic.</p>",
+      slug: "student-absenteeism",
+      favourite: false
+    },
+    {
+      id: 16,
+      name: "High School Graduation Rate",
+      description: "<p>This indicator was taken from the California School Dashboard by the San Francisco United School District <a href='https://www.caschooldashboard.org/reports/38684780000000/2019/academic-engagement'>[1]</a>. Students are counted as ‘graduated’ when they receive a standard high school diploma, or when they complete their requirements at an alternative school. These statistics are for 2019, because data reporting stopped by government mandate during the COVID-19 pandemic.</p>",
+      slug: "high-school-graduation",
+      favourite: false
+    },
+
   ]
 }
 

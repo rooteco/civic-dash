@@ -7,6 +7,7 @@ import { exitIndicator } from "~/utils/exitIndicator"
 import type { Config, Indicator } from "~/models/indicator.server"
 import { formatValues } from "~/utils/formatValues"
 import ClearIcon from '@mui/icons-material/ClearRounded';
+import { Interweave } from 'interweave';
 
 interface CanvasProps {
   dataset: Array<any>;
@@ -52,7 +53,9 @@ export function ChartCanvas(props: CanvasProps){
             </Link>
           </div>
         </div>
-        <p>{indicatorDescription}</p>
+          <Interweave
+            content={indicatorDescription}
+            />
       </div>
 
       <div className='indicator-body pad'>
