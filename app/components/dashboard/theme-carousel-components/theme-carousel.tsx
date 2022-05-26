@@ -1,5 +1,6 @@
 import { Link } from "@remix-run/react";
 import { deslugify } from '~/utils/deslugify';
+import ClearIcon from '@mui/icons-material/ClearRounded';
 
 type Params = {
   theme?: string;
@@ -21,8 +22,8 @@ export function ThemeCarousel(props: CarouselProps){
     <>
     <div className="flex-row carousel-wrapper">
       <div className="pill pill-active">
-        <span>{props.params ? deslugify(props.params.theme ? props.params.theme : "") : ""} <Link to='/dashboard'>X</Link></span>
-
+        <span>{props.params ? deslugify(props.params.theme ? props.params.theme : "") : ""}</span>
+        <div><Link to='/dashboard'><ClearIcon fontSize='small'/></Link></div>
       </div>
 
       {props.data && props.data.problems.map((problem)=>(

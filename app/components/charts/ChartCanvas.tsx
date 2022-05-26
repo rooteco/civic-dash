@@ -6,6 +6,7 @@ import { Bar } from "~/components/charts/bar";
 import { exitIndicator } from "~/utils/exitIndicator"
 import type { Config, Indicator } from "~/models/indicator.server"
 import { formatValues } from "~/utils/formatValues"
+import ClearIcon from '@mui/icons-material/ClearRounded';
 
 interface CanvasProps {
   dataset: Array<any>;
@@ -45,9 +46,9 @@ export function ChartCanvas(props: CanvasProps){
             <h3>{indicatorName}</h3>
           </div>
           <div style={{flex: 1}}/>
-          <div style={{border: '2px dashed red', width: "30px", display: "flex", justifyContent: "center", alignItems: "center"}}>
+          <div style={{width: "20px", display: "flex", justifyContent: "center", alignItems: "center"}}>
             <Link to={exitIndicator(params)}>
-              X
+              <ClearIcon />
             </Link>
           </div>
         </div>

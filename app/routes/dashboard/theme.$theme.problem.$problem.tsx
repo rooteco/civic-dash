@@ -17,6 +17,8 @@ import { evaluateIndicatorString } from "~/utils/evaluateIndicatorString"
 
 import { getFavouritedIndicatorSlugs } from "~/models/user.server"
 import { addFavouritedIndicator, removeFavouritedIndicator } from "~/models/user.server"
+import action from "~/actions/favouriteIndicator"
+export { action }
 
 
 type LoaderData = {
