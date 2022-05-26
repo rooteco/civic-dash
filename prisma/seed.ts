@@ -98,6 +98,18 @@ function getThemes() {
       name: "Public Safety",
       description: "",
       slug: "public-safety"
+    },
+    {
+      id: 4,
+      name: "Mental Health",
+      description: "",
+      slug: "mental-health"
+    },
+    {
+      id: 5,
+      name: "Sustainability",
+      description: "",
+      slug: "sustainability"
     }
   ];
 }
