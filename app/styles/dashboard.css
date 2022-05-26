@@ -375,7 +375,7 @@ p {
   font-size: var(--fs-unit);
   line-height: var(--space-md);
   color: rgba(var(--clr-grey-300), var(--alpha-medium));
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 a {
@@ -401,7 +401,7 @@ strong {
 
 .screensaver{
   background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #111111 98.99%), url('../../assets/bg.png');
-  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) 25%, rgba(0, 0, 0, 0) 35%), linear-gradient(195deg, rgba(81, 81, 81, 0) 45.25%, rgba(0, 0, 0, 0) 15%, #111111 95%), url('../../assets/bg.png');
+  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) 25%, rgba(0, 0, 0, 0) 35%), linear-gradient(195deg, rgba(81, 81, 81, 0) 45.25%, rgba(0, 0, 0, 0) 15%, #111111 95%), url('../../assets/mural.png');
   background-size: cover;
 }
 
@@ -472,7 +472,7 @@ strong {
   grid-row: 3/3;
   grid-column: 1/4;
   border-top: 1px solid;
-  border-color: rgba(var(--clr-grey-600), var(--alpha-medium));
+  border-color: rgba(var(--clr-grey-500), var(--alpha-high));
 }
 
 .dash{
@@ -506,8 +506,7 @@ strong {
 
 .sparklineticker {  
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+  flex: 1 1 auto;
 }
 
 .header{
@@ -588,7 +587,7 @@ strong {
   
   border: 1px solid rgba(var(--clr-white),  var(--alpha-low));
   border-radius: var(--br-circle);
-  color: rgba(var(--clr-grey-400));
+  
 
   /* Inside auto layout */
   flex: none;
@@ -612,12 +611,12 @@ strong {
   font-size: var(--fs-base);
   font-weight: 400;
   letter-spacing: -0.02em;
-  color: rgba(var(--clr-grey-400));
+  color: rgba(var(--clr-grey-400),  var(--alpha-medium));
 }
 
 .pill span:hover{
-  color: rgba(var(--clr-grey-200));
-  text-shadow: 0px 0px var(--space-sm) rgba(var(--clr-white), var(--alpha-high));
+  color: rgba(var(--clr-grey-300),  var(--alpha-high));
+  
 }
 
 .pill-active {
@@ -762,5 +761,3 @@ strong {
 .DashboardCarouselLibrarySlider{
   border: 1px solid rgba(255, 192, 203, 0);
 }
-
-

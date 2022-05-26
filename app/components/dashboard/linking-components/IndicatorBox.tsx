@@ -28,7 +28,7 @@ export function IndicatorBox(props: IndicatorBoxProps){
 
         <img src={graph ? graph : ""} alt="graph" className = "sparkline"/>
 
-        <div className = "pad" style={{position: 'absolute', left: 0, top: 0}}>
+        <div className = "pad" style={{position: 'absolute'}}>
           <Form method="post" >
             <input type="hidden" name="indicatorSlug" value={props.indicator.slug}/>
             <input type="hidden" name="isFavourited" value={props.favouritedIndicatorSlugs.some(obj => obj.slug === props.indicator.slug)}/>

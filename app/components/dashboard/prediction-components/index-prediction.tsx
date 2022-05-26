@@ -49,13 +49,13 @@ export function IndexPrediction(props: PredictionProps){
   return(
       <div>
         <div className="flex-row">
-          <div className="icon-xs"/>
-          <div className="inscription" style = {{margin: "2px"}}>
+          <div className="inscription" style = {{margin: "2px", flex: 1}}>
           {props.categoryType ?
-            <p> Markets for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></p> :
-            <p>{"Favourite Markets"}</p>
+            <p> Solutions for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></p> :
+            <p>{"Tracked Solutions"}</p>
           }
           </div>
+          <div className="icon-xs"/>
         </div>
       
         {tableOpen &&
@@ -69,6 +69,7 @@ export function IndexPrediction(props: PredictionProps){
             ))}
           </div>
         }
+
 
       
 
