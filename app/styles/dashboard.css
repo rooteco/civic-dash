@@ -401,13 +401,13 @@ strong {
 
 .screensaver{
   background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #111111 98.99%), url('../../assets/bg.png');
-  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) 5%, rgba(0, 0, 0, 0) 25%), linear-gradient(195deg, rgba(81, 81, 81, 0) 45.25%, rgba(0, 0, 0, 0) 15%, #111111 95%), url('../../assets/bg.png');
+  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) 25%, rgba(0, 0, 0, 0) 35%), linear-gradient(195deg, rgba(81, 81, 81, 0) 45.25%, rgba(0, 0, 0, 0) 15%, #111111 95%), url('../../assets/bg.png');
   background-size: cover;
 }
 
 .market-description {
   /* linear gradient background */
-  background: linear-gradient(180deg, rgba(var(--clr-grey-500)) -10%, rgba(var(--clr-grey-800)) 10%);
+  background: linear-gradient(180deg, rgba(var(--clr-grey-500)) -70%, rgba(var(--clr-grey-800)) 50%);
   flex: 1;
 }
 
@@ -639,7 +639,7 @@ strong {
   line-height: var(--fs-md);
   text-transform: capitalize;
   font-weight: 400;
-  letter-spacing: -0.04em;
+  letter-spacing: 0em;
 }
 
 .inscription{
@@ -649,6 +649,15 @@ strong {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: -0.04em;
+}
+
+.inscription > p {
+  margin: 0px;
+  color: rgba(var(--clr-grey-400), var(--alpha-medium));
+}
+
+.option {
+  color: rgba(var(--clr-grey-100), var(--alpha-high));
 }
 
 
@@ -688,7 +697,7 @@ strong {
 
 .market-row > * {
   color: rgba(var(--clr-grey-300), var(--alpha-medium));
-  font-weight: 400;
+  font-weight: 200;
 }
 
 .probsticker{

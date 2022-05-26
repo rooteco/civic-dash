@@ -48,11 +48,14 @@ export function IndexPrediction(props: PredictionProps){
 
   return(
       <div>
-        <div className="inscription" style = {{margin: "2px"}}>
-        {props.categoryType ?
-          <p> Markets for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></p> :
-          <p>{"Favourite Markets"}</p>
-        }
+        <div className="flex-row">
+          <div className="icon-xs"/>
+          <div className="inscription" style = {{margin: "2px"}}>
+          {props.categoryType ?
+            <p> Markets for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></p> :
+            <p>{"Favourite Markets"}</p>
+          }
+          </div>
         </div>
       
         {tableOpen &&
