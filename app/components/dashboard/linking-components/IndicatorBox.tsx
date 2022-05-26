@@ -28,7 +28,9 @@ export function IndicatorBox(props: IndicatorBoxProps){
             </Link>
         </div>
 
-        <img src={graph ? graph : ""} alt="graph" className = "sparkline"/>
+        <div className="sparkline">
+          <img src={graph ? graph : ""} alt="graph" className = "sparkline"/>
+        </div>
 
         <div className = "pad" style={{position: 'absolute'}}>
           <Form method="post" >

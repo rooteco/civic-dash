@@ -550,6 +550,7 @@ strong {
 }
 
 .indicator-sparkline{
+  position: relative;
   background-color: rgba(var(--clr-grey-700));
   border: 1px solid rgba(var(--clr-grey-500), var(--alpha-high));
   border-radius: 8px;
@@ -559,7 +560,7 @@ strong {
 }
 
 .indicator-sparkline-metadata{
-  width: 60%;
+  width: 75%;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.35),
                                     rgba(0, 0, 0, 0.35)),
               radial-gradient(150% 350% at 5.36% 82.74%, rgba(77, 134, 142, 0.25) 0%, rgba(26, 26, 26, 0.36) 20.63%);
@@ -578,8 +579,13 @@ strong {
 
 
 .sparkline{
+  
   flex-grow: 1;
-  object-fit: cover;
+  /* stretch svg */
+  width: 100%;
+  height: 100%;
+
+  
 }
 
 
