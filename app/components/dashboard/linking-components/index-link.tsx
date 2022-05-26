@@ -2,6 +2,7 @@ import { IndicatorBox } from "~/components/dashboard/linking-components/Indicato
 import type { Indicator } from "~/models/theme.server";
 import Carousel from 'react-multi-carousel';
 import type { UserType } from "~/models/user.server";
+import { useWindowSize } from "~/utils/hooks";
 
 import { useRef, useEffect, useState } from 'react';
 
@@ -14,41 +15,16 @@ interface LinkProps {
   user: UserType;
 }
 
-function useWindowSize() {
-    
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
-  });
 
-  
-
-  useEffect(() => {
-    // Handler to call on window resize
-    function handleResize() {
-      // Set window width/height to state
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  return windowSize;
-}
 
 export function IndexLink(props: LinkProps){
-
-  const windowSize = useWindowSize();
-
 
   
   const wrapperSize = useRef(null);
   const [width, setWidth] = useState(undefined);
   const [height, setHeight] = useState(undefined);
+
+  const windowSize = useWindowSize();  
   
   useEffect(() => {
     if (wrapperSize.current){
@@ -63,8 +39,9 @@ export function IndexLink(props: LinkProps){
 
   const nIndicators = props.indicators.length; ;
   const items = Math.min(Math.floor(width/220), nIndicators);
-  const gutter = Math.floor(Math.min(width/items*0.1, 35));
+  const gutter = Math.floor(Math.max(width/items*0.1, 15));
 
+  console.log(gutter)
 
 
   const responsive = {
@@ -94,9 +71,9 @@ export function IndexLink(props: LinkProps){
         arrows = {false}
         itemClass = {`${sparkline}`}
         partialVisible
-
+        autoPlay
+        autoPlaySpeed={2000}
         responsive={responsive}
-        swipeable
         
         >
       {props && props.indicators.map((indicator) => (

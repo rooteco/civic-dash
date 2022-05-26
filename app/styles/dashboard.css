@@ -171,7 +171,7 @@ select {
 
   --fs-xxs:  calc(0.25 * var(--fs-base));
   --fs-xs:   calc(0.5 * var(--fs-base));
-  --fs-sm:   calc(0.75 * var(--fs-base));
+  --fs-sm:   calc(0.85 * var(--fs-base));
   --fs-md:   calc(1.25 * var(--fs-base));
   --fs-lg:   calc(2 * var(--fs-base));
   --fs-xl:   calc(3.25 * var(--fs-base));
@@ -183,7 +183,7 @@ select {
 
   --space-xxs:  calc(0.25 * var(--space-unit));
   --space-xs:   calc(0.5 * var(--space-unit));
-  --space-sm:   calc(0.75 * var(--space-unit));
+  --space-sm:   calc(0.85 * var(--space-unit));
   --space-md:   calc(1.25 * var(--space-unit));
   --space-lg:   calc(1.75 * var(--space-unit));
   --space-xl:   calc(2.75 * var(--space-unit));
@@ -456,7 +456,7 @@ strong {
 }
 
 .focus:hover::before {
-  opacity: 0.25;
+  opacity: 0.45;
   transition: all 1s ease-in-out;
 }
 
@@ -685,6 +685,11 @@ strong {
   left: 0;
   height: 40%;
   width: 1px;
+  z-index: 1;
+}
+
+.market-row:hover {
+  background: linear-gradient(90deg, rgba(var(--clr-grey-500), var(--alpha-high)) -5%, rgba(var(--clr-white), 0) 100%);
 }
 
 /* 
@@ -696,7 +701,12 @@ strong {
 
 .market-row > * {
   color: rgba(var(--clr-grey-300), var(--alpha-medium));
-  font-weight: 200;
+  font-weight: 400;
+  font-size: var(--fs-sm);
+}
+
+.market-row > *:hover {
+  color: rgba(var(--clr-grey-300), var(--alpha-high));
 }
 
 .probsticker{
