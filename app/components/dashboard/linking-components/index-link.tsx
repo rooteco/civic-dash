@@ -2,6 +2,7 @@ import { IndicatorBox } from "~/components/dashboard/linking-components/Indicato
 import type { Indicator } from "~/models/theme.server";
 import Carousel from 'react-multi-carousel';
 import type { UserType } from "~/models/user.server";
+import { useWindowSize } from "~/utils/hooks";
 
 import { useRef, useEffect, useState } from 'react';
 
@@ -14,15 +15,33 @@ interface LinkProps {
   user: UserType;
 }
 
+
+
 export function IndexLink(props: LinkProps){
 
-  // TODO: This is a hack to get the carousel to render correctly.
-  // partialVisibilityGutter should be set to indicators.length | something sensible
+  
+  const wrapperSize = useRef(null);
+  const [width, setWidth] = useState(undefined);
+  const [height, setHeight] = useState(undefined);
 
-  // CAROUSEL STUFF
-  const items = props.indicators.length
+  const windowSize = useWindowSize();  
+  
+  useEffect(() => {
+    if (wrapperSize.current){
+      let height = wrapperSize.current.parentElement.offsetHeight;
+      let width = wrapperSize.current.parentElement.offsetWidth;
+      
+      setWidth(width);
+      setHeight(height);
+      
+    }
+  }, [windowSize]);
 
-  const gutter = items > 1 ? items * 50 : 100;
+  const nIndicators = props.indicators.length; ;
+  const items = Math.min(Math.floor(width/220), nIndicators);
+  const gutter = (width - items*220 - items*8)/(items);
+
+
 
   const responsive = {
     desktop: {
@@ -32,57 +51,29 @@ export function IndexLink(props: LinkProps){
     }
   };
 
-  const wrapperSize = useRef(null);
-  const [width, setWidth] = useState(500);
-  const [height, setHeight] = useState(500);
-
-  useEffect(() => {
-    if (wrapperSize.current){
-      let height = wrapperSize.current.parentElement.offsetHeight;
-      let width = wrapperSize.current.parentElement.offsetWidth;
-
-      setWidth(width);
-      setHeight(height);
-
-    }
-  }, []);
-
   const sparkline = {
-    height: `${0.8*height}px`,
-    width: `${0.25*width}px !important`,
-    flex: '0 0 auto !important'
+    height: `${0.90*height}px`,
+    width: `${220}px !important`,
   }
 
   const carouselWrapper = {
     height: `${height}px`,
     width: `${width}px`,
-    flex: '0 0 auto !important',
-
+    paddingTop: `${0.05*height}px`
   }
 
-  const carouselTrack = {
-    // center the carousel with flex
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-
-    alignItems: 'center',
-
-  }
 
   return(
     <div ref = {wrapperSize} style = {carouselWrapper}>
       <Carousel
         infinite
         arrows = {false}
-        autoPlay
-        sliderClass={`${carouselTrack}`}
-        partialVisible = {true}
-        slidesToSlide = {0}
         itemClass = {`${sparkline}`}
-
+        partialVisible
+        autoPlay
+        autoPlaySpeed={2000}
         responsive={responsive}
-        swipeable
+        
         >
       {props && props.indicators.map((indicator) => (
         <IndicatorBox

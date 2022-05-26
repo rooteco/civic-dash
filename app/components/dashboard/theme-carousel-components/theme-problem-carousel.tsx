@@ -1,4 +1,5 @@
 import { deslugify } from '~/utils/deslugify';
+import Pill from '~/components/dashboard/pill';
 
 // Fix this, this is bad practice
 type Params = {
@@ -16,17 +17,13 @@ interface CarouselProps{
 
 export function ThemeProblemCarousel(props: CarouselProps){
   return(
-    <>
-      <div className="">
-        <div className="pill">
-          {props.params ? deslugify(props.params.theme) : ""}
-        </div>
+    <div className="carousel-wrapper flex-row">
+      <div className="pill pill-active">
+        <span>{props.params ? deslugify(props.params.theme) : ""}</span>
       </div>
-      <div className="">
-        <div className="pill">
-          {props.params ? deslugify(props.params.problem) : ""}
-        </div>
+      <div className="pill pill-active">
+        {props.params ? deslugify(props.params.problem) : ""}
       </div>
-    </>
+    </div>
   )
 }

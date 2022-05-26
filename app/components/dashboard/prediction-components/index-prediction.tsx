@@ -19,16 +19,17 @@ const customStyles = {
     backgroundColor: "rgba(0,0,0,0.1)",
   },
   content: {
-    width: "32vw",
-    height: "100vh",
+    width: "32.5vw",
+    height: "102vh",
     position: "fixed",
-    top: "0px",
-    right: "0px",
-    bottom: '0px',
+    top: "-1px",
+    right: "-1px",
+    bottom: '-px',
     left: 'auto',
     borderRadius: '0px',
     backgroundColor: 'rgba(16, 16, 16, 100)',
-    border: '1px solid #3c3c3c'
+    border: '1px solid #3c3c3c',
+    padding: '0px'
   },
 };
 
@@ -46,38 +47,44 @@ export function IndexPrediction(props: PredictionProps){
   }
 
   return(
-    <>
-    {tableOpen &&
-    <div className="markets">
-    
-      {props.categoryType ?
-        <p className='caption'>Showing prediction markets for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></p> :
-        <p className= 'caption'>{"Favourite Markets".toUpperCase()}</p>
-      }
-    
-      <div className="markets-table">
-        {props.predictionMarkets && props.predictionMarkets.map((predictionMarket)=> (
-          <MarketRow 
-            key = {predictionMarket.id}
-            handleButton={handleButton} 
-            predictionMarket={predictionMarket}  />
-        ))}
-      </div>
+      <div>
+        <div className="flex-row">
+          <div className="inscription" style = {{margin: "2px", flex: 1}}>
+          {props.categoryType ?
+            <p> Solutions for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></p> :
+            <p>{"Tracked Solutions"}</p>
+          }
+          </div>
+          <div className="icon-xs"/>
+        </div>
+      
+        {tableOpen &&
         
+          <div className="flex-column">
+            {props.predictionMarkets && props.predictionMarkets.map((predictionMarket)=> (
+              <MarketRow 
+                key = {predictionMarket.id}
+                handleButton={handleButton} 
+                predictionMarket={predictionMarket}  />
+            ))}
+          </div>
+        }
+
+
+      
+
+        <Modal
+          isOpen={panelIsOpen}
+          onRequestClose={()=>setPanelIsOpen(false)}
+          style={customStyles}
+          ariaHideApp={false}
+          >
+          <PredictionModal
+            setPanelIsOpen={setPanelIsOpen}
+            predictionMarket={activeMarket}
+          />
+        </Modal>
     </div>
-    }
-    <Modal
-      isOpen={panelIsOpen}
-      onRequestClose={()=>setPanelIsOpen(false)}
-      style={customStyles}
-      ariaHideApp={false}
-      >
-      <PredictionModal
-        setPanelIsOpen={setPanelIsOpen}
-        predictionMarket={activeMarket}
-      />
-    </Modal>
-    </>
   )
 }
 

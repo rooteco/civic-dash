@@ -1,10 +1,21 @@
-
-
-.SingleIndicatorChart{
-  position: absolute;
-  top: var(--space-xl);
-  width: 30vw;
-  height: 30vh;
-  border: 2px solid black;
+.indicatorwidget{
+  width: 70%;
   
+  
+  /*  center the chart to the parent */
+  margin:  var(--space-unit) auto;
+  background: rgba(var(--clr-grey-700));
+  border-radius: var(--br-sharp);
+}
+
+.indicator-header{
+  background: rgba(var(--clr-grey-600));
+  border-bottom: 1px solid rgba(var(--clr-grey-500));
+  border-radius: var(--br-sharp) var(--br-sharp) 0 0;
+  padding-top: var(--space-sm);
+  
+}
+
+.indicator-header > p {
+  width: 100%;
 }

@@ -7,13 +7,8 @@ export function MarketRow({
     <div 
         key={predictionMarket.id} 
         onClick={e => handleButton(e, predictionMarket)}
-        className = "market-row">
-            <div>
-                <p className="caption">{predictionMarket.id}</p>
-            </div>
-            <div className="caption">
-                <p>{predictionMarket.question}</p>
-            </div>
+        className = "market-row pad">
+        <p className="caption">{predictionMarket.question}</p>
     </div>
   ) 
 }
