@@ -21,7 +21,8 @@ export function ThemeCarousel(props: CarouselProps){
     <>
     <div className="flex-row carousel-wrapper">
       <div className="pill pill-active">
-        <span>{props.params ? deslugify(props.params.theme ? props.params.theme : "") : ""}</span>
+        <span>{props.params ? deslugify(props.params.theme ? props.params.theme : "") : ""} <Link to='/dashboard'>X</Link></span>
+
       </div>
 
       {props.data && props.data.problems.map((problem)=>(
@@ -32,7 +33,7 @@ export function ThemeCarousel(props: CarouselProps){
           </div>
       ))}
     </div>
-      
+
 
     </>
   )

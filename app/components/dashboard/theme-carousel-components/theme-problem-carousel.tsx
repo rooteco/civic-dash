@@ -1,4 +1,5 @@
 import { deslugify } from '~/utils/deslugify';
+import { useParams, Link } from "@remix-run/react"
 import Pill from '~/components/dashboard/pill';
 
 // Fix this, this is bad practice
@@ -16,13 +17,14 @@ interface CarouselProps{
 }
 
 export function ThemeProblemCarousel(props: CarouselProps){
+  const params = useParams();
   return(
     <div className="carousel-wrapper flex-row">
       <div className="pill pill-active">
-        <span>{props.params ? deslugify(props.params.theme) : ""}</span>
+        <span>{props.params ? deslugify(props.params.theme) : ""} <Link to='/dashboard'>X</Link></span>
       </div>
       <div className="pill pill-active">
-        {props.params ? deslugify(props.params.problem) : ""}
+        {props.params ? deslugify(props.params.problem) : ""} <Link to={`/dashboard/theme/${params.theme}`}>X</Link>
       </div>
     </div>
   )
