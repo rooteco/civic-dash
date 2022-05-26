@@ -211,14 +211,14 @@ function getIndicators(){
     },
     {
       id: 11,
-      name: "% of Students Who Have Met State Standards for English",
+      name: "% of Students Who Have Met State Standards for English (Breakdown by Race)",
       description: "<p>California standardises its assessment of its students using as a system called the California Assessment of Student Performance and Progress (CAASPP), which involves a set of standardised tests given to K-12 students. Standards are set for four categories: Standard Exceeded, Standard Met, Standard Nearly Met, and Standard Not Met. This indicator tracks the percentage of students who were in either the Standard Exceeded or Standard Met categories for the standardised English test <a href='http://caaspp.edsource.org/sbac/san-francisco-unified-38684780000000'>[1]</a>. All scores are for 2019 due to a lapse in educational reporting due to the COVID-19 pandemic. </p>",
       slug: "met-tests-english",
       favourite: false
     },
     {
       id: 12,
-      name: "% of Students Who Have Met State Standards for Math",
+      name: "% of Students Who Have Met State Standards for Math (Breakdown by Race)",
       description: "<p>California standardises its assessment of its students using as a system called the California Assessment of Student Performance and Progress (CAASPP), which involves a set of standardised tests given to K-12 students. Standards are set for four categories: Standard Exceeded, Standard Met, Standard Nearly Met, and Standard Not Met. This indicator tracks the percentage of students who were in either the Standard Exceeded or Standard Met categories for the standardised English test <a href='http://caaspp.edsource.org/sbac/san-francisco-unified-38684780000000'>[1]</a>. All scores are for 2019 due to a lapse in educational reporting due to the COVID-19 pandemic. </p>",
       slug: "met-tests-math",
       favourite: false
@@ -239,14 +239,14 @@ function getIndicators(){
     },
     {
       id: 15,
-      name: "Rates of Student Absenteeism",
+      name: "Rates of Student Absenteeism (Breakdown by Socioeconomic Demographic)",
       description: "<p>This indicator was drawn from the California School Dashboard by the San Francisco United School District <a href='https://www.caschooldashboard.org/reports/38684780000000/2019/academic-engagement'>[1]</a>, which is an excellent resource for many different measures of academic performance and behaviour. Absenteeism is measured for students from kindergarten through grade 8, and being “chronically absent” involves being absent 10 percent or more of all enrolled school days. These statistics are for 2019, because data reporting stopped by government mandate during the COVID-19 pandemic.</p>",
       slug: "student-absenteeism",
       favourite: false
     },
     {
       id: 16,
-      name: "High School Graduation Rate",
+      name: "High School Graduation Rate (Breakdown by Socioeconomic Demographic)",
       description: "<p>This indicator was taken from the California School Dashboard by the San Francisco United School District <a href='https://www.caschooldashboard.org/reports/38684780000000/2019/academic-engagement'>[1]</a>. Students are counted as ‘graduated’ when they receive a standard high school diploma, or when they complete their requirements at an alternative school. These statistics are for 2019, because data reporting stopped by government mandate during the COVID-19 pandemic.</p>",
       slug: "high-school-graduation",
       favourite: false
@@ -335,37 +335,142 @@ function getConfigs(){
       layout: "SINGLE",
       xName: "Date",
       xType: "time",
-      yName: "Median Sale Price (Weekly)",
+      yName: "Median Sale Price (USD, Weekly)",
       yType: "linear",
       yFormat: 'usd',
       chartType: 'line'
     },
     {
       indicatorId: 2,
-      layout: "DOUBLE"
+      layout: "DOUBLE",
+      xName: "Date",
+      xType: "time",
+      yName: "Average Cost of Construction (USD)",
+      yFormat: "usd",
+      chartType: "line"
     },
     {
       indicatorId: 3,
-      layout: "SINGLE"
+      layout: "SINGLE",
+      xName: "Date",
+      xType: "time",
+      yName: "Average Growth Rate of Sale Price",
+      chartType: "line"
     },
     {
       indicatorId: 4,
       layout: "SINGLE",
       xName: "Date",
       xType: "time",
-      yName: "Median Listing Price (Weekly)",
+      yName: "Percent of Housing Burdened Citizens",
       yType: "linear",
-      yFormat: 'usd',
-      chartType: 'scatter',
+      chartType: 'line',
     },
     {
       indicatorId: 5,
       layout: "SINGLE",
       xName: "Date",
-      yName: "Median Listing Price (Weekly)",
+      xType: 'time',
+      yName: "Housing Units Per Capita",
+      yType: "linear",
+      chartType: 'line'
+    },
+    {
+      indicatorId: 6,
+      layout: "SINGLE",
+      xName: "Date",
+      xType: 'time',
+      yName: "Number of Housing Units",
+      yType: "linear",
+      chartType: 'line'
+    },
+    {
+      indicatorId: 7,
+      layout: "SINGLE",
+      xName: "Date",
+      xType: 'time',
+      yName: "Rental Vacancy Rate (%)",
+      yType: "linear",
+      chartType: 'line'
+    },
+    {
+      indicatorId: 8,
+      layout: "SINGLE",
+      xName: "Date",
+      xType: 'time',
+      yName: "Number of New Housing Units",
+      yType: "linear",
+      chartType: 'line'
+    },
+    {
+      indicatorId: 9,
+      layout: "SINGLE",
+      xName: "Reason",
+      yName: "Reasons for Vacant Housing",
       yType: "linear",
       chartType: 'bar'
+    },
+    {
+      indicatorId: 10,
+      layout: "SINGLE",
+      xName: "City",
+      yName: "Average SAT Score",
+      yType: "linear",
+      chartType: 'bar'
+    },
+    {
+      indicatorId: 11,
+      layout: "SINGLE",
+      xName: "Racial Demographic",
+      yName: "Percent of Students Who Met Standards",
+      yType: "linear",
+      chartType: 'bar'
+    },
+    {
+      indicatorId: 12,
+      layout: "SINGLE",
+      xName: "Racial Demographic",
+      yName: "Percent of Students Who Met Standards",
+      yType: "linear",
+      chartType: 'bar'
+    },
+    {
+      indicatorId: 13,
+      layout: "SINGLE",
+      xName: "Socioeconomic Demographic",
+      yName: "Number of Students Enrolled",
+      yType: "linear",
+      chartType: 'bar'
+    },
+    {
+      indicatorId: 14,
+      layout: "SINGLE",
+      xName: "Racial Demographic",
+      yName: "Number of Students Enrolled",
+      yType: "linear",
+      chartType: 'bar'
+    },
+    {
+      indicatorId: 15,
+      layout: "SINGLE",
+      xName: "Socioeconomic Demographic",
+      yName: "Percentage of Students Chronically Absent",
+      yType: "linear",
+      chartType: 'bar'
+    },
+    {
+      indicatorId: 16,
+      layout: "SINGLE",
+      xName: "Socioeconomic Demographic",
+      yName: "Graduation Rate (%)",
+      yType: "linear",
+      chartType: 'bar'
+    },
+    {
+
     }
+
+
   ]
 }
 
