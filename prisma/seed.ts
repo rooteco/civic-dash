@@ -107,7 +107,7 @@ function getThemes() {
     },
     {
       id: 5,
-      name: "Sustainability",
+      name: "Environmental Sustainability",
       description: "",
       slug: "sustainability"
     }
