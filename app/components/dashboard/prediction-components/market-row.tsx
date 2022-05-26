@@ -7,10 +7,8 @@ export function MarketRow({
     <div 
         key={predictionMarket.id} 
         onClick={e => handleButton(e, predictionMarket)}
-        className = "market-row flex-row">
-            <div className="caption pad">
-                <p>{predictionMarket.question}</p>
-            </div>
+        className = "market-row pad">
+        <p className="caption">{predictionMarket.question}</p>
     </div>
   ) 
 }

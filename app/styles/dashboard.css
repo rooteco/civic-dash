@@ -374,7 +374,7 @@ p {
   font-weight: 200;
   font-size: var(--fs-unit);
   line-height: var(--space-md);
-  color: rgba(var(--clr-grey-400));
+  color: rgba(var(--clr-grey-300), var(--alpha-medium));
   letter-spacing: -0.01em;
 }
 
@@ -401,6 +401,7 @@ strong {
 
 .screensaver{
   background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #111111 98.99%), url('../../assets/bg.png');
+  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) 5%, rgba(0, 0, 0, 0) 25%), linear-gradient(195deg, rgba(81, 81, 81, 0) 45.25%, rgba(0, 0, 0, 0) 15%, #111111 95%), url('../../assets/bg.png');
   background-size: cover;
 }
 
@@ -627,24 +628,27 @@ strong {
 
 .pill-active span{
   color: rgba(var(--clr-grey-500));
-  font-weight: 600;
+  font-weight: 400;
 }
 
 
 /* to refactor */
 
 .caption{
-  font-size: var(--fs-s);
+  font-size: var(--fs-unit);
+  line-height: var(--fs-md);
   text-transform: capitalize;
+  font-weight: 400;
+  letter-spacing: -0.04em;
 }
 
 .inscription{
   width: 60%;
-  font-size: calc(var(--fs-sm));
-  line-height: 0.85;
+  font-size: var(--fs-sm);
+  line-height: var(--fs-unit);
   text-transform: uppercase;
   font-weight: 600;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.04em;
 }
 
 
@@ -656,26 +660,35 @@ strong {
 }
 
 
-.markets-table {
-  cursor: pointer;
-
-  border: 1px solid rgba(var(--clr-grey-500), var(--alpha-high));
-  background: rgba(var(--clr-grey-800), var(--alpha-high));
-}
 
 .market-row {
-  border-bottom: 1px solid rgba(var(--clr-grey-500), var(--alpha-medium));
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(var(--clr-grey-500), var(--alpha-medium));
+  background: linear-gradient(90deg, rgba(var(--clr-grey-600), var(--alpha-high)) -15%, rgba(var(--clr-white), 0) 100%);
+  cursor: pointer;
 }
 
+.market-row::after {
+  content: "";
+  background: yellow;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 40%;
+  width: 1px;
+}
+
+/* 
 .market-row:last-child {
   border-bottom: none !important;
 }
+*/
 
 
 .market-row > * {
-  color: rgba(var(--clr-grey-200), var(--alpha-high));
-  font-size: var(--fs-sm);
-  font-weight: 100;
+  color: rgba(var(--clr-grey-300), var(--alpha-medium));
+  font-weight: 400;
 }
 
 .probsticker{

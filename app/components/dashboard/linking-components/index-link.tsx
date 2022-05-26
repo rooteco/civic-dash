@@ -20,9 +20,23 @@ export function IndexLink(props: LinkProps){
   // partialVisibilityGutter should be set to indicators.length | something sensible
 
   // CAROUSEL STUFF
+  
+  const wrapperSize = useRef(null);
+  const [width, setWidth] = useState(500);
+  const [height, setHeight] = useState(500);
+  
+  useEffect(() => {
+    if (wrapperSize.current){
+      let height = wrapperSize.current.parentElement.offsetHeight;
+      let width = wrapperSize.current.parentElement.offsetWidth;
+      
+      setWidth(width);
+      setHeight(height);
+      
+    }
+  }, [wrapperSize]);
+  
   const items = props.indicators.length > 2 ? 2 : props.indicators.length;
-
-
   const gutter = items > 1 ? 220 / items : 0;
 
   const responsive = {
@@ -32,25 +46,10 @@ export function IndexLink(props: LinkProps){
       partialVisibilityGutter: gutter
     }
   };
-
-  const wrapperSize = useRef(null);
-  const [width, setWidth] = useState(500);
-  const [height, setHeight] = useState(500);
-
-  useEffect(() => {
-    if (wrapperSize.current){
-      let height = wrapperSize.current.parentElement.offsetHeight;
-      let width = wrapperSize.current.parentElement.offsetWidth;
-
-      setWidth(width);
-      setHeight(height);
-
-    }
-  }, [wrapperSize]);
-
+  
   const sparkline = {
     height: `${0.65*height}px`,
-    width: `${220}px !important`,
+    width: `${width/items}px !important`,
     flex: '0 0 auto !important'
   }
 
