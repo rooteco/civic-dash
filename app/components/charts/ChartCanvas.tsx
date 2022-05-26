@@ -56,7 +56,6 @@ export function ChartCanvas(props: CanvasProps){
       </div>
 
       <div className='indicator-body pad'>
-
         {props.config.xType === 'time' &&
           <div className='flex-space-between'>
               <h3>{currentValue}</h3>
