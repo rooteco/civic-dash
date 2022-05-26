@@ -39,9 +39,8 @@ export function IndexLink(props: LinkProps){
 
   const nIndicators = props.indicators.length; ;
   const items = Math.min(Math.floor(width/220), nIndicators);
-  const gutter = Math.floor(Math.max(width/items*0.1, 15));
+  const gutter = (width - items*220 - items*8)/(items);
 
-  console.log(gutter)
 
 
   const responsive = {
