@@ -185,7 +185,7 @@ function getIndicators(){
       id: 7,
       name: "Rental Vacancy Rate",
       description: "The rental vacancy rate measures the percentage of homes available for rent which are not occupied. It’s an important but complicated measure of housing availability: high vacancy rates could result from a lack of demand, an abundance of supply, or prohibitively high prices for accomodation. This data was summarised by the excellent site Department of Numbers <a target='_blank' href='https://www.deptofnumbers.com/rent/california/san-francisco/'>[1]</a>, and was originally taken from the Census ACS survey <a target='_blank' href='https://www.census.gov/programs-surveys/acs/'>[2]</a>.",
-      slug: "vacancy-rates",
+      slug: "rental-vacancy-rates",
       favourite: true,
     },
     {
@@ -211,42 +211,42 @@ function getIndicators(){
     },
     {
       id: 11,
-      name: "% of Students Who Have Met State Standards for English (Breakdown by Race)",
+      name: "% of Students Who Have Met English Standards (Racial)",
       description: "California standardises its assessment of its students using as a system called the California Assessment of Student Performance and Progress (CAASPP), which involves a set of standardised tests given to K-12 students. Standards are set for four categories: Standard Exceeded, Standard Met, Standard Nearly Met, and Standard Not Met. This indicator tracks the percentage of students who were in either the Standard Exceeded or Standard Met categories for the standardised English test <a target='_blank' href='http://caaspp.edsource.org/sbac/san-francisco-unified-38684780000000'>[1]</a>. All scores are for 2019 due to a lapse in educational reporting due to the COVID-19 pandemic. ",
       slug: "met-tests-english",
       favourite: false
     },
     {
       id: 12,
-      name: "% of Students Who Have Met State Standards for Math (Breakdown by Race)",
+      name: "% of Students Who Have Met Math Standards (Racial)",
       description: "California standardises its assessment of its students using as a system called the California Assessment of Student Performance and Progress (CAASPP), which involves a set of standardised tests given to K-12 students. Standards are set for four categories: Standard Exceeded, Standard Met, Standard Nearly Met, and Standard Not Met. This indicator tracks the percentage of students who were in either the Standard Exceeded or Standard Met categories for the standardised English test <a target='_blank' href='http://caaspp.edsource.org/sbac/san-francisco-unified-38684780000000'>[1]</a>. All scores are for 2019 due to a lapse in educational reporting due to the COVID-19 pandemic. ",
       slug: "met-tests-math",
       favourite: false
     },
     {
       id: 13,
-      name: "School Enrolment (Broken Down by Socioeconomic Demographic)",
+      name: "School Enrolment (Socioeconomic)",
       description: "This indicator provides useful context for many other datasets in this topic, and was taken from the California School Dashboard <a target='_blank' href='https://www.caschooldashboard.org/reports/38684780000000/2021'>[1]</a>. Unlike other educational datasets that we’ve used, this data is from 2021, because enrolment continued to be reported on during the pandemic. It was impossible to maintain readability and include all racial demographics in the bar chart, so those with fewer than 500 enrolled students were folded into Other (American Indian [123] and Pacific Islander [393]), as well as students from two or more races.",
       slug: "socio-economic-enrollment",
       favourite: false
     },
     {
       id: 14,
-      name: "School Enrolment (Broken Down by Racial Demographic)",
+      name: "School Enrolment (Racial)",
       description: "This indicator provides useful context for many other datasets in this topic, and was taken from the California School Dashboard <a target='_blank' href='https://www.caschooldashboard.org/reports/38684780000000/2021'>[1]</a>. Unlike other educational datasets that we’ve used, this data is from 2021, because enrolment continued to be reported on during the pandemic. It was impossible to maintain readability and include all racial demographics in the bar chart, so those with fewer than 500 enrolled students were folded into Other (American Indian [123] and Pacific Islander [393]), as well as students from two or more races.",
       slug: "racial-enrollment",
       favourite: false
     },
     {
       id: 15,
-      name: "Rates of Student Absenteeism (Breakdown by Socioeconomic Demographic)",
+      name: "Student Absenteeism (Socioeconomic)",
       description: "This indicator was drawn from the California School Dashboard by the San Francisco United School District <a target='_blank' href='https://www.caschooldashboard.org/reports/38684780000000/2019/academic-engagement'>[1]</a>, which is an excellent resource for many different measures of academic performance and behaviour. Absenteeism is measured for students from kindergarten through grade 8, and being “chronically absent” involves being absent 10 percent or more of all enrolled school days. These statistics are for 2019, because data reporting stopped by government mandate during the COVID-19 pandemic.",
       slug: "student-absenteeism",
       favourite: false
     },
     {
       id: 16,
-      name: "High School Graduation Rate (Breakdown by Socioeconomic Demographic)",
+      name: "High School Graduation Rate (Socioeconomic)",
       description: "This indicator was taken from the California School Dashboard by the San Francisco United School District <a target='_blank' href='https://www.caschooldashboard.org/reports/38684780000000/2019/academic-engagement'>[1]</a>. Students are counted as ‘graduated’ when they receive a standard high school diploma, or when they complete their requirements at an alternative school. These statistics are for 2019, because data reporting stopped by government mandate during the COVID-19 pandemic.",
       slug: "high-school-graduation",
       favourite: false
@@ -309,14 +309,14 @@ function getIndicators(){
     },
     {
       id: 25,
-      name: "Chronic Absenteeism (Breakdown by Racial Demographic)",
+      name: "Chronic Absenteeism (Racial)",
       description: "This indicator was drawn from the California School Dashboard by the San Francisco United School District <a target='_blank' link='https://www.caschooldashboard.org/reports/38684780000000/2019/academic-engagement'>[1]</a>, which is an excellent resource for many different measures of academic performance and behavior. Absenteeism is measured for students from kindergarten through grade 8, and being “chronically absent” involves being absent 10 percent or more of all enrolled school days. These statistics are for 2019, because data reporting stopped by government mandate during the COVID-19 pandemic.",
       slug: "student-absenteeism-race",
       favourite: false,
     },
     {
       id: 26,
-      name: "Graduation Rate, Broken Down by Race",
+      name: "Graduation Rate (Racial)",
       description: "This indicator was taken from the California School Dashboard by the San Francisco United School District <a target='_blank' link='https://www.caschooldashboard.org/reports/38684780000000/2019/academic-engagement'>[1]</a>. High school students are counted as ‘graduated’ when they receive a standard high school diploma, or when they complete their requirements at an alternative school. These statistics are for 2019, because data reporting stopped by government mandate during the COVID-19 pandemic.",
       slug: "high-school-graduation-race",
       favourite: false,
@@ -384,6 +384,7 @@ function getConfigs(){
       xType: 'time',
       yName: "Number of Housing Units",
       yType: "linear",
+      yFormat: "wholeNumber",
       chartType: 'line'
     },
     {
@@ -393,6 +394,7 @@ function getConfigs(){
       xType: 'time',
       yName: "Rental Vacancy Rate (%)",
       yType: "linear",
+      yFormat: "percentage",
       chartType: 'line'
     },
     {
