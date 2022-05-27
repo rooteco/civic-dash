@@ -150,8 +150,8 @@ select {
 
   /* Transparency */
   --alpha-low: 0.07;
-  --alpha-medium: 0.49;
-  --alpha-high: 0.84;
+  --alpha-medium: 0.50;
+  --alpha-high: 0.90;
 
   /* Shadows */
 
@@ -371,7 +371,7 @@ h6 {
 
 
 p {
-  font-weight: 200;
+  font-weight: 400;
   font-size: var(--fs-unit);
   line-height: var(--space-md);
   color: rgba(var(--clr-grey-300), var(--alpha-medium));
@@ -472,7 +472,7 @@ strong {
   grid-row: 3/3;
   grid-column: 1/4;
   border-top: 1px solid;
-  border-color: rgba(var(--clr-grey-500), var(--alpha-high));
+  border-color: rgba(var(--clr-grey-400), var(--alpha-medium));
 }
 
 .dash{
@@ -482,7 +482,7 @@ strong {
   background: linear-gradient(92.27deg, rgba(83, 83, 83, 0.25) 25.63%, rgba(19, 19, 19, 0.06) 92.89%);
   background-blend-mode: hard-light;
 
-  --outline: 1px solid rgba(var(--clr-grey-500), var(--alpha-medium));
+  --outline: 1px solid rgba(var(--clr-grey-400), var(--alpha-low));
 
   border-left: var(--outline);
   border-top: var(--outline);
@@ -502,6 +502,11 @@ strong {
 .picker{
   background: rgba(11, 8, 13, 0.2);
   padding: 0px 0px 0px var(--space-xs);
+  overflow: scroll;
+}
+
+.picker::-webkit-scrollbar {
+  display: none;
 }
 
 .sparklineticker {  
@@ -552,7 +557,7 @@ strong {
 .indicator-sparkline{
   position: relative;
   background-color: rgba(var(--clr-grey-700));
-  border: 1px solid rgba(var(--clr-grey-500), var(--alpha-high));
+  border: 1px solid rgba(var(--clr-grey-500));
   border-radius: 8px;
   height: 100%;
   flex: 0 0 auto;
@@ -560,17 +565,22 @@ strong {
 }
 
 .indicator-sparkline-metadata{
-  width: 75%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35),
-                                    rgba(0, 0, 0, 0.35)),
+  width: 66%;
+  background: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-low)),
+                                    rgba(var(--clr-grey-800), var(--alpha-high))),
               radial-gradient(150% 350% at 5.36% 82.74%, rgba(77, 134, 142, 0.25) 0%, rgba(26, 26, 26, 0.36) 20.63%);
+  
+  position: relative;
 
+  border-radius: 8px 0px 0px 8px;
+                
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  padding: var(--space-xxs) var(--space-xs) var(--space-xxs) var(--space-xs);
-  gap: var(--space-s);
+  padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-xs);
+  gap: var(--space-xxs);
+  z-index: 3;
 }
 
 .indicator-sparkline-metadata:hover {
@@ -579,13 +589,21 @@ strong {
 
 
 .sparkline{
-  
   flex-grow: 1;
+  position: absolute;
   /* stretch svg */
   width: 100%;
   height: 100%;
-
+  top: 16px;
+  right: -3px;
   
+
+  z-index: 0;
+}
+
+.heart {
+  color:rgba(0, 0, 0, 0);
+  border: 1px solid rgba(var(--clr-grey-500), var(--alpha-high));
 }
 
 
@@ -648,17 +666,16 @@ strong {
 }
 
 .inscription{
-  width: 60%;
+  width: 100%;
   font-size: var(--fs-sm);
-  line-height: var(--fs-unit);
+  line-height: calc(1.2*var(--fs-sm));
   text-transform: uppercase;
   font-weight: 600;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 .inscription > p {
-  margin: 0px;
-  color: rgba(var(--clr-grey-400), var(--alpha-medium));
+  color: rgba(var(--clr-grey-300), var(--alpha-medium));
 }
 
 .option {
