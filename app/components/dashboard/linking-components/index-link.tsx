@@ -16,6 +16,7 @@ interface LinkProps {
   location: String;
   favouritedIndicatorSlugs: Array<String>;
   user: UserType;
+  autoplay?: boolean;
 }
 
 export function IndexLink(props: LinkProps){

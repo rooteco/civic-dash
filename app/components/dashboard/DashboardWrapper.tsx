@@ -20,17 +20,17 @@ interface WrapperProps {
   predictionChild?: React.ReactNode;
 }
 
-export const TableOpenContext: Boolean = React.createContext(true)
+export const TableOpenContext: Boolean = React.createContext(false)
 
 export function DashboardWrapper(props: WrapperProps){
-  const [tableOpen, setTableOpen] = useState(true)
+  const [tableOpen, setTableOpen] = useState(false)
   const [snackbarOpen, setSnackbarOpen ] = useState(false)
 
   useEffect(()=>{
     typeof props.error !== 'undefined' ? setSnackbarOpen(true) : setSnackbarOpen(false)
   }, [props.error])
 
-  // get current time and format
+  
   const now = new Date()
   
   let dateOptions = { weekday: 'short', month: 'long', day: 'numeric' };
@@ -42,10 +42,10 @@ export function DashboardWrapper(props: WrapperProps){
 
   return(
     <div className="min-h-screen flex">
-      <TableOpenContext.Provider value={tableOpen}>
+      <TableOpenContext.Provider value={[tableOpen, setTableOpen]}>
           <Menu />
           <div className="dashgrid">
-            <div className="axis"/>
+            
             <div className="flex-column focus border-gradient border-gradient-white">
               {props.focusChild} 
             </div>
@@ -85,6 +85,7 @@ export function DashboardWrapper(props: WrapperProps){
             <div className="DashboardInset flex-column pad" id="ModalAnchor">
               {props.predictionChild ? props.predictionChild : ""}
             </div>
+            <div className="axis"/>
           </div>
           <Snackbar
             open={snackbarOpen}

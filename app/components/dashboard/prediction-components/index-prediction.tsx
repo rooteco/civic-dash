@@ -7,7 +7,7 @@ import { PredictionModal } from './prediction-modal'
 import { TableOpenContext } from "~/components/dashboard/DashboardWrapper"
 import { deslugify } from "~/utils/deslugify"
 
-interface PredictionProps{
+interface PredictionProps {
   predictionMarkets: Prediction[];
   categoryType?: String;
 }
@@ -29,62 +29,69 @@ const customStyles = {
     borderRadius: '0px',
     backgroundColor: 'rgba(16, 16, 16, 100)',
     border: '1px solid #3c3c3c',
-    padding: '0px'
+    padding: '0px',
+    zIndex: '10',
   },
 };
 
 
 
-export function IndexPrediction(props: PredictionProps){
+export function IndexPrediction(props: PredictionProps) {
   const [panelIsOpen, setPanelIsOpen] = useState(false);
-  
-  const [activeMarket, setActiveMarket] = useState(props.predictionMarkets[0])
-  const tableOpen = useContext(TableOpenContext)
 
-  function handleButton(event, market){
+  const [activeMarket, setActiveMarket] = useState(props.predictionMarkets[0])
+  const [tableOpen, setTableOpen] = useContext(TableOpenContext)
+
+
+
+  function handleButton(event, market) {
     setPanelIsOpen(panelIsOpen => !panelIsOpen)
+    toggleTable()
     setActiveMarket(market)
   }
 
-  return(
-      <div>
-        <div className="flex-row">
-          <div className="inscription" style = {{margin: "2px", flex: 1}}>
+  const toggleTable = () => {
+    setTableOpen(!tableOpen)
+  }
+
+  return (
+    <>
+
+      <Modal
+        isOpen={panelIsOpen}
+        onRequestClose={() => setPanelIsOpen(false)}
+        style={customStyles}
+        ariaHideApp={false}
+      >
+        <PredictionModal
+          setPanelIsOpen={setPanelIsOpen}
+          predictionMarket={activeMarket}
+        />
+      </Modal>
+
+      <div className = "marketstable-wrapper" style={panelIsOpen ? {display : 'none'} : {}}>
+
+        <div className="inscription" onClick={toggleTable}>
           {props.categoryType ?
             <p> Solutions for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></p> :
             <p>{"Tracked Solutions"}</p>
           }
-          </div>
-          <div className="icon-xs"/>
         </div>
-      
+
         {tableOpen &&
-        
+
           <div className="flex-column">
-            {props.predictionMarkets && props.predictionMarkets.map((predictionMarket)=> (
-              <MarketRow 
-                key = {predictionMarket.id}
-                handleButton={handleButton} 
-                predictionMarket={predictionMarket}  />
+            {props.predictionMarkets && props.predictionMarkets.map((predictionMarket) => (
+              <MarketRow
+                key={predictionMarket.id}
+                handleButton={handleButton}
+                predictionMarket={predictionMarket} />
             ))}
           </div>
         }
+      </div>
 
-
-      
-
-        <Modal
-          isOpen={panelIsOpen}
-          onRequestClose={()=>setPanelIsOpen(false)}
-          style={customStyles}
-          ariaHideApp={false}
-          >
-          <PredictionModal
-            setPanelIsOpen={setPanelIsOpen}
-            predictionMarket={activeMarket}
-          />
-        </Modal>
-    </div>
+    </>
   )
 }
 

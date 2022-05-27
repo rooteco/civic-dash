@@ -487,6 +487,7 @@ strong {
   grid-column: 1/4;
   border-top: 1px solid;
   border-color: rgba(var(--clr-grey-100), var(--alpha-low));
+  z-index: 0;
 }
 
 .dash{
@@ -501,6 +502,8 @@ strong {
   border-left: var(--outline);
   border-top: var(--outline);
   border-right: var(--outline);
+
+  z-index: 1;
 
 
   /* Auto layout for picker and ticker */
@@ -748,8 +751,12 @@ strong {
 .DashboardInset{
   grid-row: 1/4;
   grid-column: 3/3;
+
 }
 
+.marketstable-wrapper{
+  z-index: 1;
+}
 
 
 .market-row {
