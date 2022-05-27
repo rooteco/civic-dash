@@ -30,16 +30,17 @@ export function IndicatorBox(props: IndicatorBoxProps) {
 
   return (
     <div onMouseEnter={() => setVisible(true)} onMouseLeave={() => timeoutToggle()}>
-      <Link to={props.linkString}>
         <div className="indicator-sparkline" style={props.style}>
 
-          <div className={metadataState}>
-            <p className="inscription truncate">{props.indicator.name}</p>
+          <Link to={props.linkString}>
+            <div className={metadataState}>
+              <p className="inscription truncate">{props.indicator.name}</p>
 
-            <h3>{Math.round(Math.random() * 100)}</h3>
-            <p className="inscription">{Math.round(Math.random() * 100)}%</p>
+              <h3>{Math.round(Math.random() * 100)}</h3>
+              <p className="inscription">{Math.round(Math.random() * 100)}%</p>
 
-          </div>
+            </div>
+          </Link>
 
           <div className="sparkline">
             <img src={graph ? graph : ""} alt="graph" className="sparkline" />
@@ -57,7 +58,7 @@ export function IndicatorBox(props: IndicatorBoxProps) {
           </div>
 
         </div>
-      </Link>
+      
     </div>
   )
 }
