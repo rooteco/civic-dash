@@ -72,7 +72,7 @@ export function IndexLink(props: LinkProps){
         itemClass = {`${sparkline}`}
         partialVisible
         autoPlay = {true}
-        autoPlaySpeed = {10000}
+        autoPlaySpeed = {5000}
         responsive={responsive}
         customLeftArrow={<ArrowCircleLeftTwoToneIcon />}
         customRightArrow={<ArrowCircleRightTwoToneIcon />}

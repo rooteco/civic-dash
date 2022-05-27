@@ -493,7 +493,7 @@ strong {
   grid-row: 3 / 3;
   grid-column: 2 / 2;
   
-  background: linear-gradient(92.27deg, rgba(83, 83, 83, 0.25) 25.63%, rgba(19, 19, 19, 0.06) 92.89%);
+  background: linear-gradient(92.27deg, rgba(var(--clr-grey-600), 0.45) 25.63%, rgba(19, 19, 19, 0.07) 92.89%);
   background-blend-mode: hard-light;
 
   --outline: 1px solid rgba(var(--clr-grey-400), var(--alpha-low));
@@ -519,13 +519,13 @@ strong {
 
 .dash:hover {
   opacity: 1;
-  background: linear-gradient(92.27deg, rgba(83, 83, 83, 0.45) 25.63%, rgba(19, 19, 19, 0.36) 92.89%);
+  background: linear-gradient(92.27deg, rgba(var(--clr-grey-600), 0.45) 25.63%, rgba(19, 19, 19, 0.25) 92.89%);
   background-blend-mode: hard-light;
   transition: all 0.3s ease-in-out;
 }
 
 .picker{
-  background: rgba(11, 8, 13, 0.2);
+  background: rgba(13, 13, 13, 0.3);
   padding: 0px 0px 0px var(--space-xs);
   overflow: scroll;
 }
