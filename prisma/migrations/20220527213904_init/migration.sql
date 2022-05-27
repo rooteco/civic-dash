@@ -1,4 +1,9 @@
 -- CreateTable
+CREATE TABLE "User" (
+    "id" TEXT NOT NULL PRIMARY KEY
+);
+
+-- CreateTable
 CREATE TABLE "Theme" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "name" TEXT NOT NULL,
@@ -18,7 +23,7 @@ CREATE TABLE "Problem" (
 CREATE TABLE "Indicator" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "name" TEXT NOT NULL,
-    "description" TEXT NOT NULL,
+    "description" TEXT NOT NULL DEFAULT 'No description. Add one!',
     "slug" TEXT NOT NULL,
     "favourite" BOOLEAN NOT NULL
 );
@@ -28,6 +33,12 @@ CREATE TABLE "Config" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "indicatorId" INTEGER NOT NULL,
     "layout" TEXT NOT NULL DEFAULT 'SINGLE',
+    "chartType" TEXT NOT NULL DEFAULT 'line',
+    "xName" TEXT NOT NULL DEFAULT 'no name set',
+    "xType" TEXT NOT NULL DEFAULT 'linear',
+    "yName" TEXT NOT NULL DEFAULT 'no name set',
+    "yType" TEXT NOT NULL DEFAULT 'linear',
+    "yFormat" TEXT NOT NULL DEFAULT 'number',
     CONSTRAINT "Config_indicatorId_fkey" FOREIGN KEY ("indicatorId") REFERENCES "Indicator" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
@@ -41,6 +52,26 @@ CREATE TABLE "PredictionMarket" (
     "author" TEXT NOT NULL,
     "dateCreated" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "favourite" BOOLEAN NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "UserToFavouritedIndicator" (
+    "userId" TEXT NOT NULL,
+    "indicatorSlug" TEXT NOT NULL,
+
+    PRIMARY KEY ("userId", "indicatorSlug"),
+    CONSTRAINT "UserToFavouritedIndicator_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "UserToFavouritedIndicator_indicatorSlug_fkey" FOREIGN KEY ("indicatorSlug") REFERENCES "Indicator" ("slug") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "UserToFavouritedPredictionMarket" (
+    "userId" TEXT NOT NULL,
+    "marketSlug" TEXT NOT NULL,
+
+    PRIMARY KEY ("userId", "marketSlug"),
+    CONSTRAINT "UserToFavouritedPredictionMarket_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "UserToFavouritedPredictionMarket_marketSlug_fkey" FOREIGN KEY ("marketSlug") REFERENCES "PredictionMarket" ("slug") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -112,6 +143,9 @@ CREATE TABLE "IndicatorsOnProblems" (
     CONSTRAINT "IndicatorsOnProblems_problemId_fkey" FOREIGN KEY ("problemId") REFERENCES "Problem" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "IndicatorsOnProblems_indicatorId_fkey" FOREIGN KEY ("indicatorId") REFERENCES "Indicator" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_id_key" ON "User"("id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Theme_slug_key" ON "Theme"("slug");
