@@ -43,8 +43,12 @@ export function formatValues(value, format){
       return joinedValue
     }
 
-    default: {
+    case "fraction": {
       return toFixed(value, 3)
+    }
+
+    default: {
+      return value
     }
   }
 }

@@ -107,3 +107,15 @@ export async function getIndicatorsByProblem(problem_slug: string): Promise<Indi
   // }
   return({indicators: indicators, sparkData: []})
 }
+
+export async function getThemeDescription(theme_slug: string): Promise<String>{
+  const themeDescription = await db.theme.findUnique({
+    where: {
+      slug: theme_slug
+    },
+    select: {
+      description: true
+    }
+  })
+  return themeDescription
+}

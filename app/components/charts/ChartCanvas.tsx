@@ -17,7 +17,7 @@ interface CanvasProps {
 
 export function ChartCanvas(props: CanvasProps){
   const [timeRange, setTimeRange] = useState("full")
-  const [keys, setKeys] = useState(["NA", "NA"])
+  const [keys, setKeys] = useState(["x", "y"])
   const params = useParams()
   const [lastUpdate, setLastUpdate] = useState(0)
   const [indicatorName, setIndicatorName] = useState("No name found")
@@ -29,9 +29,10 @@ export function ChartCanvas(props: CanvasProps){
   }, [params])
 
   useEffect(()=>{
-    console.log("CURRENT VALUE:", currentValue)
     console.log(props.dataset[props.dataset.length - 1][keys[1]])
-  }, [currentValue])
+    console.log("CURRENT VALUE:", currentValue)
+    console.log("LAST UPDATE:", lastUpdate)
+  }, [currentValue, lastUpdate])
 
 
   useEffect(()=>{
@@ -43,11 +44,6 @@ export function ChartCanvas(props: CanvasProps){
     setLastUpdate(props.dataset[props.dataset.length - 1][keys[0]])
     setCurrentValue(props.dataset[props.dataset.length - 1][keys[1]])
   }, [props])
-
-
-  useEffect(() => {
-    setKeys(props.dataset ? Object.keys(props.dataset[0]) : ["NA", "NA"])
-  }, [props]);
 
 
   const dateFilters = [['M', 'month'], ['Y', 'year'], ['5Y', 'five-years'], ['Full',  'full']]

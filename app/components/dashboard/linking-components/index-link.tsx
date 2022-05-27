@@ -69,7 +69,7 @@ export function IndexLink(props: LinkProps){
         itemClass = {`${sparkline}`}
         partialVisible
         // autoPlay
-        autoPlaySpeed={2000}
+        // autoPlaySpeed={2000}
         responsive={responsive}
 
         >
