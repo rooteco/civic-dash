@@ -22,7 +22,7 @@ export function IndicatorBox(props: IndicatorBoxProps) {
   const timeoutToggle = () => {
     setTimeout(() => {
       setVisible(!visible);
-    }, 1000);
+    }, 1800);
   }
 
   const metadataState = visible ? 'indicator-sparkline-metadata indicator-sparkline-metadata-hover' : 'indicator-sparkline-metadata';

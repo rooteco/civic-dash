@@ -481,7 +481,7 @@ strong {
   grid-row: 3/3;
   grid-column: 1/4;
   border-top: 1px solid;
-  border-color: rgba(var(--clr-grey-400), var(--alpha-medium));
+  border-color: rgba(var(--clr-grey-100), var(--alpha-low));
 }
 
 .dash{
@@ -660,8 +660,8 @@ strong {
 }
 
 .pill-active {
-  background: rgba(var(--clr-white));
-  border: 1px solid var(--clr-grey-800);
+  background: rgba(var(--clr-grey-200), var(--alpha-high));
+  border: 1px solid rgba(var(--clr-grey-500));
   color: rgba(var(--clr-grey-900));
 }
 
@@ -672,6 +672,7 @@ strong {
 
 .pill-active:hover {
   background: rgba(var(--clr-white));
+  transform: scale(1.02);
 
 }
 
