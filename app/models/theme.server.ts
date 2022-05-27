@@ -9,7 +9,7 @@ export type Theme = {
   slug: string;
 }
 
-type Problem = {
+export type Problem = {
   id: number;
   name: string;
   description: string;

@@ -39,6 +39,7 @@ model Indicator {
   description       String                          @default("No description. Add one!")
   slug              String                          @unique
   favourite         Boolean
+
   config            Config?
   problems          IndicatorsOnProblems[]
   themes            IndicatorsOnThemes[]

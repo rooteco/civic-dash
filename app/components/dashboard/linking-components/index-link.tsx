@@ -4,6 +4,9 @@ import Carousel from 'react-multi-carousel';
 import type { UserType } from "~/models/user.server";
 import { useWindowSize } from "~/utils/hooks";
 
+import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
+import ArrowCircleLeftTwoToneIcon from '@mui/icons-material/ArrowCircleLeftTwoTone';
+
 import { useRef, useEffect, useState } from 'react';
 
 
@@ -15,25 +18,23 @@ interface LinkProps {
   user: UserType;
 }
 
-
-
 export function IndexLink(props: LinkProps){
 
-  
+
   const wrapperSize = useRef(null);
   const [width, setWidth] = useState(undefined);
   const [height, setHeight] = useState(undefined);
 
-  const windowSize = useWindowSize();  
-  
+  const windowSize = useWindowSize();
+
   useEffect(() => {
     if (wrapperSize.current){
       let height = wrapperSize.current.parentElement.offsetHeight;
       let width = wrapperSize.current.parentElement.offsetWidth;
-      
+
       setWidth(width);
       setHeight(height);
-      
+
     }
   }, [windowSize]);
 
@@ -67,13 +68,15 @@ export function IndexLink(props: LinkProps){
     <div ref = {wrapperSize} style = {carouselWrapper}>
       <Carousel
         infinite
-        arrows = {false}
+        arrows = {true}
         itemClass = {`${sparkline}`}
         partialVisible
-        autoPlay
-        autoPlaySpeed={2000}
+        autoPlay = {true}
+        autoPlaySpeed = {5000}
         responsive={responsive}
-        
+        customLeftArrow={<ArrowCircleLeftTwoToneIcon />}
+        customRightArrow={<ArrowCircleRightTwoToneIcon />}
+
         >
       {props && props.indicators.map((indicator) => (
         <IndicatorBox
