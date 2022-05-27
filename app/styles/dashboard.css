@@ -654,6 +654,15 @@ strong {
   font-weight: 400;
 }
 
+.pill-active:hover {
+  background: rgba(var(--clr-white));
+
+}
+
+.pill-active span:hover {
+  color: rgba(var(--clr-grey-900));
+}
+
 
 /* to refactor */
 

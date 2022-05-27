@@ -512,12 +512,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: row;
 }
 
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .border {
   border-width: 1px;
 }

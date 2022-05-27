@@ -18,18 +18,19 @@ interface CarouselProps{
 
 
 export function ThemeCarousel(props: CarouselProps){
+  console.log(props);
   return(
     <>
     <div className="flex-row carousel-wrapper">
       <div className="pill pill-active">
         <span>{props.params ? deslugify(props.params.theme ? props.params.theme : "") : ""}</span>
-        <div><Link to='/dashboard'><ClearIcon fontSize='small'/></Link></div>
+        <Link to='/dashboard'><ClearIcon fontSize='small'/></Link>
       </div>
 
       {props.data && props.data.problems.map((problem)=>(
           <div key={problem.id} className="pill">
             <Link to={`problem/${problem.slug}`}>
-              {problem.name}
+              <span>{problem.name}</span>
             </Link>
           </div>
       ))}
