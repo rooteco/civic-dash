@@ -145,7 +145,6 @@ function getIndicators(){
       description: "This indicator uses Zillow Research’s open source data <a target='_blank' href='https://www.zillow.com/research/data/'>[1]</a>, and lists the median price at which homes in San Francisco county were sold on a weekly basis. The county only includes central SF (e.g. not Oakland). There might be some bias in the data due to the fact that only a certain subset of houses are sold on Zillow, but it’s useful as a relative measure.",
       slug: "median-sale-price",
       favourite: true,
-      lastValue: ,
       lastUpdated: '2022-05-07'
     },
     {

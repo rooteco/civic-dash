@@ -39,8 +39,8 @@ model Indicator {
   description       String                          @default("No description. Add one!")
   slug              String                          @unique
   favourite         Boolean
-  lastValue?        String                          @default("")
-  lastUpdated?      String                          @default("")
+  lastValue         String                          @default("")
+  lastUpdated       String                          @default("")
   config            Config?
   problems          IndicatorsOnProblems[]
   themes            IndicatorsOnThemes[]
