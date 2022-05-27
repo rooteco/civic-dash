@@ -24,11 +24,11 @@ export function ThemeProblemCarousel(props: CarouselProps){
     <div className="carousel-wrapper flex-row">
       <div className="pill pill-active">
         <span>{props.params ? deslugify(props.params.theme) : ""}</span>
-        <div><Link to='/dashboard'><ClearIcon fontSize='small'/></Link></div>
+        <div><Link to='/dashboard'><ClearIcon sx = {{verticalAlign: "middle"}}/></Link></div>
       </div>
       <div className="pill pill-active">
         <span>{props.params ? deslugify(props.params.problem) : ""}</span>
-        <div><Link to={`/dashboard/theme/${params.theme}`}><ClearIcon fontSize='small'/></Link></div>
+        <div><Link to={`/dashboard/theme/${params.theme}`}><ClearIcon sx = {{verticalAlign: "middle"}}/></Link></div>
       </div>
     </div>
   )

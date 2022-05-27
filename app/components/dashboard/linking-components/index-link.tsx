@@ -4,6 +4,9 @@ import Carousel from 'react-multi-carousel';
 import type { UserType } from "~/models/user.server";
 import { useWindowSize } from "~/utils/hooks";
 
+import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
+import ArrowCircleLeftTwoToneIcon from '@mui/icons-material/ArrowCircleLeftTwoTone';
+
 import { useRef, useEffect, useState } from 'react';
 
 
@@ -68,9 +71,11 @@ export function IndexLink(props: LinkProps){
         arrows = {true}
         itemClass = {`${sparkline}`}
         partialVisible
-        // autoPlay
-        // autoPlaySpeed={2000}
+        autoPlay = {true}
+        autoPlaySpeed = {5000}
         responsive={responsive}
+        customLeftArrow={<ArrowCircleLeftTwoToneIcon />}
+        customRightArrow={<ArrowCircleRightTwoToneIcon />}
 
         >
       {props && props.indicators.map((indicator) => (
