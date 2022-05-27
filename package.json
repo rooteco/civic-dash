@@ -11,10 +11,10 @@
     "dev:css": "npm run generate:css -- --watch",
     "dev:remix": "remix watch",
     "generate:css": "tailwindcss -o ./app/styles/tailwind.css",
-    "start": "remix-serve build"
+    "start": "remix-serve build",
+    "rebuild": "ts-node prisma/seed.ts"
   },
   "prisma": {
-    "seed": "node --require esbuild-register prisma/seed.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
