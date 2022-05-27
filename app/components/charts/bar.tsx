@@ -13,25 +13,65 @@ export function Bar(props) {
   const [data, setData] = useState();
 
   useEffect(() => {
+    console.log("DATASET:", props.dataset)
     setData(props.dataset ? props.dataset : []);
   }, [props]);
 
   useEffect(() => {
     if (data === undefined) return;
     // single line in the chart
-    const chart = Plot.plot({
-      marginLeft: 100,
-      insetBottom: 10,
-      marks: [
-        Plot.barY(data, {x: props.keys[0], y: props.keys[1]})
-      ],
-      style: {
-        fontSize: 10,
-        backgroundColor: "white"
+    else if (props.keys.length < 3){
+        const chart = Plot.plot({
+          marginLeft: 100,
+          insetBottom: 10,
+          scale: {
+            type: "identity"
+          },
+          x: {
+            label: props.config ? props.config.xName : "Not Found",
+            type: props.config ? props.config.xType : "band",          },
+          y: {
+            grid: true,
+            label: props.config ? props.config.yName : "Not Found",
+            type: props.config ? props.config.yType : "band"
+          },
+          marks: [
+            Plot.barY(data, {x: props.keys[0], y: props.keys[1]})
+          ],
+          style: {
+            fontSize: 14,
+            backgroundColor: "#1A1A1A",
+            color: "#7B7A77",
+          }
+          });
+        headerRef.current.append(chart);
+        return () => chart.remove();
+        }
+      else{
+        const chart = Plot.plot({
+          // marginLeft: 100,
+          insetBottom: 10,
+          x: {
+            label: props.config ? props.config.xName : "Not Found",
+            type: props.config ? props.config.xType : "linear",
+          },
+          y: {
+            grid: true,
+            label: props.config ? props.config.yName : "Not Found",
+            type: props.config ? props.config.yType : "linear"
+          },
+          marks: [
+            Plot.barY(data, {x: props.keys[0], y: props.keys[1], z: 'z'})
+          ],
+          style: {
+            fontSize: 14,
+            backgroundColor: "#1A1A1A",
+            color: "#7B7A77",
+          }
+          });
+        headerRef.current.append(chart);
+        return () => chart.remove();
       }
-      });
-      headerRef.current.append(chart);
-      return () => chart.remove();
   }, [data]);
 
   return (

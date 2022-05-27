@@ -15,25 +15,23 @@ interface LinkProps {
   user: UserType;
 }
 
-
-
 export function IndexLink(props: LinkProps){
 
-  
+
   const wrapperSize = useRef(null);
   const [width, setWidth] = useState(undefined);
   const [height, setHeight] = useState(undefined);
 
-  const windowSize = useWindowSize();  
-  
+  const windowSize = useWindowSize();
+
   useEffect(() => {
     if (wrapperSize.current){
       let height = wrapperSize.current.parentElement.offsetHeight;
       let width = wrapperSize.current.parentElement.offsetWidth;
-      
+
       setWidth(width);
       setHeight(height);
-      
+
     }
   }, [windowSize]);
 
@@ -73,7 +71,7 @@ export function IndexLink(props: LinkProps){
         autoPlay
         autoPlaySpeed={2000}
         responsive={responsive}
-        
+
         >
       {props && props.indicators.map((indicator) => (
         <IndicatorBox

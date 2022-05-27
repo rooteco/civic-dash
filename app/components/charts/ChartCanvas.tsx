@@ -8,7 +8,7 @@ import type { Config, Indicator } from "~/models/indicator.server"
 import { formatValues } from "~/utils/formatValues"
 import ClearIcon from '@mui/icons-material/ClearRounded';
 import { Interweave } from 'interweave';
-
+import { formatValues } from "~/utils/formatValues"
 interface CanvasProps {
   dataset: Array<any>;
   config: Config;
@@ -24,10 +24,11 @@ export function ChartCanvas(props: CanvasProps){
     console.log("PARAMS:", params)
   }, [params])
 
+
   const lastUpdate = props.dataset[props.dataset.length - 1][keys[0]] || 0
   const indicatorName = props.indicator.name || "No name found"
   const indicatorDescription = props.indicator.description || "No description found"
-  const currentValue = formatValues(props.dataset[props.dataset.length - 1][keys[1]] || "", props.config.yFormat)
+  const currentValue = props.dataset[props.dataset.length - 1][keys[1]] || ""
 
   useEffect(() => {
     setKeys(props.dataset ? Object.keys(props.dataset[0]) : ["NA", "NA"])
@@ -53,15 +54,15 @@ export function ChartCanvas(props: CanvasProps){
             </Link>
           </div>
         </div>
-          <Interweave
-            content={indicatorDescription}
-            />
+          <p>
+            <Interweave content={indicatorDescription} />
+          </p>
       </div>
 
       <div className='indicator-body pad'>
         {props.config.xType === 'time' &&
           <div className='flex-space-between'>
-              <h3>{currentValue}</h3>
+              <h3>{props.config ? formatValues(currentValue, props.config.yFormat) : currentValue}</h3>
               <p>{lastUpdate}</p>
           </div>
         }

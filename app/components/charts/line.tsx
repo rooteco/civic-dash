@@ -18,7 +18,9 @@ export function Line(props) {
   const headerRef = useRef();
   const [data, setData] = useState();
 
+
   useEffect(() => {
+    console.log("DATASET:", props.dataset)
     setData(props.dataset ? props.dataset : []);
   }, [props]);
 
@@ -38,7 +40,7 @@ export function Line(props) {
           fontSize: 16,
         },
         x: {
-          ticks: 5,
+          // ticks: 5,
           label: props.config ? props.config.xName : "Not Found",
           type: props.config ? props.config.xType : "linear",
           // tickFormat: "%Y %m"
@@ -78,7 +80,7 @@ export function Line(props) {
           type: props.config ? props.config.yType : "linear"
         },
         marks: [
-          Plot.line(handleTimeRange(data, props.timeRange), {x: props.keys[0], y: props.keys[1], z: 'division', stroke: "division"})
+          Plot.line(handleTimeRange(data, props.timeRange), {x: props.keys[0], y: props.keys[1], z: 'z', stroke: "z"})
         ],
         color: {
           type: "categorical",

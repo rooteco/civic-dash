@@ -24,7 +24,7 @@ export function IndicatorBox(props: IndicatorBoxProps){
 
               <h3>{Math.round(Math.random()*100)}</h3>
               <p className="inscription">{Math.round(Math.random()*100)}%</p>
-            
+
           </div>
 
         <div className="sparkline">
