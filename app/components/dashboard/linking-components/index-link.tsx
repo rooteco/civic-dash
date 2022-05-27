@@ -65,10 +65,10 @@ export function IndexLink(props: LinkProps){
     <div ref = {wrapperSize} style = {carouselWrapper}>
       <Carousel
         infinite
-        arrows = {false}
+        arrows = {true}
         itemClass = {`${sparkline}`}
         partialVisible
-        autoPlay
+        // autoPlay
         autoPlaySpeed={2000}
         responsive={responsive}
 

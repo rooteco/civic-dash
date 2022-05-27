@@ -23,12 +23,17 @@ export function formatValues(value, format){
       return result
     }
     case 'usd': {
-      let commaValue = value.toString().split(".");
-      // regex that formats commas
-      commaValue[0] = commaValue[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-      let joinedValue = commaValue.join(".")
-      let result = "$".concat(joinedValue)
-      return result
+      if(value){
+        let commaValue = value.toString().split(".");
+        // regex that formats commas
+        commaValue[0] = commaValue[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        let joinedValue = commaValue.join(".")
+        let result = "$".concat(joinedValue)
+        return result
+      }
+      else{
+        return "Undefined"
+      }
     }
 
     case 'wholeNumber': {
@@ -39,7 +44,7 @@ export function formatValues(value, format){
     }
 
     default: {
-      return value
+      return toFixed(value, 3)
     }
   }
 }
