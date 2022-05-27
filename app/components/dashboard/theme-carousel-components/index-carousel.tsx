@@ -10,7 +10,7 @@ interface CarouselProps{
 
 export function IndexCarousel(props: CarouselProps){
 
-  console.log(props);
+
 
   return(
     <div className="carousel-wrapper flex-row">
