@@ -476,6 +476,11 @@ strong {
   z-index: 2;
 }
 
+.text-backdrop {
+  background: linear-gradient(92.27deg, rgba(83, 83, 83, 0.25) 25.63%, rgba(19, 19, 19, 0.06) 92.89%);
+  background-blend-mode: hard-light;
+}
+
 
 .axis{
   grid-row: 3/3;
@@ -501,11 +506,22 @@ strong {
   /* Auto layout for picker and ticker */
   display: flex;
   flex-direction: column;
+
+  opacity: 0.75;
+
+
+}
+
+/* animation */
+.anim-easeinout {
+  transition: all 1s ease-in-out;
 }
 
 .dash:hover {
+  opacity: 1;
   background: linear-gradient(92.27deg, rgba(83, 83, 83, 0.45) 25.63%, rgba(19, 19, 19, 0.36) 92.89%);
   background-blend-mode: hard-light;
+  transition: all 0.3s ease-in-out;
 }
 
 .picker{
@@ -672,7 +688,7 @@ strong {
 
 .pill-active:hover {
   background: rgba(var(--clr-white));
-  transform: scale(1.02);
+  transform: scale(1.01);
 
 }
 
