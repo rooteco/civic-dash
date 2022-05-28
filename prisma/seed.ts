@@ -84,31 +84,31 @@ function getThemes() {
     {
       id: 1,
       name: "Abundant Housing",
-      description: "",
+      description: "<p>Despite being one of the wealthiest cities in the United States <a target='_blank' href='https://www.census.gov/quickfacts/sanfranciscocitycalifornia'>[1]</a>, San Francisco suffers from one of the worst housing crises in the country. Average rent in the city is two and a half times the national average <a target='_blank' href='https://bungalow.com/articles/what-is-the-real-cost-of-living-in-san-francisco-ca'>[2]</a>, and the cost of living is only rising <a target=' blank' href='https://bungalow.com/articles/what-is-the-real-cost-of-living-in-san-francisco-ca'>[3]</a>. The impacts of this crisis manifest in nearly every social issue facing San Francisco, forcing residents onto the streets, stymying urban development, and leaving citizens with less money to pay for education, food, and transport <a target='_blank' href='https://www.vox.com/a/homeless-san-francisco-tech-boom'>[4]</a>.</p><p>The indicators that we’ve chosen for Abundant Housing explore the issue from an economic perspective, for which there is the most reliable data, but the true cost of San Francisco’s housing crisis is the thousands of people it has displaced, and the tens of thousands that it has affected. It’s difficult to segment the theme into specific problems because of how interconnected all of the root causes are, so for Abundant Housing indicators tend to be segmented based on the aspect of the overarching theme that they most relate to.</p><p>We’re working on integrating the stories of some of these people into the dashboard. For now, you can read about some of them in an excellent article by Vox on the subject <a target='_blank' href='https://www.vox.com/a/homeless-san-francisco-tech-boom'>[5]</a>.</p>",
       slug: "abundant-housing"
     },
     {
       id: 2,
       name: "Quality Education",
-      description: "",
+      description: "<p>San Francisco is home to over a dozen top-rated universities <a target='_blank' href='https://www.universityguru.com/universities-san-francisco'>[1]</a>, and its primary and secondary education system is highly ranked on both the state and national level <a target='_blank' href='https://innovateschools.org/wp-content/uploads/2021/01/2020-Spotlight-on-Schools-within-SFUSD.pdf'>[2]</a> <a target='_blank href='https://www.niche.com/k12/d/san-francisco-unified-school-district-ca/'>[3]</a>. Despite its track record, there are still many issues with education in SF, ranging from increasingly segregated schools, to racial disparities in educational attainment, to a lack of support for homeless and disadvantaged students, to a shortage of qualified teachers. COVID has both exacerbated these issues and made tracking them accurately more difficult as schools shut for months at a time.</p><p>The indicators we’ve chosen for tracking Education in San Francisco are far from comprehensive, but they provide insight into the systemic and generational issues facing the city.</p>",
       slug: "quality-education",
     },
     {
       id: 3,
       name: "Public Safety",
-      description: "",
+      description: "<p>Public safety in San Francisco is difficult to categorise accurately. The city is a centre for tourism and business that is generally considered very safe to visit <a target='_blank' href='https://www.smartertravel.com/areas-avoid-san-francisco-warnings-dangers/'>[1]</a>, and at the same time, the city has extremely high levels of violent crime and property theft <a target='_blank' href='https://www.hoover.org/research/why-san-francisco-nearly-most-crime-ridden-city-us'>[2]</a>. It’s often challenging to report measures of public safety accurately, because different neighbourhoods can have extremely different levels of crime. We’re working on incorporating geospatial visualisations into the dashboard, and until then we’ve tried to qualify our indicators with context about the ways in which they aggregate many different neighbourhoods.</p>",
       slug: "public-safety"
     },
     {
       id: 4,
       name: "Mental Health",
-      description: "",
+      description: "<p>Mental health is very rarely discussed at a civic level, partially because of the difficulty of tracking it, and partially because of the stigma that is still often associated with it <a target='_blank' href='https://hcp.hms.harvard.edu/news/mental-illnesses-are-common-care-lacking'>[1]</a> <a target='_blank' href='https://www.mcleanhospital.org/essential/lets-face-it-no-one-wants-talk-about-mental-health'>[2]</a>. Perhaps because of this, it affects Americans more than almost any other affliction. One in four adults in the United State have a mental disorder in any given year <a target='_blank' href='https://www.healthypeople.gov/2020/leading-health-indicators/2020-lhi-topics/Mental-Health'>[3]</a>, and such traumas have extremely strong correlations with the most pressing social issues facing San Francisco, including substance abuse, poverty and homelessness <a target='_blank' href='https://www.nimh.nih.gov/health/topics/substance-use-and-mental-health'>[4]</a> <a target='_blank' href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5374256/'>[5]</a>. Due to the scarcity of data, many of the indicators that we’ve chosen are indirect measures of the state of San Francisco’s mental health, and it’s important to note that many of the people that suffer most probably belong to the city’s homeless population <a target='_blank' href='https://www.bbrfoundation.org/blog/homelessness-and-mental-illness-challenge-our-society'>[6]</a>, for which there are fewer accurate data sources.</p>",
       slug: "mental-health"
     },
     {
       id: 5,
       name: "Environmental Sustainability",
-      description: "",
+      description: "<p>As the global push towards sustainability become more and more urgent, San Francisco remains a centre of sustainability and ecological awareness <a target='_blank' href='https://aaasolutions.com/blog/san-francisco-the-green-city/'>[1]</a>. Over the last decade, the city has implemented dozens of programs aimed at combating pollution, ranging from extensive recycling <a target='_blank' href='https://www.epa.gov/transforming-waste-tool/zero-waste-case-study-san-francisco'>[2]</a>, to a ban on plastic bags <a target='_blank' href='https://1bagatatime.com/learn/guide-bag-bans/bag-ban-san-francisco/'>[3]</a>, to legislation forcing businesses to lower their greenhouse gas emissions <a target='_blank' href='https://carbonneutralcities.org/cities/san-francisco/#:~:text=San Francisco has already reduced,percent renewable electricity by 2030.'>[4]</a>. More work has to be done to support long-term sustainability, but it’s also worth celebrating the massive amount of work that has been done by the government and other organisations to turn San Francisco into a green city.</p>",
       slug: "sustainability"
     }
   ];
@@ -325,9 +325,6 @@ function getIndicators(){
 }
 
 
-
-
-
 function getConfigs(){
   return [
     {
@@ -375,6 +372,7 @@ function getConfigs(){
       xType: 'time',
       yName: "Housing Units Per Capita",
       yType: "linear",
+      yFormat: "fraction",
       chartType: 'line'
     },
     {
@@ -384,6 +382,7 @@ function getConfigs(){
       xType: 'time',
       yName: "Number of Housing Units",
       yType: "linear",
+      yFormat: "wholeNumber",
       chartType: 'line'
     },
     {
@@ -393,6 +392,7 @@ function getConfigs(){
       xType: 'time',
       yName: "Rental Vacancy Rate (%)",
       yType: "linear",
+      yFormat: "percentage",
       chartType: 'line'
     },
     {
@@ -428,7 +428,7 @@ function getConfigs(){
       layout: "SINGLE",
       xName: "Racial Demographic",
       xType: "band",
-      yName: "Percent of Students Who Met Standards",
+      yName: "Students Meeting Standards (%)",
       yType: "linear",
       chartType: 'bar'
     },
@@ -437,7 +437,7 @@ function getConfigs(){
       layout: "SINGLE",
       xName: "Racial Demographic",
       xType: "band",
-      yName: "Percent of Students Who Met Standards",
+      yName: "Students Meeting Standards (%)",
       yType: "linear",
       chartType: 'bar'
     },
@@ -493,6 +493,7 @@ function getConfigs(){
       xType: 'time',
       yName: "CO2 Emissions (metric tons)",
       yType: "linear",
+      yFormat: "wholeNumber",
       chartType: 'line'
     },
     {
@@ -538,6 +539,7 @@ function getConfigs(){
       xType: 'time',
       yName: "Percent of Rides That Are Sustainable",
       yType: "linear",
+      yFormat: "percentage",
       chartType: 'line'
     },
     {
@@ -547,6 +549,7 @@ function getConfigs(){
       xType: 'time',
       yName: "Number of Mental Health Clients",
       yType: "linear",
+      yFormat: 'wholeNumber',
       chartType: 'line'
     },
     {
@@ -574,32 +577,26 @@ function getPredictionMarkets(){
   return[
     {
       id: 1,
-      question: "Will anyone outbid Elon musk to buy twitter and get approved by twitter's board before the poison pill expires?",
-      slug: "will-anyone-outbid-elon-musk-to-buy",
-      description: "",
-      marketVolume: 2696,
-      author: "J",
-      dateCreated: new Date("April 14, 2022 03:24:00"),
-      favourite: true,
+      question: "Which of these solutions is the most important for improving the state of abundant housing in San Francisco?",
+      slug: "which-of-these-solutions-is-the-mos",
+      favourite: true
     },
     {
       id: 2,
-      question: "What will Manifold Markets' new Mana currency sign be in a month?",
-      slug: "manifold-mana",
-      description: "",
-      marketVolume: 773,
-      author: "Manifold Markets",
-      dateCreated: new Date("June 5, 2022 03:24:00"),
+      question: "Will anyone outbid Elon musk to buy twitter and get approved by twitter's board before the poison pill expires?",
+      slug: "will-anyone-outbid-elon-musk-to-buy",
       favourite: true,
     },
     {
       id: 3,
+      question: "What will Manifold Markets' new Mana currency sign be in a month?",
+      slug: "manifold-mana",
+      favourite: true,
+    },
+    {
+      id: 4,
       question: "What will the price of the $XBI biotech index be as of market close on December 30th, 2022?",
-      description: "",
       slug: "xbi-biotech",
-      marketVolume: 126,
-      author: "Stephen Malina",
-      dateCreated: new Date("November, 2022 03:24:00"),
       favourite: false,
     },
   ]

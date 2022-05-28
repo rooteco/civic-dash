@@ -66,10 +66,6 @@ model PredictionMarket {
   id           Int                             @id @default(autoincrement())
   question     String
   slug         String                          @unique
-  description  String
-  marketVolume Int                             @default(0)
-  author       String
-  dateCreated  DateTime                        @default(now())
   favourite    Boolean
   indicators   IndicatorsToPredictionMarkets[]
   problems     ProblemsToPredictionMarkets[]
