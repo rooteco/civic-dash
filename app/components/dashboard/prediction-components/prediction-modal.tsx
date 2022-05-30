@@ -1,4 +1,6 @@
 import type { Prediction } from "~/models/prediction.server";
+import { useEffect } from "react";
+import ClearIcon from '@mui/icons-material/ClearRounded';
 import { Link } from "@remix-run/react";
 import { PredictionMarket } from "@prisma/client";
 import PredictionScaffold from "~/components/dashboard/prediction-components/prediction-scaffold"
@@ -8,9 +10,11 @@ interface PredictionProps{
   setPanelIsOpen: ()=>void;
 }
 
-// todo: add to utils
-
 export function PredictionModal(props: PredictionProps){
+
+  useEffect(()=>{
+    console.log("PREDICTION MARKET:", props.predictionMarket)
+  }, [props])
 
   if (!props.predictionMarket.fullData) {
     return(
@@ -32,7 +36,6 @@ export function PredictionModal(props: PredictionProps){
               <div className="flex-column probsticker">
               </div>
             </div>
-
           </div>
 
         </div>

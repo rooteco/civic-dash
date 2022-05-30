@@ -15,9 +15,6 @@ export default function PredictionChart(props){
     if (data === undefined) return;
 
     const chart = Plot.plot({
-      marginLeft: 100,
-      insetBottom: 10,
-      height: "100%",
       style: {
         backgroundColor: "white"
       },

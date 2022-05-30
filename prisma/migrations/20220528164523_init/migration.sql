@@ -47,10 +47,6 @@ CREATE TABLE "PredictionMarket" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "question" TEXT NOT NULL,
     "slug" TEXT NOT NULL,
-    "description" TEXT NOT NULL,
-    "marketVolume" INTEGER NOT NULL DEFAULT 0,
-    "author" TEXT NOT NULL,
-    "dateCreated" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "favourite" BOOLEAN NOT NULL
 );
 
