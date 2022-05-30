@@ -23,11 +23,18 @@ export function Bar(props) {
     else if (props.keys.length < 3){
         const chart = Plot.plot({
           marginLeft: 100,
+          marginRight: 50,
+          marginTop: 30,
+          marginBottom: 50,
+          height: 400,
+          width: 800,
           insetBottom: 10,
           scale: {
             type: "identity"
           },
           x: {
+            labelOffset: 50,
+            tickRotate: -10,
             label: props.config ? props.config.xName : "Not Found",
             type: props.config ? props.config.xType : "band",          },
           y: {
@@ -36,7 +43,10 @@ export function Bar(props) {
             type: props.config ? props.config.yType : "band"
           },
           marks: [
-            Plot.barY(data, {x: props.keys[0], y: props.keys[1]})
+            Plot.barY(data, {
+              x: props.keys[0], 
+              y: props.keys[1],
+              fill: "white",})
           ],
           style: {
             fontSize: 14,
