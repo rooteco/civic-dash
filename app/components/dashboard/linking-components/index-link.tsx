@@ -2,7 +2,7 @@ import { IndicatorBox } from "~/components/dashboard/linking-components/Indicato
 import type { Indicator } from "~/models/theme.server";
 import Carousel from 'react-multi-carousel';
 import type { UserType } from "~/models/user.server";
-import { useWindowSize } from "~/utils/hooks";
+import { useWindowSize, useParentSize } from "~/utils/hooks";
 
 import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
 import ArrowCircleLeftTwoToneIcon from '@mui/icons-material/ArrowCircleLeftTwoTone';

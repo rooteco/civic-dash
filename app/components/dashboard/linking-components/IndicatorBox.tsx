@@ -2,7 +2,7 @@ import type { Indicator } from "~/models/theme.server";
 import { Link, Form } from "@remix-run/react";
 import { UserType } from "~/models/user.server"
 import graph from '../../../../public/assets/place_chart.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FavoriteIndicator from '~/components/dashboard/FavoriteIndicator';
 
 type IndicatorBoxProps = {
@@ -16,8 +16,8 @@ type IndicatorBoxProps = {
 
 export function IndicatorBox(props: IndicatorBoxProps) {
 
-
   const [visible, setVisible] = useState(false);
+  const [stats, setStats] = useState({});
 
   const timeoutToggle = () => {
     setTimeout(() => {
@@ -27,6 +27,16 @@ export function IndicatorBox(props: IndicatorBoxProps) {
 
   const metadataState = visible ? 'indicator-sparkline-metadata indicator-sparkline-metadata-hover' : 'indicator-sparkline-metadata';
   
+  useEffect(() => {
+    const percentChange = Math.round(Math.random() * 100)
+    const currentValue = Math.round(Math.random() * 100)
+    
+    setStats({
+      'percentChange': percentChange,
+      'currentValue': currentValue
+    })
+  }
+  , [])
 
   return (
     <div onMouseEnter={() => setVisible(true)} onMouseLeave={() => timeoutToggle()}>
@@ -36,8 +46,8 @@ export function IndicatorBox(props: IndicatorBoxProps) {
             <div className={metadataState}>
               <p className="inscription truncate">{props.indicator.name}</p>
 
-              <h3>{Math.round(Math.random() * 100)}</h3>
-              <p className="inscription">{Math.round(Math.random() * 100)}%</p>
+              <h3>{stats.currentValue}</h3>
+              <p className="inscription">{stats.percentChange}%</p>
 
             </div>
           </Link>
