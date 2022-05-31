@@ -6,6 +6,8 @@ import Snackbar from "@mui/material/Snackbar"
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { useParams } from "@remix-run/react";
+
 
 import Canvas from './canvas';
 import Header from './header';
@@ -30,6 +32,19 @@ export function DashboardWrapper(props: WrapperProps){
   useEffect(()=>{
     typeof props.error !== 'undefined' ? setSnackbarOpen(true) : setSnackbarOpen(false)
   }, [props.error])
+
+  const params = useParams();
+  const [dashStyle, setDashStyle] = useState({})
+
+  useEffect(() => {
+    if (Object.keys(params).length === 0) {
+      setDashStyle({})
+    } else {
+      setDashStyle({
+        'opacity': 1
+      })
+    }
+  }, [params])
 
 
   const now = new Date()
@@ -75,7 +90,7 @@ export function DashboardWrapper(props: WrapperProps){
                 }
             </div>
 
-            <div className="dash">
+            <div className="dash" style = {dashStyle}>
               <div className="picker">
                 {props.themeCarouselChild}
               </div>
