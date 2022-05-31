@@ -46,7 +46,7 @@ export function IndicatorBox(props: IndicatorBoxProps) {
             <div className={metadataState}>
               <p className="inscription truncate">{stats.currentValue}</p>
 
-              <h4>{props.indicator.name}</h4>
+              <h4 className = "">{props.indicator.name}</h4>
               <p className="inscription">{stats.percentChange}%</p>
 
             </div>

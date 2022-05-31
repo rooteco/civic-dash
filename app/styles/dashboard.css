@@ -566,7 +566,9 @@ strong {
     grid-column: 2 / 2;
 }
 
-
+strong > * {
+  font-weight: 400;
+}
 
 
 .menu{
@@ -577,7 +579,7 @@ strong {
   background: rgba(var(--clr-grey-700), var(--alpha-high));
   border-radius: var(--br-circle);
   
-  padding: var(--space-xxs) var(--space-xxs) var(--space-xxs) var(--space-xxs);
+  padding: 2px;6
 
   border-radius: 100px;
   border: 1px solid rgba(var(--clr-grey-100), var(--alpha-medium));
