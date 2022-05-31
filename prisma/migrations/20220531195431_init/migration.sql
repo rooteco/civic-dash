@@ -25,7 +25,9 @@ CREATE TABLE "Indicator" (
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL DEFAULT 'No description. Add one!',
     "slug" TEXT NOT NULL,
-    "favourite" BOOLEAN NOT NULL
+    "favourite" BOOLEAN NOT NULL,
+    "recentValue" TEXT NOT NULL DEFAULT '',
+    "recentTime" TEXT NOT NULL DEFAULT ''
 );
 
 -- CreateTable
@@ -48,6 +50,15 @@ CREATE TABLE "PredictionMarket" (
     "question" TEXT NOT NULL,
     "slug" TEXT NOT NULL,
     "favourite" BOOLEAN NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "CategoricalPredictionMarketTopics" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "marketId" INTEGER NOT NULL,
+    "categoryId" INTEGER NOT NULL,
+    "categoryName" TEXT NOT NULL,
+    CONSTRAINT "CategoricalPredictionMarketTopics_marketId_fkey" FOREIGN KEY ("marketId") REFERENCES "PredictionMarket" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
