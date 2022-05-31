@@ -38,19 +38,21 @@ export function processCategoricalMarketData(marketBets){
 
 export function processBinaryMarketData(marketBets){
   var graphData = []
-  marketBets.forEach(bet => {
-    graphData.push({
-      "x": bet.createdTime,
-      "y": bet.probAfter
+  if(marketBets.length > 0){
+    marketBets.forEach(bet => {
+      graphData.push({
+        "x": bet.createdTime,
+        "y": bet.probAfter
+      })
     })
-  })
 
-  // take the last value and extend it to the present time
-  let lastData = graphData[graphData.length - 1]
-  let currentData = {
-    "x": new Date().getTime(),
-    "y": lastData.y
+    // take the last value and extend it to the present time
+    let lastData = graphData[graphData.length - 1]
+    let currentData = {
+      "x": new Date().getTime(),
+      "y": lastData.y
+    }
+    graphData.push(currentData)
   }
-  graphData.push(currentData)
   return graphData
 }

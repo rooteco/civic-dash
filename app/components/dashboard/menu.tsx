@@ -12,7 +12,7 @@ export default function Menu() {
   }
 
   const setOn = () => {
-    setOpen(true);  
+    setOpen(true);
   }
 
   if (open) {
@@ -23,7 +23,7 @@ export default function Menu() {
         </div>
         <div className="flex-row">
           <strong><a href="https://rooteco.notion.site/CivicDash-v2-1-8631ce9d3fd442a1a031eec9fa48cf3b" target="_blank" rel="noreferrer">docs</a></strong>
-          <strong><a href="https://discord.gg/bQHFfWUC" target="_blank" rel="noreferrer">discord</a></strong>
+          <strong><a href="https://discord.gg/5eXgs8r9HT" target="_blank" rel="noreferrer">discord</a></strong>
         </div>
       </div>
     );

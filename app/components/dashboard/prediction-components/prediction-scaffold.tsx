@@ -53,7 +53,7 @@ export default function PredictionScaffold(props){
                 <p><b>Close Date: </b>{closeDate(props.predictionMarket.fullData.closeTime)}</p>
                 <p><b>Status:</b> {isResolved(props.predictionMarket.fullData.isResolved)}</p>
                 {props.categorical && <p></p>}
-                {!props.categorical && <p><b>Market Volume: </b>${formatValues(roundProb(props.predictionMarket.fullData.totalLiquidity), 'wholeNumber')}</p>}
+                {!props.categorical && <p><b>Market Volume: </b>M${formatValues(props.predictionMarket.fullData.totalLiquidity, 'float')}</p>}
               </div>
             </div>
 
@@ -100,3 +100,5 @@ export default function PredictionScaffold(props){
     </div>
   )
 }
+
+// {formatValues(roundProb(props.predictionMarket.fullData.totalLiquidity), 'wholeNumber')}

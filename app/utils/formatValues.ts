@@ -38,6 +38,11 @@ export function formatValues(value, format){
       return joinedValue
     }
 
+    case 'float': {
+      let tempValue = toFixed(value, 2)
+      return tempValue
+    }
+
     default: {
       return value
     }

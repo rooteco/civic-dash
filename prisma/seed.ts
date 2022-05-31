@@ -124,21 +124,39 @@ function getProblems(){
   return [
     {
       id: 1,
+      name: "High Housing Prices",
+      description: "",
+      slug: "high-prices",
+    },
+    {
+      id: 2,
+      name: "Low Availability",
+      description: "",
+      slug: "low-availability",
+    },
+    {
+      id: 3,
       name: "Academic Achievement",
       description: "",
       slug: "academic-achievement",
     },
     {
-      id: 2,
-      name: "Segregated Schools",
+      id: 4,
+      name: "Academic Engagement",
       description: "",
-      slug: "segregated-schools",
+      slug: "academic-engagement",
     },
     {
-      id: 3,
-      name: "Homeless Students",
+      id: 5,
+      name: "Racial Disparities in Educational Achievement",
       description: "",
-      slug: "homeless-students",
+      slug: "racial-disparities-in-education",
+    },
+    {
+      id: 6,
+      name: "Homeless and Disadvantaged Students",
+      description: "",
+      slug: "homeless-and-disadvantaged-students",
     }
   ];
 }
@@ -381,7 +399,6 @@ function getIndicators(){
     }
   ]
 }
-
 
 function getConfigs(){
   return [
@@ -635,40 +652,24 @@ function getPredictionMarkets(){
   return[
     {
       id: 1,
-      question: "Which of these solutions is the most important for improving the state of abundant housing in San Francisco?",
-      slug: "which-of-these-solutions-is-the-mos",
+      question: "Are San Francisco's existing initiatives and policies enough to achieve Abundant Housing in the next five years?",
+      slug: "are-san-franciscos-existing-initiat",
       favourite: true
     },
     {
       id: 2,
-      question: "Will anyone outbid Elon musk to buy twitter and get approved by twitter's board before the poison pill expires?",
-      slug: "will-anyone-outbid-elon-musk-to-buy",
+      question: "Is San Francisco doing enough to support the education of its citizens?",
+      slug: "is-san-francisco-doing-enough-to-su",
       favourite: true,
     },
     {
       id: 3,
-      question: "What will Manifold Markets' new Mana currency sign be in a month?",
-      slug: "manifold-mana",
+      question: "Are San Francisco's existing initiatives and policies enough to make it a truly sustainable city?",
+      slug: "are-san-franciscos-existing-initiat-8aa0371c0650",
       favourite: true,
-    },
-    {
-      id: 4,
-      question: "What will the price of the $XBI biotech index be as of market close on December 30th, 2022?",
-      slug: "xbi-biotech",
-      favourite: false,
     },
   ]
 }
-
-// function getMarketCategories(){
-//   return([
-//     {
-//       marketId: 1,
-//       categoryId: 0,
-//       categoryName: ,
-//     },
-//   ])
-// }
 
 function getThemesToPredictionMarkets(){
   return([
@@ -677,21 +678,13 @@ function getThemesToPredictionMarkets(){
       predictionMarketId: 1
     },
     {
-      themeId: 1,
-      predictionMarketId: 2
-    },
-    {
-      themeId: 1,
-      predictionMarketId: 3
-    },
-    {
       themeId: 2,
       predictionMarketId: 2
     },
     {
-      themeId: 3,
+      themeId: 5,
       predictionMarketId: 3
-    }
+    },
   ])
 }
 
@@ -706,45 +699,28 @@ function getProblemsToPredictionMarkets(){
       problemId: 2
     },
     {
-      predictionMarketId: 1,
+      predictionMarketId: 2,
       problemId: 3
     },
     {
       predictionMarketId: 2,
-      problemId: 2
+      problemId: 4
     },
     {
-      predictionMarketId: 3,
-      problemId: 3
+      predictionMarketId: 2,
+      problemId: 5
+    },
+    {
+      predictionMarketId: 2,
+      problemId: 6
     }
   ])
 }
 
 function getIndicatorsToPredictionMarkets(){
   return([
-    {
-      predictionMarketId: 1,
-      indicatorId: 1
-    },
-    {
-      predictionMarketId: 1,
-      indicatorId: 2
-    },
-    {
-      predictionMarketId: 1,
-      indicatorId: 3
-    },
-    {
-      predictionMarketId: 2,
-      indicatorId: 2
-    },
-    {
-      predictionMarketId: 3,
-      indicatorId: 3
-    }
   ])
 }
-
 
 function getProblemsOnThemes(){
   return [
@@ -753,21 +729,25 @@ function getProblemsOnThemes(){
     problemId: 1
   },
   {
-    themeId: 2,
+    themeId: 1,
     problemId: 2
   },
   {
-    themeId: 3,
+    themeId: 2,
     problemId: 3
   },
   {
     themeId: 2,
-    problemId: 1
+    problemId: 4
   },
   {
-    themeId: 3,
-    problemId: 1
-  }
+    themeId: 2,
+    problemId: 5
+  },
+  {
+    themeId: 2,
+    problemId: 6
+  },
   ]
 };
 
@@ -891,20 +871,100 @@ function getIndicatorsOnProblems(){
       indicatorId: 2,
     },
     {
-      problemId: 2,
-      indicatorId: 2
-    },
-    {
-      problemId: 3,
+      problemId: 1,
       indicatorId: 3
     },
     {
+      problemId: 1,
+      indicatorId: 4
+    },
+    {
       problemId: 2,
-      indicatorId: 1
+      indicatorId: 5
+    },
+    {
+      problemId: 2,
+      indicatorId: 6
+    },
+    {
+      problemId: 2,
+      indicatorId: 7
+    },
+    {
+      problemId: 2,
+      indicatorId: 8
+    },
+    {
+      problemId: 2,
+      indicatorId: 9
     },
     {
       problemId: 3,
-      indicatorId: 1
-    }
+      indicatorId: 10
+    },
+    {
+      problemId: 3,
+      indicatorId: 11
+    },
+    {
+      problemId: 3,
+      indicatorId: 12
+    },
+    {
+      problemId: 4,
+      indicatorId: 13
+    },
+    {
+      problemId: 4,
+      indicatorId: 14
+    },
+    {
+      problemId: 4,
+      indicatorId: 15
+    },
+    {
+      problemId: 4,
+      indicatorId: 16
+    },
+    {
+      problemId: 4,
+      indicatorId: 25
+    },
+    {
+      problemId: 4,
+      indicatorId: 26
+    },
+    {
+      problemId: 5,
+      indicatorId: 25
+    },
+    {
+      problemId: 5,
+      indicatorId: 26
+    },
+    {
+      problemId: 5,
+      indicatorId: 14
+    },
+    {
+      problemId: 5,
+      indicatorId: 12
+    },
+    {
+      problemId: 5,
+      indicatorId: 11
+    },
+    {
+      problemId: 6,
+      indicatorId: 15
+    },
+    {
+      problemId: 6,
+      indicatorId: 16
+    },
+    {
+      problemId: 6,
+      indicatorId: 13
+    },
   ]
 }
