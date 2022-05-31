@@ -203,20 +203,16 @@ select {
   border-radius: 100px;
   background: rgba(var(--clr-grey-100), var(--alpha-low));
   /* center */
-  
-  
-
 }
 /* TODO icon size */
 .icon-s {
-  
-  height: 1em;
-  width: 1em;
+  display: inline-block;
+  height: 2em;
+  width: 2em;
   border-radius: 100px;
   background: rgba(var(--clr-grey-100), var(--alpha-low));
   text-align: center;
   line-height: var(--fs-unit);
-
 }
 
 .icon-xs {
@@ -577,11 +573,11 @@ strong {
   background: rgba(var(--clr-grey-700), var(--alpha-high));
   border-radius: var(--br-circle);
   
-  padding: var(--space-xxs) var(--space-sm) var(--space-xxs) var(--space-xs);
+  padding: var(--space-xxs) var(--space-xxs) var(--space-xxs) var(--space-xxs);
 
-  border: 1px solid;
-  border-image-slice: 1;
-  border-image-source: linear-gradient(253.68deg, rgba(0, 0, 0, 0.35) 18.86%, rgba(0, 0, 0, 0) 98.85%);
+  border-radius: 100px;
+  border: 1px solid rgba(var(--clr-grey-100), var(--alpha-medium));
+  
 
   z-index: 2;
 }
