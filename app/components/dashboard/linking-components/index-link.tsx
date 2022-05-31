@@ -2,12 +2,14 @@ import { IndicatorBox } from "~/components/dashboard/linking-components/Indicato
 import type { Indicator } from "~/models/theme.server";
 import Carousel from 'react-multi-carousel';
 import type { UserType } from "~/models/user.server";
-import { useWindowSize, useParentSize } from "~/utils/hooks";
+import { useWindowSize } from "~/utils/hooks";
 
 import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
 import ArrowCircleLeftTwoToneIcon from '@mui/icons-material/ArrowCircleLeftTwoTone';
 
 import { useRef, useEffect, useState } from 'react';
+import { useParams } from "@remix-run/react";
+
 
 
 interface LinkProps {
@@ -21,10 +23,11 @@ interface LinkProps {
 
 export function IndexLink(props: LinkProps){
 
-
   const wrapperSize = useRef(null);
   const [width, setWidth] = useState(undefined);
   const [height, setHeight] = useState(undefined);
+  const params  = useParams();
+  const [isIndex, setIsIndex] = useState(false);
 
   const windowSize = useWindowSize();
 
@@ -43,7 +46,13 @@ export function IndexLink(props: LinkProps){
   const items = Math.min(Math.floor(width/220), nIndicators);
   const gutter = (width - items*220 - items*8)/(items);
 
-
+  useEffect(() => {
+    if (Object.keys(params).length === 0) {
+      setIsIndex(true);
+    } else {
+      setIsIndex(false);
+    }
+  }, [params])
 
   const responsive = {
     desktop: {
@@ -68,16 +77,13 @@ export function IndexLink(props: LinkProps){
   return(
     <div ref = {wrapperSize} style = {carouselWrapper}>
       <Carousel
-        infinite
+        infinite = {isIndex}
         arrows = {true}
         itemClass = {`${sparkline}`}
         partialVisible
-        autoPlay = {true}
-        autoPlaySpeed = {5000}
+        autoPlay = {isIndex}
+        autoPlaySpeed = {isIndex? 3000 : 0}
         responsive={responsive}
-        customLeftArrow={<ArrowCircleLeftTwoToneIcon />}
-        customRightArrow={<ArrowCircleRightTwoToneIcon />}
-
         >
       {props && props.indicators.map((indicator) => (
         <IndicatorBox

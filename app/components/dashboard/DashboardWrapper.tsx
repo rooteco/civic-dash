@@ -6,6 +6,7 @@ import Snackbar from "@mui/material/Snackbar"
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+
 import Canvas from './canvas';
 import Header from './header';
 import Menu from './menu';
@@ -50,7 +51,7 @@ export function DashboardWrapper(props: WrapperProps){
               {props.focusChild}
             </div>
             <div className="header flex-space-between">
-                <div className="flex-row">
+                <div className="flex-row p-soft">
                   <p>{currentDate}</p>
                   <div className = "icon-xs"/>
                   <p>{currentTime}</p>
@@ -61,7 +62,7 @@ export function DashboardWrapper(props: WrapperProps){
                     method="post"
                     action="/logout"
                   >
-                    <button style={{color: "gray"}}><p>Logout</p></button>
+                    <button style={{color: "gray"}}><a className='p-soft'>Logout</a></button>
                   </Form>
                 }
                 {!props.user &&
@@ -69,7 +70,7 @@ export function DashboardWrapper(props: WrapperProps){
                     method="post"
                     action={`/auth/${SocialsProvider.GOOGLE}`}
                   >
-                    <button style={{color: "gray"}}><p>Login or sign up</p></button>
+                    <button style={{color: "gray"}}><a className='p-soft'>Login or sign up</a></button>
                   </Form>
                 }
             </div>

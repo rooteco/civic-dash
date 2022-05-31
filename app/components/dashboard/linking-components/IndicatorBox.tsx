@@ -35,7 +35,7 @@ export function IndicatorBox(props: IndicatorBoxProps) {
           <Link to={props.linkString}>
             <div className={metadataState}>
               {props.indicator.recentValue.trim() === '' ? <p className="inscription truncate">{'\u00A0'}</p> : <p className="inscription truncate">{props.indicator.recentValue}</p>}
-              <h3 className = "">{props.indicator.name}</h3>
+              <h4 className = "truncate-multiline">{props.indicator.name}</h4>
               <p className="inscription">{formatYears(props.indicator.recentTime)}</p>
 
             </div>
