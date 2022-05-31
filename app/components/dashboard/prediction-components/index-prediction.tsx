@@ -58,7 +58,6 @@ export function IndexPrediction(props: PredictionProps) {
 
   return (
     <>
-
       <Modal
         isOpen={panelIsOpen}
         onRequestClose={() => setPanelIsOpen(false)}
@@ -66,6 +65,7 @@ export function IndexPrediction(props: PredictionProps) {
         ariaHideApp={false}
       >
         <PredictionModal
+          isOpen={panelIsOpen}
           setPanelIsOpen={setPanelIsOpen}
           predictionMarket={activeMarket}
         />
@@ -84,32 +84,16 @@ export function IndexPrediction(props: PredictionProps) {
         {tableOpen &&
 
           <div className="flex-column">
-            {props.predictionMarkets && props.predictionMarkets.map((predictionMarket)=> (
+            {props.predictionMarkets && props.predictionMarkets.map((predictionMarket) => (
               <MarketRow
-                key = {predictionMarket.id}
+                key={predictionMarket.id}
                 handleButton={handleButton}
-                predictionMarket={predictionMarket}  />
+                predictionMarket={predictionMarket} />
             ))}
           </div>
         }
       </div>
-
-
-
-
-        <Modal
-          isOpen={panelIsOpen}
-          onRequestClose={()=>setPanelIsOpen(false)}
-          style={customStyles}
-          ariaHideApp={false}
-          >
-          <PredictionModal
-            isOpen={panelIsOpen}
-            setPanelIsOpen={setPanelIsOpen}
-            predictionMarket={activeMarket}
-          />
-        </Modal>
-    </div>
+    </>
   )
 }
 

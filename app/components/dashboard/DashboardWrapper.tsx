@@ -23,16 +23,16 @@ interface WrapperProps {
 export const TableOpenContext: Boolean = React.createContext(false)
 
 export function DashboardWrapper(props: WrapperProps){
-  const [tableOpen, setTableOpen] = useState(false)
+  const [tableOpen, setTableOpen] = useState(true)
   const [snackbarOpen, setSnackbarOpen ] = useState(false)
 
   useEffect(()=>{
     typeof props.error !== 'undefined' ? setSnackbarOpen(true) : setSnackbarOpen(false)
   }, [props.error])
 
-  
+
   const now = new Date()
-  
+
   let dateOptions = { weekday: 'short', month: 'long', day: 'numeric' };
   let timeOptions = { hour: 'numeric', minute: 'numeric' };
 
@@ -45,9 +45,9 @@ export function DashboardWrapper(props: WrapperProps){
       <TableOpenContext.Provider value={[tableOpen, setTableOpen]}>
           <Menu />
           <div className="dashgrid">
-            
+
             <div className="flex-column focus border-gradient border-gradient-white">
-              {props.focusChild} 
+              {props.focusChild}
             </div>
             <div className="header flex-space-between">
                 <div className="flex-row">
