@@ -385,7 +385,7 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-  font-size: var(--fs-md);
+  font-size: calc(1.05*var(--fs-unit));
   line-height: var(--space-md);
   letter-spacing: -0.02em;
   text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
@@ -530,6 +530,10 @@ strong {
 
 }
 
+.highlight {
+  color: rgba(var(--clr-white), var(--alpha-medium));
+}
+
 /* animation */
 .anim-easeinout {
   transition: all 1s ease-in-out;
@@ -543,7 +547,7 @@ strong {
 }
 
 .picker{
-  background: rgba(13, 13, 13, 0.3);
+  background: rgba(13, 13, 13, 0.45);
   padding: 0px 0px 0px var(--space-xs);
   overflow: scroll;
 }
@@ -811,7 +815,7 @@ strong {
 .market-row > * {
   color: rgba(var(--clr-grey-300), var(--alpha-medium));
   font-weight: 400;
-  font-size: var(--fs-sm);
+  font-size: calc(1.1*var(--fs-sm));
 }
 
 .market-row > *:hover {
