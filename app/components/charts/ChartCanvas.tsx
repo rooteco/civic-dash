@@ -35,8 +35,8 @@ export function ChartCanvas(props: CanvasProps){
     }, [props])
 
     useEffect(()=>{
-      setLastUpdate(props.dataset[props.dataset.length - 1][keys[0]])
-      setCurrentValue(props.dataset[props.dataset.length - 1][keys[1]])
+      setLastUpdate(props.dataset ? props.dataset[props.dataset.length - 1][keys[0]] : 0)
+      setCurrentValue(props.dataset ? props.dataset[props.dataset.length - 1][keys[1]]: 0)
     }, [props])
 
   useEffect(() => {
