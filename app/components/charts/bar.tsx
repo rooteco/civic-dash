@@ -12,8 +12,9 @@ export function Bar(props) {
   const headerRef = useRef();
   const [data, setData] = useState();
 
+
   useEffect(() => {
-    console.log("DATASET:", props.dataset)
+    
     setData(props.dataset ? props.dataset : []);
   }, [props]);
 
@@ -33,10 +34,10 @@ export function Bar(props) {
             type: "identity"
           },
           x: {
-            labelOffset: 50,
             tickRotate: -10,
             label: props.config ? props.config.xName : "Not Found",
-            type: props.config ? props.config.xType : "band",          },
+            type: props.config ? props.config.xType : "band",          
+          },
           y: {
             grid: true,
             label: props.config ? props.config.yName : "Not Found",

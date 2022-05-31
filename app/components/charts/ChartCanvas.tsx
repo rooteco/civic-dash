@@ -41,7 +41,6 @@ export function ChartCanvas(props: CanvasProps) {
 
   const widgetRef = useRef();
   const parentSize = useParentSize(widgetRef);
-
   
   const dateFilters = [['M', 'month'], ['Y', 'year'], ['5Y', 'five-years'], ['Full', 'full']]
 

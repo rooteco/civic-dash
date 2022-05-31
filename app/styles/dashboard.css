@@ -312,7 +312,7 @@ select {
 
 
 .shadow-dark {
-  box-shadow: calc(-1 * var(--space-xs)) var(--space-sm) var(--space-xl) rgba(var(--clr-grey-800), 0.55) ;
+  box-shadow: calc(-1 * var(--space-xs)) var(--space-unit) var(--space-xl) rgba(var(--clr-grey-800), 0.55) ;
 }
 
 
@@ -453,7 +453,7 @@ strong {
 
   /* override flex-column */
   justify-content: flex-end;
-  padding: 0px 0px var(--space-unit) var(--space-sm);
+  padding: 0px 0px var(--space-md) var(--space-sm);
   gap: var(--space-xxs);
   position: relative;
 
@@ -769,6 +769,7 @@ strong {
 .DashboardInset{
   grid-row: 1/4;
   grid-column: 3/3;
+  padding: var(--space-xs, 0.5em) 0px var(--space-xs, 0.5em) var(--space-xs, 0.5em);
 
 }
 
@@ -780,7 +781,10 @@ strong {
 .market-row {
   position: relative;
   width: 100%;
+
+
   border: 1px solid rgba(var(--clr-grey-500), var(--alpha-medium));
+  border-right: 0;
   background: linear-gradient(90deg, rgba(var(--clr-grey-600), var(--alpha-high)) -15%, rgba(var(--clr-white), 0) 100%);
   cursor: pointer;
 }

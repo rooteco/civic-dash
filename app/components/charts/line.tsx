@@ -33,7 +33,7 @@ export function Line(props) {
         marginRight: 50,
         marginTop: 50,
         marginBottom: 50,
-        height: 300,
+        height: 400,
         width: 800,
         insetBottom: 10,
         style: {
