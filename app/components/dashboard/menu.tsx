@@ -13,8 +13,8 @@ export default function Menu() {
 
   if (open) {
     return (
-      <div className="menu flex-row" style={{paddingRight: '16px'}}>
-        <div onClick={handleClick}>
+      <div className="menu flex-row" style={{paddingRight: '16px'}} onMouseEnter={handleClick} onMouseLeave = {handleClick}>
+        <div>
           <img src={pause} alt="pause" className="icon-s" />
         </div>
         <div className="flex-row">
@@ -26,8 +26,8 @@ export default function Menu() {
   }
 
   return (
-    <div className="menu flex-row">
-      <div onClick={handleClick}>
+    <div className="menu flex-row" onMouseEnter={handleClick} onMouseLeave = {handleClick}>
+      <div>
           <img src={pause} alt="pause" className="icon-s" style = {{filter: 'drop-shadow(0px 4px 4px white)'}} />
       </div>
     </div>
