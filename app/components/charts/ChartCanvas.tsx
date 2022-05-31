@@ -17,18 +17,27 @@ interface CanvasProps {
 
 export function ChartCanvas(props: CanvasProps){
   const [timeRange, setTimeRange] = useState("full")
-  const [keys, setKeys] = useState(["NA", "NA"])
+  const [keys, setKeys] = useState(["x", "y"])
   const params = useParams()
+  const [lastUpdate, setLastUpdate] = useState(0)
+  const [indicatorName, setIndicatorName] = useState("No name found")
+  const [indicatorDescription, setIndicatorDescription] = useState("No description found")
+  const [currentValue, setCurrentValue] = useState(0)
 
   useEffect(()=>{
     console.log("PARAMS:", params)
   }, [params])
 
 
-  const lastUpdate = props.dataset[props.dataset.length - 1][keys[0]] || 0
-  const indicatorName = props.indicator.name || "No name found"
-  const indicatorDescription = props.indicator.description || "No description found"
-  const currentValue = props.dataset[props.dataset.length - 1][keys[1]] || ""
+    useEffect(()=>{
+      setIndicatorName(props.indicator.name)
+      setIndicatorDescription(props.indicator.description)
+    }, [props])
+
+    useEffect(()=>{
+      setLastUpdate(props.dataset ? props.dataset[props.dataset.length - 1][keys[0]] : 0)
+      setCurrentValue(props.dataset ? props.dataset[props.dataset.length - 1][keys[1]]: 0)
+    }, [props])
 
   useEffect(() => {
     setKeys(props.dataset ? Object.keys(props.dataset[0]) : ["NA", "NA"])

@@ -39,7 +39,8 @@ model Indicator {
   description       String                          @default("No description. Add one!")
   slug              String                          @unique
   favourite         Boolean
-
+  recentValue       String                          @default("")
+  recentTime        String                          @default("")
   config            Config?
   problems          IndicatorsOnProblems[]
   themes            IndicatorsOnThemes[]
@@ -66,15 +67,21 @@ model PredictionMarket {
   id           Int                             @id @default(autoincrement())
   question     String
   slug         String                          @unique
-  description  String
-  marketVolume Int                             @default(0)
-  author       String
-  dateCreated  DateTime                        @default(now())
   favourite    Boolean
   indicators   IndicatorsToPredictionMarkets[]
   problems     ProblemsToPredictionMarkets[]
   themes       ThemesToPredictionMarkets[]
   users        UserToFavouritedPredictionMarket[]
+  categories   CategoricalPredictionMarketTopics[]
+}
+
+model CategoricalPredictionMarketTopics {
+  id           Int                             @id @default(autoincrement())
+  market       PredictionMarket                @relation(fields: [marketId], references: [id])
+  marketId     Int
+
+  categoryId   Int
+  categoryName String
 }
 
 model UserToFavouritedIndicator {

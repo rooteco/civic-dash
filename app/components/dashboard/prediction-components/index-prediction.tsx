@@ -37,7 +37,7 @@ const customStyles = {
 
 export function IndexPrediction(props: PredictionProps){
   const [panelIsOpen, setPanelIsOpen] = useState(false);
-  
+
   const [activeMarket, setActiveMarket] = useState(props.predictionMarkets[0])
   const tableOpen = useContext(TableOpenContext)
 
@@ -57,21 +57,21 @@ export function IndexPrediction(props: PredictionProps){
           </div>
           <div className="icon-xs"/>
         </div>
-      
+
         {tableOpen &&
-        
+
           <div className="flex-column">
             {props.predictionMarkets && props.predictionMarkets.map((predictionMarket)=> (
-              <MarketRow 
+              <MarketRow
                 key = {predictionMarket.id}
-                handleButton={handleButton} 
+                handleButton={handleButton}
                 predictionMarket={predictionMarket}  />
             ))}
           </div>
         }
 
 
-      
+
 
         <Modal
           isOpen={panelIsOpen}
@@ -80,6 +80,7 @@ export function IndexPrediction(props: PredictionProps){
           ariaHideApp={false}
           >
           <PredictionModal
+            isOpen={panelIsOpen}
             setPanelIsOpen={setPanelIsOpen}
             predictionMarket={activeMarket}
           />

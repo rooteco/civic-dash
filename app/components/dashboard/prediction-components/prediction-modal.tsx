@@ -1,72 +1,62 @@
 import type { Prediction } from "~/models/prediction.server";
+import { useEffect } from "react";
+import ClearIcon from '@mui/icons-material/ClearRounded';
 import { Link } from "@remix-run/react";
 import { PredictionMarket } from "@prisma/client";
+import PredictionScaffold from "~/components/dashboard/prediction-components/prediction-scaffold"
 
 interface PredictionProps{
   predictionMarket: Prediction;
   setPanelIsOpen: ()=>void;
 }
 
-// todo: add to utils
-
-const closeDate = (dateString) => {
-  const date = new Date(dateString);
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-
-  return `${month}/${year}`;
-}
-
-const roundProb = (probability) => {
-  return Math.round(probability * 100);
-}
-
-const isOpen = (isOpen : boolean) => {
-  return isOpen ? "Open" : "Closed";
-}
-
-
 export function PredictionModal(props: PredictionProps){
 
+  useEffect(()=>{
+    console.log("PREDICTION MARKET:", props.predictionMarket)
+  }, [props])
+
   if (!props.predictionMarket.fullData) {
-    return null;
-  }
-
-  return(
-    <div className="flex-column" style = {{height: "100%"}}>
-      <div className="flex-column pad">
-        
-        <div className="flex-space-between">
-          <span onClick={() => props.setPanelIsOpen(false)} className="pill">{"<-"}</span>
-          <span onClick={() => props.setPanelIsOpen(false)} className="pill">X</span>
-        </div>
-
+    return(
+      <div className="flex-column" style = {{height: "100%"}}>
         <div className="flex-column pad">
-          <div className="flex-space-between" style={{alignItems: "flex-start"}}>
-            <div className="flex-column">
-              <h3 className="">{props.predictionMarket.question}</h3>
-              <div className="flex-row">
-                <p>{closeDate(props.predictionMarket.fullData.closeTime)}</p>
-                <p>{isOpen(props.predictionMarket.fullData.isResolved)}</p>
-                <p>${roundProb(props.predictionMarket.fullData.totalLiquidity)}</p>
-              </div>
-            </div>
 
-            <div className="flex-column probsticker">
-              <h2 className="">{roundProb(props.predictionMarket.fullData.probability)}</h2>
-              <p><strong>{"%"}</strong></p>
+          <div className="flex-space-between">
+            <span onClick={() => props.setPanelIsOpen(false)} className="pill"><ClearIcon sx={{verticalAlign: "middle", color: 'white'}}/></span>
+          </div>
+
+          <div className="flex-column pad">
+            <div className="flex-space-between" style={{alignItems: "flex-start"}}>
+              <div className="flex-column">
+                <h3 className="">{props.predictionMarket.question}</h3>
+                <div className="flex-row">
+                </div>
+              </div>
+
+              <div className="flex-column probsticker">
+              </div>
             </div>
           </div>
 
         </div>
 
+        <div className="market-description pad-unit">
+        </div>
       </div>
-    
-      <div className="market-description pad-unit">
-        <p>{"chart goes here"}</p>
-        <p>{props.predictionMarket.fullData.description}</p>
-      </div>
-    </div>
+    )
+  }
+  if(props.isOpen){
+    return(
+      <PredictionScaffold
+        setPanelIsOpen={props.setPanelIsOpen}
+        predictionMarket={props.predictionMarket}
+        categorical={props.predictionMarket.fullData.outcomeType === "FREE_RESPONSE"}
+      />
+    )
+  }
 
+  return(
+    <div>
+    </div>
   )
 }

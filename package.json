@@ -12,7 +12,7 @@
     "dev:remix": "remix watch",
     "generate:css": "tailwindcss -o ./app/styles/tailwind.css",
     "start": "remix-serve build",
-    "rebuild": "ts-node prisma/seed.ts"
+    "rebuild": "npx prisma db push && ts-node prisma/seed.ts"
   },
   "prisma": {
   },

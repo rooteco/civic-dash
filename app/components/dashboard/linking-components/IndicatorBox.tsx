@@ -4,6 +4,7 @@ import { UserType } from "~/models/user.server"
 import graph from '../../../../public/assets/place_chart.svg';
 import { useState } from 'react';
 import FavoriteIndicator from '~/components/dashboard/FavoriteIndicator';
+import { formatYears } from "~/utils/formatYears";
 
 type IndicatorBoxProps = {
   indicator: Indicator;
@@ -26,7 +27,6 @@ export function IndicatorBox(props: IndicatorBoxProps) {
   }
 
   const metadataState = visible ? 'indicator-sparkline-metadata indicator-sparkline-metadata-hover' : 'indicator-sparkline-metadata';
-  
 
   return (
     <div onMouseEnter={() => setVisible(true)} onMouseLeave={() => timeoutToggle()}>
@@ -34,10 +34,11 @@ export function IndicatorBox(props: IndicatorBoxProps) {
 
           <Link to={props.linkString}>
             <div className={metadataState}>
-              <p className="inscription truncate">{props.indicator.name}</p>
-
-              <h3>{Math.round(Math.random() * 100)}</h3>
-              <p className="inscription">{Math.round(Math.random() * 100)}%</p>
+              <p className="inscription truncate">
+              {props.indicator.name}
+              </p>
+              {props.indicator.recentValue.trim() === '' ? <h3>{'\u00A0'}</h3> : <h3>{props.indicator.recentValue}</h3>}
+              <p className="inscription">{formatYears(props.indicator.recentTime)}</p>
 
             </div>
           </Link>
@@ -58,8 +59,7 @@ export function IndicatorBox(props: IndicatorBoxProps) {
           </div>
 
         </div>
-      
+
     </div>
   )
 }
-
