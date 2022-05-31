@@ -603,7 +603,7 @@ strong {
 
 .indicator-sparkline{
   position: relative;
-  background-color: rgba(var(--clr-grey-700));
+  background-color: rgba(var(--clr-grey-800));
   border: 1px solid rgba(var(--clr-grey-500));
   border-radius: 8px;
   height: 100%;
