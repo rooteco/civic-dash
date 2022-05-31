@@ -10,8 +10,6 @@ export function DashboardIntro(props: DashboardIntroProps){
   return(
     <>
       <div className="flex-row">
-        <img src={seal} alt="seal" className="icon"/>
-        <img src={rootelogo} alt="roote logo" className="icon" style= {{mixBlendMode: "multiply", borderRadius: "100px"}}/>
       </div>
       <div className="spacer-unit"/>
       <div>
@@ -23,3 +21,7 @@ export function DashboardIntro(props: DashboardIntroProps){
     </>
   )
 }
+
+// Old logos
+// <img src={seal} alt="seal" className="icon"/>
+// <img src={rootelogo} alt="roote logo" className="icon" style= {{mixBlendMode: "multiply", borderRadius: "100px"}}/>

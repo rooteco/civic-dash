@@ -2,7 +2,7 @@ import type { Indicator } from "~/models/theme.server";
 import { Link, Form } from "@remix-run/react";
 import { UserType } from "~/models/user.server"
 import graph from '../../../../public/assets/place_chart.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FavoriteIndicator from '~/components/dashboard/FavoriteIndicator';
 import { formatYears } from "~/utils/formatYears";
 
@@ -17,8 +17,8 @@ type IndicatorBoxProps = {
 
 export function IndicatorBox(props: IndicatorBoxProps) {
 
-
   const [visible, setVisible] = useState(false);
+  const [stats, setStats] = useState({});
 
   const timeoutToggle = () => {
     setTimeout(() => {
@@ -34,10 +34,8 @@ export function IndicatorBox(props: IndicatorBoxProps) {
 
           <Link to={props.linkString}>
             <div className={metadataState}>
-              <p className="inscription truncate">
-              {props.indicator.name}
-              </p>
-              {props.indicator.recentValue.trim() === '' ? <h3>{'\u00A0'}</h3> : <h3>{props.indicator.recentValue}</h3>}
+              {props.indicator.recentValue.trim() === '' ? <p className="inscription truncate">{'\u00A0'}</p> : <p className="inscription truncate">{props.indicator.recentValue}</p>}
+              <h3 className = "">{props.indicator.name}</h3>
               <p className="inscription">{formatYears(props.indicator.recentTime)}</p>
 
             </div>

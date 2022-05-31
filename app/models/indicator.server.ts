@@ -7,16 +7,24 @@ enum Layout {
 }
 
 // TODO: Fix the weird type issue here
-type Config = {
+export type Config = {
   layout: Layout;
   layoutId: Number;
+
   id: Number;
   indicatorId: Number;
+
   xName: String;
   xType: String;
   yName: String;
   yType: String;
+  chartType: String;
+
+  height: Number;
+  width: Number;
+  margin: Number;
 }
+
 
 type Dataset = {
   data: Array<any>

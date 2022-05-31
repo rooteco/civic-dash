@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 
 export function useWindowSize() {
     
@@ -24,4 +24,29 @@ export function useWindowSize() {
       return () => window.removeEventListener("resize", handleResize);
     }, []);
     return windowSize;
-  }
+}
+
+
+export function useParentSize(ref: React.MutableRefObject<null>) {
+    const [parentSize, setParentSize] = useState({
+      width: undefined,
+      height: undefined,
+    });
+
+    const windowSize = useWindowSize();
+
+    useEffect(() => {
+      if (ref.current) {
+        let height = ref.current.parentElement.offsetHeight;
+        let width = ref.current.parentElement.offsetWidth;
+  
+        setParentSize({
+          width: width,
+          height: height,
+        });
+      }
+      return () => {};
+    }, [windowSize]);
+    
+    return parentSize;
+}

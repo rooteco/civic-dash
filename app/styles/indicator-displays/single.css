@@ -1,11 +1,13 @@
 .indicatorwidget{
-  width: 70%;
-  
+  width: 75%;
   
   /*  center the chart to the parent */
-  margin:  var(--space-unit) auto;
+  margin: 0 auto;
+  
+  border: 1px solid rgba(var(--clr-grey-400), var(--alpha-medium));
   background: rgba(var(--clr-grey-700));
   border-radius: var(--br-sharp);
+
 }
 
 .indicator-header{

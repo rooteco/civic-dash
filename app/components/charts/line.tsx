@@ -3,6 +3,7 @@ import {useEffect, useRef, useState} from 'react';
 import { handleTimeRange } from "~/utils/handleTimeRange"
 import * as Plot from "@observablehq/plot";
 import * as d3 from "d3";
+import {useParentSize } from "~/utils/hooks";
 
 interface LineProps{
   dataset: Array<any>;
@@ -11,8 +12,7 @@ interface LineProps{
   keys: Array<String>;
 }
 
-// TODO: size chart according to useEffect
-// TODO
+
 
 export function Line(props) {
   const headerRef = useRef();
@@ -20,7 +20,6 @@ export function Line(props) {
 
 
   useEffect(() => {
-    console.log("DATASET:", props.dataset)
     setData(props.dataset ? props.dataset : []);
   }, [props]);
 
@@ -29,9 +28,12 @@ export function Line(props) {
     // single line in the chart
     else if (props.keys.length < 3){
       const chart = Plot.plot({
-
-        margin: 100,
-        height: 450,
+        
+        marginLeft: 100,
+        marginRight: 50,
+        marginTop: 50,
+        marginBottom: 50,
+        height: 400,
         width: 800,
         insetBottom: 10,
         style: {
