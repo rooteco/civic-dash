@@ -207,12 +207,13 @@ select {
 /* TODO icon size */
 .icon-s {
   display: inline-block;
-  height: 2em;
-  width: 2em;
+  height: 1.5em;
+  width: 1.5em;
   border-radius: 100px;
   background: rgba(var(--clr-grey-100), var(--alpha-low));
   text-align: center;
-  line-height: var(--fs-unit);
+  line-height: var(--fs-xxs);
+  color: rgba(var(--clr-grey-400), var(--alpha-high));
 }
 
 .icon-xs {
@@ -579,11 +580,12 @@ strong > * {
   background: rgba(var(--clr-grey-700), var(--alpha-high));
   border-radius: var(--br-circle);
   
-  padding: 2px;6
+  padding: 2px;
 
   border-radius: 100px;
   border: 1px solid rgba(var(--clr-grey-100), var(--alpha-medium));
   
+  cursor: pointer;
 
   z-index: 2;
 }
@@ -739,6 +741,7 @@ strong > * {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: -0.03em;
+  cursor: pointer;
 }
 
 .inscription > p {

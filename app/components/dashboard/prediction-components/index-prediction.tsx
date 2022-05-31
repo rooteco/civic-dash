@@ -6,6 +6,8 @@ import Modal from "react-modal";
 import { PredictionModal } from './prediction-modal'
 import { TableOpenContext } from "~/components/dashboard/DashboardWrapper"
 import { deslugify } from "~/utils/deslugify"
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 interface PredictionProps {
   predictionMarkets: Prediction[];
@@ -71,7 +73,8 @@ export function IndexPrediction(props: PredictionProps) {
 
       <div className = "marketstable-wrapper" style={panelIsOpen ? {display : 'none'} : {}}>
 
-        <div className="inscription" onClick={toggleTable}>
+        <div className="inscription flex-row" onClick={toggleTable} style = {{paddingBottom: '4px'}}>
+          {tableOpen? <ExpandMoreIcon fontSize='small' className='icon-s' /> : <ExpandLessIcon fontSize='small' className='icon-s' />}
           {props.categoryType ?
             <p> Solutions for <b>{props.categoryType ? deslugify(props.categoryType) : ""}</b></p> :
             <p>{"Tracked Solutions"}</p>
