@@ -95,7 +95,7 @@ export function Bar(props) {
   return (
     <div>
       <header ref={headerRef}>
-      <svg>
+      <svg height="0" width="0">
         <linearGradient
             id="linear-gradient"
             gradientTransform="rotate(90)">

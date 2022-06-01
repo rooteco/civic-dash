@@ -115,7 +115,7 @@ export default function PredictionChart(props){
     <div>
       <header ref={headerRef}>
       </header>
-      <svg>
+      <svg height="0" width="0">
         <linearGradient
             id="linear-gradient"
             gradientTransform="rotate(90)">

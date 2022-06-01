@@ -61,7 +61,7 @@
 
 
 /* ------------------------------ */
-/* Resets                         */    
+/* Resets                         */
 /* ------------------------------ */
 
 /* Reset Box-Sizing */
@@ -100,7 +100,7 @@ img {
     max-width: 100%;
     display: block;
   }
-  
+
 input,
 button,
 textarea,
@@ -130,7 +130,7 @@ select {
 :root {
   /* Colors */
   /* Colors are in RGB integers (not format) as transparency is widely applied. */
-  
+
 
   /* Declarative */
 
@@ -148,7 +148,7 @@ select {
   /* Primary */
 
   /* Accent */
-  
+
   /* Neutral */
 
 
@@ -192,7 +192,7 @@ select {
   --space-lg:   calc(1.75 * var(--space-unit));
   --space-xl:   calc(2.75 * var(--space-unit));
   --space-xxl:  calc(5.25 * var(--space-unit));
-  
+
 }
 
 
@@ -291,7 +291,7 @@ select {
 
 
 .indicator-description {
-  
+
   display: inline-block;
   text-overflow: ellipsis;
   word-wrap: normal;
@@ -386,7 +386,7 @@ h1 {
   font-size: var(--fs-xl);
   line-height: var(--space-lg);
   color: rgba(var(--clr-white), var(--alpha-high));
-  letter-spacing: -0.02em; 
+  letter-spacing: -0.02em;
 }
 
 h2 {
@@ -394,7 +394,7 @@ h2 {
   font-size: var(--fs-lg);
   line-height: var(--space-md);
   color: rgba(var(--clr-white), var(--alpha-high));
-  letter-spacing: -0.02em; 
+  letter-spacing: -0.02em;
 }
 
 h3 {
@@ -411,7 +411,7 @@ h5,
 h6 {
   font-weight: 600;
   font-size: calc(1.05*var(--fs-unit));
-  --lh : calc(0.90*var(--space-md)); 
+  --lh : calc(0.90*var(--space-md));
   line-height: var(--lh);
   letter-spacing: -0.02em;
   text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
@@ -502,7 +502,7 @@ strong {
   width: 100%;
   height: 100%;
 
-  
+
   background-image: url('../../assets/map.png');
   background-size: cover;
   mix-blend-mode: soft-light;
@@ -540,7 +540,7 @@ strong {
 .dash{
   grid-row: 3 / 3;
   grid-column: 2 / 2;
-  
+
   background: linear-gradient(92.27deg, rgba(var(--clr-grey-600), var(--alpha-medium)) 25.63%, rgba(19, 19, 19, var(--alpha-low)) 92.89%);
   background-blend-mode: hard-light;
 
@@ -582,7 +582,7 @@ strong {
   display: none;
 }
 
-.sparklineticker {  
+.sparklineticker {
   box-sizing: border-box;
   flex: 1 1 auto;
 }
@@ -604,12 +604,12 @@ strong > * {
 
   background: rgba(var(--clr-grey-700), var(--alpha-high));
   border-radius: var(--br-circle);
-  
+
   padding: 2px;
 
   border-radius: 100px;
   border: 1px solid rgba(var(--clr-grey-500), var(--alpha-medium));
-  
+
   cursor: pointer;
 
   z-index: 2;
@@ -639,7 +639,7 @@ strong > * {
   flex: 0 0 auto;
   width: 220px !important;
 
-  
+
 }
 
 
@@ -650,18 +650,18 @@ strong > * {
   background: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-low)),
                                     rgba(var(--clr-grey-800), var(--alpha-high))),
               radial-gradient(150% 350% at 5.36% 82.74%, rgba(77, 134, 142, 0.25) 0%, rgba(26, 26, 26, 0.36) 20.63%);
-  
+
   position: relative;
 
   border-radius: 8px;
-                
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
   gap: var(--space-xxs);
   padding: var(--space-xs) var(--space-xs);
-  
+
   transition: all 0.3s ease-in-out;
 
   z-index: 1;
@@ -683,7 +683,7 @@ strong > * {
   height: 100%;
   top: 16px;
   right: -3px;
-  
+
 
   z-index: 0;
 }
@@ -695,17 +695,17 @@ strong > * {
 
 
 .pill {
-  
+
   border: 1px solid rgba(var(--clr-white),  0.14);
   border-radius: var(--br-circle);
-  
+
 
   /* Inside auto layout */
   flex: none;
   order: 1;
   flex-grow: 0;
 
-  
+
   /* Auto layout */
   display: flex;
   justify-content: center;
@@ -727,7 +727,7 @@ strong > * {
 
 .pill span:hover{
   color: rgba(var(--clr-grey-300),  var(--alpha-high));
-  
+
 }
 
 .pill-active {
@@ -754,7 +754,7 @@ strong > * {
 /* to refactor */
 
 .caption{
-  font-size: var(--fs-unit);
+  font-size: calc(var(--fs-unit)*1.05) !important;
   line-height: var(--fs-md);
   text-transform: capitalize;
   font-weight: 400;
@@ -762,7 +762,7 @@ strong > * {
 }
 
 .inscription{
-  
+
   font-size: var(--fs-sm);
   line-height: 1;
   text-transform: uppercase;
@@ -840,11 +840,11 @@ strong > * {
 
 .market-row::after {
   content: "";
-  background: yellow;
+  background: gray;
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 40%;
+  height: 100%;
   width: 1px;
   z-index: 1;
 }
@@ -853,7 +853,7 @@ strong > * {
   background: linear-gradient(90deg, rgba(var(--clr-grey-500), var(--alpha-high)) -5%, rgba(var(--clr-white), 0) 100%);
 }
 
-/* 
+/*
 .market-row:last-child {
   border-bottom: none !important;
 }
