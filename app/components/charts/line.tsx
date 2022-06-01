@@ -126,9 +126,9 @@ export function Line(props) {
           id="linear-gradient"
           gradientTransform="rotate(90)"
           viewBox="0 0 0 0">
-          <stop offset="30%" stopColor={colors[2]} stopOpacity="50%" />
-          <stop offset="60%" stopColor={colors[1]} stopOpacity="40%" />
-          <stop offset="90%" stopColor={colors[0]} stopOpacity="30%" />
+          <stop offset="30%" stopColor={colors[2]} stopOpacity="40%" />
+          <stop offset="60%" stopColor={colors[1]} stopOpacity="30%" />
+          <stop offset="90%" stopColor={colors[0]} stopOpacity="20%" />
       </linearGradient>
     </svg>
     </>

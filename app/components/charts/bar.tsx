@@ -100,9 +100,9 @@ export function Bar(props) {
         <linearGradient
             id="linear-gradient"
             gradientTransform="rotate(90)">
-            <stop offset="20%" stopColor={barColors[2]} stopOpacity="70%" />
-            <stop offset="50%" stopColor={barColors[2]} stopOpacity="50%" />
-            <stop offset="80%" stopColor={barColors[1]} stopOpacity="40%" />
+            <stop offset="20%" stopColor={barColors[2]} stopOpacity="50%" />
+            <stop offset="50%" stopColor={barColors[2]} stopOpacity="30%" />
+            <stop offset="80%" stopColor={barColors[1]} stopOpacity="20%" />
         </linearGradient>
       </svg>
       </header>
