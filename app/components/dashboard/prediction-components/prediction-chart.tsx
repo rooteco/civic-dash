@@ -80,7 +80,7 @@ export default function PredictionChart(props){
           type: "linear",
           domain: [0, 100],
           grid: true,
-          tickFormat: d => d.toString().concat("%")
+          // tickFormat: d => d.toString().concat("%")
           },
         marks: [
           Plot.areaY(data,
