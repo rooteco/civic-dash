@@ -44,6 +44,9 @@ export function IndexPrediction(props: PredictionProps) {
   const [activeMarket, setActiveMarket] = useState(props.predictionMarkets[0])
   const [tableOpen, setTableOpen] = useContext(TableOpenContext)
 
+  useEffect(()=>{
+    console.log("PREDICTION MARKETS:", props.predictionMarkets)
+  }, [props])
 
 
   function handleButton(event, market) {
