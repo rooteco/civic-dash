@@ -4,8 +4,8 @@ import Carousel from 'react-multi-carousel';
 import type { UserType } from "~/models/user.server";
 import { useWindowSize } from "~/utils/hooks";
 
-import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
-import ArrowCircleLeftTwoToneIcon from '@mui/icons-material/ArrowCircleLeftTwoTone';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 import { useRef, useEffect, useState } from 'react';
 import { useParams } from "@remix-run/react";
@@ -84,6 +84,8 @@ export function IndexLink(props: LinkProps){
         autoPlay = {isIndex}
         autoPlaySpeed = {isIndex? 3000 : 0}
         responsive={responsive}
+        customRightArrow = {<ChevronRightIcon fontSize = 'large' className = 'icon' sx = {{position: 'absolute', right: '12px', left: 'auto', color: 'rgba(var(--clr-grey-200), var(--alpha-medium))' }}/>}
+        customLeftArrow = {<ChevronLeftIcon fontSize = 'large'  className = 'icon' sx = {{position: 'absolute', left: '12px', right: 'auto', color: 'rgba(var(--clr-grey-200), var(--alpha-medium))'}}/>}
         >
       {props && props.indicators.map((indicator) => (
         <IndicatorBox

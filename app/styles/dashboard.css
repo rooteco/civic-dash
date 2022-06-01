@@ -108,6 +108,10 @@ select {
     font: inherit;
 }
 
+.anim-all {
+  transition: all 1s ease-in-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -203,6 +207,7 @@ select {
   border-radius: 100px;
   background: rgba(var(--clr-grey-100), var(--alpha-low));
   /* center */
+  cursor: pointer;
 }
 /* TODO icon size */
 .icon-s {
@@ -431,8 +436,8 @@ strong {
 
 
 .screensaver{
-  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #111111 98.99%), url('../../assets/bg.png');
-  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) 25%, rgba(0, 0, 0, 0) 35%), linear-gradient(195deg, rgba(81, 81, 81, 0) 45.25%, rgba(0, 0, 0, 0) 15%, #111111 95%), url('../../assets/mural.png');
+  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #111111 98.99%), url('../../assets/1.jpeg');
+  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) 25%, rgba(0, 0, 0, 0) 35%), linear-gradient(195deg, rgba(81, 81, 81, 0) 45.25%, rgba(0, 0, 0, 0) 15%, #111111 95%), url('../../assets/4.jpeg');
   background-size: cover;
   background-blend-mode: multiply;
 }
@@ -535,8 +540,7 @@ strong {
   flex-direction: column;
 
   opacity: 0.70;
-
-
+  transition: all 0.5s ease-in-out;
 }
 
 .highlight {
@@ -547,7 +551,6 @@ strong {
 .dash:hover {
   opacity: 1;
   background: linear-gradient(92.27deg, rgba(var(--clr-grey-700), 0.14) 25.63%, rgba(var(--clr-grey-300), var(--alpha-low)) 92.89%);
-  background-blend-mode: hard-light;
   transition: all 0.5s ease-in-out;
 }
 
@@ -587,7 +590,7 @@ strong > * {
   padding: 2px;
 
   border-radius: 100px;
-  border: 1px solid rgba(var(--clr-grey-100), var(--alpha-medium));
+  border: 1px solid rgba(var(--clr-grey-500), var(--alpha-medium));
   
   cursor: pointer;
 
@@ -617,7 +620,11 @@ strong > * {
   height: 100%;
   flex: 0 0 auto;
   width: 220px !important;
+
+  
 }
+
+
 
 .indicator-sparkline-metadata{
   width: 100%;

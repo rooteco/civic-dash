@@ -17,7 +17,7 @@ export default function Menu() {
 
   if (open) {
     return (
-      <div className="menu flex-row" style={{paddingRight: '16px'}} onMouseEnter={setOn} onMouseLeave = {setOff}>
+      <div className="menu flex-row anim" style={{paddingRight: '16px'}} onMouseEnter={setOn} onMouseLeave = {setOff}>
         <div>
           <img src={pause} alt="pause" className="icon-s" />
         </div>
@@ -32,7 +32,7 @@ export default function Menu() {
   return (
     <div className="menu flex-row" onMouseEnter={setOn} onMouseLeave = {setOff}>
       <div>
-          <img src={pause} alt="pause" className="icon-s" style = {{filter: 'drop-shadow(0px 4px 4px white)'}} />
+          <img src={pause} alt="pause" className="icon-s" style = {{filter: 'drop-shadow(0px 4px 4px rgba(var(--clr-grey-200), var(--alpha-high))'}} />
       </div>
     </div>
   )
