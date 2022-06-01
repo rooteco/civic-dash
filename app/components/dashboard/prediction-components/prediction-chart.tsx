@@ -6,6 +6,13 @@ export default function PredictionChart(props){
   const headerRef = useRef();
   const [data, setData] = useState();
 
+
+  const colors = [
+      "#F369A4",
+      "#CD0090",
+      "#A2007E"
+  ]
+
   useEffect(() => {
     console.log("DATASET:", props.dataset)
     setData(props.dataset ? props.dataset : []);
@@ -79,7 +86,7 @@ export default function PredictionChart(props){
           Plot.areaY(data,
             {x: 'x',
              y: 'y',
-             fill: 'none'
+             fill: "url(#linear-gradient)"
            }),
            Plot.line(data,
              {x: "x",
@@ -108,6 +115,15 @@ export default function PredictionChart(props){
     <div>
       <header ref={headerRef}>
       </header>
+      <svg>
+        <linearGradient
+            id="linear-gradient"
+            gradientTransform="rotate(90)">
+            <stop offset="30%" stopColor={colors[2]} stopOpacity="10%" />
+            <stop offset="60%" stopColor={colors[1]} stopOpacity="10%" />
+            <stop offset="90%" stopColor={colors[0]} stopOpacity="10%" />
+        </linearGradient>
+      </svg>
     </div>
   );
 }

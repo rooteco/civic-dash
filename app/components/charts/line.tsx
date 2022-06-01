@@ -17,11 +17,9 @@ export function Line(props) {
   const [data, setData] = useState();
 
   const colors = [
-    "#FFF3EE", // creme
-    "#FBBEC0",
-    "#EF57A1",
-    "#B80085",
-    "#50006C", // purple
+    "#F369A4",
+    "#CD0090",
+    "#A2007E"
   ]
 
   useEffect(() => {
@@ -66,14 +64,17 @@ export function Line(props) {
           Plot.line(data,
                       {x: 'x',
                        y: 'y',
-                       stroke: colors[3],
+                       stroke: colors[2],
                       }),
           Plot.areaY(data,
                       {x: 'x',
                        y: 'y',
-                       fill: "rgba(184, 0, 133, 0.4)"
+                       fill: "url(#linear-gradient)"
                       })
         ],
+        // color: {
+        //   schema: "viridis"
+        // }
       });
       headerRef.current.append(chart);
       return () => chart.remove();
@@ -117,6 +118,17 @@ export function Line(props) {
   return (
     <div>
       <header ref={headerRef}>
+      <svg>
+        <linearGradient
+            id="linear-gradient"
+            gradientTransform="rotate(90)">
+            <stop offset="30%" stopColor={colors[2]} stopOpacity="30%" />
+            <stop offset="60%" stopColor={colors[1]} stopOpacity="30%" />
+            <stop offset="90%" stopColor={colors[0]} stopOpacity="30%" />
+        </linearGradient>
+      </svg>
+
+
       </header>
     </div>
   );
