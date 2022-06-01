@@ -16,7 +16,6 @@ type IndicatorBoxProps = {
 }
 
 export function IndicatorBox(props: IndicatorBoxProps) {
-
   const [visible, setVisible] = useState(false);
   const [stats, setStats] = useState({});
 
@@ -51,13 +50,14 @@ export function IndicatorBox(props: IndicatorBoxProps) {
               <input type="hidden" name="isFavourited" value={props.favouritedIndicatorSlugs.some(obj => obj.slug === props.indicator.slug)} />
               <input type="hidden" name="userId" value={props.user ? props.user.id : ""} />
               <button type="submit" style={{ color: props.favouritedIndicatorSlugs.some(obj => obj.slug === props.indicator.slug) ? "white" : "grey" }}>
-                <FavoriteIndicator visible={visible} />
+                <FavoriteIndicator
+                    visible={visible}
+                    selected={props.favouritedIndicatorSlugs.some(obj => obj.slug === props.indicator.slug)}
+                    />
               </button>
             </Form>
           </div>
-
         </div>
-
     </div>
   )
 }
