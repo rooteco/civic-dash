@@ -108,6 +108,10 @@ select {
     font: inherit;
 }
 
+.anim-all {
+  transition: all 1s ease-in-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -203,6 +207,7 @@ select {
   border-radius: 100px;
   background: rgba(var(--clr-grey-100), var(--alpha-low));
   /* center */
+  cursor: pointer;
 }
 /* TODO icon size */
 .icon-s {
@@ -377,8 +382,7 @@ h3 {
   line-height: var(--space-md);
   font-weight: 600;
   letter-spacing: -0.02em;
-  text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
-  color: rgba(var(--clr-grey-300));
+  color: rgba(var(--clr-grey-100));
 }
 
 /* TODO: specify when needed */
@@ -387,10 +391,12 @@ h5,
 h6 {
   font-weight: 600;
   font-size: calc(1.05*var(--fs-unit));
-  line-height: var(--space-md);
+  --lh : calc(0.95*var(--space-md)); 
+  line-height: var(--lh);
   letter-spacing: -0.02em;
   text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
-  color: rgba(var(--color-grey-200));
+  color: rgba(var(--clr-grey-200), var(--alpha-high));
+  height: calc(2*var(--lh));
 }
 
 
@@ -398,12 +404,18 @@ p {
   font-weight: 400;
   font-size: var(--fs-unit);
   line-height: var(--space-md);
-  color: rgba(var(--clr-grey-300), var(--alpha-medium));
+  color: rgba(var(--clr-grey-100), var(--alpha-medium));
   letter-spacing: -0.02em;
 }
 
+.p-soft > p {
+  color: rgba(var(--clr-grey-400), var(--alpha-medium));
+}
+
+
+
 a {
-  font-weight: 200;
+  font-weight: 400;
   font-size: var(--fs-unit);
   color: rgba(var(--clr-grey-400), var(--alpha-high));
   letter-spacing: -0.02em;
@@ -424,8 +436,8 @@ strong {
 
 
 .screensaver{
-  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #111111 98.99%), url('../../assets/bg.png');
-  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) 25%, rgba(0, 0, 0, 0) 35%), linear-gradient(195deg, rgba(81, 81, 81, 0) 45.25%, rgba(0, 0, 0, 0) 15%, #111111 95%), url('../../assets/mural.png');
+  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #111111 98.99%), url('../../assets/1.jpeg');
+  background-image: linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) 25%, rgba(0, 0, 0, 0) 35%), linear-gradient(195deg, rgba(81, 81, 81, 0) 45.25%, rgba(0, 0, 0, 0) 15%, #111111 95%), url('../../assets/4.jpeg');
   background-size: cover;
   background-blend-mode: multiply;
 }
@@ -478,10 +490,11 @@ strong {
   mix-blend-mode: soft-light;
   opacity: 0.05;
   z-index: 1;
+  transition: all 1s ease-in-out;
 }
 
 .focus:hover::before {
-  opacity: 0.45;
+  opacity: 0.60;
   transition: all 1s ease-in-out;
 }
 
@@ -502,7 +515,7 @@ strong {
   grid-row: 3/3;
   grid-column: 1/4;
   border-top: 1px solid;
-  border-color: rgba(var(--clr-grey-100), var(--alpha-low));
+  border-color: rgba(var(--clr-white), var(--alpha-low));
   z-index: 0;
 }
 
@@ -510,10 +523,10 @@ strong {
   grid-row: 3 / 3;
   grid-column: 2 / 2;
   
-  background: linear-gradient(92.27deg, rgba(var(--clr-grey-600), 0.45) 25.63%, rgba(19, 19, 19, 0.07) 92.89%);
+  background: linear-gradient(92.27deg, rgba(var(--clr-grey-600), var(--alpha-medium)) 25.63%, rgba(19, 19, 19, var(--alpha-low)) 92.89%);
   background-blend-mode: hard-light;
 
-  --outline: 1px solid rgba(var(--clr-grey-500), var(--alpha-medium));
+  --outline: 1px solid rgba(var(--clr-grey-400), 0.20);
 
   border-left: var(--outline);
   border-top: var(--outline);
@@ -526,25 +539,19 @@ strong {
   display: flex;
   flex-direction: column;
 
-  opacity: 0.75;
-
-
+  opacity: 0.70;
+  transition: all 0.5s ease-in-out;
 }
 
 .highlight {
   color: rgba(var(--clr-white), var(--alpha-medium));
 }
 
-/* animation */
-.anim-easeinout {
-  transition: all 1s ease-in-out;
-}
 
 .dash:hover {
   opacity: 1;
-  background: linear-gradient(92.27deg, rgba(var(--clr-grey-600), 0.45) 25.63%, rgba(19, 19, 19, 0.25) 92.89%);
-  background-blend-mode: hard-light;
-  transition: all 0.3s ease-in-out;
+  background: linear-gradient(92.27deg, rgba(var(--clr-grey-700), 0.14) 25.63%, rgba(var(--clr-grey-300), var(--alpha-low)) 92.89%);
+  transition: all 0.5s ease-in-out;
 }
 
 .picker{
@@ -583,7 +590,7 @@ strong > * {
   padding: 2px;
 
   border-radius: 100px;
-  border: 1px solid rgba(var(--clr-grey-100), var(--alpha-medium));
+  border: 1px solid rgba(var(--clr-grey-500), var(--alpha-medium));
   
   cursor: pointer;
 
@@ -613,7 +620,11 @@ strong > * {
   height: 100%;
   flex: 0 0 auto;
   width: 220px !important;
+
+  
 }
+
+
 
 .indicator-sparkline-metadata{
   width: 100%;
@@ -667,7 +678,7 @@ strong > * {
 
 .pill {
   
-  border: 1px solid rgba(var(--clr-white),  var(--alpha-low));
+  border: 1px solid rgba(var(--clr-white),  0.14);
   border-radius: var(--br-circle);
   
 
@@ -693,7 +704,7 @@ strong > * {
   font-size: var(--fs-unit);
   font-weight: 400;
   letter-spacing: -0.02em;
-  color: rgba(var(--clr-grey-400),  var(--alpha-medium));
+  color: rgba(var(--clr-grey-300),  var(--alpha-medium));
 }
 
 .pill span:hover{
@@ -702,20 +713,19 @@ strong > * {
 }
 
 .pill-active {
-  background: rgba(var(--clr-grey-200), var(--alpha-high));
+  background: rgba(var(--clr-grey-200));
   border: 1px solid rgba(var(--clr-grey-500));
   color: rgba(var(--clr-grey-900));
 }
 
 .pill-active span{
-  color: rgba(var(--clr-grey-500));
+  color: rgba(var(--clr-grey-600));
   font-weight: 400;
 }
 
 .pill-active:hover {
   background: rgba(var(--clr-white));
   transform: scale(1.01);
-
 }
 
 .pill-active span:hover {
@@ -763,13 +773,25 @@ strong > * {
   background: linear-gradient(to right, rgba(var(--clr-grey-700), 0), rgba(var(--clr-grey-700), 1) 50%);
 }
 
-
+.anim-rotate{
+  transform: rotate(360);
+}
 
 .option {
   color: rgba(var(--clr-grey-100), var(--alpha-high));
 }
 
+.pause {
+  margin: 2px;
+  color: rgba(var(--clr-grey-100), var(--alpha-medium));
+  filter:  drop-shadow(0px 4px 4px rgba(var(--clr-grey-200), var(--alpha-high)));
+  transition-duration: 0.8s;
+  transition-property: transform;
+}
 
+.pause:hover {
+  color: rgba(var(--clr-grey-100), var(--alpha-high));
+}
 
 
 .DashboardInset{
