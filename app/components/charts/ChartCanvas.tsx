@@ -28,10 +28,8 @@ export function ChartCanvas(props: CanvasProps) {
   const [currentValue, setCurrentValue] = useState(0)
 
   useEffect(() => {
-    console.log("PARAMS:", params)
-  }, [params])
-
-  
+    console.log("TIME RANGE:", timeRange)
+  }, [timeRange])
 
 
     useEffect(()=>{
@@ -50,7 +48,7 @@ export function ChartCanvas(props: CanvasProps) {
 
   const widgetRef = useRef();
   const parentSize = useParentSize(widgetRef);
-  
+
   const dateFilters = [['M', 'month'], ['Y', 'year'], ['5Y', 'five-years'], ['Full', 'full']]
 
   if (props.dataset) {
@@ -60,7 +58,7 @@ export function ChartCanvas(props: CanvasProps) {
           <div className='flex-space-between'>
 
             <h3>{indicatorName}</h3>
-            
+
             <div>
               <Link to={exitIndicator(params)}>
                 <ClearIcon />
@@ -70,7 +68,7 @@ export function ChartCanvas(props: CanvasProps) {
           </div>
 
           <Interweave content={indicatorDescription} className='indicator-description' />
-    
+
         </div>
 
 
@@ -107,11 +105,7 @@ export function ChartCanvas(props: CanvasProps) {
 
           {['line', 'scatter'].includes(props.config.chartType) && props.config.xType === 'time' &&
             <div className='flex-row'>
-              {dateFilters.map(([value, label]) => (
-                <div key={value} className="pill" onClick={() => setTimeRange(label)}>
-                  <span>{value}</span>
-                </div>
-              ))}
+
             </div>
           }
 
@@ -126,3 +120,10 @@ export function ChartCanvas(props: CanvasProps) {
     </div>
   )
 }
+
+// BUTTONS FOR WHEN WE NEED THEM
+// {dateFilters.map(([value, label]) => (
+//   <div key={value} className="pill" onClick={() => setTimeRange(label)}>
+//     <span>{value}</span>
+//   </div>
+// ))}

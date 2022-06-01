@@ -12,23 +12,32 @@ interface LineProps{
   keys: Array<String>;
 }
 
-
-
 export function Line(props) {
   const headerRef = useRef();
   const [data, setData] = useState();
 
+  const colors = [
+    "#FFF3EE", // creme
+    "#FBBEC0",
+    "#EF57A1",
+    "#B80085",
+    "#50006C", // purple
+  ]
 
   useEffect(() => {
-    setData(props.dataset ? props.dataset : []);
+    setData(props.dataset ? handleTimeRange(props.dataset, props.timeRange) : [])
   }, [props]);
+
+  useEffect(()=>{
+    console.log("FORMATTED DATA", data)
+  }, [data])
 
   useEffect(() => {
     if (data === undefined) return;
     // single line in the chart
     else if (props.keys.length < 3){
       const chart = Plot.plot({
-        
+
         marginLeft: 100,
         marginRight: 50,
         marginTop: 50,
@@ -38,7 +47,7 @@ export function Line(props) {
         insetBottom: 10,
         style: {
           backgroundColor: "#1A1A1A",
-          color: "#7B7A77",
+          color: "rgba(239, 239, 239, 0.75)",
           fontSize: 16,
         },
         x: {
@@ -54,12 +63,17 @@ export function Line(props) {
           type: props.config ? props.config.yType : "linear"
         },
         marks: [
-          Plot.line(handleTimeRange(data, props.timeRange),
-                                    {x: props.keys[0],
-                                     y: props.keys[1],
-                                     stroke: "white",
-                                    }),
-        ]
+          Plot.line(data,
+                      {x: 'x',
+                       y: 'y',
+                       stroke: colors[3],
+                      }),
+          Plot.areaY(data,
+                      {x: 'x',
+                       y: 'y',
+                       fill: "rgba(184, 0, 133, 0.4)"
+                      })
+        ],
       });
       headerRef.current.append(chart);
       return () => chart.remove();
@@ -70,7 +84,9 @@ export function Line(props) {
         marginLeft: 100,
         insetBottom: 10,
         style: {
-          backgroundColor: "white"
+          backgroundColor: "#1A1A1A",
+          color: "rgba(239, 239, 239, 0.75)",
+          fontSize: 16,
         },
         x: {
           ticks: 10,
@@ -82,11 +98,14 @@ export function Line(props) {
           type: props.config ? props.config.yType : "linear"
         },
         marks: [
-          Plot.line(handleTimeRange(data, props.timeRange), {x: props.keys[0], y: props.keys[1], z: 'z', stroke: "z"})
+          Plot.line(handleTimeRange(data, props.timeRange),
+                                    {x: 'x',
+                                     y: 'y',
+                                     z: 'z', stroke: "z"})
         ],
         color: {
           type: "categorical",
-          scheme: "blues",
+          scheme: "rdpu",
           legend: true
         }
       });
