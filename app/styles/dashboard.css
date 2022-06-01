@@ -453,7 +453,7 @@ strong {
 .dashgrid{
   display: grid;
   grid-template-columns: 1rem 2fr 1fr;
-  grid-template-rows: 1fr 1.5rem minmax(100px, 0.25fr);
+  grid-template-rows: 1fr 1.5rem 0.25fr;
   flex: 2 2 10%;
 }
 
