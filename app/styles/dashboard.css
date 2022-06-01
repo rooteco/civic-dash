@@ -243,11 +243,9 @@ select {
 
 .truncate-multiline {
   display: -webkit-box;
-  -webkit-line-clamp: var(--line-clamp, 2);
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  word-break: var(--word-break, 'none');
   overflow: hidden;
-  text-align: var(--align, left);
 }
 
 .flex-row {
@@ -301,11 +299,33 @@ select {
   max-height: calc(3.4*var(--space-md));
   line-height: var(--space-md);
 
-  color: rgba(var(--clr-grey-400))
+  color: rgba(var(--clr-grey-100))
+}
+
+.intro-description {
+  position: relative;
+  display: inline-block;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  overflow: scroll;
+  max-height: calc(5.7*var(--space-md));
+}
+
+.intro-description > p {
+  color: rgba(var(--clr-grey-300), var(--alpha-high));
+}
+
+
+.fade {
+  -webkit-mask-image: linear-gradient(180deg, #000 85%, transparent);
 }
 
 .spacer-unit {
   height: var(--space-unit, 1.5em);
+}
+
+.spacer-small {
+  height: var(--space-sm, 1em);
 }
 
 .textshadow-light {
@@ -336,7 +356,7 @@ select {
 }
 
 .border-gradient-white:hover {
-  border-image-source: linear-gradient(to top, #ffffff12 , #ffffff00);
+  border-image-source: linear-gradient(to top, #ffffff2e , #ffffff00);
   transition: all 1s ease-in-out;
 }
 
@@ -391,7 +411,7 @@ h5,
 h6 {
   font-weight: 600;
   font-size: calc(1.05*var(--fs-unit));
-  --lh : calc(0.95*var(--space-md)); 
+  --lh : calc(0.90*var(--space-md)); 
   line-height: var(--lh);
   letter-spacing: -0.02em;
   text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
@@ -446,6 +466,7 @@ strong {
   /* linear gradient background */
   background: linear-gradient(180deg, rgba(var(--clr-grey-500)) -70%, rgba(var(--clr-grey-800)) 50%);
   flex: 1;
+  overflow: scroll;
 }
 
 
@@ -453,7 +474,7 @@ strong {
 .dashgrid{
   display: grid;
   grid-template-columns: 1rem 2fr 1fr;
-  grid-template-rows: 1fr 1.5rem minmax(100px, 0.25fr);
+  grid-template-rows: 1fr 1.5rem 0.25fr;
   flex: 2 2 10%;
 }
 
@@ -463,12 +484,9 @@ strong {
 
   /* override flex-column */
   justify-content: flex-end;
-  padding: 0px 0px var(--space-md) var(--space-sm);
+  padding: var(--space-md) var(--space-xs);
   gap: var(--space-xxs);
   position: relative;
-
-  
-
 
 }
 
@@ -642,7 +660,7 @@ strong > * {
   justify-content: flex-end;
   align-items: flex-start;
   gap: var(--space-xxs);
-  padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-xs);
+  padding: var(--space-xs) var(--space-xs);
   
   transition: all 0.3s ease-in-out;
 
@@ -744,14 +762,17 @@ strong > * {
 }
 
 .inscription{
-  width: 100%;
+  
   font-size: var(--fs-sm);
-  --inscription-lineheight: calc(1.2*var(--fs-sm));
-  line-height: var(--inscription-lineheight);
+  line-height: 1;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: -0.03em;
   cursor: pointer;
+}
+
+.value {
+  color: rgba(var(--clr-grey-300), 0.8);
 }
 
 .inscription > p {

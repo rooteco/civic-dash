@@ -22,6 +22,7 @@ export function ProblemIntro(props){
           {params ? deslugify(params.problem) : ""}
         </h3>
         <Interweave
+          className = "intro-description fade"
           content={problemDescription ? problemDescription : "<p>Detailed problem descriptions are coming soon!</p>"}
         />
       </div>

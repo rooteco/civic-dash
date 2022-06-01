@@ -20,8 +20,10 @@ export function ThemeIntro(props){
         <h3 className="textshadow-light">
           {params ? deslugify(params.theme) : ""}
         </h3>
+
         <Interweave
           content={themeDescription}
+          className = "intro-description fade"
         />
         </div>
     </>

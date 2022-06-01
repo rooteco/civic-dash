@@ -25,11 +25,11 @@ interface WrapperProps {
 
 export const TableOpenContext: Boolean = React.createContext(false)
 
-export function DashboardWrapper(props: WrapperProps){
+export function DashboardWrapper(props: WrapperProps) {
   const [tableOpen, setTableOpen] = useState(true)
-  const [snackbarOpen, setSnackbarOpen ] = useState(false)
+  const [snackbarOpen, setSnackbarOpen] = useState(false)
 
-  useEffect(()=>{
+  useEffect(() => {
     typeof props.error !== 'undefined' ? setSnackbarOpen(true) : setSnackbarOpen(false)
   }, [props.error])
 
@@ -56,84 +56,81 @@ export function DashboardWrapper(props: WrapperProps){
   const currentTime = now.toLocaleTimeString('en-US', timeOptions);
 
 
-  return(
+  return (
     <div className="min-h-screen flex">
       <TableOpenContext.Provider value={[tableOpen, setTableOpen]}>
-          <Menu />
-          <div className="dashgrid">
+        <Menu />
+        <div className="dashgrid">
 
-            <div className="flex-column focus border-gradient border-gradient-white">
-              {props.focusChild}
-            </div>
-            <div className="header flex-space-between">
-                <div className="flex-row p-soft">
-                  <p>{currentDate}</p>
-                  <div className = "icon-xs"/>
-                  <p>{currentTime}</p>
-                </div>
-
-                {props.user &&
-                  <Form
-                    method="post"
-                    action="/logout"
-                  >
-                    <button style={{color: "gray"}}><a className='p-soft'>Logout</a></button>
-                  </Form>
-                }
-                {!props.user &&
-                  <Form
-                    method="post"
-                    action={`/auth/${SocialsProvider.GOOGLE}`}
-                  >
-                    <button style={{color: "gray"}}><a className='p-soft'>Login or sign up</a></button>
-                  </Form>
-                }
-            </div>
-
-            <div className="dash" style = {dashStyle}>
-              <div className="picker">
-                {props.themeCarouselChild}
-              </div>
-              <div className="sparklineticker">
-              {props.linkChild}
-              </div>
-            </div>
-            <div className="DashboardInset flex-column pad" id="ModalAnchor">
-              {props.predictionChild ? props.predictionChild : ""}
-            </div>
-            <div className="axis"/>
+          <div className="flex-column focus border-gradient border-gradient-white">
+            {props.focusChild}
           </div>
-          <Snackbar
-            open={snackbarOpen}
-            autoHideDuration={3000}
-            message="Please log in or sign up to favourite indicators"
-            onClose={()=>setSnackbarOpen(false)}
-            action={
-              <React.Fragment>
-                <Form
-                  method="post"
-                  action={`/auth/${SocialsProvider.GOOGLE}`}
-                >
-                  <button>
-                    <p><b>Login or sign up</b></p>
-                  </button>
-                </Form>
-                <IconButton
-                  aria-label="close"
-                  sx={{ p: 0.5 }}
-                  color="inherit"
-                  onClick={()=>setSnackbarOpen(false)}
-                  >
-                    <CloseIcon />
-                </IconButton>
-              </React.Fragment>
+          <div className="header flex-space-between">
+            <div className="flex-row p-soft">
+              <p>{currentDate}</p>
+              <div className="icon-xs" />
+              <p>{currentTime}</p>
+            </div>
+
+            {props.user &&
+              <Form
+                method="post"
+                action="/logout"
+              >
+                <button style={{ color: "gray" }}><a className='p-soft'>Logout</a></button>
+              </Form>
             }
-          />
-    </TableOpenContext.Provider>
+            {!props.user &&
+              <Form
+                method="post"
+                action={`/auth/${SocialsProvider.GOOGLE}`}
+              >
+                <button style={{ color: "gray" }}><a className='p-soft'>Login or sign up</a></button>
+              </Form>
+            }
+          </div>
+
+          <div className="dash" style={dashStyle}>
+            <div className="picker">
+              {props.themeCarouselChild}
+            </div>
+            <div className="sparklineticker">
+              {props.linkChild}
+            </div>
+          </div>
+          <div className="DashboardInset flex-column pad" id="ModalAnchor">
+            {props.predictionChild ? props.predictionChild : ""}
+          </div>
+          <div className="axis" />
+        </div>
+        <Snackbar
+          open={snackbarOpen}
+          autoHideDuration={3000}
+          message="Please log in or sign up to favourite indicators"
+          onClose={() => setSnackbarOpen(false)}
+          action={
+            <React.Fragment>
+              <Form
+                method="post"
+                action={`/auth/${SocialsProvider.GOOGLE}`}
+              >
+                <button>
+                  <p><b>Login or sign up</b></p>
+                </button>
+              </Form>
+              <IconButton
+                aria-label="close"
+                sx={{ p: 0.5 }}
+                color="inherit"
+                onClick={() => setSnackbarOpen(false)}
+              >
+                <CloseIcon />
+              </IconButton>
+            </React.Fragment>
+          }
+        />
+      </TableOpenContext.Provider>
     </div>
   )
 }
 
-
-// <Link><p>Docs</p></Link>
-// <Link><p>Discord</p></Link>
