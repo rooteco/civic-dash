@@ -5,7 +5,7 @@ import CachedIcon from '@mui/icons-material/Cached';
 
 
 
-export default function Menu() {
+export default function Menu({changeBg}) {
 
   const [open, setOpen] = useState(false);
 
@@ -19,7 +19,7 @@ export default function Menu() {
 
   if (open) {
     return (
-      <div className="menu flex-row anim" style={{ paddingRight: '16px' }} onMouseEnter={setOn} onMouseLeave={setOff}>
+      <div onClick = {changeBg} className="menu flex-row anim" style={{ paddingRight: '16px' }} onMouseEnter={setOn} onMouseLeave={setOff}>
         <div>
           {true ?
             <img src={pause} alt="pause" className="icon-s" /> :

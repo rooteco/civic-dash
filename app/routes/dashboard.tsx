@@ -8,10 +8,13 @@ import dashboardStylesheetUrl from "../styles/dashboard.css"
 import carouselStyles from 'react-multi-carousel/lib/styles.css';
 import { authenticator } from "~/models/auth.server";
 
+import Menu from "~/components/dashboard/menu"
+
 import bg1 from "../../public/assets/1.jpeg";
 import bg2 from "../../public/assets/2.jpeg";
 import bg3 from "../../public/assets/3.jpeg";
 import bg4 from "../../public/assets/4.jpeg";
+import { cursorTo } from "readline";
 
 
 export const links: LinksFunction = () => {
@@ -41,23 +44,41 @@ export default function Dashboard() {
   const userData = useLoaderData();
   const [user, setUser] = useState()
 
+  const randomBg = () => {
+    const bgs = [bg1, bg2, bg3, bg4]
+
+    // filter out current bg
+    try {
+      const filteredBgs = bgs.filter(bg => bg !== currentBg)
+      const randomIndex = Math.floor(Math.random() * filteredBgs.length)
+      setBg(filteredBgs[randomIndex])
+    } catch (e) {
+      const randomIndex = Math.floor(Math.random() * bgs.length)
+      return bgs[randomIndex]
+    }
+  }
+
   useEffect(() => {
     setUser(userData)
   }, [userData])
 
-  const [currentBg, setBg] = useState({
-    backgroundImage: `linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) -20.22%, rgba(0, 0, 0, 0) 15.98%), linear-gradient(231.76deg, rgba(81, 81, 81, 0) 30.25%, rgba(0, 0, 0, 0.193) 66.06%, #111111 98.99%), url(${bg4})`
-  });
+  const [currentBg, setBg] = useState(bg1);
+
+
+  const screensaver = {
+    backgroundImage: `linear-gradient(0deg, rgba(var(--clr-grey-800), var(--alpha-medium)) 25%, rgba(0, 0, 0, 0) 35%), linear-gradient(195deg, rgba(81, 81, 81, 0) 45.25%, rgba(0, 0, 0, 0) 15%, #111111 95%), url(${currentBg})`,
+    backgroundSize: 'cover',
+    backgroundBlendMode: 'multiply',
+  }
 
 
   const userContext: UserContext = user;
 
   return (
-    <main className={"screensaver"}>
+    <main style = {screensaver}>
+      <Menu changeBg = {randomBg}/>
       {user === 'loading' ? <Outlet /> : <Outlet context={userContext} />}
     </main>
   );
 
 }
-
-// {props.predictionChild ? props.predictionChild : "Uh oh! No prediction child rendered! Oopsie"}

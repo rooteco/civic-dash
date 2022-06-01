@@ -9,9 +9,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useParams } from "@remix-run/react";
 
 
-import Canvas from './canvas';
-import Header from './header';
-import Menu from './menu';
 
 
 interface WrapperProps {
@@ -59,7 +56,7 @@ export function DashboardWrapper(props: WrapperProps) {
   return (
     <div className="min-h-screen flex">
       <TableOpenContext.Provider value={[tableOpen, setTableOpen]}>
-        <Menu />
+        
         <div className="dashgrid">
 
           <div className="flex-column focus border-gradient border-gradient-white">
