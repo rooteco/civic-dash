@@ -27,7 +27,7 @@ export function ThemeProblemCarousel(props: CarouselProps){
       </div>
       <div className="pill pill-active">
         <span>{props.params ? deslugify(props.params.problem) : ""}</span>
-        <div><Link to='/dashboard'><ClearIcon sx = {{verticalAlign: "middle"}}/></Link></div>
+        <div><Link to={`/dashboard/theme/${params.theme}`}><ClearIcon sx = {{verticalAlign: "middle"}}/></Link></div>
       </div>
     </div>
   )

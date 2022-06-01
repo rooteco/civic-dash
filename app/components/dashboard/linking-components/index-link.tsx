@@ -77,12 +77,12 @@ export function IndexLink(props: LinkProps){
   return(
     <div ref = {wrapperSize} style = {carouselWrapper}>
       <Carousel
-        infinite = {isIndex}
+        // infinite = {isIndex}
         arrows = {true}
         itemClass = {`${sparkline}`}
-        partialVisible
-        autoPlay = {isIndex}
-        autoPlaySpeed = {isIndex? 3000 : 0}
+        // partialVisible
+        // autoPlay = {isIndex}
+        // autoPlaySpeed = {isIndex? 3000 : 0}
         responsive={responsive}
         customRightArrow = {<ChevronRightIcon fontSize = 'large' className = 'icon' sx = {{position: 'absolute', right: '12px', left: 'auto', color: 'rgba(var(--clr-grey-200), var(--alpha-medium))' }}/>}
         customLeftArrow = {<ChevronLeftIcon fontSize = 'large'  className = 'icon' sx = {{position: 'absolute', left: '12px', right: 'auto', color: 'rgba(var(--clr-grey-200), var(--alpha-medium))'}}/>}

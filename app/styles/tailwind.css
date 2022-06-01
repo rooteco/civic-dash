@@ -476,6 +476,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   visibility: visible !important;
 }
 
+.static {
+  position: static;
+}
+
 .fixed {
   position: fixed;
 }
@@ -486,6 +490,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .block {
   display: block;
+}
+
+.inline {
+  display: inline;
 }
 
 .flex {
@@ -528,6 +536,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .border {
   border-width: 1px;
+}
+
+.bg-\[url\(\.\.\/assets\/\$\{currentImage\}\)\] {
+  background-image: url(../assets/${currentImage});
 }
 
 .drop-shadow {

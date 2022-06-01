@@ -12,9 +12,15 @@ export function Bar(props) {
   const headerRef = useRef();
   const [data, setData] = useState();
 
+  const barColors = [
+    "#F369A4",
+    "#CD0090",
+    "#A2007E",
+    "#48006A",
+
+  ]
 
   useEffect(() => {
-
     setData(props.dataset ? props.dataset : []);
   }, [props]);
 
@@ -47,7 +53,8 @@ export function Bar(props) {
             Plot.barY(data, {
               x: 'x',
               y: 'y',
-              fill: "rgba(184, 0, 133, 1)"})
+              fill: "url(#linear-gradient)"
+            })
           ],
           style: {
             fontSize: '16px',
@@ -88,6 +95,15 @@ export function Bar(props) {
   return (
     <div>
       <header ref={headerRef}>
+      <svg>
+        <linearGradient
+            id="linear-gradient"
+            gradientTransform="rotate(90)">
+            <stop offset="20%" stopColor={barColors[2]} stopOpacity="90%" />
+            <stop offset="50%" stopColor={barColors[2]} stopOpacity="70%" />
+            <stop offset="80%" stopColor={barColors[1]} stopOpacity="60%" />
+        </linearGradient>
+      </svg>
       </header>
     </div>
   );

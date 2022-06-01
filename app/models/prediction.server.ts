@@ -56,7 +56,6 @@ export type Comment = {
 }
 
 async function getFullPredictions(predictionMarkets: Array<Prediction>): Array<FullPredictionMarket>{
-
   var fullArray: Array<any> = []
   for (const market of predictionMarkets){
     const fullMarket = await fetch(`https://manifold.markets/api/v0/slug/${market.slug}`)
@@ -95,7 +94,7 @@ export async function getPredictionsByTheme(theme_slug: string): Promise<Array<P
 
   const fullArray = await getFullPredictions(predictionMarkets)
 
-  return predictionMarkets
+  return fullArray
 }
 
 export async function getPredictionsByProblem(problem_slug: string): Promise<Array<Prediction>>{
@@ -113,7 +112,7 @@ export async function getPredictionsByProblem(problem_slug: string): Promise<Arr
 
   const fullArray = await getFullPredictions(predictionMarkets)
 
-  return predictionMarkets
+  return fullArray
 }
 
 export async function getPredictionsByIndicator(indicator_slug: string): Promise<Array<Prediction>>{
