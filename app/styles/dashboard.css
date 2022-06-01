@@ -773,13 +773,25 @@ strong > * {
   background: linear-gradient(to right, rgba(var(--clr-grey-700), 0), rgba(var(--clr-grey-700), 1) 50%);
 }
 
-
+.anim-rotate{
+  transform: rotate(360);
+}
 
 .option {
   color: rgba(var(--clr-grey-100), var(--alpha-high));
 }
 
+.pause {
+  margin: 2px;
+  color: rgba(var(--clr-grey-100), var(--alpha-medium));
+  filter:  drop-shadow(0px 4px 4px rgba(var(--clr-grey-200), var(--alpha-high)));
+  transition-duration: 0.8s;
+  transition-property: transform;
+}
 
+.pause:hover {
+  color: rgba(var(--clr-grey-100), var(--alpha-high));
+}
 
 
 .DashboardInset{
