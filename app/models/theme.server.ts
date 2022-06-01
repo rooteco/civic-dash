@@ -119,3 +119,15 @@ export async function getThemeDescription(theme_slug: string): Promise<String>{
   })
   return themeDescription
 }
+
+export async function getProblemDescription(problem_slug: string): Promise<String>{
+  const problemDescription = await db.problem.findUnique({
+    where: {
+      slug: problem_slug
+    },
+    select: {
+      description: true
+    }
+  })
+  return problemDescription
+}

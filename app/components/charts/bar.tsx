@@ -14,7 +14,7 @@ export function Bar(props) {
 
 
   useEffect(() => {
-    
+
     setData(props.dataset ? props.dataset : []);
   }, [props]);
 
@@ -36,7 +36,7 @@ export function Bar(props) {
           x: {
             tickRotate: -10,
             label: props.config ? props.config.xName : "Not Found",
-            type: props.config ? props.config.xType : "band",          
+            type: props.config ? props.config.xType : "band",
           },
           y: {
             grid: true,
@@ -45,14 +45,14 @@ export function Bar(props) {
           },
           marks: [
             Plot.barY(data, {
-              x: props.keys[0], 
-              y: props.keys[1],
-              fill: "white",})
+              x: 'x',
+              y: 'y',
+              fill: "rgba(184, 0, 133, 1)"})
           ],
           style: {
-            fontSize: 14,
+            fontSize: '16px',
             backgroundColor: "#1A1A1A",
-            color: "#7B7A77",
+            color: "rgba(239, 239, 239, 0.75)",
           }
           });
         headerRef.current.append(chart);
@@ -72,12 +72,12 @@ export function Bar(props) {
             type: props.config ? props.config.yType : "linear"
           },
           marks: [
-            Plot.barY(data, {x: props.keys[0], y: props.keys[1], z: 'z'})
+            Plot.barY(data, {x: 'x', y: 'y', z: 'z'})
           ],
           style: {
-            fontSize: 14,
+            fontSize: '16px',
             backgroundColor: "#1A1A1A",
-            color: "#7B7A77",
+            color: "rgba(239, 239, 239, 0.75)",
           }
           });
         headerRef.current.append(chart);
