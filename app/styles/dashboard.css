@@ -468,6 +468,7 @@ strong {
   /* linear gradient background */
   background: linear-gradient(180deg, rgba(var(--clr-grey-500)) -70%, rgba(var(--clr-grey-800)) 50%);
   flex: 1;
+  overflow: scroll;
 }
 
 
