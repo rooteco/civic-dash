@@ -45,7 +45,7 @@ export function Bar(props) {
             type: props.config ? props.config.xType : "band",
           },
           y: {
-            grid: true,
+            grid: false,
             label: props.config ? props.config.yName : "Not Found",
             type: props.config ? props.config.yType : "band"
           },
@@ -53,7 +53,8 @@ export function Bar(props) {
             Plot.barY(data, {
               x: 'x',
               y: 'y',
-              fill: "url(#linear-gradient)"
+              fill: "url(#linear-gradient)",
+              stroke: barColors[1]
             })
           ],
           style: {
@@ -99,9 +100,9 @@ export function Bar(props) {
         <linearGradient
             id="linear-gradient"
             gradientTransform="rotate(90)">
-            <stop offset="20%" stopColor={barColors[2]} stopOpacity="90%" />
-            <stop offset="50%" stopColor={barColors[2]} stopOpacity="70%" />
-            <stop offset="80%" stopColor={barColors[1]} stopOpacity="60%" />
+            <stop offset="20%" stopColor={barColors[2]} stopOpacity="70%" />
+            <stop offset="50%" stopColor={barColors[2]} stopOpacity="50%" />
+            <stop offset="80%" stopColor={barColors[1]} stopOpacity="40%" />
         </linearGradient>
       </svg>
       </header>
