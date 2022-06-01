@@ -34,10 +34,19 @@ export function IndicatorBox(props: IndicatorBoxProps) {
 
           <Link to={props.linkString}>
             <div className={metadataState}>
-              {props.indicator.recentValue.trim() === '' ? <p className="inscription truncate">{'\u00A0'}</p> : <p className="inscription truncate">{props.indicator.recentValue}</p>}
+              
               <h4 className = "truncate-multiline">{props.indicator.name}</h4>
-              <p className="inscription">{formatYears(props.indicator.recentTime)}</p>
-
+              <div className="flex-row">
+                {props.indicator.recentValue.trim() === '' ? 
+                '' : 
+                <>
+                  <p className="inscription value">{props.indicator.recentValue}</p> 
+                  <div className="icon-xs"/>
+                </>
+                }
+                
+                <p className="inscription">{formatYears(props.indicator.recentTime)}</p>
+              </div>
             </div>
           </Link>
 

@@ -243,11 +243,9 @@ select {
 
 .truncate-multiline {
   display: -webkit-box;
-  -webkit-line-clamp: var(--line-clamp, 2);
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  word-break: var(--word-break, 'none');
   overflow: hidden;
-  text-align: var(--align, left);
 }
 
 .flex-row {
@@ -413,7 +411,7 @@ h5,
 h6 {
   font-weight: 600;
   font-size: calc(1.05*var(--fs-unit));
-  --lh : calc(0.95*var(--space-md)); 
+  --lh : calc(0.90*var(--space-md)); 
   line-height: var(--lh);
   letter-spacing: -0.02em;
   text-shadow: 0px var(--space-sm) var(--space-md) rgba(var(--clr-white) var(--alpha-low));
@@ -662,7 +660,7 @@ strong > * {
   justify-content: flex-end;
   align-items: flex-start;
   gap: var(--space-xxs);
-  padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-xs);
+  padding: var(--space-xs) var(--space-xs);
   
   transition: all 0.3s ease-in-out;
 
@@ -764,14 +762,17 @@ strong > * {
 }
 
 .inscription{
-  width: 100%;
+  
   font-size: var(--fs-sm);
-  --inscription-lineheight: calc(1.2*var(--fs-sm));
-  line-height: var(--inscription-lineheight);
+  line-height: 1;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: -0.03em;
   cursor: pointer;
+}
+
+.value {
+  color: rgba(var(--clr-grey-300), 0.8);
 }
 
 .inscription > p {
