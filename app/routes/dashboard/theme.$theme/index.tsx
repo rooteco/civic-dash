@@ -16,9 +16,6 @@ export default function DashboardIndex(){
   // Displays information about a selected theme
   const data = useLoaderData();
 
-  useEffect(()=>{
-    console.log("THEME DATA:", data)
-  }, [data])
 
   return(
     <div className="DashboardIndexWrapper">
