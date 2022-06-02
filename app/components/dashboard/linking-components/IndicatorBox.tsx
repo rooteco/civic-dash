@@ -1,7 +1,7 @@
 import type { Indicator } from "~/models/theme.server";
 import { Link, Form } from "@remix-run/react";
 import { UserType } from "~/models/user.server"
-import graph from '../../../../public/assets/place_chart.svg';
+import graph from '../../../../public/assets/place_chart_yellow.svg';
 import { useState, useEffect } from 'react';
 import FavoriteIndicator from '~/components/dashboard/FavoriteIndicator';
 import { formatYears } from "~/utils/formatYears";

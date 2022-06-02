@@ -13,12 +13,13 @@ export function Bar(props) {
   const [data, setData] = useState();
 
   const barColors = [
-    "#F369A4",
-    "#CD0090",
-    "#A2007E",
-    "#48006A",
-
+    "#31646D",
+    "#84a9b0",
+    "#4F7C84",
+    "#163a41",
+    "#093036"
   ]
+
 
   useEffect(() => {
     setData(props.dataset ? props.dataset : []);
@@ -54,7 +55,7 @@ export function Bar(props) {
               x: 'x',
               y: 'y',
               fill: "url(#linear-gradient)",
-              stroke: barColors[1]
+              
             })
           ],
           style: {
@@ -100,9 +101,9 @@ export function Bar(props) {
         <linearGradient
             id="linear-gradient"
             gradientTransform="rotate(90)">
-            <stop offset="20%" stopColor={barColors[2]} stopOpacity="50%" />
-            <stop offset="50%" stopColor={barColors[2]} stopOpacity="30%" />
-            <stop offset="80%" stopColor={barColors[1]} stopOpacity="20%" />
+            <stop offset="20%" stopColor={barColors[1]} stopOpacity="50%" />
+            <stop offset="50%" stopColor={barColors[1]} stopOpacity="30%" />
+            <stop offset="80%" stopColor={barColors[1]} stopOpacity="0%" />
         </linearGradient>
       </svg>
       </header>

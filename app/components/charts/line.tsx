@@ -17,9 +17,11 @@ export function Line(props) {
   const [data, setData] = useState();
 
   const colors = [
-    "#F369A4",
-    "#CD0090",
-    "#A2007E"
+    "#31646D",
+    "#789AA0",
+    "#4F7C84",
+    "#1E505A",
+    "#0B3840"
   ]
 
   useEffect(() => {
@@ -64,7 +66,7 @@ export function Line(props) {
           Plot.line(data,
                       {x: 'x',
                        y: 'y',
-                       stroke: colors[2],
+                       stroke: colors[1],
                       }),
           Plot.areaY(data,
                       {x: 'x',
@@ -126,9 +128,9 @@ export function Line(props) {
           id="linear-gradient"
           gradientTransform="rotate(90)"
           viewBox="0 0 0 0">
-          <stop offset="30%" stopColor={colors[2]} stopOpacity="40%" />
-          <stop offset="60%" stopColor={colors[1]} stopOpacity="30%" />
-          <stop offset="90%" stopColor={colors[0]} stopOpacity="20%" />
+          <stop offset="40%" stopColor={colors[2]} stopOpacity="30%" />
+          <stop offset="60%" stopColor={colors[1]} stopOpacity="20%" />
+          <stop offset="90%" stopColor={colors[0]} stopOpacity="0%" />
       </linearGradient>
     </svg>
     </>

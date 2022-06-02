@@ -299,7 +299,7 @@ select {
   max-height: calc(3.4*var(--space-md));
   line-height: var(--space-md);
 
-  color: rgba(var(--clr-grey-100))
+  color: rgba(var(--clr-grey-200));
 }
 
 .intro-description {
