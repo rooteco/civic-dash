@@ -30,7 +30,7 @@ export default function Menu({changeBg}) {
         <div className="flex-row">
           <strong><a href="https://rooteco.notion.site/CivicDash-v2-1-8631ce9d3fd442a1a031eec9fa48cf3b" target="_blank" rel="noreferrer">docs</a></strong>
           <strong><a href="https://discord.gg/5eXgs8r9HT" target="_blank" rel="noreferrer">discord</a></strong>
-          <strong><a href="https://finnmacken.notion.site/About-Us-11a299f0f84b4a39bd0c4a5e1a9c2a09" target="_blank" rel="noreferrer">about</a></strong>
+          <strong><a href="https://finnmacken.notion.site/About-Us-11a299f0f84b4a39bd0c4a5e1a9c2a09" target="_blank" rel="noreferrer">about us</a></strong>
         </div>
       </div>
     );
