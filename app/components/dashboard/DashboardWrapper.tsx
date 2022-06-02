@@ -43,6 +43,10 @@ export function DashboardWrapper(props: WrapperProps) {
     }
   }, [params])
 
+  useEffect(()=>{
+    console.log("PARAMS", params)
+  }, [params])
+
 
   const now = new Date()
 
@@ -52,7 +56,6 @@ export function DashboardWrapper(props: WrapperProps) {
   const currentDate = now.toLocaleDateString('en-US', dateOptions);
   const currentTime = now.toLocaleTimeString('en-US', timeOptions);
 
-
   return (
     <div className="min-h-screen flex">
       <TableOpenContext.Provider value={[tableOpen, setTableOpen]}>
@@ -60,7 +63,7 @@ export function DashboardWrapper(props: WrapperProps) {
         <div className="dashgrid">
 
           <div className="flex-column focus border-gradient border-gradient-white"
-               style={{justifyContent: props.focusChild.type.name === "Outlet" ? "center" : "flex-end"}}>
+            style={{justifyContent: params.hasOwnProperty('indicator') ? "center" : "flex-end"}}>
             {props.focusChild}
           </div>
           <div className="header flex-space-between">

@@ -10,8 +10,6 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { useRef, useEffect, useState } from 'react';
 import { useParams } from "@remix-run/react";
 
-
-
 interface LinkProps {
   indicators: Indicator[];
   evaluateIndicatorString: String;
