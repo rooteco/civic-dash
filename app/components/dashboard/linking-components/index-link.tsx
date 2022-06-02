@@ -81,7 +81,7 @@ export function IndexLink(props: LinkProps){
         arrows = {true}
         itemClass = {`${sparkline}`}
         autoPlay = {isIndex}
-        partialVisbile = {true}
+        partialVisible = {true}
         autoPlaySpeed = {isIndex? 3000 : 9999999}
         shouldResetAutoplay={false}
         responsive={responsive}

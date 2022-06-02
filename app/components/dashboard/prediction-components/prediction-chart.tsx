@@ -14,7 +14,6 @@ export default function PredictionChart(props){
   ]
 
   useEffect(() => {
-    console.log("DATASET:", props.dataset)
     setData(props.dataset ? props.dataset : []);
   }, [props]);
 

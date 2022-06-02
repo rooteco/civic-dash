@@ -755,6 +755,11 @@ strong > * {
   letter-spacing: 0em;
 }
 
+.market-description-text{
+  font-size: var(--fs-unit) !important;
+  line-height: calc(var(--fs-unit)*1.65) !important;
+}
+
 .inscription{
 
   font-size: var(--fs-sm);

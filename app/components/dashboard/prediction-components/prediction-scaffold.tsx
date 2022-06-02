@@ -24,10 +24,6 @@ export default function PredictionScaffold(props) {
   const [processedData, setProcessedData] = useState([])
 
   useEffect(() => {
-    console.log("PROCESSED DATA", processedData)
-  }, [processedData])
-
-  useEffect(() => {
     if (props.categorical) {
       const processedDataset = processCategoricalMarketData(props.predictionMarket.fullData.bets)
       setProcessedData(processedDataset)
@@ -80,8 +76,8 @@ export default function PredictionScaffold(props) {
           <PredictionChart dataset={processedData} categorical={props.categorical} />
         </div>
         <div className='spacer-unit' />
-        <div>
-          <p>{props.predictionMarket.fullData.description}</p>
+        <div className="pad-unit">
+          <p className="market-description-text">{props.predictionMarket.fullData.description}</p>
         </div>
         <div style={{ height: '500px' }} />
 
