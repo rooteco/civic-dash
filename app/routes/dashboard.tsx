@@ -16,7 +16,6 @@ import bg3 from "../../public/assets/3.jpeg";
 import bg4 from "../../public/assets/4.jpeg";
 
 
-
 export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: dashboardStylesheetUrl },
