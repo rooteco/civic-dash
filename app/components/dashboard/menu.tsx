@@ -7,15 +7,16 @@ import CachedIcon from '@mui/icons-material/Cached';
 
 export default function Menu({changeBg}) {
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const setOff = () => {
-    setOpen(false);
+    setOpen(true);
   }
 
   const setOn = () => {
     setOpen(true);
   }
+
 
   if (open) {
     return (

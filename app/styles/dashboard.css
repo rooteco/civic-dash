@@ -230,6 +230,22 @@ select {
   line-height: var(--fs-xxs);
 }
 
+
+.anim-rotate {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 4000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+
+  @keyframes spin { 
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(360deg); 
+    }
+}
+}
+
 /* ------------------------------ */
 /* Utility                        */
 /* ------------------------------ */
@@ -310,6 +326,12 @@ select {
   overflow: scroll;
   max-height: calc(5.7*var(--space-md));
 }
+
+.intro-description::-webkit-scrollbar {
+  display: none;
+}
+
+
 
 .intro-description > p {
   color: rgba(var(--clr-grey-300), var(--alpha-high));
