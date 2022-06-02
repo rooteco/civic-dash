@@ -18,7 +18,6 @@ interface CarouselProps{
 
 
 export function ThemeCarousel(props: CarouselProps){
-  console.log(props);
   return(
     <>
     <div className="flex-row carousel-wrapper">

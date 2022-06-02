@@ -38,7 +38,6 @@ export type UserContext = {
 }
 
 
-
 export default function Dashboard() {
   const userData = useLoaderData();
   const [user, setUser] = useState()

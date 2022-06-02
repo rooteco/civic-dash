@@ -12,10 +12,6 @@ interface PredictionProps{
 
 export function PredictionModal(props: PredictionProps){
 
-  useEffect(()=>{
-    console.log("PREDICTION MARKET:", props.predictionMarket)
-  }, [props])
-
   if (!props.predictionMarket.fullData) {
     return(
       <div className="flex-column" style = {{height: "100%"}}>

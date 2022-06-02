@@ -24,10 +24,6 @@ export default function PredictionScaffold(props) {
   const [processedData, setProcessedData] = useState([])
 
   useEffect(() => {
-    console.log("PROCESSED DATA", processedData)
-  }, [processedData])
-
-  useEffect(() => {
     if (props.categorical) {
       const processedDataset = processCategoricalMarketData(props.predictionMarket.fullData.bets)
       setProcessedData(processedDataset)

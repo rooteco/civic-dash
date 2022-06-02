@@ -27,11 +27,6 @@ export function ChartCanvas(props: CanvasProps) {
   const [indicatorDescription, setIndicatorDescription] = useState("No description found")
   const [currentValue, setCurrentValue] = useState(0)
 
-  useEffect(() => {
-    console.log("TIME RANGE:", timeRange)
-  }, [timeRange])
-
-
     useEffect(()=>{
       setIndicatorName(props.indicator.name)
       setIndicatorDescription(props.indicator.description)

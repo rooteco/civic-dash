@@ -4,7 +4,6 @@ export function processCategoricalMarketData(marketBets){
   var graphData = []
   var probTracker = {}
   var lastProb = {}
-  console.log("MARKET BETS:", marketBets)
   marketBets.forEach(bet => {
 
     // whenever you add a bet to the dataset, you have to recalculate the probabilities of all of the other categories
@@ -21,9 +20,6 @@ export function processCategoricalMarketData(marketBets){
     for(const [key, value] of Object.entries(probTracker)){
       probTracker[key] = bet.outcome === key ? value : value * scalingFactor
     }
-
-
-    console.log("PROB TRACKER:", JSON.parse(JSON.stringify(probTracker)))
 
     for (const [key, value] of Object.entries(probTracker)){
       graphData.push({

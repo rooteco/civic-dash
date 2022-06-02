@@ -26,9 +26,6 @@ export function Line(props) {
     setData(props.dataset ? handleTimeRange(props.dataset, props.timeRange) : [])
   }, [props]);
 
-  useEffect(()=>{
-    console.log("FORMATTED DATA", data)
-  }, [data])
 
   useEffect(() => {
     if (data === undefined) return;

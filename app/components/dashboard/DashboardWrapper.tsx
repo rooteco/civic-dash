@@ -56,10 +56,11 @@ export function DashboardWrapper(props: WrapperProps) {
   return (
     <div className="min-h-screen flex">
       <TableOpenContext.Provider value={[tableOpen, setTableOpen]}>
-        
+
         <div className="dashgrid">
 
-          <div className="flex-column focus border-gradient border-gradient-white">
+          <div className="flex-column focus border-gradient border-gradient-white"
+               style={{justifyContent: props.focusChild.type.name === "Outlet" ? "center" : "flex-end"}}>
             {props.focusChild}
           </div>
           <div className="header flex-space-between">
@@ -130,4 +131,3 @@ export function DashboardWrapper(props: WrapperProps) {
     </div>
   )
 }
-
