@@ -64,7 +64,7 @@ export default function PredictionChart(props){
       const chart = Plot.plot({
         height: 300,
         style: {
-          backgroundColor: "#222222",
+          backgroundColor: "rgba(0, 0, 0, 0)",
           fontSize: "16px",
           color: 'white'
         },
@@ -101,7 +101,7 @@ export default function PredictionChart(props){
         color: {
           type: "categorical",
           scheme: "blues",
-          legend: true,
+          legend: false,
         }
       });
 

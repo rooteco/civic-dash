@@ -124,7 +124,7 @@ function getProblems(){
   return [
     {
       id: 1,
-      name: "High Housing Prices",
+      name: "High Prices",
       description: "<p>The most obvious consequence of the housing crisis facing San Francisco are the high prices faced by renters and buyers. These have many non-linear causes including strict building regulations, a lack of space, and the economic growth of the city fuelled by its tech industry <a target='_blank' href='https://www.bizjournals.com/sanfrancisco/blog/real-estate/2015/04/bay-area-housing-supply-cities.html'>[1]</a>. It’s challenging to present the price of accomodation accurately, both because there are many different measures that are difficult to standardise (what does a “single bedroom apartment” actually mean?), and because geography plays such a significant role in housing costs. We’ve tried to address this in two ways: demonstrating relative performance with other cities around the world, and providing many different measures of accomodation costs.</p>",
       slug: "high-prices",
     },

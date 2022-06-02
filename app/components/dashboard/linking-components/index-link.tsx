@@ -79,8 +79,8 @@ export function IndexLink(props: LinkProps){
         arrows = {true}
         itemClass = {`${sparkline}`}
         autoPlay = {isIndex}
-        partialVisible = {true}
-        autoPlaySpeed = {isIndex? 3000 : 9999999}
+        partialVisible = {isIndex}
+        autoPlaySpeed = {isIndex ? 3000 : 9999999}
         shouldResetAutoplay={false}
         responsive={responsive}
         customRightArrow = {<ChevronRightIcon fontSize = 'large' className = 'icon' sx = {{position: 'absolute', right: '12px', left: 'auto', color: 'rgba(var(--clr-grey-200), var(--alpha-medium))' }}/>}
