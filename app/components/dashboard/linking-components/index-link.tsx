@@ -71,33 +71,44 @@ export function IndexLink(props: LinkProps){
     paddingTop: `${0.05*height}px`
   }
 
+  useEffect(()=>{
+    console.log("USER:", props.user)
+    console.log("FAVOURITES:", props.favouritedIndicatorSlugs.length)
+  }, [props])
 
+  if(props.user && props.favouritedIndicatorSlugs.length === 0 && Object.keys(params).length === 0){
+    return(
+      <div ref = {wrapperSize} style = {carouselWrapper} className="pad-unit">
+        <p>Favorite indicators and they'll show up here!</p>
+      </div>
+    )
+  }
   return(
     <div ref = {wrapperSize} style = {carouselWrapper}>
-      <Carousel
-        infinite = {props.indicators.length > 1 ? true: false}
-        arrows = {true}
-        itemClass = {`${sparkline}`}
-        autoPlay = {isIndex}
-        partialVisible = {props.indicators.length > 1 ? true: false}
-        autoPlaySpeed = {isIndex ? 3000 : 9999999}
-        shouldResetAutoplay={false}
-        responsive={responsive}
-        customRightArrow = {<ChevronRightIcon fontSize = 'large' className = 'icon' sx = {{position: 'absolute', right: '12px', left: 'auto', color: 'rgba(var(--clr-grey-200), var(--alpha-medium))' }}/>}
-        customLeftArrow = {<ChevronLeftIcon fontSize = 'large'  className = 'icon' sx = {{position: 'absolute', left: '12px', right: 'auto', color: 'rgba(var(--clr-grey-200), var(--alpha-medium))'}}/>}
-        >
-      {props && props.indicators.map((indicator) => (
-        <IndicatorBox
-          user={props.user}
-          indicator={indicator}
-          key={indicator.id}
-          linkString={props.evaluateIndicatorString(indicator, props.location)}
-          favouritedIndicatorSlugs={props.favouritedIndicatorSlugs}
-          location={props.location}
-          style={sparkline}
-          />
-      ))}
-      </Carousel>
+        <Carousel
+          infinite = {props.indicators.length > 1 ? true: false}
+          arrows = {true}
+          itemClass = {`${sparkline}`}
+          autoPlay = {isIndex}
+          partialVisible = {props.indicators.length > 1 ? true: false}
+          autoPlaySpeed = {isIndex ? 3000 : 9999999}
+          shouldResetAutoplay={false}
+          responsive={responsive}
+          customRightArrow = {<ChevronRightIcon fontSize = 'large' className = 'icon' sx = {{position: 'absolute', right: '12px', left: 'auto', color: 'rgba(var(--clr-grey-200), var(--alpha-medium))' }}/>}
+          customLeftArrow = {<ChevronLeftIcon fontSize = 'large'  className = 'icon' sx = {{position: 'absolute', left: '12px', right: 'auto', color: 'rgba(var(--clr-grey-200), var(--alpha-medium))'}}/>}
+          >
+        {props && props.indicators.map((indicator) => (
+          <IndicatorBox
+            user={props.user}
+            indicator={indicator}
+            key={indicator.id}
+            linkString={props.evaluateIndicatorString(indicator, props.location)}
+            favouritedIndicatorSlugs={props.favouritedIndicatorSlugs}
+            location={props.location}
+            style={sparkline}
+            />
+        ))}
+        </Carousel>
     </div>
   )
 }
