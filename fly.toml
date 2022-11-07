@@ -1,7 +1,6 @@
-# fly.toml file generated for weathered-cloud-2598 on 2022-05-17T11:19:40-07:00
+# fly.toml file generated for civicdash on 2022-11-07T14:59:01-03:00
 
-app = "weathered-cloud-2598"
-
+app = "civicdash"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -24,7 +23,6 @@ processes = []
   processes = ["app"]
   protocol = "tcp"
   script_checks = []
-
   [services.concurrency]
     hard_limit = 25
     soft_limit = 20

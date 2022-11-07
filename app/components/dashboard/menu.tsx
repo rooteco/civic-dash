@@ -7,20 +7,16 @@ import CachedIcon from '@mui/icons-material/Cached';
 
 export default function Menu({changeBg}) {
 
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
-  const setOff = () => {
-    setOpen(true);
-  }
-
-  const setOn = () => {
-    setOpen(true);
-  }
+  const toggleMenu = () => {
+    setOpen(!open);
+  };
 
 
   if (open) {
     return (
-      <div onClick = {changeBg} className="menu flex-row anim" style={{ paddingRight: '16px' }} onMouseEnter={setOn} onMouseLeave={setOff}>
+      <div onClick = {changeBg} className="menu flex-row anim" style={{ paddingRight: '16px' }} onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
         <div>
           {true ?
             <img src={pause} alt="pause" className="icon-s" /> :
@@ -37,7 +33,7 @@ export default function Menu({changeBg}) {
   }
 
   return (
-    <div className="menu flex-row" onMouseEnter={setOn} onMouseLeave={setOff}>
+    <div className="menu flex-row" onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
       <div>
         {true ?
           <img src={pause} alt="pause" className="icon-s" style={{ filter: 'drop-shadow(0px 4px 4px white' }} />:
